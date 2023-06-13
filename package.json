@@ -1,11 +1,11 @@
 {
   "name": "bootstrap_italia",
   "version": "2.3.8",
-  "description": "'A Drupal theme which implements the Italia Design System'",
+  "description": "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole.",
   "main": "src/js/index.js",
   "engineStrict": true,
   "engines": {
-    "node": ">=v16.0.0"
+    "node": ">=v18.0.0"
   },
   "scripts": {
     "test": "npm run test-htmlprofiler",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.drupal.org:project/bootstrap_italia.git"
+    "url": "git@github.com:ouitoulia/skenografia.git"
   },
   "keywords": [
     "css",
@@ -28,8 +28,8 @@
     "framework",
     "web"
   ],
-  "author": "Bootstap_italia theme developer - See https://www.drupal.org/node/3094960/committers",
-  "license": "GPL-2.0-only",
+  "author": "Skenografia developer - See https://github.com/ouitoulia/skenografia/graphs/contributors",
+  "license": "GPL-3.0-only",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
