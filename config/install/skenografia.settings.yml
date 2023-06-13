@@ -6,20 +6,21 @@ features:
   favicon: true
   node_user_picture: true
 logo:
+  path: ''
   use_default: true
-header_shadow: 0
+header_shadow: 1
 slim_header_container_type: container
 slim_header_light: 0
-government_entity_name: 'Government entity name'
-government_entity_url: 'https://example.gov.it'
+government_entity_name: "Ministero dell'Istruzione e del Merito"
+government_entity_url: 'https://www.miur.gov.it/'
 slim_header_action_active_login: 1
 slim_header_action_type: full
 slim_header_action_url: ''
 slim_header_action_icon: 1
-slim_header_action_username: 0
+slim_header_action_username: 1
 slim_header_action_dark: 1
 center_header_container_type: container
-center_header_light: 0
+center_header_light: 1
 center_header_small: 0
 svg_logo_id: ''
 svg_logo_box: ''
@@ -43,12 +44,12 @@ search_page_url: ''
 search_modal_size: fullscreen
 navigation_header_container_type: container
 navigation_header_breakpoint_expand: lg
-navigation_header_light_desktop: 0
+navigation_header_light_desktop: 1
 navigation_header_dark_mobile: 0
 navigation_header_sticky: 1
 navigation_header_show_link_description: 0
-navigation_header_active_items_large: 0
-navigation_header_active_items_bold: 0
+navigation_header_active_items_large: 1
+navigation_header_active_items_bold: 1
 navigation_header_verbose_classes: 0
 navigation_header_data_attribute: ''
 navigation_header_megamenu_columns_lg: ''
@@ -62,12 +63,12 @@ content_container_type: container
 content_padding_bottom: ''
 content_margin_bottom: ''
 show_main_content_in_front: 0
-page_title_semibold: 0
+page_title_semibold: 1
 breadcrumb_dark_background: 0
 breadcrumb_icon: 0
 breadcrumb_separator: /
 editor_nav_tabs_scrollable: 1
-field_label_bold: 0
+field_label_bold: 1
 field_label_separator: ':'
 field_container_vertical_padding: ''
 field_container_vertical_margin: ''
@@ -94,7 +95,7 @@ sidebar_second_menu_dark: 0
 sidebar_second_menu_show_link_description: 0
 sidebar_second_menu_first_level_large: 0
 sidebar_second_menu_first_level_bold: 0
-pager_alignment: 'center'
+pager_alignment: center
 pager_responsive: 1
 pager_jump_to_page: 0
 pager_show_first_last_page_link: 1
@@ -104,7 +105,7 @@ forms_field_label_required_mark: 0
 forms_action_alignment: left
 forms_action_spacing: 1
 footer_container_type: container
-libraries_type: 'vanilla'
+libraries_type: ''
 libraries_vanilla_bundle: 1
 libraries_vanilla_comuni: 0
 libraries_cdn_css: ''
@@ -112,3 +113,15 @@ libraries_cdn_js: ''
 libraries_cdn_minified: 1
 libraries_cdn_fonts: ''
 libraries_cdn_icons: ''
+figma: ''
+mastodon: ''
+pinterest: ''
+quora: ''
+reddit: ''
+slack: ''
+snapchat: ''
+stackexchange: ''
+stackoverflow: ''
+tiktok: ''
+vimeo: ''
+pa_website_validator_type: school
