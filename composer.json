@@ -1,9 +1,9 @@
 {
-    "name": "drupal/bootstrap_italia_skenografia",
-    "description": "A Drupal theme which implements the Italia Design System",
+    "name": "ouitoulia/skenografia",
+    "description": "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole.",
     "type": "drupal-theme",
-    "homepage": "https://www.drupal.org/project/bootstrap_italia",
-    "license": "GPL-2.0-only",
+    "license": "GPL-3.0-only",
+    "homepage": "https://github.com/ouitoulia/skenografia",
     "authors": [
         {
             "name": "Pietro Arturo Panetta",
@@ -15,19 +15,15 @@
             "name": "Maurizio Cavalletti",
             "homepage": "https://www.drupal.org/u/maurizio_akabit",
             "role": "Maintainer"
-        },
-        {
-            "name": "Crescenzo Velleca",
-            "homepage": "https://www.drupal.org/u/kris77",
-            "role": "Maintainer"
-        },
-        {
-            "name": "Contributor",
-            "homepage": "https://www.drupal.org/node/3094960/committers"
         }
     ],
     "support": {
-        "issues": "http://drupal.org/project/issues/bootstrap_italia",
-        "source": "https://git.drupalcode.org/project/bootstrap_italia"
+        "issues": "https://github.com/ouitoulia/skenografia/issues",
+        "source": "https://github.com/ouitoulia/skenografia"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "drupal/bootstrap_italia": "^2"
     }
 }

@@ -1,13 +1,13 @@
 name: "Skenografia"
 type: theme
-description: "Skenografia is a Bootstrap 5 theme compliant with the design guidelines for the PA web services"
-package: Italia
-core_version_requirement: ^9 || ^10
+description: "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole."
+package: "Ouitoulía"
+core_version_requirement: ^10
 base theme: bootstrap_italia
 
 # Choose libraries to use. Global is managed with theme settings UI.
 libraries:
-# - skenografia/libraries-ui
+#  - skenografia/libraries-ui
 #  - skenografia/vanilla
   - skenografia/custom
 #  - skenografia/cdn
