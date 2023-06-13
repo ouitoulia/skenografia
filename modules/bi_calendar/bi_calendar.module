@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Module file for bi_calendar.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * Defines the theming capabilities provided by this module.
+ */
+function bi_calendar_theme($existing, $type, $theme, $path) {
+  return [
+    'bi_calendar_block' => [
+      // We use 'variables' when the item to be passed is an array whose
+      // structure must be described here.
+      'variables' => [
+        'month_year' => NULL,
+        'items' => NULL,
+        'start_index' => NULL,
+      ],
+    ],
+  ];
+}

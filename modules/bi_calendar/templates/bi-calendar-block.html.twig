@@ -1,0 +1,67 @@
+{% set slides = [] %}
+{% for item in items %}
+  {%- set card -%}
+    {% embed '@bi-bcl/card/card.html.twig' with {
+      card_title: item.day,
+      card_subtitle: item.dayname,
+    } %}
+
+      {% block cardTitle %}
+        {% set _card_title_classes = [
+          'card-title',
+          _card_big_title ? 'big-heading',
+          'pb-4',
+          'mb-10',
+        ] %}
+        <h4 class="{{ _card_title_classes|join(' ')|trim }}">
+          {{ _card_title }}
+          {% if _card_subtitle is not empty %}
+            <span>{{ _card_subtitle }}</span>
+          {% endif %}
+        </h4>
+      {% endblock %}
+
+      {% block cardText %}
+        {% for node in item['nodes'] %}
+          <p class="card-text px-2 pb-10 mb-10 d-flex">
+            {% if node.field_immagine.value %}
+
+              {% set image = node.field_immagine.entity.field_media_image %}
+
+              {% set imagestyle = {
+                '#theme':      'image_style',
+                '#style_name': 'focal_point_thumbnail_1x_1_1_40x40_',
+                '#uri':        image.entity.uri.value,
+                '#alt':        image.alt,
+                '#attributes': { class: 'me-3 rounded' },
+              } %}
+
+              {{ imagestyle }}
+            {% endif %}
+            {{ link(node.label, 'entity:node/' ~ node.id, {'class': ['fw-bold'], 'data-focus-mouse': ['false']}) }}
+          </p>
+        {% endfor %}
+      {% endblock %}
+
+    {% endembed %}
+  {%- endset -%}
+  {% set slides = slides|merge([card]) %}
+{% endfor %}
+
+
+{% embed '@bi-bcl/carousel/carousel.html.twig' with {
+  carousel_col_type: 'it-calendar-wrapper',
+  carousel_title: month_year,
+  slides: slides,
+} %}
+
+  {% block carouselTitle %}
+    {% if _carousel_title is not empty %}
+      <div class="it-header-block">
+        <div class="it-header-block-title">
+          <h3 class="h4 mb-0 text-center home-carousel-title">{{ _carousel_title }}</h3>
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+{% endembed %}

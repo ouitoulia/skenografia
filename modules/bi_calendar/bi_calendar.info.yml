@@ -1,0 +1,13 @@
+name: "Bootstrap Italia Calendar"
+description: This module adds a block with events calendar.
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9 || ^10
+# dependencies:
+
+components:
+  namespaces:
+    # Components library 2.0
+    bi-bcl:
+      - ../../components/components-2

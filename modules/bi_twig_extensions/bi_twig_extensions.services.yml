@@ -1,0 +1,5 @@
+services:
+  bi_twig_extensions.twig_extension:
+    class: Drupal\bi_twig_extensions\TwigExtension\GetSectionExtension
+    tags:
+      - { name: twig.extension }

@@ -1,0 +1,6 @@
+name: 'Bootstrap Italia Toc js'
+type: module
+description: 'Build a hierarchical table of contents from header tags present on a page with the tableOfContents.js library.'
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:node

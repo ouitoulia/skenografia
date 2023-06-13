@@ -1,0 +1,5 @@
+{% set section = element['#bundle'] is defined ? get_section_by_bundle(element['#bundle']) : '' %}
+
+{% include '@bi-field/field-reference--format-label--component-chip.html.twig' with {
+  chip_color: section|default('primary'),
+} %}

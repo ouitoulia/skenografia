@@ -1,0 +1,5 @@
+name: 'Bootstrap Italia Twig Extensions'
+type: module
+description: 'Twig extension and filters for Bootstrap Italia.'
+core_version_requirement: ^9 || ^10
+
