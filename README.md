@@ -1,2 +1,2 @@
-# skenografia
+# Skenografia
 Skenografia - Scenografia
