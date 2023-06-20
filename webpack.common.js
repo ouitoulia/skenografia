@@ -9,7 +9,6 @@ module.exports = {
   // Entry
   entry: {
     "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
-    //"bootstrap-italia-comuni": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni.scss']
   },
 
   // Output
