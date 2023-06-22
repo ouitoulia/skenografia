@@ -5,7 +5,7 @@ on:
     tags:
       # Il match avviene solo se viene pushata una tag semantica
       # es. 1.0.0, 20.15.10, 2.0.0-beta1
-      - '/^\d+\.\d+\.\d+-\w+$/'
+      - '/^\d+\.\d+\.\d+(-\w+)?$/'
 
 jobs:
   build:
