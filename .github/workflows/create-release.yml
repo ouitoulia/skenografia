@@ -56,6 +56,12 @@ jobs:
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./dist
 
+      - name: Publish package to NPM
+        run: npm publish
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
