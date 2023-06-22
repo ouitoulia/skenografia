@@ -45,18 +45,15 @@ jobs:
 
       - name: Versioning
         uses: "DamianReeves/write-file-action@master"
-        env:
-          DATE: ${{ steps.date.outputs.date }}
-          DATESTAMP: ${{ steps.datestamp.outputs.datestamp }}
         with:
           path: skenografia.info.yml
           write-mode: append
           contents: |
             
-            # Information added by Github Action packaging script on ${{ DATE }}
+            # Information added by Github Action packaging script on ${{ steps.date.outputs.date }}
             version: '${{  github.ref_name }}'
             project: 'skenografia'
-            datestamp: ${{ DATESTAMP }}
+            datestamp: ${{ steps.datestamp.outputs.datestamp }}
 
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./
