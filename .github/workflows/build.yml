@@ -28,3 +28,11 @@ jobs:
         run: |
           npm install
           npm run build:prod 
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./
+          asset_name: skenografia
+          asset_content_type: application/zip
