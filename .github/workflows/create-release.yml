@@ -37,11 +37,9 @@ jobs:
 
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-
-      - name: Get current datestamp
-        id: datestamp
-        run: echo "::set-output name=datestamp::$(date +'%T')"
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          echo "datestamp=$(date +'%T')" >> $GITHUB_OUTPUT
 
       - name: Versioning
         uses: "DamianReeves/write-file-action@master"
@@ -53,7 +51,7 @@ jobs:
             # Information added by Github Action packaging script on ${{ steps.date.outputs.date }}
             version: '${{  github.ref_name }}'
             project: 'skenografia'
-            datestamp: ${{ steps.datestamp.outputs.datestamp }}
+            datestamp: ${{ steps.date.outputs.datestamp }}
 
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./
