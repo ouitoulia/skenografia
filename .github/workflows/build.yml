@@ -1,4 +1,4 @@
-name: Genera la cartella dist
+name: Build release package
 
 on:
   release:
