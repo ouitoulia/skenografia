@@ -36,11 +36,15 @@ jobs:
           rm -rf .git .github node_modules .gitignore
 
       - name: Set timestamp
-        run: |
-          echo "datestamp=$(date +%s)" >> $GITHUB_ENV
+        id: timestamp
+        uses: nanzm/get-time-action@master
+        with:
+          timeZone: CET
 
       - name: Versioning
         uses: "DamianReeves/write-file-action@master"
+        env:
+          TIMESTAMP: "${{ steps.timestamp.outputs.time }}"
         with:
           path: skenografia.info.yml
           write-mode: append
@@ -49,7 +53,7 @@ jobs:
             # Information added by Github Action packaging script on ${date} 
             version: '${{  github.ref_name }}'
             project: 'skenografia'
-            datestamp: ${{ datestamp }}
+            datestamp: ${{ TIMESTAMP }}
 
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./
