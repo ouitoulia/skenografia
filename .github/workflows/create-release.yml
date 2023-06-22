@@ -53,7 +53,7 @@ jobs:
             # Information added by Github Action packaging script on ${date} 
             version: '${{  github.ref_name }}'
             project: 'skenografia'
-            datestamp: ${{ TIMESTAMP }}
+            datestamp:
 
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./
