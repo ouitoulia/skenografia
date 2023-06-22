@@ -63,3 +63,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifactErrorsFailBuild: true
           artifacts: skenografia.zip
+
+      - name: Upload Release Assets
+        uses: ncipollo/upload-github-release-assets@v2
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_paths: |
+            ./skenografia.zip
