@@ -35,25 +35,28 @@ jobs:
         run: |
           rm -rf .git .github node_modules .gitignore
 
-      - name: Set timestamp
-        id: timestamp
-        uses: nanzm/get-time-action@master
-        with:
-          timeZone: CET
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - name: Get current datestamp
+        id: datestamp
+        run: echo "::set-output name=datestamp::$(date +'%T')"
 
       - name: Versioning
         uses: "DamianReeves/write-file-action@master"
         env:
-          TIMESTAMP: "${{ steps.timestamp.outputs.time }}"
+          DATE: ${{ steps.date.outputs.date }}
+          DATESTAMP: ${{ steps.datestamp.outputs.datestamp }}
         with:
           path: skenografia.info.yml
           write-mode: append
           contents: |
             
-            # Information added by Github Action packaging script on ${date} 
+            # Information added by Github Action packaging script on ${{ DATE }}
             version: '${{  github.ref_name }}'
             project: 'skenografia'
-            datestamp:
+            datestamp: ${{ DATESTAMP }}
 
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./
