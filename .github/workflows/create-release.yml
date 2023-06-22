@@ -39,7 +39,7 @@ jobs:
         id: date
         run: |
           echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-          echo "datestamp=$(date +'%T')" >> $GITHUB_OUTPUT
+          echo "datestamp=$(date +'%s')" >> $GITHUB_OUTPUT
 
       - name: Versioning
         uses: "DamianReeves/write-file-action@master"
