@@ -10,6 +10,8 @@ jobs:
   build:
     name: Upload Release Asset
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     strategy:
       matrix:
