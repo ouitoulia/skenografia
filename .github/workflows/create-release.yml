@@ -64,9 +64,10 @@ jobs:
           artifactErrorsFailBuild: true
           artifacts: skenografia.zip
 
-      - name: Upload Release Assets
-        uses: ncipollo/upload-github-release-assets@v2
+      - name: Upload skenografia.zip
+        uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_paths: |
-            ./skenografia.zip
+          asset_path: ./skenografia.zip
+          asset_name: skenografia.zip
+          asset_content_type: application/zip
