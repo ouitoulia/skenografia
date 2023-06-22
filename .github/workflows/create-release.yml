@@ -54,7 +54,7 @@ jobs:
             datestamp: ${{ steps.date.outputs.datestamp }}
 
       - name: Compress Dist Folder
-        run: zip -r skenografia.zip ./
+        run: zip -r skenografia.zip ./dist
 
       - name: Create Release
         id: create_release
@@ -63,11 +63,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifactErrorsFailBuild: true
           artifacts: skenografia.zip
-
-      - name: Upload skenografia.zip
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./skenografia.zip
-          asset_name: skenografia.zip
-          asset_content_type: application/zip
