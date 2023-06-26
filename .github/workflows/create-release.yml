@@ -26,6 +26,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Fixup git permissions
+        # https://github.com/actions/checkout/issues/766
+        shell: bash
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: git config
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
       - name: Build Project
         run: |
           npm install
@@ -55,6 +65,12 @@ jobs:
 
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./dist
+
+      - name: Publish package to NPM
+        run: npm publish
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Package dist
         id: create_release
