@@ -2,8 +2,8 @@
     "name": "ouitoulia/skenografia",
     "description": "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole.",
     "type": "drupal-theme",
-    "license": "GPL-3.0-only",
     "homepage": "https://github.com/ouitoulia/skenografia",
+    "license": "GPL-3.0-only",
     "authors": [
         {
             "name": "Pietro Arturo Panetta",
@@ -24,6 +24,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "drupal/bootstrap_italia": "^2.3"
+        "drupal/bootstrap_italia": "^2.x-dev@dev"
     }
 }

@@ -20,6 +20,7 @@
 @import 'bootstrap-italia/src/scss/custom/mixins/buttons';
 @import 'bootstrap-italia/src/scss/custom/mixins/text-emphasis';
 // BS5 Utilities.
+@import 'custom/maps';
 @import 'bootstrap/scss/maps';
 @import 'bootstrap/scss/utilities';
 
@@ -120,10 +121,12 @@
 @import 'bootstrap-italia/src/scss/custom/gridlist';
 @import 'bootstrap-italia/src/scss/custom/popover';
 @import 'bootstrap-italia/src/scss/custom/tooltip';
+@import 'bootstrap-italia/src/scss/custom/videoplayer';
 @import 'bootstrap-italia/src/scss/custom/list';
 @import 'bootstrap-italia/src/scss/custom/chips';
 @import 'bootstrap-italia/src/scss/custom/rating';
 @import 'bootstrap-italia/src/scss/custom/dimmer';
+@import 'bootstrap-italia/src/scss/custom/accept-overlay';
 @import 'bootstrap-italia/src/scss/custom/timeline';
 @import 'bootstrap-italia/src/scss/custom/anchor';
 @import 'bootstrap-italia/src/scss/custom/map';

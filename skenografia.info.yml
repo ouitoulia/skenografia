@@ -14,13 +14,15 @@ libraries:
 #  - skenografia/hot
 #  - skenografia/ddev
   - bootstrap_italia/base
+  - bootstrap_italia/enable-all-tooltips
+  - bootstrap_italia/load-fonts
 
 # Check these settings, they must match the "libraries" choices.
 # ckeditor_stylesheets:
 #   - dist/css/bootstrap-italia.min.css
 
 ckeditor5-stylesheets:
- - dist/css/bootstrap-italia.min.css
+ - dist/css/ckeditor5.min.css
 
 # hidden: true # <---- Remember to set false, comment or delete line
 

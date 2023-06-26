@@ -7,8 +7,14 @@
  */
 
 // scss-docs-start color-variables
-$bi-school: #d1344c !default;
-$bi-services: #b21dd0 !default;
-$bi-news: #0e865c !default;
-$bi-learning: #0d00ff !default;
+$blue:    #0d00ff !default;
+$pink:    #b21dd0 !default;
+$red:     #d1344c !default;
+$green:   #0e865c !default;
 // scss-docs-end color-variables
+
+// Colori delle sezioni
+$bi-learning: $blue !default;
+$bi-services: $pink !default;
+$bi-school: $red !default;
+$bi-news: $green !default;
