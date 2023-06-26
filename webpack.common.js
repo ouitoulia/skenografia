@@ -68,10 +68,6 @@ module.exports = {
           to: paths.build + '/assets/'
         },
         {
-          from: paths.modules + '/bootstrap-italia/src/fonts/',
-          to: paths.build + '/fonts/'
-        },
-        {
           from: './src/images/',
           to: paths.build + '/images/'
         }
