@@ -20,37 +20,30 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
       - name: Fixup git permissions
         # https://github.com/actions/checkout/issues/766
         shell: bash
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
       - name: git config
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-
       - name: Build Project
         run: |
           npm install
           npm run build:prod
-
       - name: Clean package
         run: |
           rm -rf .git .github node_modules .gitignore
-
       - name: Get current date
         id: date
         run: |
           echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
           echo "datestamp=$(date +'%s')" >> $GITHUB_OUTPUT
-
       - name: Versioning
         uses: "DamianReeves/write-file-action@master"
         with:
@@ -62,16 +55,17 @@ jobs:
             version: '${{  github.ref_name }}'
             project: 'skenografia'
             datestamp: ${{ steps.date.outputs.datestamp }}
-
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./dist
-
+      - run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          npm config set registry https://registry.npmjs.org/
       - name: Publish package to NPM
         run: npm publish
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+      - run: rm ~/.npmrc
       - name: Create Package dist
         id: create_release
         uses: ncipollo/release-action@v1
