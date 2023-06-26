@@ -1,12 +1,13 @@
 {
   "name": "@ouitoulia/skenografia",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "description": "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole.",
   "main": "src/js/index.js",
   "engineStrict": true,
   "engines": {
     "node": ">=v18.0.0"
   },
+  "private": false,
   "scripts": {
     "test": "npm run test-htmlprofiler",
     "build:dev": "cross-env NODE_ENV=development webpack --progress --config ./webpack.dev.js",
