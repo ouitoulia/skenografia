@@ -27,7 +27,10 @@
     "responsive",
     "front-end",
     "framework",
-    "web"
+    "web",
+    "bootstrap-italia",
+    "bootstrap",
+    "bootstrap5"
   ],
   "author": "Skenografia developer - See https://github.com/ouitoulia/skenografia/graphs/contributors",
   "license": "GPL-3.0-only",
@@ -52,5 +55,8 @@
   },
   "dependencies": {
     "bootstrap-italia": "2.5.1"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
