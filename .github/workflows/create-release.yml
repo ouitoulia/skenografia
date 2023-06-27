@@ -57,7 +57,11 @@ jobs:
             datestamp: ${{ steps.date.outputs.datestamp }}
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./dist
-      - run: |
+      - name: Set Package Version
+        run: |
+          npm version ${{  github.ref_name }}
+      - name: NPM registry
+        run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           npm config set registry https://registry.npmjs.org/
       - name: Publish package to NPM
