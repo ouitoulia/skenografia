@@ -27,10 +27,10 @@ custom:
 cdn:
   css:
     theme:
-      https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.9/dist/css/bootstrap-italia.min.css: { type: external, minified: true }
+      /libraries/ouitoulia-skenografia/css/bootstrap-italia.min.css: { minified: true }
       # https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.9/dist/css/bootstrap-italia-comuni.min.css: { type: external, minified: true }
   js:
-    https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.9/dist/js/bootstrap-italia.bundle.min.js: { type: external, minified: true }
+    /libraries/ouitoulia-skenografia/js/bootstrap-italia.min.js: { minified: true }
   dependencies:
     - core/drupal
 
