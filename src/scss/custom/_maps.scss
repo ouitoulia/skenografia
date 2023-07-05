@@ -12,3 +12,19 @@
  *
  * This file is automatically imported into '_bootstrap-italia.scss'.
  */
+
+$colors: map-merge($colors, (
+  'petrol':       $petrol,
+  'redbrown':     $redbrown,
+  'purplelight':  $purplelight,
+  'greendark':    $greendark,
+  'bluelectric':  $bluelectric
+));
+
+$theme-colors: map-merge($theme-colors, (
+  'petrol':       $petrol,
+  'redbrown':     $redbrown,
+  'purplelight':  $purplelight,
+  'greendark':    $greendark,
+  'bluelectric':  $bluelectric
+));

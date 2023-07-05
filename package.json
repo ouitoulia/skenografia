@@ -53,7 +53,8 @@
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
-    "bootstrap-italia": "2.6.0"
+    "bootstrap-italia": "2.6.0",
+    "design-scuole-pagine-statiche": "github:italia/design-scuole-pagine-statiche#src-scss"
   },
   "files": [
     "dist"
