@@ -10,6 +10,8 @@
  * - site_logo: Logo for site as defined in Appearance or theme settings.
  * - site_name: Name for site as defined in Site information settings.
  * - site_slogan: Slogan for site as defined in Site information settings.
+ * - comune: il comune della scuola
+ * - provincia: la provincia
  *
  * @ingroup themeable
  */
@@ -17,7 +19,7 @@
 {% apply spaceless %}
   <div class="it-brand-wrapper">
     <a href="{{ path('<front>') }}" class="d-inline-flex"
-      aria-label="home Liceo Scientifico Statale Morgagni Roma"
+      aria-label="home {{ site_slogan }} {{ site_name }} {{ comune }}"
       title="vai alla home page"
       rel="home"
       data-focus-mouse="false">
@@ -51,11 +53,11 @@
       {% endif %}
 
       <div class="h1">
-        <span>Liceo Scientifico Statale</span>
+        <span>{{ site_slogan }}</span>
         <span>
           <strong>{{ site_name }}</strong>
         </span>
-        <span>Roma</span>
+        <span>{{ comune }}</span>
       </div>
     </a>
   </div>
