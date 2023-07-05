@@ -1,0 +1,77 @@
+.chip {
+  &.chip-scuola {
+    background-color: transparent;
+    border-color: $bi-school;
+    color: $bi-school;
+
+    & > .chip-label {
+      color: $bi-school;
+    }
+
+    &:hover {
+      background-color: $bi-school;
+      border-color: $bi-school;
+
+      & > .chip-label {
+        color: $white;
+      }
+    }
+  }
+
+  &.chip-servizi {
+    background-color: transparent;
+    border-color: $bi-services;
+    color: $bi-services;
+
+    & > .chip-label {
+      color: $bi-services;
+    }
+
+    &:hover {
+      background-color: $bi-services;
+      border-color: $bi-services;
+
+      & > .chip-label {
+        color: $white;
+      }
+    }
+  }
+
+  &.chip-novita {
+    background-color: transparent;
+    border-color: $bi-news;
+    color: $bi-news;
+
+    & > .chip-label {
+      color: $bi-news;
+    }
+
+    &:hover {
+      background-color: $bi-news;
+      border-color: $bi-news;
+
+      & > .chip-label {
+        color: $white;
+      }
+    }
+  }
+
+  &.chip-didattica {
+    background-color: transparent;
+    border-color: $bi-learning;
+    color: $bi-learning;
+
+    & > .chip-label {
+      color: $bi-learning;
+    }
+
+    &:hover {
+      background-color: $bi-learning;
+      border-color: $bi-learning;
+
+      & > .chip-label {
+        color: $white;
+      }
+    }
+  }
+}
