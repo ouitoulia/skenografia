@@ -46,65 +46,7 @@
  */
 #}
 <div id="page-default">
-  {% embed '@bootstrap_italia/layout/header/_partial.header.html.twig' %}
-    {% block headerSlim %}
-      {% embed '@bootstrap_italia/layout/header/_partial.header-slim.html.twig' %}
-        {% block headerSlimRightZone %}
-          <div class="it-header-slim-right-zone" role="navigation">
-          {% if page.header_slim_language %}
-            {{ page.header_slim_language }}
-          {% endif %}
-
-          {% if slim_header_action_type != 'full' %}
-          <div class="it-access-top-wrapper">
-          {% endif %}
-
-          {% if logged_in %}
-            {% if page.header_slim_action %}
-              {{ page.header_slim_action }}
-            {% endif %}
-          {% elseif slim_header_action_active_login %}
-            {# Compliance C.SI.5.1 and C.SI.5.2 Municipality #}
-            {% set login_button_attributes = create_attribute() %}
-            {% if pa_website_validator_type == 'municipality' %}
-              {% set login_button_attributes = login_button_attributes.setAttribute('data-element', 'personal-area-login') %}
-            {% endif %}
-            {% set login_button_attributes = login_button_attributes.setAttribute('data-focus-mouse', 'false') %}
-
-            {% embed '@bi-bcl/button/button.html.twig' with {
-              label: 'Login to your personal area'|t,
-              variant: 'default',
-              tag: 'a',
-              size: 'xs',
-              url: slim_header_action_url ?: path('user.login'),
-              button_classes: [
-                'btn-icon',
-                slim_header_action_type == 'full' ? 'btn-full'
-              ],
-              label_classes: ['d-none', 'd-lg-block'],
-              button_attributes: login_button_attributes,
-            } %}
-              {% block before %}
-                {% if slim_header_action_type == 'full' and slim_header_action_icon %}
-                  <span class="rounded-icon" aria-hidden="true">
-                    {% include '@bi-bcl/icon/icon.html.twig' with {
-                      name: 'scuola_svg-user',
-                      color: 'primary',
-                    } %}
-                  </span>&nbsp;
-                {% endif %}
-              {% endblock %}
-            {% endembed %}
-          {% endif %}{# End login button for anonymous user. #}
-
-          {% if slim_header_action_type != 'full' %}
-          </div>{# End it-access-top-wrapper. #}
-          {% endif %}
-          </div>{# End it-header-slim-right-zone. #}
-        {% endblock %}
-      {% endembed %}
-    {% endblock %}
-  {% endembed %}
+  {% include '@skenografia/layout/header/_partial.header.html.twig' %}
   {% include '@bootstrap_italia/layout/content/_partial.before-content.html.twig' %}
   {% include '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
   {% include '@bootstrap_italia/layout/content/_partial.after-content.html.twig' %}
