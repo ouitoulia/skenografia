@@ -6,61 +6,60 @@
 @import "../fonts";
 
 // scss-docs-start r-engineering
-
 // Link: https://github.com/italia/design-scuole-pagine-statiche/blob/src-scss/src/scss/scuole.scss
 // Override
 //@import "r-engineering/colors";
-@import 'design-scuole-pagine-statiche/src/scss/override/type';
-//@import 'design-scuole-pagine-statiche/src/scss/override/badge';
-//@import 'design-scuole-pagine-statiche/src/scss/override/modal';
-//@import 'design-scuole-pagine-statiche/src/scss/override/forms';
-//@import 'design-scuole-pagine-statiche/src/scss/override/custom-forms';
-//@import 'design-scuole-pagine-statiche/src/scss/override/cards';
-//@import 'design-scuole-pagine-statiche/src/scss/override/buttons';
-//@import 'design-scuole-pagine-statiche/src/scss/override/pagination';
+@import 'design-scuole-pagine-statiche-src/src/scss/override/type';
+//@import 'design-scuole-pagine-statiche-src/src/scss/override/badge';
+//@import 'design-scuole-pagine-statiche-src/src/scss/override/modal';
+//@import 'design-scuole-pagine-statiche-src/src/scss/override/forms';
+//@import 'design-scuole-pagine-statiche-src/src/scss/override/custom-forms';
+//@import 'design-scuole-pagine-statiche-src/src/scss/override/cards';
+//@import 'design-scuole-pagine-statiche-src/src/scss/override/buttons';
+//@import 'design-scuole-pagine-statiche-src/src/scss/override/pagination';
 
 // Components
-//@import 'design-scuole-pagine-statiche/src/scss/components/jpush-menu';
-//@import 'design-scuole-pagine-statiche/src/scss/components/owl-carousel';
-//@import 'design-scuole-pagine-statiche/src/scss/components/perfect-scrollbar';
-//@import 'design-scuole-pagine-statiche/src/scss/components/responsive-multilevel-menu';
-//@import 'design-scuole-pagine-statiche/src/scss/components/leaflet';
-//@import 'design-scuole-pagine-statiche/src/scss/components/responsive-tabs';
-//@import 'design-scuole-pagine-statiche/src/scss/components/clndr';
+//@import 'design-scuole-pagine-statiche-src/src/scss/components/jpush-menu';
+//@import 'design-scuole-pagine-statiche-src/src/scss/components/owl-carousel';
+//@import 'design-scuole-pagine-statiche-src/src/scss/components/perfect-scrollbar';
+//@import 'design-scuole-pagine-statiche-src/src/scss/components/responsive-multilevel-menu';
+//@import 'design-scuole-pagine-statiche-src/src/scss/components/leaflet';
+//@import 'design-scuole-pagine-statiche-src/src/scss/components/responsive-tabs';
+//@import 'design-scuole-pagine-statiche-src/src/scss/components/clndr';
 
 // Main
-//@import 'design-scuole-pagine-statiche/src/scss/main/utils';
-//@import 'design-scuole-pagine-statiche/src/scss/main/containers';
-//@import 'design-scuole-pagine-statiche/src/scss/main/sections';
-//@import 'design-scuole-pagine-statiche/src/scss/main/type';
-//@import 'design-scuole-pagine-statiche/src/scss/main/header/header';
-//@import 'design-scuole-pagine-statiche/src/scss/main/header/logo-header';
-//@import 'design-scuole-pagine-statiche/src/scss/main/header/sub-nav';
-//@import 'design-scuole-pagine-statiche/src/scss/main/header/dropdown';
-//@import 'design-scuole-pagine-statiche/src/scss/main/header/megamenu';
-//@import 'design-scuole-pagine-statiche/src/scss/main/header/hamburger';
-//@import 'design-scuole-pagine-statiche/src/scss/main/search';
-//@import 'design-scuole-pagine-statiche/src/scss/main/access';
-//@import 'design-scuole-pagine-statiche/src/scss/main/menu-mobile/nav-mobile';
-//@import 'design-scuole-pagine-statiche/src/scss/main/header/menu-user';
-//@import 'design-scuole-pagine-statiche/src/scss/main/footer';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/utils';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/containers';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/sections';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/type';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/header/header';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/header/logo-header';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/header/sub-nav';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/header/dropdown';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/header/megamenu';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/header/hamburger';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/search';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/access';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/menu-mobile/nav-mobile';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/header/menu-user';
+//@import 'design-scuole-pagine-statiche-src/src/scss/main/footer';
 
 // Parts
-//@import 'design-scuole-pagine-statiche/src/scss/parts/breadcrumb';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/actions';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/aside';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/calendars';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/article';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/note';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/accordion';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/location';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/hero';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/quote';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/gallery';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/big-data';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/dot-values';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/video';
-//@import 'design-scuole-pagine-statiche/src/scss/parts/social-buttons';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/breadcrumb';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/actions';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/aside';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/calendars';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/article';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/note';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/accordion';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/location';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/hero';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/quote';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/gallery';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/big-data';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/dot-values';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/video';
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/social-buttons';
 // scss-docs-end r-engineering
 
 h1 {@extend .fw-semibold;}

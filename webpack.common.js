@@ -25,7 +25,8 @@ module.exports = {
         test: /\.svg$/,
         include: [
           paths.modules + '/bootstrap-italia/src/svg',
-          paths.src + '/svg'
+          paths.src + '/svg',
+          paths.modules + '/design-scuole-pagine-statiche/src/assets/icons'
         ],
         use: [
           {
@@ -70,6 +71,26 @@ module.exports = {
         {
           from: './src/images/',
           to: paths.build + '/images/'
+        },
+        {
+          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/css/images/',
+          to: paths.build + '/css/images/'
+        },
+        {
+          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/css/ajax-loader.gif',
+          to: paths.build + '/css/ajax-loader.gif'
+        },
+        {
+          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/img/',
+          to: paths.build + '/img/'
+        },
+        {
+          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/placeholders/',
+          to: paths.build + '/placeholders/'
+        },
+        {
+          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/svg/',
+          to: paths.build + '/svg/'
         }
       ]
     }),

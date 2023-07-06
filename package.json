@@ -54,7 +54,8 @@
   },
   "dependencies": {
     "bootstrap-italia": "2.6.0",
-    "design-scuole-pagine-statiche": "github:italia/design-scuole-pagine-statiche#src-scss"
+    "design-scuole-pagine-statiche": "github:italia/design-scuole-pagine-statiche#main",
+    "design-scuole-pagine-statiche-src": "github:italia/design-scuole-pagine-statiche#src-scss"
   },
   "files": [
     "dist"
