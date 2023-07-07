@@ -7,17 +7,29 @@
 
 // scss-docs-start r-engineering
 // Link: https://github.com/italia/design-scuole-pagine-statiche/blob/src-scss/src/scss/scuole.scss
+
 // Override
+// Fatto
 //@import "design-scuole-pagine-statiche-src/src/scss/override/colors";
 @import "r-engineering/colors";
 
+// Fatto
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/type';
 @import "r-engineering/type";
 
+// Forse inutile per Bootstrap5
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/badge';
+
+// Da fare
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/modal';
+
+// non presente in 2.3.0 https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/forms';
+
+// Fatto
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/custom-forms';
+@import "r-engineering/custom-forms";
+
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/cards';
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/buttons';
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/pagination';

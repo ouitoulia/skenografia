@@ -1,0 +1,26 @@
+//
+// Custom Forms
+// https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L9551
+// --------------------------------------------------
+
+// non presente in 2.3.0
+/*.custom-control-label {
+  cursor: pointer;
+  &:before {
+    background-color: #eeeeee;
+  }
+}*/
+
+.custom-checkbox-outline {
+  padding-left: 2rem;
+  .custom-control-label {
+    &:before {
+      border: 2px solid lighten($petrol, 6); // #5c85a0 ~= #5c6f82
+      background-color: $white;
+      left: -2rem;
+    }
+    &:after {
+      left: -2rem;
+    }
+  }
+}
