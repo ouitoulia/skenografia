@@ -19,11 +19,13 @@ $teal:    #20c997 !default;
 $cyan:    #0dcaf0 !default;
 
 $petrol:           #51758d !default;
+$petrol-dark-21:   mix(#160010, $petrol, 21%) !default;  // #455c73 ~= #455b71
 $redbrown:         #d1344c !default;
 $purplelight:      #b21dd0 !default;
 $greendark:        #0e8a5f !default;
 $bluelectric:      #0d00ff !default;
 $bluedark:         #001a33 !default;
+$bluedark-petrol:  mix(#00112c, $petrol, 52%) !default; // #27415b == #27415b
 $secondary-green:  #00615e !default;
 // scss-docs-end color-variables
 
