@@ -1,0 +1,75 @@
+/*  https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L7372 */
+html,
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: $gray-800;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $gray-800;
+  text-decoration: none;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  color: $dark;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+.text-icon {
+  display: flex;
+  margin: 20px 0 0 0;
+  a {
+    display: flex;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+    .greendark & {
+      fill: $greendark;
+    }
+  }
+  p {
+    font-size: 1rem !important;
+    margin: 0 0 0 0;
+  }
+}
+
+.text-underline {
+  text-decoration: underline !important;
+}
+
+.icon-bluelectric {
+  fill: $bluelectric !important;
+}
+
+/* TODO: le regole riguardanti le form è più logico spostarle dentro _form.scss */
+
+:focus,
+.form-check [type="checkbox"]:focus + label,
+.form-check [type="radio"]:focus + label,
+.toggles label input[type="checkbox"]:focus + .lever {
+  border: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+/* https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L158 */
+.form-check [type=checkbox]:focus+label,
+.form-check [type=radio]:focus+label,
+.toggles label input[type=checkbox]:focus+.lever,
+:focus:not(.focus--mouse):not([data-focus-mouse=true]) {
+  border-color: #000 !important;
+  box-shadow: 0 0 0 2px #000!important;
+  outline: 2px solid #fff !important;
+  outline-offset: 3px;
+}
