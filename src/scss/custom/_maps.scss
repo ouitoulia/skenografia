@@ -18,7 +18,12 @@ $colors: map-merge($colors, (
   'redbrown':     $redbrown,
   'purplelight':  $purplelight,
   'greendark':    $greendark,
-  'bluelectric':  $bluelectric
+  'bluelectric':  $bluelectric,
+  'gray100':      $gray-100,
+  'white':        $white,
+  'gray-primary': $gray-primary,
+  'bluedark':     $bluedark,
+  'secondary-green': $secondary-green
 ));
 
 $theme-colors: map-merge($theme-colors, (
@@ -26,5 +31,10 @@ $theme-colors: map-merge($theme-colors, (
   'redbrown':     $redbrown,
   'purplelight':  $purplelight,
   'greendark':    $greendark,
-  'bluelectric':  $bluelectric
+  'bluelectric':  $bluelectric,
+  'gray100':      $gray-100,
+  'white':        $white,
+  'gray-primary': $gray-primary,
+  'bluedark':     $bluedark,
+  'secondary-green': $secondary-green
 ));

@@ -7,30 +7,38 @@
  */
 
 // scss-docs-start color-variables
-$blue:    #0d00ff !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #b21dd0 !default;
-$red:     #d1344c !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #0e865c !default;
-$teal:    #20c997 !default;
-$cyan:    #0dcaf0 !default;
+// I colori commentati vengono ereditati da bootstrap-italia 2.
+// Rispetto al tema scuola 2.3.0 sono molto simili, ma hanno
+// l'upgrade alla versione 2 di bootstrap-italia
+//$blue:    #0066cc !default;
+//$indigo:  #6610f2 !default;
+//$purple:  #6f42c1 !default;
+//$pink:    #b21dd0 !default;
+//$red:     #d9364f !default;
+//$orange:  #a66300 !default;
+//$yellow:  #ffc107 !default;
+//$green:   #008758 !default;
+//$teal:    #20c997 !default;
+//$cyan:    #0dcaf0 !default;
 
 $petrol:           #51758d !default;
 $petrol-dark-21:   mix(#160010, $petrol, 21%) !default;  // #455c73 ~= #455b71
 $redbrown:         #d1344c !default;
 $purplelight:      #b21dd0 !default;
-$greendark:        #0e8a5f !default;
+$greendark:        #0e865c !default; // diverso in 2.3.0 originale 0e8a5c
 $bluelectric:      #0d00ff !default;
-$bluedark:         #001a33 !default;
+$bluedark:         #30465c !default;
 $bluedark-petrol:  mix(#00112c, $petrol, 52%) !default; // #27415b == #27415b
 $secondary-green:  #00615e !default;
 // scss-docs-end color-variables
 
-// Colori delle sezioni
-$bi-learning: $blue !default;
-$bi-services: $pink !default;
-$bi-school: $red !default;
-$bi-news: $green !default;
+// scss-docs-start theme-color-variables
+//$primary:       $blue !default;
+$secondary:     #5c6f82 !default;
+//$success:       $green !default;
+//$info:          $cyan !default;
+//$warning:       $yellow !default;
+//$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          #17324d !default;
+// scss-docs-end theme-color-variables
