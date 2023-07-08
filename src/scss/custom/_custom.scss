@@ -34,9 +34,11 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/cards';
 @import "r-engineering/cards";
 
-// Non necessario in bootstrap-italia2 sono già inclusi L10995
+// Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/buttons';
+@import "r-engineering/buttons";
 
+// L11078
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/pagination';
 
 // Components
