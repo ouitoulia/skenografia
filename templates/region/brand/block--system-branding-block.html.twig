@@ -17,10 +17,10 @@
  */
 #}
 {% apply spaceless %}
-  <div class="it-brand-wrapper">
-    <a href="{{ path('<front>') }}"
-      aria-label="home {{ site_slogan }} {{ site_name }} {{ comune }}"
-      title="vai alla home page"
+  <div class="it-brand-wrapper logo-header">
+    <a href="{{ path('<front>') }}" class="d-flex"
+      aria-label="{{ 'Home'|t }} {{ site_slogan }} {{ site_name }} {{ comune }}"
+      title="{{ 'Go to home page'|t }}"
       rel="home"
       data-focus-mouse="false">
 

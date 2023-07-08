@@ -11,11 +11,11 @@
 // Override
 // Fatto 2.3.0
 //@import "design-scuole-pagine-statiche-src/src/scss/override/colors";
-@import "r-engineering/colors";
+@import "r-engineering/override/colors";
 
 // Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/type';
-@import "r-engineering/type";
+@import "r-engineering/override/type";
 
 // Forse inutile per Bootstrap5
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/badge';
@@ -28,17 +28,17 @@
 
 // Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/custom-forms';
-@import "r-engineering/custom-forms";
+@import "r-engineering/override/custom-forms";
 
 // Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/cards';
-@import "r-engineering/cards";
+@import "r-engineering/override/cards";
 
 // Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/buttons';
-@import "r-engineering/buttons";
+@import "r-engineering/override/buttons";
 
-// L11078
+// Da verificare se necessario, imposta solo il colore a:hover L11078
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/pagination';
 
 // Components
@@ -51,16 +51,35 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/components/clndr';
 
 // Main
+// Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/utils';
+@import "r-engineering/main/utils";
+
+// Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/containers';
+@import "r-engineering/main/containers";
+
+// Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/sections';
+@import "r-engineering/main/sections";
+
+// Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/type';
+@import "r-engineering/main/type";
+
+// Da completare 2.3.8
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/header';
+@import "r-engineering/main/header/header";
+
+// Da completare 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/logo-header';
+@import "r-engineering/main/header/logo-header";
+
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/sub-nav';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/dropdown';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/megamenu';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/hamburger';
+
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/search';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/access';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/menu-mobile/nav-mobile';
