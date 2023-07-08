@@ -18,7 +18,7 @@
 #}
 {% apply spaceless %}
   <div class="it-brand-wrapper">
-    <a href="{{ path('<front>') }}" class="d-inline-flex"
+    <a href="{{ path('<front>') }}"
       aria-label="home {{ site_slogan }} {{ site_name }} {{ comune }}"
       title="vai alla home page"
       rel="home"
@@ -52,13 +52,21 @@
         {% endif %}
       {% endif %}
 
-      <div class="h1">
-        <span>{{ site_slogan }}</span>
-        <span>
-          <strong>{{ site_name }}</strong>
-        </span>
-        <span>{{ comune }}</span>
-      </div>
+      {% if site_name or site_slogan or comune %}
+        <div class="h1">
+          {% if site_slogan %}
+            <span>{{ site_slogan }}</span>
+          {% endif %}
+          {% if site_name %}
+            <span>
+              <strong>{{ site_name }}</strong>
+            </span>
+          {% endif %}
+          {% if comune %}
+            <span>{{ comune }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
     </a>
   </div>
 
