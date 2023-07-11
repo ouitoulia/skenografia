@@ -97,15 +97,15 @@
 .it-header-slim-wrapper { // ec #pre-header {
   //@include clearfix;
   // height: 40px;
-  padding: 0;
-  margin: 0;
+  //padding: 0;
+  //margin: 0;
   font-weight: 700;
-  line-height: 40px;
+  //line-height: 40px;
   color: #ffffff;
   font-size: 1.1rem; // ex 0.875
-  a {
+/*  a {
     color: #ffffff;
-  }
+  }*/
   //.header-utils {
   //  .header-notification-alert {
   //    svg {
@@ -122,13 +122,15 @@
   //  }
   //}
 }
-/*
-.header-top {
-  @include clearfix;
-  padding-top: 20px;
-  padding-bottom: 20px;
+.it-header-center-wrapper {
+  height: auto;
+  .it-header-center-content-wrapper > div { // ex .header-top {
+    //@include clearfix;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
-
+/*
 .header-search {
   @include clearfix;
   margin: 0 20px 0 0;
