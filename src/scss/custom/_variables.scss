@@ -42,3 +42,14 @@ $secondary:     #5c6f82 !default;
 $light:         $gray-100 !default;
 $dark:          #17324d !default;
 // scss-docs-end theme-color-variables
+
+// Colori delle sezioni
+$bi-school: $redbrown !default;
+$bi-services: $purplelight !default;
+$bi-news: $greendark !default;
+$bi-learning: $bluelectric !default;
+
+.scuola {color: $bi-school;}
+.servizi {color: $bi-services;}
+.novita {color: $bi-news;}
+.didattica {color: $bi-learning;}

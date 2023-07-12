@@ -1,23 +1,12 @@
 //
 // Header
 // https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L15262
+// Note: una parte di questo codice è stato migrato verso bootstrap-italia 2,
+//       quindi poi rimosso per praticità, ciò che rimane va ancora migrato,
+//       successivamente questo file verrà eliminato.
 // --------------------------------------------------
 
-.it-header-wrapper { // ex #main-header {
-  //@include clearfix;
-  color: $gray-primary;
-  //position: relative;
-  //z-index: 1;
-  //width: 100%;
-  //box-shadow: 0 0.1rem 1.55rem rgba($black, .1);
-  //&.is-sticky {
-  //  position: fixed;
-  //  top: 0;
-  //  left: 0;
-  //  z-index: 5;
-  //}
-}
-/*
+
 .header-utils {
   display: flex;
   flex-direction: row;
@@ -93,45 +82,32 @@
     }
   }
 }
-*/
-.it-header-slim-wrapper { // ec #pre-header {
-  //@include clearfix;
-  // height: 40px;
-  //padding: 0;
-  //margin: 0;
-  font-weight: 700;
-  //line-height: 40px;
-  color: #ffffff;
-  font-size: 1.1rem; // ex 0.875
-/*  a {
+
+
+#pre-header {
+
+  a {
     color: #ffffff;
-  }*/
-  //.header-utils {
-  //  .header-notification-alert {
-  //    svg {
-  //      fill: $white;
-  //    }
-  //  }
-  //  .icon-wrapper {
-  //    svg, img {
-  //      fill: $white;
-  //    }
-  //  }
-  //  .avatar-wrapper {
-  //    border: 2px solid #ffffff;
-  //  }
-  //}
-}
-.it-header-center-wrapper {
-  height: auto;
-  .it-header-center-content-wrapper > div { // ex .header-top {
-    //@include clearfix;
-    padding-top: 20px;
-    padding-bottom: 20px;
   }
+  .header-utils {
+    .header-notification-alert {
+      svg {
+        fill: $white;
+      }
+    }
+    .icon-wrapper {
+      svg, img {
+        fill: $white;
+      }
+    }
+    .avatar-wrapper {
+      border: 2px solid #ffffff;
+    }
+  }
+
 }
-/*
-.header-search {
+
+.header-search { // da considerare la migrazione di .header-search
   @include clearfix;
   margin: 0 20px 0 0;
   @include media-breakpoint-down(md) {
@@ -228,8 +204,6 @@
     }
   }
 }
-
-
 
 .header-user-logged {
   position: relative;
@@ -341,4 +315,3 @@
     }
   }
 }
-*/

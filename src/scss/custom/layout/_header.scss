@@ -1,35 +1,83 @@
-.it-header-slim-wrapper {
-  @extend .bg-petrol;
-}
+.it-header-wrapper {
+  color: $gray-primary;
 
-.it-header-center-wrapper {
-  .it-header-center-content-wrapper {
-    .it-brand-wrapper {
+  .it-header-slim-wrapper {
+    .it-header-slim-wrapper-content {
+      .navbar-brand {
+        font-weight: 700;
+      }
+    }
+  }
 
-      .h1 {
-        display: block;
-        color: $dark;
-        font-weight: 400 !important;
-        font-size: 1.17rem;
-        line-height: 1.29;
-        letter-spacing: 0;
-        margin: 0 0 0 25px;
-        span {
-          display: block;
-          strong {
-            font-weight: 700;
+  &.shadow {
+    box-shadow: 0 0.1rem 1.55rem rgba($black, .1) !important;
+  }
+
+  &.it-header-sticky {
+    &.is-sticky {
+      @include media-breakpoint-up(lg) {
+        .it-header-navbar-wrapper {
+          .menu-wrapper {
+            .it-brand-wrapper {
+              &.cloned-element {
+                .it-brand-text {
+                  display: block;
+                  font-size: $header-center-h2-size-mob;
+                  .it-brand-title {
+                    font-weight: $header-center-h2-weight;
+                  }
+                }
+              }
+            }
+
+            .it-search-wrapper {
+              font-weight: 600;
+              a {
+                &.rounded-icon {
+                  background-color: transparent;
+                  &:hover {
+                    background: inherit;
+                  }
+                }
+              }
+            }
+
           }
         }
       }
 
-      a .icon {
-        @extend .me-0;
+      .it-header-navbar-wrapper {
+        .menu-wrapper {
+          @extend .pt-3;
+          @extend .pb-3;
+        }
+      }
+
+    }
+  }
+
+  .it-header-center-wrapper {
+    .it-header-center-content-wrapper {
+      .it-brand-wrapper {
+        .it-brand-text {
+          .it-brand-title {
+            font-weight: $header-center-h2-weight;
+          }
+          .it-brand-tagline,
+          .it-brand-comune {
+            font-size: $header-center-h2-size-mob;
+          }
+
+          @include media-breakpoint-up(lg) {
+            .it-brand-tagline,
+            .it-brand-comune {
+              font-size: $header-center-h3-size;
+            }
+          }
+        }
       }
     }
   }
-}
-
-.it-header-sticky {
 
   .it-header-navbar-wrapper.theme-light-desk .navbar .navbar-collapsable .navbar-nav {
     li a.nav-link {
@@ -50,35 +98,5 @@
     }
   }
 
-  &.it-header-sticky.is-sticky {
-
-    .it-brand-wrapper {
-      h1 {
-        font-size: 0.779rem;
-        color: $dark;
-        margin: 4px 0 0 0;
-      }
-    }
-
-
-    .it-header-navbar-wrapper {
-      .menu-wrapper {
-        @extend .pt-3;
-        @extend .pb-3;
-
-        .it-brand-wrapper.cloned-element a {
-          text-decoration: none;
-
-          .icon {
-            fill: $dark;
-            width: 41px;
-            height: 41px;
-            margin-right: 16px;
-            flex-shrink: 0;
-            @extend .mt-2;
-          }
-        }
-      }
-    }
-  }
 }
+

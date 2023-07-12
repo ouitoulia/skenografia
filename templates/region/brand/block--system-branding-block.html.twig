@@ -17,8 +17,8 @@
  */
 #}
 {% apply spaceless %}
-  <div class="it-brand-wrapper logo-header">
-    <a href="{{ path('<front>') }}" class="d-flex"
+  <div class="it-brand-wrapper">
+    <a href="{{ path('<front>') }}" class="d-flex align-items-center"
       aria-label="{{ 'Home'|t }} {{ site_slogan }} {{ site_name }} {{ comune }}"
       title="{{ 'Go to home page'|t }}"
       rel="home"
@@ -53,17 +53,15 @@
       {% endif %}
 
       {% if site_name or site_slogan or comune %}
-        <div class="h1">
+        <div class="it-brand-text">
           {% if site_slogan %}
-            <span>{{ site_slogan }}</span>
+            <div class="it-brand-tagline">{{ site_slogan }}</div>
           {% endif %}
           {% if site_name %}
-            <span>
-              <strong>{{ site_name }}</strong>
-            </span>
+            <div class="it-brand-title">{{ site_name }}</div>
           {% endif %}
           {% if comune %}
-            <span>{{ comune }}</span>
+            <div class="it-brand-comune">{{ comune }}</div>
           {% endif %}
         </div>
       {% endif %}

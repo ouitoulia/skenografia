@@ -67,13 +67,12 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/type';
 @import "r-engineering/main/type";
 
-// Da completare 2.3.8
+// Reverse effettuato, restano alcune cose da migrare, cmq da rivedere. v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/header';
-@import "r-engineering/main/header/header";
+//@import "r-engineering/main/header/header";
 
-// Da completare 2.3.0
+// Reverse effettuato, migrato su bootstrap-italia 2. v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/logo-header';
-@import "r-engineering/main/header/logo-header";
 
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/sub-nav';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/dropdown';
@@ -104,18 +103,11 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/social-buttons';
 // scss-docs-end r-engineering
 
-// Colori delle sezioni
-$bi-learning: $blue !default;
-$bi-services: $pink !default;
-$bi-school: $red !default;
-$bi-news: $green !default;
-
 
 h1 {@extend .fw-semibold;}
-.scuola {color: $bi-school;}
-.servizi {color: $bi-services;}
-.novita {color: $bi-news;}
-.didattica {color: $bi-learning;}
+.bd-example {
+  background-color: rgba($petrol, 0.1) !important;
+}
 
 @import "components/chip";
 
