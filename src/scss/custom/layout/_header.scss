@@ -76,6 +76,15 @@
           }
         }
       }
+
+      .it-right-zone {
+        .it-socials,
+        .it-search-wrapper {
+          & > span {
+            font-weight: 600;
+          }
+        }
+      }
     }
   }
 
