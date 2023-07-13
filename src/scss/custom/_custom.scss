@@ -77,6 +77,8 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/sub-nav';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/dropdown';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/megamenu';
+
+// Fatto. Migrato su bootstrap-italia 2. v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/hamburger';
 
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/search';
@@ -109,8 +111,12 @@ h1 {@extend .fw-semibold;}
   background-color: rgba($petrol, 0.1) !important;
 }
 
+// Componenti
 @import "components/chip";
 
+// Layout
 @import "layout/header";
+@import "layout/hamburger";
 
+// Content type
 @import "content-type/article";
