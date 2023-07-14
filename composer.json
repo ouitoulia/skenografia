@@ -24,6 +24,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "drupal/bootstrap_italia": "^2.6"
+        "drupal/bootstrap_italia": "2.x-dev@dev"
     }
 }
