@@ -6,6 +6,12 @@
       .navbar-brand {
         font-weight: 600;
       }
+      a {
+        &.dropdown-toggle {
+          text-transform: inherit;
+          font-weight: 600;
+        }
+      }
     }
   }
 
