@@ -4,7 +4,7 @@
   .it-header-slim-wrapper {
     .it-header-slim-wrapper-content {
       .navbar-brand {
-        font-weight: 700;
+        font-weight: 600;
       }
     }
   }
@@ -29,27 +29,19 @@
                 }
               }
             }
-
             .it-search-wrapper {
               font-weight: 600;
-              a {
-                &.rounded-icon {
-                  background-color: transparent;
-                  &:hover {
-                    background: inherit;
-                  }
-                }
+              & > span {
+                @extend .pb-lg-2;
               }
             }
-
           }
         }
       }
 
       .it-header-navbar-wrapper {
         .menu-wrapper {
-          @extend .pt-3;
-          @extend .pb-3;
+          @extend .py-3;
         }
       }
 
@@ -67,7 +59,6 @@
           .it-brand-comune {
             font-size: $header-center-h2-size-mob;
           }
-
           @include media-breakpoint-up(lg) {
             .it-brand-tagline,
             .it-brand-comune {
@@ -85,6 +76,7 @@
           }
         }
       }
+
     }
   }
 
@@ -92,20 +84,10 @@
     li a.nav-link {
       @extend .fw-semibold;
     }
-
-    > li:nth-child(1) a.nav-link {
-      color: $bi-school;
-    }
-    > li:nth-child(2) a.nav-link {
-      color: $bi-services;
-    }
-    > li:nth-child(3) a.nav-link {
-      color: $bi-news;
-    }
-    > li:nth-child(4) a.nav-link {
-      color: $bi-learning;
-    }
+    > li:nth-child(1) a.nav-link {color: $bi-school;}
+    > li:nth-child(2) a.nav-link {color: $bi-services;}
+    > li:nth-child(3) a.nav-link {color: $bi-news;}
+    > li:nth-child(4) a.nav-link {color: $bi-learning;}
   }
 
 }
-

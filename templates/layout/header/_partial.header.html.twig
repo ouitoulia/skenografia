@@ -76,8 +76,8 @@
               {% endblock %}
 
               {% block modalButton %}
-                <span class="d-none d-md-block">{{ 'Search'|t }}</span>
-                <a class="search-link rounded-icon"
+                <span class="d-none d-md-block me-2">{{ 'Search'|t }}</span>
+                <a class="search-link bg-white"
                    type="button"
                    aria-label="{{ 'Site search'|t }}"
                    data-bs-toggle="modal"
@@ -86,6 +86,7 @@
                 >
                   {% include '@bi-bcl/icon/icon.html.twig' with {
                     name: 'icon-search',
+                    size: 'sm'
                   } %}
                 </a>
               {% endblock %}
@@ -93,14 +94,15 @@
           {% endif %}{# End search modal #}
 
           {% if search_type == 'page' %}
-            <span class="d-none d-md-block">{{ 'Search'|t }}</span>
-            <a class="search-link rounded-icon"
+            <span class="d-none d-md-block me-2">{{ 'Search'|t }}</span>
+            <a class="search-link bg-white"
                aria-label="{{ 'Site search'|t }}"
                title="{{ 'Site search'|t }}"
                href="{{ search_page_url ?: '/search/node' }}"
             >
               {% include '@bi-bcl/icon/icon.html.twig' with {
                 name: 'icon-search',
+                size: 'sm'
               } %}
             </a>
           {% endif %}
