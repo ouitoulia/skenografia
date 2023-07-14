@@ -76,46 +76,68 @@
     }
   }
 
-  .it-header-center-wrapper {
-    .it-header-center-content-wrapper {
-      .it-brand-wrapper {
-        .it-brand-text {
-          .it-brand-title {
-            font-weight: $header-center-h2-weight;
-          }
-          .it-brand-tagline,
-          .it-brand-comune {
-            font-size: $header-center-h2-size-mob;
-          }
-          @include media-breakpoint-up(lg) {
+  .it-nav-wrapper {
+    .it-header-center-wrapper {
+      .it-header-center-content-wrapper {
+        .it-brand-wrapper {
+          .it-brand-text {
+            .it-brand-title {
+              font-weight: $header-center-h2-weight;
+            }
             .it-brand-tagline,
             .it-brand-comune {
-              font-size: $header-center-h3-size;
+              font-size: $header-center-h2-size-mob;
+            }
+            @include media-breakpoint-up(lg) {
+              .it-brand-tagline,
+              .it-brand-comune {
+                font-size: $header-center-h3-size;
+              }
+            }
+          }
+        }
+
+        .it-right-zone {
+          .it-socials,
+          .it-search-wrapper {
+            & > span {
+              font-weight: 600;
+            }
+          }
+        }
+
+      }
+    }
+
+    .it-header-navbar-wrapper {
+      .menu-wrapper {
+        .social-mobile-menu {
+          padding-left: 42px;
+          padding-right: 42px;
+          span {
+            font-weight: 600;
+          }
+          ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            li {
+              margin: 12px 12px 12px 0;
             }
           }
         }
       }
-
-      .it-right-zone {
-        .it-socials,
-        .it-search-wrapper {
-          & > span {
-            font-weight: 600;
-          }
+      &.theme-light-desk .navbar .navbar-collapsable .navbar-nav {
+        li a.nav-link {
+          @extend .fw-semibold;
         }
+        > li:nth-child(1) a.nav-link {color: $bi-school;}
+        > li:nth-child(2) a.nav-link {color: $bi-services;}
+        > li:nth-child(3) a.nav-link {color: $bi-news;}
+        > li:nth-child(4) a.nav-link {color: $bi-learning;}
       }
-
     }
-  }
-
-  .it-header-navbar-wrapper.theme-light-desk .navbar .navbar-collapsable .navbar-nav {
-    li a.nav-link {
-      @extend .fw-semibold;
-    }
-    > li:nth-child(1) a.nav-link {color: $bi-school;}
-    > li:nth-child(2) a.nav-link {color: $bi-services;}
-    > li:nth-child(3) a.nav-link {color: $bi-news;}
-    > li:nth-child(4) a.nav-link {color: $bi-learning;}
   }
 
 }

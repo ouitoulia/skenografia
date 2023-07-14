@@ -15,9 +15,26 @@
  */
 #}
 {% embed '@bootstrap_italia/region/header-nav/region--header-nav.html.twig' %}
+
   {% block togglerIcon %}
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
     </span>
+  {% endblock %}
+
+  {% block menuContent %}
+
+    {{ content }}
+
+    {% if socials %}
+      {% include '@bi-bcl/share/follow-us.html.twig' with {
+        socials: socials,
+        label: 'Follow us on'|t,
+        icon_color: center_header_light ? 'white' : 'gray-primary',
+        blank: social_new_window,
+        followus_classes: ["it-socials", "social-mobile-menu", "d-lg-none", "mt-4"]
+      } %}
+    {% endif %}
+
   {% endblock %}
 {% endembed %}
