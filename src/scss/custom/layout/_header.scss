@@ -13,6 +13,12 @@
         }
       }
       @include media-breakpoint-down(lg) {
+        .it-header-slim-right-zone {
+          .btn-full {
+            margin-top: inherit;
+            margin-bottom: inherit;
+          }
+        }
         a#dropdown-account {
           .rounded-icon {
             width: 2em;
