@@ -80,4 +80,5 @@ $hamburger-types: (
 .custom-navbar-toggler {
   @extend .hamburger;
   //@extend .hamburger--spin-r;
+  @extend .d-lg-none;
 }
