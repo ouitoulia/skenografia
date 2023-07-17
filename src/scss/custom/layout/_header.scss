@@ -111,6 +111,20 @@
 
     .it-header-navbar-wrapper {
       .menu-wrapper {
+        .brand-mobile-menu {
+          a {
+            color: $header-center-theme-light-text-color;
+            .icon {
+              width: $header-center-icon-size-mob;
+              height: $header-center-icon-size-mob;
+              fill: $header-center-theme-light-text-color;
+              margin-right: $header-center-icon-margin-mob;
+            }
+            .it-brand-title {
+              font-weight: 600;
+            }
+          }
+        }
         .social-mobile-menu {
           padding-left: 42px;
           padding-right: 42px;
