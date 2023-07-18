@@ -1,0 +1,31 @@
+.it-header-center-wrapper {
+  .it-header-center-content-wrapper {
+    .it-brand-wrapper {
+      .it-brand-text {
+        .it-brand-title {
+          font-weight: $header-center-h2-weight;
+        }
+        .it-brand-tagline,
+        .it-brand-comune {
+          font-size: $header-center-h2-size-mob;
+        }
+        @include media-breakpoint-up(lg) {
+          .it-brand-tagline,
+          .it-brand-comune {
+            font-size: $header-center-h3-size;
+          }
+        }
+      }
+    }
+
+    .it-right-zone {
+      .it-socials,
+      .it-search-wrapper {
+        & > span {
+          @extend .fw-semibold;
+        }
+      }
+    }
+
+  }
+}

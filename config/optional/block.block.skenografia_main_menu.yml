@@ -20,5 +20,5 @@ settings:
   provider: system
   level: 1
   depth: 4
-  expand_all_items: false
+  expand_all_items: true
 visibility: {  }

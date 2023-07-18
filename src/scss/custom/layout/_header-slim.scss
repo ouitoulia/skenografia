@@ -1,0 +1,35 @@
+.it-header-slim-wrapper {
+  .it-header-slim-wrapper-content {
+    .navbar-brand {
+      @extend .fw-semibold;
+    }
+    a {
+      &.dropdown-toggle {
+        @extend .fw-semibold;
+        text-transform: inherit;
+      }
+    }
+    @include media-breakpoint-down(lg) {
+      .it-header-slim-right-zone {
+        .btn-full {
+          margin-top: inherit;
+          margin-bottom: inherit;
+        }
+      }
+      a#dropdown-account {
+        .rounded-icon {
+          width: 2em;
+          height: 2em;
+          border-radius: 24px;
+          .icon {
+            width: 16px;
+            height: 16px;
+          }
+        }
+        .icon-expand {
+          display: none;
+        }
+      }
+    }
+  }
+}

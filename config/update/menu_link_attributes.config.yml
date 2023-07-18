@@ -1,0 +1,21 @@
+langcode: it
+attributes:
+  container_class:
+    label: 'Classi del contenitore (<code>&lt;li&gt;</code>)'
+    description: 'Usa <code class="color-success">section-school</code>, <code class="color-success">section-services</code>, <code class="color-success">section-news</code> o <code class="color-success">section-learning</code> per le varie sezioni, queste classi vanno inserite solo nella voce padre. In una sotto-voce puoi usare <code class="color-success">menu-title</code> per visualizzare la voce con lo stile del titolo.'
+  class:
+    label: "Classi della voce (<code>&lt;a&gt;</code>)"
+    description: 'Aggiungi una o più classi alla voce. Puoi usare le classi ereditate da boostrap-italia come <code>medium, display-x, font-serif, fw-bold, ...</code> ecc.'
+  data-element:
+    label: "Data element voce (<code>&lt;a&gt;</code>)"
+    description: 'Inserisci i vari <code>data-element</code> sulla voce.'
+  data-element-child:
+    label: "Data element contenitori sotto-voci (<code>&lt;ul&gt;</code>)"
+    description: 'Usa questo campo per inserire i vari <code>data-element</code> nei contenitori delle sotto-voci. '
+  target:
+    label: ''
+    description: ''
+    options:
+      _blank: 'New window (_blank)'
+      _self: 'Same window (_self)'
+    default_value: ''
