@@ -2,7 +2,6 @@
   color: $gray-primary;
 
   @import "header-slim";
-  @import "header-sticky";
 
   .it-nav-wrapper {
     @import "header-center";
@@ -11,4 +10,6 @@
   &.shadow {
     box-shadow: 0 0.1rem 1.55rem rgba($black, .1) !important;
   }
+
+  @import "header-sticky";
 }

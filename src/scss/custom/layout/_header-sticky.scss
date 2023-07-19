@@ -1,34 +1,47 @@
 &.it-header-sticky {
   &.is-sticky {
-    @include media-breakpoint-up(lg) {
-      .it-header-navbar-wrapper {
-        .menu-wrapper {
-          .it-brand-wrapper {
-            &.cloned-element {
-              .it-brand-text {
-                display: block;
-                font-size: $header-center-h2-size-mob;
-                .it-brand-title {
-                  font-weight: $header-center-h2-weight;
-                }
-              }
-            }
-          }
-          .it-search-wrapper {
-            font-weight: 600;
-            & > span {
-              @extend .pb-lg-2;
-            }
-          }
-        }
-      }
-    }
-
     .it-header-navbar-wrapper {
       .menu-wrapper {
         @extend .py-3;
       }
-    }
+    } // end .it-header-navbar-wrapper
 
-  }
-}
+    @include media-breakpoint-up(lg) {
+      .it-nav-wrapper {
+        .it-header-navbar-wrapper.theme-light-desk {
+          .navbar .navbar-collapsable {
+            .menu-wrapper {
+              .it-brand-wrapper {
+                &.cloned-element {
+                  .it-brand-text {
+                    display: block;
+                    font-size: $header-center-h2-size-mob;
+
+                    .it-brand-title {
+                      font-weight: $header-center-h2-weight;
+                    }
+                  }
+                }
+              } // end .it-brand-wrapper
+
+              .it-search-wrapper {
+                font-weight: 600;
+
+                & > span {
+                  @extend .pb-lg-2;
+                }
+              } // end .it-search-wrapper
+
+              .navbar-nav {
+                .dropdown-menu.show {
+                  top: calc(100% + #{$dropdown-menu-vertical-shift-sticky});
+                }
+              } // end .navbar-nav
+
+            } // end .menu-wrapper
+          } // end .navbar .navbar-collapsable
+        } // end .it-header-navbar-wrapper.theme-light-desk
+      } // end .it-nav-wrapper
+    } // end media-breakpoint-up(lg)
+  } // end &.is-sticky
+} // end &.it-header-sticky

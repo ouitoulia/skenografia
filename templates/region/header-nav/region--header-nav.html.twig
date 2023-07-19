@@ -24,9 +24,9 @@
 
   {% block menuContent %}
 
-    <div class="brand-mobile-menu mt-5 ms-2 d-block d-lg-none">
+    <div class="brand-mobile-menu mt-4 d-block d-lg-none">
       {% include '@skenografia/region/brand/block--system-branding-block.html.twig' with {
-        site_logo: site_logo,
+        site_logo: base_path ~ '/' ~ site_logo,
         site_name: site_name,
         site_slogan: site_slogan,
         comune: comune,

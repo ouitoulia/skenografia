@@ -2,13 +2,23 @@
   .it-header-slim-wrapper-content {
     .navbar-brand {
       @extend .fw-semibold;
-    }
+    } // end .navbar-brand
+
     a {
       &.dropdown-toggle {
         @extend .fw-semibold;
         text-transform: inherit;
       }
+    } // end a
+
+    @include media-breakpoint-up(lg) {
+      .it-header-slim-right-zone {
+        .btn-full {
+          padding-right: 0 !important;
+        }
+      }
     }
+
     @include media-breakpoint-down(lg) {
       .it-header-slim-right-zone {
         .btn-full {
@@ -30,6 +40,7 @@
           display: none;
         }
       }
-    }
-  }
-}
+    } // end media-breakpoint-down(lg)
+
+  } // end .it-header-slim-wrapper-content
+} // end .it-header-slim-wrapper

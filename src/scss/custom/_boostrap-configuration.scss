@@ -1,6 +1,7 @@
 // Dropdown custom
 $dropdown-menu-animation-speed: 0.3s;
 $dropdown-menu-vertical-shift: 6px;
+$dropdown-menu-vertical-shift-sticky: 28px;
 $dropdown-menu-radius: 4px;
 $dropdown-menu-notch-base-size: 6px;
 $dropdown-menu-notch-position-x: 24px;
@@ -22,6 +23,8 @@ $header-center-h2-size: 1.17em;
 $header-center-h2-size-mob: 0.875em;
 $header-center-h2-weight: 700;
 $header-center-h3-size: 1.17em;
+$header-center-icon-size-mob: 58px;
+$header-center-icon-margin-mob: 15px;
 $header-center-search-icon-size: $v-gap * 2;
 // Header Center theme light
 $header-center-theme-light-text-color: $dark;
