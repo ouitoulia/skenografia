@@ -23,7 +23,7 @@
             } // end .it-brand-wrapper
           } // end .brand-mobile-menu
 
-          .navbar-nav {
+          .navbar-nav:not(.navbar-secondary) {
             li a.nav-link,
             li.menu-title > a.list-item span {
               font-weight: 600;
@@ -31,6 +31,7 @@
 
             li.menu-title {
               border-bottom: 1px solid #e5e5e5;
+              padding-bottom: calc($dropdown-padding-y - 0.2rem);
             }
 
             > li.section-school {
@@ -187,6 +188,29 @@
               }
             }
           } // end .social-mobile-menu
+
+          .navbar-secondary {
+            @include media-breakpoint-up(lg) {
+              .nav-item {
+                .nav-link {
+                  span {
+                    font-size: .845em;
+                  }
+                }
+                &:last-child {
+                  .nav-link {
+                    padding-right: 16px;
+                  }
+                }
+              }
+            }
+            @include media-breakpoint-down(lg) {
+              li a.nav-link {
+                padding-left: 0;
+                padding-right: 0;
+              }
+            }
+          } // end .navbar-secondary
 
         } // end .menu-wrapper
       } // end .navbar-collapsable
