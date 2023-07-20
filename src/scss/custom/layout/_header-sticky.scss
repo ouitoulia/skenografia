@@ -34,7 +34,7 @@
 
               .navbar-nav {
                 .dropdown-menu.show {
-                  top: calc(100% + #{$dropdown-menu-vertical-shift-sticky});
+                  top: calc(100% + 18px);
                 }
               } // end .navbar-nav
 
