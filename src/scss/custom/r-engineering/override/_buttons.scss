@@ -3,7 +3,6 @@
 // https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L10995
 // --------------------------------------------------
 .btn {
-
   &.btn-img {
     position: relative;
     z-index: 0;
@@ -41,53 +40,54 @@
   }
 }
 
-.btn-xs {
-  padding-top: 5px;
-  padding-bottom: 7px;
-  line-height: 1;
-  &.btn-rounded {
-    border-radius: 26px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
+// Fornito da bi2
+//.btn-xs {
+//  padding-top: 5px;
+//  padding-bottom: 7px;
+//  line-height: 1;
+//  &.btn-rounded {
+//    border-radius: 26px;
+//    padding-left: 10px;
+//    padding-right: 10px;
+//  }
+//}
 
-.btn-primary {
-  box-shadow: none;
-}
+// In bi2 nessun bottone ha l'ombra,
+// se serve si aggiunge con 'shadow'
+//.btn-primary {
+//  box-shadow: none;
+//}
 
 // Inizio aggiunta in in 2.3.0 L11047
-.section.bg-bluelectricgradient h1,
-.section.bg-bluelectricgradient .h1,
-.section.bg-bluelectricgradient h2,
-.section.bg-bluelectricgradient .h2,
-.section.bg-bluelectricgradient h3,
-.section.bg-bluelectricgradient .h3,
-.section.bg-bluelectricgradient p {
-  color: #fff;
+.section.bg-bluelectricgradient {
+  h1, .h1, h2, .h2, h3, .h3, p {
+    color: #fff;
+  }
 }
 // Fine
 
-.btn-outline-white {
-  &:hover {
-    background-color: $white;
-    color: $black;
-  }
-  .bg-bluedark & {
-    &:hover {
-      color: $bluedark !important;
-    }
-  }
-}
+// Fornito dai mixin di bi2
+//.btn-outline-white {
+//  &:hover {
+//    background-color: $white;
+//    color: $black;
+//  }
+//  .bg-bluedark & {
+//    &:hover {
+//      color: $bluedark !important;
+//    }
+//  }
+//}
 
-.btn-bluelectric {
-  .bg-bluelectricdark & {
-    background-color: lighten($bluelectric, 5%);
-  }
-  .bg-bluelectric & {
-    background-color: darken($bluelectric, 15%);
-  }
-  &:hover {
-    background-color: darken($bluelectric, 20%);
-  }
-}
+// Fornito dai mixin di bi2
+//.btn-bluelectric {
+//  .bg-bluelectricdark & {
+//    background-color: lighten($bluelectric, 5%);
+//  }
+//  .bg-bluelectric & {
+//    background-color: darken($bluelectric, 15%);
+//  }
+//  &:hover {
+//    background-color: darken($bluelectric, 20%);
+//  }
+//}

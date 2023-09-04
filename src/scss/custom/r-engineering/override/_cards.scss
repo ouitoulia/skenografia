@@ -1,18 +1,20 @@
 //
 // Cards
 // https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L9565
+// Tutto ciò che è commentato viene gestito da bootstrap-italia2
+//   rimane commentato solo per riferimento, poi verrà eliminato
 // --------------------------------------------------
 
 .card {
-  background: none;
-  background-color: transparent;
-  border: none;
-  &:after {
-    content: none;
-    display: none;
-    width: auto;
-    margin: 0;
-  }
+  //background: none;
+  //background-color: transparent;
+  //border: none;
+  //&:after {
+  //  content: none;
+  //  display: none;
+  //  width: auto;
+  //  margin: 0;
+  //}
   &.card-border-top {
     position: relative;
     z-index: 0;
@@ -39,9 +41,9 @@
     }
   }
   &.card-bg {
-    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.17);
-    margin: 0 0 0 0;
-    background-color: $white;
+    //box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.17);
+    //margin: 0 0 0 0;
+    //background-color: $white;
     &.bg-redbrown {
       color: $petrol-dark-21 !important;
       small {
@@ -61,7 +63,7 @@
       }
     }
     &.bg-color {
-      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+      //box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
       .purplelight & {
         background-color: #fbeaff;
       }
@@ -137,12 +139,12 @@
     box-shadow: none;
   }
   &.card-icon {
-    .icon {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      margin: 0 12px 0 0;
-    }
+    //.icon {
+    //  width: 24px;
+    //  height: 24px;
+    //  flex-shrink: 0;
+    //  margin: 0 12px 0 0;
+    //}
     svg {
       .purplelight & {
         fill: $purplelight;
@@ -160,80 +162,80 @@
         fill: $bluelectric;
       }
     }
-    .card-body {
-      display: flex;
-      padding-top: 20px;
-      padding-bottom: 17px;
-    }
-    .card-icon-content {
-      p {
-        font-family: $font-family-sans-serif;
-        font-size: 1rem;
-        margin: 0 0 0 0;
-        line-height: 1.5;
-      }
-      small {
-        font-size: .88rem;
-        display: block;
-        line-height: 1.5;
-      }
-    }
+    //.card-body {
+    //  display: flex;
+    //  padding-top: 20px;
+    //  padding-bottom: 17px;
+    //}
+    //.card-icon-content {
+    //  p {
+    //    font-family: $font-family-sans-serif;
+    //    font-size: 1rem;
+    //    margin: 0 0 0 0;
+    //    line-height: 1.5;
+    //  }
+    //  small {
+    //    font-size: .88rem;
+    //    display: block;
+    //    line-height: 1.5;
+    //  }
+    //}
   }
-  &.card-noicon {
-    .card-icon-content {
-      p {
-        font-family: $font-family-sans-serif;
-        font-size: 1rem;
-        margin: 0 0 0 0;
-        line-height: 1.5;
-      }
-      small {
-        font-size: .88rem;
-        display: block;
-        line-height: 1.5;
-      }
-    }
-  }
-  &.card-icon-main {
-    .icon {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      margin: 0 15px 0 0;
-    }
-    svg {
-      .purplelight & {
-        fill: $purplelight;
-      }
-      .redbrown & {
-        fill: $redbrown;
-      }
-      .petrol & {
-        fill: $petrol;
-      }
-      .greendark & {
-        fill: $greendark;
-      }
-      .bluelectric & {
-        fill: $bluelectric;
-      }
-    }
-    .card-body {
-      display: flex;
-      padding-top: 22px;
-      padding-bottom: 22px;
-    }
-    .card-icon-content {
-      display: flex;
-      align-items: start;
-      flex-direction: column;
-      p {
-        font-family: $font-family-sans-serif;
-        font-size: 1.2rem;
-        margin: 0 0 7px 0;
-      }
-    }
-  }
+  //&.card-noicon {
+  //  .card-icon-content {
+  //    p {
+  //      font-family: $font-family-sans-serif;
+  //      font-size: 1rem;
+  //      margin: 0 0 0 0;
+  //      line-height: 1.5;
+  //    }
+  //    small {
+  //      font-size: .88rem;
+  //      display: block;
+  //      line-height: 1.5;
+  //    }
+  //  }
+  //}
+  //&.card-icon-main {
+  //  .icon {
+  //    width: 40px;
+  //    height: 40px;
+  //    flex-shrink: 0;
+  //    margin: 0 15px 0 0;
+  //  }
+  //  svg {
+  //    .purplelight & {
+  //      fill: $purplelight;
+  //    }
+  //    .redbrown & {
+  //      fill: $redbrown;
+  //    }
+  //    .petrol & {
+  //      fill: $petrol;
+  //    }
+  //    .greendark & {
+  //      fill: $greendark;
+  //    }
+  //    .bluelectric & {
+  //      fill: $bluelectric;
+  //    }
+  //  }
+  //  .card-body {
+  //    display: flex;
+  //    padding-top: 22px;
+  //    padding-bottom: 22px;
+  //  }
+  //  .card-icon-content {
+  //    display: flex;
+  //    align-items: start;
+  //    flex-direction: column;
+  //    p {
+  //      font-family: $font-family-sans-serif;
+  //      font-size: 1.2rem;
+  //      margin: 0 0 7px 0;
+  //    }
+  //  }
+  //}
   &.card-avatar {
     .card-avatar-img {
       width: 40px;
@@ -299,71 +301,71 @@
       }
     }
   }
-  &.card-icon-large {
-    .icon {
-      width: 75px;
-      height: 75px;
-      flex-shrink: 0;
-      margin: 0 30px 0 0;
-    }
-    .card-body {
-      display: flex;
-      align-items: center;
-    }
-    h4, .h4 {
-      margin: 0 0 0 0;
-      font-size: 1.88rem;
-      color: $gray-primary;
-    }
-  }
-  &.card-icon-big {
-    display: flex;
-    flex-direction: row;
-    padding: 25px 25px 15px 25px;
-    @include media-breakpoint-up(sm) {
-      padding: 20px 20px 10px 20px;
-    }
-    .card-icon-container {
-      width: 80px;
-      height: auto;
-      flex-shrink: 0;
-      margin: 0 35px 0 20px;
-      @include media-breakpoint-down(sm) {
-        width: 48px;
-        margin: 0 20px 0 0px;
-      }
-      svg {
-        width: 80px;
-        height: 80px;
-        display: block;
-        @include media-breakpoint-down(sm) {
-          width: 48px;
-          height: 48px;
-        }
-      }
-    }
-    .card-content {
-      width: 100%;
-    }
-    h4, .h4 {
-      color: $redbrown;
-      font-size: 1.13rem;
-      font-weight: 700;
-      margin: 0 0 15px 0;
-      display: block;
-    }
-    p {
-      margin: 0 0 4px 0;
-      font-size: 1rem;
-      font-family: $font-family-sans-serif;
-      display: block;
-    }
-    small {
-      margin: 0 0 15px 0;
-      font-size: .88rem;
-      display: block;
-    }
-  }
+  //&.card-icon-large {
+  //  .icon {
+  //    width: 75px;
+  //    height: 75px;
+  //    flex-shrink: 0;
+  //    margin: 0 30px 0 0;
+  //  }
+  //  .card-body {
+  //    display: flex;
+  //    align-items: center;
+  //  }
+  //  h4, .h4 {
+  //    margin: 0 0 0 0;
+  //    font-size: 1.88rem;
+  //    color: $gray-primary;
+  //  }
+  //}
+  //&.card-icon-big {
+  //  display: flex;
+  //  flex-direction: row;
+  //  padding: 25px 25px 15px 25px;
+  //  @include media-breakpoint-up(sm) {
+  //    padding: 20px 20px 10px 20px;
+  //  }
+  //  .card-icon-container {
+  //    width: 80px;
+  //    height: auto;
+  //    flex-shrink: 0;
+  //    margin: 0 35px 0 20px;
+  //    @include media-breakpoint-down(sm) {
+  //      width: 48px;
+  //      margin: 0 20px 0 0px;
+  //    }
+  //    svg {
+  //      width: 80px;
+  //      height: 80px;
+  //      display: block;
+  //      @include media-breakpoint-down(sm) {
+  //        width: 48px;
+  //        height: 48px;
+  //      }
+  //    }
+  //  }
+  //  .card-content {
+  //    width: 100%;
+  //  }
+  //  h4, .h4 {
+  //    color: $redbrown;
+  //    font-size: 1.13rem;
+  //    font-weight: 700;
+  //    margin: 0 0 15px 0;
+  //    display: block;
+  //  }
+  //  p {
+  //    margin: 0 0 4px 0;
+  //    font-size: 1rem;
+  //    font-family: $font-family-sans-serif;
+  //    display: block;
+  //  }
+  //  small {
+  //    margin: 0 0 15px 0;
+  //    font-size: .88rem;
+  //    display: block;
+  //  }
+  //}
   .bg-blue-dark & {
     color: $white;
     h3, .h3 {
@@ -385,36 +387,36 @@
       color: $white;
     }
   }
-  &.card-serif {
-    h3, .h3 {
-      font-family: $font-family-serif;
-      font-weight: 400;
-      margin: 0 0 20px 0;
-    }
-    h5, .h5 {
-      font-size: 1rem;
-    }
-    .card-body {
-      p {
-        font-family: $font-family-sans-serif;
-        font-size: 1.25rem;
-        padding: 0 0 0 20px;
-        margin: 0 0 0 0;
-        border-left: 2px solid $redbrown;
-        line-height: 1.4;
-      }
-    }
-  }
-  a.read-more {
-    position: relative;
-    z-index: 0;
-    bottom: auto;
-  }
-  &.card-icon {
-    .card-title {
-      display: flex;
-    }
-  }
+  //&.card-serif {
+  //  h3, .h3 {
+  //    font-family: $font-family-serif;
+  //    font-weight: 400;
+  //    margin: 0 0 20px 0;
+  //  }
+  //  h5, .h5 {
+  //    font-size: 1rem;
+  //  }
+  //  .card-body {
+  //    p {
+  //      font-family: $font-family-sans-serif;
+  //      font-size: 1.25rem;
+  //      padding: 0 0 0 20px;
+  //      margin: 0 0 0 0;
+  //      border-left: 2px solid $redbrown;
+  //      line-height: 1.4;
+  //    }
+  //  }
+  //}
+  //a.read-more {
+  //  position: relative;
+  //  z-index: 0;
+  //  bottom: auto;
+  //}
+  //&.card-icon {
+  //  .card-title {
+  //    display: flex;
+  //  }
+  //}
   &.card-large {
     &.card-icon {
       .card-title {
@@ -793,22 +795,23 @@
   ul {
     font-size: 1rem;
   }
-  .card-author {
-    color: $white;
-    p {
-      font-family: $font-family-sans-serif;
-      color: $white;
-      font-size: 1rem;
-      margin: 0 0 0 0;
-      a {
-        text-decoration: underline;
-        font-weight: 600;
-      }
-    }
-    span {
-      font-size: .88rem;
-    }
-  }
+  // in bi2 l'autore si trova nel footer della card
+  //.card-author {
+  //  color: $white;
+  //  p {
+  //    font-family: $font-family-sans-serif;
+  //    color: $white;
+  //    font-size: 1rem;
+  //    margin: 0 0 0 0;
+  //    a {
+  //      text-decoration: underline;
+  //      font-weight: 600;
+  //    }
+  //  }
+  //  span {
+  //    font-size: .88rem;
+  //  }
+  //}
   // presente in 2.3.0
   .dsi_more {
     display: block;
@@ -901,46 +904,49 @@
   }
 }
 
-.card-header {
-  border-color: #e7eaed;
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
+// in bi2 non c'è card-header
+//.card-header {
+//  border-color: #e7eaed;
+//  padding-top: 25px;
+//  padding-bottom: 25px;
+//}
 
-.cards-wrapper-center {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
+// in bi2 non c'è card-wrapper-center
+//.cards-wrapper-center {
+//  display: flex;
+//  justify-content: center;
+//  flex-direction: column;
+//}
 
-.card-date {
-  margin: 0 0 10px 0;
-}
+// Già presente in bi2
+//.card-date {
+//  margin: 0 0 10px 0;
+//}
 
 .card-simple-wrapper {
   @include clearfix;
 
   .card-simple {
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.17);
-    width: 100%;
-    margin: 0 0 24px 0;
-    overflow: hidden;
-    .card-simple-body {
-      padding: 27px;
+    //box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.17);
+    //width: 100%;
+    //margin: 0 0 24px 0;
+    //overflow: hidden;
+    .card-simple-body { // TODO: da rivedere il selettore
+      //padding: 27px;
       position: relative;
-      z-index: 0;
-      @include media-breakpoint-down(sm) {
-        padding: 18px;
-      }
-      p {
-        margin: 0 0 0 0;
-        font-size: 1.13rem;
-        font-weight: 600;
-        font-family: $font-family-sans-serif;
-        @include media-breakpoint-down(sm) {
-          font-size: 1rem;
-        }
-      }
+      //z-index: 0;
+      //@include media-breakpoint-down(sm) {
+      //  padding: 18px;
+      //}
+      //p {
+      //  margin: 0 0 0 0;
+      //  font-size: 1.13rem;
+      //  font-weight: 600;
+      //  font-family: $font-family-sans-serif;
+      //  @include media-breakpoint-down(sm) {
+      //    font-size: 1rem;
+      //  }
+      //}
       &:before {
         content: "";
         width: 3px;
