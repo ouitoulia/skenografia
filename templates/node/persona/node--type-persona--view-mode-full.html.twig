@@ -1,0 +1,163 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: (optional) The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: (optional) Themed creation date field.
+ * - author_name: (optional) Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+  'node',
+  'article-wrapper',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+<section class="section bg-petrol py-3 py-lg-3 py-xl-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
+        <div class="section-thumb thumb-large mx-3">
+          {{ content.field_ritratto }}
+        </div>
+      </div>
+      <div class="col-12 col-sm-9 col-md-8 col-lg-8 offset-lg-1 d-flex align-items-center">
+        <div class="section-title">
+          <h1 class="mb-3">{{ content.field_nome }}{{ content.field_cognome }}</h1>
+          <p>{{ content.field_ruolo_persona }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="container container-border-top">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 aside-border px-0"></div>
+      <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
+
+        <article{{ attributes.addClass(classes) }}>
+
+          <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
+            {{ content.field_abstract }}
+
+            <h2 id="didattica" class="h4">{{ 'Didattica'|t }}</h2>
+            {{ content.field_materie }}
+
+            <h3 id="schede-didattiche" class="h5 mb-4">{{ 'Schede didattiche'|t }}</h3>
+            <h3 id="progetti" class="h5 mb-4">{{ 'Progetti'|t }}</h3>
+
+            <h2 id="documenti" class="h4 mb-4">{{ 'Documenti'|t }}</h2>
+
+            {{ content.field_extra_info }}
+
+            <h2 id="contatti" class="h4 mb-4">{{ 'Contatti'|t }}</h2>
+            {{ content.field_telefono }}
+            {{ content.field_email }}
+
+            {{ content|without(
+              'field_nome',
+              'field_cognome',
+              'field_ruolo_persona',
+              'field_ritratto',
+              'field_abstract',
+              'field_materie',
+              'field_extra_info',
+              'field_telefono',
+              'field_email'
+            ) }}
+          </div>
+
+          <div class="row">
+            <div class="col-lg-9">
+              <div class="article-footer font-serif">
+                <h2 class="visually-hidden">{{ 'Metadata' }}</h2>
+                <p>
+                  <strong>{{ 'Published'|t }}</strong>: {{ date }} - <strong>{{ 'Revision'|t }}</strong>: {{ node.changed.value|format_date('bootstrap_italia_medium') }}
+                </p>
+                {{ metadata }}
+                <p>{% include '@skenografia/_content_lincese.html.twig' %}</p>
+              </div>
+            </div>
+          </div>
+
+          {% if content.comment %}
+            <div id="node--comments" class="node_comments">
+              {{ content.comment }}
+            </div>
+          {% endif %}
+
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
