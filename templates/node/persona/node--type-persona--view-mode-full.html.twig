@@ -101,7 +101,11 @@
 <section class="section bg-white">
   <div class="container container-border-top">
     <div class="row">
-      <div class="col-lg-3 col-md-4 aside-border px-0"></div>
+      <div class="col-lg-3 col-md-4 border-end px-0">
+        <aside>
+          {{ content.toc_js }}
+        </aside>
+      </div>
       <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
 
         <article{{ attributes.addClass(classes) }}>
@@ -132,7 +136,8 @@
               'field_materie',
               'field_extra_info',
               'field_telefono',
-              'field_email'
+              'field_email',
+              'toc_js'
             ) }}
           </div>
 
