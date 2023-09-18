@@ -52,16 +52,18 @@
     field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
   ] %}
 
+  {% set accordion_id = 'accordion-' ~ label|clean_id() ~ '-' ~ random() %}
+
   <div{{ attributes.addClass(container_classes) }}>
     {% embed '@bi-bcl/accordion/accordion.html.twig' with {
-      container_id: 'accordion-' ~ label|clean_id() ~ '-' ~ random(),
+      container_id: accordion_id,
       background_hover: true,
     } %}
       {% block accordionItems %}
         {% for item in items %}
           {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
             item_show: false,
-            container_id: 'accordion-' ~ label|clean_id() ~ '-' ~ random(),
+            container_id: accordion_id,
           } %}
             {% block accordionItemTitle %}
               {{ label }}
