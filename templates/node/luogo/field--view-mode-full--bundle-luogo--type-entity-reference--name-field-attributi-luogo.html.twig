@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Campo abstract content type Persona.
+ * Default theme implementation for a field.
  *
  * To override output, copy the "field.html.twig" from the templates directory
  * to your theme's directory and customize it, just like customizing other
@@ -42,6 +42,7 @@
  */
 #}
 {% apply spaceless %}
+
   {% set container_classes = [
     'field',
     'field--type-' ~ field_type|clean_class,
@@ -53,17 +54,14 @@
   ] %}
 
   <div{{ attributes.addClass(container_classes) }}>
+    <h3{{ title_attributes.addClass('h5') }}>
+       {{ label }}
+    </h3>{# End label container. #}
 
-    <h2{{ title_attributes.addClass('h4').setAttribute('id', label|clean_id() ) }}>
-      {{ label }}
-    </h2>{# End label container. #}
-
-    <div class="row variable-gutters">
-      <div class="col-lg-9">
-        {% for item in items %}
-          <p{{ item.attributes.addClass(['font-serif']) }}>{{ item.content }}</p>
-        {% endfor %}
-      </div>
+    <div class="card-wrapper card-teaser-wrapper">
+      {% for item in items %}
+        {{ item.content }}
+      {% endfor %}
     </div>
 
   </div>{# End main container. #}

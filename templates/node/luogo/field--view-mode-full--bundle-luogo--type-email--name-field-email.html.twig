@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Campo abstract content type Persona.
+ * Default theme implementation for a field with ul.
  *
  * To override output, copy the "field.html.twig" from the templates directory
  * to your theme's directory and customize it, just like customizing other
@@ -43,28 +43,23 @@
 #}
 {% apply spaceless %}
   {% set container_classes = [
+    'location-content',
     'field',
     'field--type-' ~ field_type|clean_class,
     'field--name-' ~ field_name|clean_class,
     'field--entity-' ~ entity_type|clean_class,
     multiple ? 'field-multiple',
     'field--label-' ~ label_display|clean_class,
-    field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
+    field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class
   ] %}
-
-  <div{{ attributes.addClass(container_classes) }}>
-
-    <h2{{ title_attributes.addClass('h4').setAttribute('id', label|clean_id() ) }}>
-      {{ label }}
-    </h2>{# End label container. #}
-
-    <div class="row variable-gutters">
-      <div class="col-lg-9">
-        {% for item in items %}
-          <p{{ item.attributes.addClass(['font-serif']) }}>{{ item.content }}</p>
-        {% endfor %}
-      </div>
+  <li>
+    <div{{ title_attributes.addClass('location-title') }}>
+      <span>{{ label }}</span>
     </div>
-
-  </div>{# End main container. #}
+    <div{{ attributes.addClass(container_classes) }}>
+      {% for item in items %}
+        <p{{ item.attributes }}>{{ item.content }}</p>
+      {% endfor %}
+    </div>
+  </li>
 {% endapply %}

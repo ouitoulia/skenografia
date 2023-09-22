@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ * Default template for the 'plain' address formatter.
+ *
+ * Available variables:
+ *   - given_name: Given name.
+ *   - additional_name: Additional name.
+ *   - family_name: Family name.
+ *   - organization: Organization.
+ *   - address_line1: First address line.
+ *   - address_line2: Second address line.
+ *   - postal_code: Postal code.
+ *   - sorting_code: Sorting code.
+ *   - dependent_locality: The dependent locality.
+ *     - dependent_locality.code: Dependent locality code.
+ *     - dependent_locality.name: Dependent locality name.
+ *   - locality: The locality subdivision.
+ *     - locality.code: Locality code.
+ *     - locality.name: Locality name.
+ *   - administrative_area: The administrative area subdivision.
+ *     - administrative_area.code: Administrative area code.
+ *     - administrative_area.name: Administrative area name.
+ *   - country: The country.
+ *     - country.code: Country code.
+ *     - country.name: Country name.
+ *   - address: An object that implements \Drupal\address\AddressInterface
+ *     representing the address to be rendered. Only public methods can be used.
+ *   - view_mode: View mode of the entity being rendered that this address field
+ *     is attached to. For example, "teaser" or "full".
+ *
+ * if a subdivision (dependent_locality, locality, administrative_area) was
+ * entered, the array will always have a code. If it's a predefined subdivision,
+ * it will also have a name. The code is always preferred.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if address_line1 or address_line2 or locality.code or postal_code or administrative_area.code or administrative_area.name %}
+  <li class="address" translate="no">
+    <div class="location-title">
+      <span>{{ 'indirizzo'|t }}</span>
+    </div>
+    <div class="location-content">
+      <p>
+        {% if address_line1 %}{{ address_line1 }},&nbsp;{% endif %}
+        {% if address_line2 %}{{ address_line2 }},&nbsp;{% endif %}
+        {% if locality.code or postal_code or administrative_area.code or administrative_area.name %}
+          {{ locality.code }} {{ postal_code }} {{ administrative_area.name }} ({{ administrative_area.code }})
+        {% endif %}
+        {#Via Vaglia, 6, 00139 - Roma RM#}
+      </p>
+    </div>
+  </li>
+{% endif %}
+{% if locality.code or postal_code or administrative_area.code %}
+  <li class="address" translate="no">
+    <div class="location-title">
+      <span>{{ 'CAP'|t }}</span>
+    </div>
+    <div class="location-content">
+      <p>{{ locality.code }} {{ postal_code }}</p>
+    </div>
+  </li>
+{% endif %}
+{% if administrative_area.name %}
+  <li class="address" translate="no">
+    <div class="location-title">
+      <span>{{ 'Comune'|t }}</span>
+    </div>
+    <div class="location-content">
+      <p>{{ administrative_area.name }} ({{ administrative_area.code }})</p>
+    </div>
+  </li>
+{% endif %}

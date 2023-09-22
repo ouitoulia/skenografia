@@ -211,7 +211,7 @@
 
 {# <article{{attributes}}>
   <div class="container px-4 mb-4">
-    <div class="row">
+    <div class="row variable-gutters">
       <div class="col-lg-8 px-lg-4 py-lg-2">
         {{ title_prefix }}
         <h1 data-audio {{ title_attributes }}>
@@ -222,7 +222,7 @@
         <p data-audio>
           {{ content.field_descrizione_breve }}
         </p>
-        <div class="row mt-5 mb-4">
+        <div class="row variable-gutters mt-5 mb-4">
           <div class="col-6">
             <small>{{ 'Date'|t }}:</small>
             <p class="fw-semibold font-monospace">{{ content.field_data_della_notizia|render|striptags }}</p>

@@ -82,13 +82,13 @@
 
 <section class="section bg-white">
   <div class="container">
-    <div class="row">
+    <div class="row variable-gutters">
       <div class="col-md-6 order-md-2">{{ content.field_copertina }}</div>
       <div class="col-md-6 order-md-1 d-flex align-items-center">
         <div class="title-content">
           <h1>{{ label }}</h1>
           {{ content.field_abstract }}
-          <aside>{{ content.field_argomenti }}</aside>
+          <aside class="badges-wrapper badges-main">{{ content.field_argomenti }}</aside>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
 
 <section class="section bg-white">
   <div class="container container-border-top">
-    <div class="row">
+    <div class="row variable-gutters">
       <div class="col-lg-3 col-md-4 border-end px-0">
         <aside>
           {{ content.toc_js }}
@@ -107,19 +107,62 @@
 
         <article{{ attributes.addClass(classes) }}>
 
+          <div class="row variable-gutters">
+            <div class="col-lg-12 d-flex justify-content-end">
+              {% include '@bi-bcl/share/content-actions.twig' %}
+              {% include '@bi-bcl/share/share-this.twig' %}
+            </div>
+          </div>
+
           <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
             {{ content.field_video }}
+            {{ content.body }}
+            {{ content.field_elementi_di_interesse }}
+
+            <h2 id="" class="h4">{{ 'Dove si trova'|t }}</h2>
+            <div class="row variable-gutters mb-5">
+              <div class="col-lg-12">
+                {% embed '@bi-bcl/card/card.html.twig' with {
+                  card_shadow: true,
+                  card_rounded: true,
+                  card_body_classes: ['p-0']
+                } %}
+                  {% block cardText %}
+                    <div class="row variable-gutters">
+                      <div class="col-lg-6">
+                        {{ content.field_coordinate_geografiche }}
+                      </div>
+                      <div class="col-lg-6 py-4">
+                        <ul class="location-list mt-2 lis">
+                          {{ content.field_indirizzo }}
+                          {{ content.field_orario_pubblico }}
+                          {{ content.field_email }}
+                          {{ content.field_telefono }}
+                        </ul>
+                      </div>
+                    </div>
+                  {% endblock %}
+                {% endembed %}
+              </div>
+            </div>
 
             {{ content|without(
               'field_abstract',
               'field_argomenti',
               'field_copertina',
               'field_video',
+              'body',
+              'field_elementi_di_interesse',
+              'field_coordinate_geografiche',
+              'field_indirizzo',
+              'field_email',
+              'field_telefono',
+              'field_orario_pubblico',
               'toc_js'
             ) }}
           </div>
 
-          <div class="row">
+          <div class="row variable-gutters">
             <div class="col-lg-9">
               <div class="article-footer font-serif">
                 <h2 class="visually-hidden">{{ 'Metadata' }}</h2>

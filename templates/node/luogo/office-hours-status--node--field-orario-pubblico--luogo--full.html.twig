@@ -1,0 +1,10 @@
+{% include '@bi-bcl/badge/badge.html.twig' with {
+  label: is_open ? open_text : closed_text,
+  background: is_open ? 'success' : 'secondary',
+  assistive_text: 'Attualmente il luogo è '|t ~ (is_open ? 'aperto'|t : 'chiuso'|t) ~ '.',
+  badge_classes: [
+    "office-hours-status office-hours-status--" ~ (is_open ? "open" : "closed"),
+    'mb-2'
+  ],
+  badge_attributes: attributes,
+} %}
