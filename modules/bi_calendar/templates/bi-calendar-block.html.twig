@@ -23,7 +23,7 @@
 
       {% block cardText %}
         {% for node in item['nodes'] %}
-          <p class="card-text px-2 pb-10 mb-10 d-flex">
+          <p class="card-text font-serif px-2 pb-10 mb-10 d-flex">
             {% if node.field_immagine.value %}
 
               {% set image = node.field_immagine.entity.field_media_image %}
