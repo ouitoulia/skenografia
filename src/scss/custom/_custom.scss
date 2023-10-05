@@ -96,7 +96,11 @@
 @import 'design-scuole-pagine-statiche-src/src/scss/parts/article';
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/note';
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/accordion';
-@import 'design-scuole-pagine-statiche-src/src/scss/parts/location';
+
+// Fatto 2.3.0
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/location';
+@import "r-engineering/parts/location";
+
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/hero';
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/quote';
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/gallery';

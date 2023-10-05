@@ -58,7 +58,7 @@
     </div>
     <div{{ attributes.addClass(container_classes) }}>
       {% for item in items %}
-        <p{{ item.attributes }}>{{ item.content }}</p>
+        <p{{ item.attributes.addClass('mb-2') }}>{{ item.content }}</p>
       {% endfor %}
     </div>
   </li>
