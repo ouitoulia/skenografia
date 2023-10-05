@@ -83,7 +83,7 @@
                 a.nav-link {
                   padding-left: 0;
                   padding-right: 0;
-                  font-size: 1.25em;
+                  font-size: 1.25rem;
                   &.show {
                     text-decoration: underline;
                   }
@@ -101,7 +101,7 @@
                     padding-top: 6px;
                     padding-bottom: 6px;
                     padding-left: 0;
-                    font-size: 1.25em;
+                    font-size: 1.25rem;
                   }
                   li.menu-title a span {
                     color: $gray-primary;
@@ -187,7 +187,7 @@
               .nav-item {
                 .nav-link {
                   span {
-                    font-size: .845em;
+                    font-size: .96rem;
                   }
                 }
                 &:last-child {
