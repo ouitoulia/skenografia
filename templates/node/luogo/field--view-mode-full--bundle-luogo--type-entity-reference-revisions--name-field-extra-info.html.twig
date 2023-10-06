@@ -51,19 +51,26 @@
     multiple ? 'field-multiple',
     'field--label-' ~ label_display|clean_class,
     field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
-    'mb-5'
   ] %}
 
-  <div{{ attributes.addClass(container_classes) }}>
-    <h3{{ title_attributes.addClass('h6') }}>
-       {{ label }}
-    </h3>{# End label container. #}
+  {% set title_classes = [
+    'h4','mb-4'
+  ] %}
 
-    <div class="card-wrapper card-teaser-wrapper">
-      {% for item in items %}
-        {{ item.content }}
-      {% endfor %}
+<div{{ attributes.addClass(container_classes) }}>
+  <h2{{ title_attributes.addClass(title_classes).setAttribute('id', label|clean_id() ) }}>
+    {{ label }}
+  </h2>{# End label container. #}
+
+  {% if multiple %}
+    <div>
+  {% endif %}
+  {% for item in items %}
+    <div{{ item.attributes.addClass('mb-5') }}>{{ item.content }}</div>
+  {% endfor %}
+  {% if multiple %}
     </div>
+  {% endif %}
 
-  </div>{# End main container. #}
+</div>{# End main container. #}
 {% endapply %}

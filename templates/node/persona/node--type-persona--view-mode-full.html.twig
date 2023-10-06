@@ -141,24 +141,8 @@
             ) }}
           </div>
 
-          <div class="row variable-gutters">
-            <div class="col-lg-9">
-              <div class="article-footer font-serif">
-                <h2 class="visually-hidden">{{ 'Metadata' }}</h2>
-                <p>
-                  <strong>{{ 'Published'|t }}</strong>: {{ date }} - <strong>{{ 'Revision'|t }}</strong>: {{ node.changed.value|format_date('bootstrap_italia_medium') }}
-                </p>
-                {{ metadata }}
-                <p>{% include '@skenografia/_content_lincese.html.twig' %}</p>
-              </div>
-            </div>
-          </div>
-
-          {% if content.comment %}
-            <div id="node--comments" class="node_comments">
-              {{ content.comment }}
-            </div>
-          {% endif %}
+          {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
+          {% include '@skenografia/node/_partial.node--comments.html.twig' %}
 
         </article>
 

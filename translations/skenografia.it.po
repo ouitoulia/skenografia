@@ -1,0 +1,643 @@
+# $Id$
+#
+# Italian translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  skenografia.info.yml: n/a
+#  config/optional/block.block.skenografia_page_title.yml: n/a
+#  config/optional/block.block.skenografia_help.yml: n/a
+#  config/optional/block.block.skenografia_footer.yml: n/a
+#  components/navscroll/page-index.html.twig: n/a
+#  config/schema/skenografia.schema.yml: n/a
+#  includes/theme-settings.inc: n/a
+#  templates/node/luogo/address-plain--node--luogo--full.html.twig: n/a
+#  modules/bi_calendar/bi_calendar.info.yml: n/a
+#  modules/bi_calendar/src/Plugin/Block/CalendarBlock.php: n/a
+#  modules/bi_toc/bi_toc.info.yml: n/a
+#  modules/bi_twig_extensions/bi_twig_extensions.info.yml: n/a
+#  modules/bi_toc/js/tableOfContents.js: n/a
+#  templates/layout/header/_partial.header.html.twig: n/a
+#  templates/node/_partial.content-type--footer-metadata.html.twig: n/a
+#  templates/node/luogo/node--type-luogo--view-mode-full.html.twig: n/a
+#  templates/node/persona/node--type-persona--view-mode-full.html.twig: n/a
+#  templates/node/luogo/office-hours-status--node--field-orario-pubblico--luogo--full.html.twig: n/a
+#  templates/node/notizia/node--type-notizia--view-mode-card.html.twig: n/a
+#  templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-1.html.twig: n/a
+#  templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-2.html.twig: n/a
+#  templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza.html.twig: n/a
+#  templates/node/notizia/node--type-notizia--view-mode-teaser.html.twig: n/a
+#  templates/node/notizia/node--type-notizia--view-mode-full.html.twig: n/a
+#  templates/node/notizia/node--type-notizia--view-mode-hero.html.twig: n/a
+#  templates/region/brand/block--system-branding-block.html.twig: n/a
+#  templates/region/header-nav/region--header-nav.html.twig: n/a
+#  templates/region/header-slim-acction/menu--header-slim-action.html.twig: n/a
+#  config/optional/block.block.languageswitcher.yml: n/a
+#  config/optional/block.block.skenografia_account_menu.yml: n/a
+#  config/optional/block.block.skenografia_branding.yml: n/a
+#  config/optional/block.block.skenografia_breadcrumbs.yml: n/a
+#  config/optional/block.block.skenografia_content.yml: n/a
+#  config/optional/block.block.skenografia_local_actions.yml: n/a
+#  config/optional/block.block.skenografia_local_tasks.yml: n/a
+#  config/optional/block.block.skenografia_main_menu.yml: n/a
+#  config/optional/system.menu.main.yml: n/a
+#  config/optional/block.block.skenografia_messages.yml: n/a
+#  config/optional/block.block.skenografia_search.yml: n/a
+#  config/optional/block.block.slimtop.yml: n/a
+#  config/optional/system.menu.slim-top.yml: n/a
+#  config/optional/block.block.smallprints.yml: n/a
+#  config/optional/system.menu.small-prints.yml: n/a
+#  config/optional/system.menu.footer.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2023-10-06 18:38+0200\n"
+"PO-Revision-Date: 2023-10-06 18:38+0200\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Italian <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: skenografia.info.yml:0
+msgid "Skenografia"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole."
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Ouitoulía"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Page top"
+msgstr "Inizio pagina"
+
+#: skenografia.info.yml:0
+msgid "Blocks disabled"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Slim header - Menu"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Slim header - Language"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Slim header - Login and user menu"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Central Header - Logo and site branding"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Central Header - Social network"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Central Header - Search area"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Header Nav - Main menu"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Before content - Full width region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Before content - First region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Before content - Second region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Before content - Third region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Before content - Fourth region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Breadcrumb"
+msgstr "Briciole di pane"
+
+#: skenografia.info.yml:0 config/optional/block.block.skenografia_page_title.yml:0
+msgid "Page title"
+msgstr "Titolo della pagina"
+
+#: skenografia.info.yml:0
+msgid "Administration tabs"
+msgstr ""
+
+#: skenografia.info.yml:0 config/optional/block.block.skenografia_help.yml:0
+msgid "Help"
+msgstr "Aiuto"
+
+#: skenografia.info.yml:0
+msgid "Notification area"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Main Content"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Sidebar first"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Sidebar second"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "After content - First region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "After content - Second region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "After content - Third region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "After content - Fourth region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "After content - Full width region"
+msgstr ""
+
+#: skenografia.info.yml:0 config/optional/block.block.skenografia_footer.yml:0
+msgid "Footer menu"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Footer - First region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Footer - Second region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Footer - Third region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Footer - Fourth region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Footer - Small menu  prints: legal, privacy, etc."
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Footer - Credits"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Page bottom"
+msgstr "Fondo pagina"
+
+#: skenografia.info.yml:0
+msgid "Home page - First row full width"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - First row - First region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - First row - Second region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - First row - Third region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - First row - Fourth region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Second row full width"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Second row - First region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Second row - Second region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Second row - Third region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Second row - Fourth region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Third row full width"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Third row - First region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Third row - Second region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Third row - Third region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Third row - Fourth region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Fourth row full width"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Fourth row - First region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Fourth row - Second region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Fourth row - Third region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Fourth row - Fourth region"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Home page - Last full width region"
+msgstr ""
+
+#: components/navscroll/page-index.html.twig:26
+msgid "Page index"
+msgstr ""
+
+#: config/schema/skenografia.schema.yml:0
+msgid "skenografia settings"
+msgstr ""
+
+#: includes/theme-settings.inc:30
+msgid "Codici identificativi"
+msgstr ""
+
+#: includes/theme-settings.inc:31
+msgid "Inserisci i codici identificativi della tua scuola."
+msgstr ""
+
+#: includes/theme-settings.inc:38
+msgid "Codice Meccanografico"
+msgstr ""
+
+#: includes/theme-settings.inc:39
+msgid "Inserisci il codice meccanografico della tua scuola, in minuscolo."
+msgstr ""
+
+#: includes/theme-settings.inc:40
+msgid "aabb123456"
+msgstr ""
+
+#: includes/theme-settings.inc:45
+msgid "Codice fiscale"
+msgstr ""
+
+#: includes/theme-settings.inc:46
+msgid "Inserisci il codice fiscale della tua scuola, in minuscolo."
+msgstr ""
+
+#: includes/theme-settings.inc:47
+msgid "12345678901"
+msgstr ""
+
+#: includes/theme-settings.inc:52
+msgid "Codice IPA"
+msgstr ""
+
+#: includes/theme-settings.inc:53
+msgid "Inserisci il codice IPA della tua scuola, in minuscolo."
+msgstr ""
+
+#: includes/theme-settings.inc:60
+msgid "Anagrafica"
+msgstr ""
+
+#: includes/theme-settings.inc:61
+msgid "Inserisci le informazioni anagrafiche della tua scuola."
+msgstr ""
+
+#: includes/theme-settings.inc:68
+msgid "Indirizzo"
+msgstr ""
+
+#: includes/theme-settings.inc:69
+msgid "Via Roma n.1"
+msgstr ""
+
+#: includes/theme-settings.inc:74 templates/node/luogo/address-plain--node--luogo--full.html.twig:59
+msgid "CAP"
+msgstr ""
+
+#: includes/theme-settings.inc:75
+msgid "12345"
+msgstr ""
+
+#: includes/theme-settings.inc:80 templates/node/luogo/address-plain--node--luogo--full.html.twig:69
+msgid "Comune"
+msgstr ""
+
+#: includes/theme-settings.inc:81
+msgid "Roma"
+msgstr ""
+
+#: includes/theme-settings.inc:86
+msgid "Provincia"
+msgstr ""
+
+#: includes/theme-settings.inc:87
+msgid "RM"
+msgstr ""
+
+#: includes/theme-settings.inc:116
+msgid "The logo could not be uploaded."
+msgstr ""
+
+#: modules/bi_calendar/bi_calendar.info.yml:0 modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:9
+msgid "Bootstrap Italia Calendar"
+msgstr ""
+
+#: modules/bi_calendar/bi_calendar.info.yml:0
+msgid "This module adds a block with events calendar."
+msgstr ""
+
+#: modules/bi_calendar/bi_calendar.info.yml:0 modules/bi_toc/bi_toc.info.yml:0 modules/bi_twig_extensions/bi_twig_extensions.info.yml:0
+msgid "Bootstrap Italia"
+msgstr ""
+
+#: modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:36
+msgid "Numero di giorni precedenti ad oggi"
+msgstr ""
+
+#: modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:37
+msgid "Da quale giorno deve partire la visibilità. Inserire un numero negativo. Es: -4"
+msgstr ""
+
+#: modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:42
+msgid "Numero di giorni dopo oggi"
+msgstr ""
+
+#: modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:43
+msgid "Fino a quale giorno deve arrivare la visibilità."
+msgstr ""
+
+#: modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:48
+msgid "Numero di giorni da visualizzare"
+msgstr ""
+
+#: modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:49
+msgid "Numero di card giorno da visualizzare."
+msgstr ""
+
+#: modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:9
+msgid "Events Calendar block"
+msgstr ""
+
+#: modules/bi_toc/bi_toc.info.yml:0
+msgid "Bootstrap Italia Toc js"
+msgstr ""
+
+#: modules/bi_toc/bi_toc.info.yml:0
+msgid "Build a hierarchical table of contents from header tags present on a page with the tableOfContents.js library."
+msgstr ""
+
+#: modules/bi_toc/js/tableOfContents.js:0
+msgid "Table of Contents"
+msgstr ""
+
+#: modules/bi_twig_extensions/bi_twig_extensions.info.yml:0
+msgid "Bootstrap Italia Twig Extensions"
+msgstr ""
+
+#: modules/bi_twig_extensions/bi_twig_extensions.info.yml:0
+msgid "Twig extension and filters for Bootstrap Italia."
+msgstr ""
+
+#: templates/layout/header/_partial.header.html.twig:27
+msgid "Login to your personal area"
+msgstr ""
+
+#: templates/layout/header/_partial.header.html.twig:67;82;100;101
+msgid "Site search"
+msgstr ""
+
+#: templates/layout/header/_partial.header.html.twig:79;98
+msgid "Search"
+msgstr "Cerca"
+
+#: templates/node/_partial.content-type--footer-metadata.html.twig:6
+msgid "Published"
+msgstr "Pubblicato"
+
+#: templates/node/_partial.content-type--footer-metadata.html.twig:6
+msgid "Revision"
+msgstr "Revisione"
+
+#: templates/node/_partial.content-type--footer-metadata.html.twig:10
+msgid "Eccetto dove diversamente specificato, questo articolo è stato\n          rilasciato sotto Licenza Creative Commons Attribuzione 4.0 Italia."
+msgstr ""
+
+#: templates/node/luogo/address-plain--node--luogo--full.html.twig:42
+msgid "indirizzo"
+msgstr ""
+
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:122
+msgid "Dove si trova"
+msgstr ""
+
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:151
+msgid "Servizi presenti"
+msgstr ""
+
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:152
+msgid "Il luogo è sede di"
+msgstr ""
+
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:153 templates/node/persona/node--type-persona--view-mode-full.html.twig:126
+msgid "Contatti"
+msgstr ""
+
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:154
+msgid "Strutture che gestiscono il luogo"
+msgstr ""
+
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:155
+msgid "Le persone che gestiscono il luogo"
+msgstr ""
+
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:192
+msgid "Dettagli del luogo"
+msgstr ""
+
+#: templates/node/luogo/office-hours-status--node--field-orario-pubblico--luogo--full.html.twig:4
+msgid "Attualmente il luogo è"
+msgstr ""
+
+#: templates/node/luogo/office-hours-status--node--field-orario-pubblico--luogo--full.html.twig:4
+msgid "aperto"
+msgstr ""
+
+#: templates/node/luogo/office-hours-status--node--field-orario-pubblico--luogo--full.html.twig:4
+msgid "chiuso"
+msgstr ""
+
+#: templates/node/notizia/node--type-notizia--view-mode-card.html.twig:87 templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-1.html.twig:89 templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-2.html.twig:91 templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza.html.twig:87 templates/node/notizia/node--type-notizia--view-mode-teaser.html.twig:82
+msgid "Read more about:"
+msgstr ""
+
+#: templates/node/notizia/node--type-notizia--view-mode-full.html.twig:281
+msgid "Last update"
+msgstr "Ultimo aggiornamento"
+
+#: templates/node/notizia/node--type-notizia--view-mode-full.html.twig:288
+msgid "Submitted by\n              @author_name\n              on\n              @date"
+msgstr ""
+
+#: templates/node/notizia/node--type-notizia--view-mode-hero.html.twig:76
+msgid "Read More"
+msgstr ""
+
+#: templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-2.html.twig:81
+msgid "Go to page"
+msgstr ""
+
+#: templates/node/persona/node--type-persona--view-mode-full.html.twig:116
+msgid "Didattica"
+msgstr ""
+
+#: templates/node/persona/node--type-persona--view-mode-full.html.twig:119
+msgid "Schede didattiche"
+msgstr ""
+
+#: templates/node/persona/node--type-persona--view-mode-full.html.twig:120
+msgid "Progetti"
+msgstr ""
+
+#: templates/node/persona/node--type-persona--view-mode-full.html.twig:122
+msgid "Documenti"
+msgstr ""
+
+#: templates/region/brand/block--system-branding-block.html.twig:24
+msgid "Home"
+msgstr "Home"
+
+#: templates/region/brand/block--system-branding-block.html.twig:25
+msgid "Go to home page"
+msgstr ""
+
+#: templates/region/header-nav/region--header-nav.html.twig:42
+msgid "Follow us on"
+msgstr ""
+
+#: templates/region/header-slim-acction/menu--header-slim-action.html.twig:28
+msgid "User"
+msgstr "Utente"
+
+#: templates/region/header-slim-acction/menu--header-slim-action.html.twig:33
+msgid "User actions"
+msgstr ""
+
+#: config/optional/block.block.languageswitcher.yml:0
+msgid "Language switcher"
+msgstr "Selettore lingua"
+
+#: config/optional/block.block.skenografia_account_menu.yml:0
+msgid "User account menu"
+msgstr "Menu profilo utente"
+
+#: config/optional/block.block.skenografia_branding.yml:0
+msgid "Site branding"
+msgstr "Branding del sito"
+
+#: config/optional/block.block.skenografia_breadcrumbs.yml:0
+msgid "Breadcrumbs"
+msgstr "Breadcrumb"
+
+#: config/optional/block.block.skenografia_content.yml:0
+msgid "Main page content"
+msgstr "Contenuto della pagina principale"
+
+#: config/optional/block.block.skenografia_local_actions.yml:0
+msgid "Primary admin actions"
+msgstr "Azioni di amministrazione principali"
+
+#: config/optional/block.block.skenografia_local_tasks.yml:0
+msgid "Tabs"
+msgstr "Schede"
+
+#: config/optional/block.block.skenografia_main_menu.yml:0 config/optional/system.menu.main.yml:0
+msgid "Main navigation"
+msgstr "Navigazione principale"
+
+#: config/optional/block.block.skenografia_messages.yml:0
+msgid "Status messages"
+msgstr "Messaggi di stato"
+
+#: config/optional/block.block.skenografia_search.yml:0
+msgid "Cerca"
+msgstr ""
+
+#: config/optional/block.block.slimtop.yml:0 config/optional/system.menu.slim-top.yml:0
+msgid "Slim top"
+msgstr ""
+
+#: config/optional/block.block.smallprints.yml:0 config/optional/system.menu.small-prints.yml:0
+msgid "Small prints"
+msgstr ""
+
+#: config/optional/system.menu.footer.yml:0
+msgid "Footer"
+msgstr "Piè di pagina"
+
+#: config/optional/system.menu.footer.yml:0
+msgid "Site information links"
+msgstr ""
+
+#: config/optional/system.menu.main.yml:0
+msgid "Site section links"
+msgstr ""
+
+#: config/optional/system.menu.slim-top.yml:0
+msgid "Top slim menu"
+msgstr ""
+
+#: config/optional/system.menu.small-prints.yml:0
+msgid "Footer legal links"
+msgstr ""
+

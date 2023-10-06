@@ -113,6 +113,9 @@ dependencies:
  - drupal:inline_form_errors
  - drupal:responsive_image
 
+'interface translation project': skenografia
+'interface translation server pattern': themes/contrib/%project/translations/%project.%language.po
+
 components:
   namespaces:
     skenografia_components:

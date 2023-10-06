@@ -1,0 +1,17 @@
+<div class="row variable-gutters">
+  <div class="col-lg-9">
+    <div class="border-top border-light mt-5 pt-4">
+      <h2 class="visually-hidden">{{ 'Metadata' }}</h2>
+      <p class="font-serif small mb-2">
+        <strong>{{ 'Published'|t }}</strong>: {{ date }} - <strong>{{ 'Revision'|t }}</strong>: {{ node.changed.value|format_date('bootstrap_italia_medium') }}
+      </p>
+      {{ metadata }}
+      <p class="font-serif small mb-2">
+        {% trans %}
+          Eccetto dove diversamente specificato, questo articolo è stato
+          rilasciato sotto Licenza Creative Commons Attribuzione 4.0 Italia.
+        {% endtrans %}
+      </p>
+    </div>
+  </div>
+</div>

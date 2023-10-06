@@ -93,7 +93,11 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/actions';
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/aside';
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/calendars';
-@import 'design-scuole-pagine-statiche-src/src/scss/parts/article';
+
+//
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/article';
+@import "r-engineering/parts/article";
+
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/note';
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/accordion';
 
@@ -122,6 +126,3 @@ h1 {@extend .fw-semibold;}
 // Layout
 @import "layout/header";
 @import "layout/hamburger";
-
-// Content type
-@import "content-type/article";
