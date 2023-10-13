@@ -122,27 +122,31 @@
             <h2 id="dove-si-trova" class="h4">{{ 'Dove si trova'|t }}</h2>
             <div class="row variable-gutters mb-5">
               <div class="col-lg-12">
-                {% embed '@bi-bcl/card/card.html.twig' with {
-                  card_shadow: true,
-                  card_rounded: true,
-                  card_body_classes: ['p-0']
-                } %}
-                  {% block cardText %}
-                    <div class="row variable-gutters">
-                      <div class="col-lg-6">
-                        {{ content.field_coordinate_geografiche }}
+                {% if content.field_luoghi|render|striptags|trim is not empty %}
+                  {{ content.field_luoghi }}
+                {% else %}
+                  {% embed '@bi-bcl/card/card.html.twig' with {
+                    card_shadow: true,
+                    card_rounded: true,
+                    card_body_classes: ['p-0']
+                  } %}
+                    {% block cardText %}
+                      <div class="row variable-gutters">
+                        <div class="col-lg-6">
+                          {{ content.field_coordinate_geografiche }}
+                        </div>
+                        <div class="col-lg-6 py-4">
+                          <ul class="location-list mt-2 lis">
+                            {{ content.field_indirizzo }}
+                            {{ content.field_orario_pubblico }}
+                            {{ content.field_email }}
+                            {{ content.field_telefono }}
+                          </ul>
+                        </div>
                       </div>
-                      <div class="col-lg-6 py-4">
-                        <ul class="location-list mt-2 lis">
-                          {{ content.field_indirizzo }}
-                          {{ content.field_orario_pubblico }}
-                          {{ content.field_email }}
-                          {{ content.field_telefono }}
-                        </ul>
-                      </div>
-                    </div>
-                  {% endblock %}
-                {% endembed %}
+                    {% endblock %}
+                  {% endembed %}
+                {% endif %}
               </div>
             </div>
 
@@ -164,6 +168,7 @@
                   'field_video',
                   'body',
                   'field_elementi_di_interesse',
+                  'field_luoghi',
                   'field_coordinate_geografiche',
                   'field_indirizzo',
                   'field_email',
