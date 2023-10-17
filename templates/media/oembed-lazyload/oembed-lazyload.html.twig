@@ -8,6 +8,7 @@
  * - thumbnail: The thumbnail element.
  * - button: The button element.
  * - iframe: The iframe element.
+ * - privacy_path: url to privacy policy.
  *
  * @see template_preprocess_oembed_lazyload()
  *
@@ -31,7 +32,10 @@
           size: 'xl'
         } %}
       </div>
-      <p>Accetta i cookie di YouTube per vedere il video. Puoi gestire le preferenze nella <a href="#" class="text-white">cookie policy</a>.
+      <p>
+        {% trans %}
+          Accetta i cookie di YouTube per vedere il video.
+          Puoi gestire le preferenze nella <a href="{{ privacy_path }}" class="text-white" title="Leggi l'informativa sulla gestione dei cookie">cookie policy</a>.{% endtrans %}
       </p>
       <div class="acceptoverlay-buttons bg-dark">
         {{ placeholder }}

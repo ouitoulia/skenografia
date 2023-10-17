@@ -5,6 +5,7 @@
  * Theme settings.
  */
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_form_system_theme_settings_alter().
@@ -88,7 +89,25 @@ function skenografia_form_system_theme_settings_alter(array &$form, FormStateInt
     '#default_value' => theme_get_setting('provincia'),
   ];
 
-  
+  // Media --------------------------------------------------------------.
+  $form['skenografia_media'] = [
+    '#type' => 'details',
+    '#title' => t('Media'),
+    '#description' => t('Settings for media module.'),
+    '#open' => FALSE,
+    '#group' => 'skenografia',
+    '#weight' => 2,
+  ];
+  $form['skenografia_media']['privacy_policy'] = [
+    '#type' => 'entity_autocomplete',
+    '#title' => t('Privacy policy'),
+    '#description' => t('Select privacy policy content.'),
+    '#target_type' => 'node',
+    '#tags' => TRUE,
+    '#selection_handler' => 'default',
+    '#default_value' => Node::load(theme_get_setting('privacy_policy')[0]['target_id']),
+  ];
+
   $form['#validate'][] = 'skenografia_form_system_theme_settings_validate';
 }
 
