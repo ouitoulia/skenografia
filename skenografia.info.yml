@@ -1,6 +1,6 @@
 name: "Skenografia"
 type: theme
-description: "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole."
+description: "Skenografia is a Drupal sub-theme, based on bootstrap_italia, which implements school design."
 package: "Ouitoulía"
 core_version_requirement: ^10
 base theme: bootstrap_italia
@@ -23,6 +23,17 @@ libraries:
 
 ckeditor5-stylesheets:
  - dist/css/ckeditor5.min.css
+
+libraries-override:
+  oembed_lazyload_youtube/youtube:
+    css:
+      theme:
+        css/formatter-third-party-settings.css: false
+  oembed_lazyload/common:
+    css:
+      theme:
+        css/oembed-lazyload.css: false
+        css/oembed-lazyload-style.css: false
 
 # hidden: true # <---- Remember to set false, comment or delete line
 

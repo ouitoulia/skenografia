@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * A specialized placeholder for the YouTube provider.
+ *
+ * Available variables:
+ * - title: The oembed resource title.
+ * - url: The oembed resource url.
+ * - provider: The provider of the oembed content.
+ * - settings: The configured formatter settings.
+ * - third_party_settings: Any third party settings passed on by a specific provider.
+ *  - embed_code: The embed code of the current video.
+ *
+ * @see template_preprocess_oembed_lazyload_placeholder()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% set buttonContent %}
+    {{ 'Agree'|t }}
+    <div class="oembed-lazyload__yt-spinner progress-spinner progress-spinner-double progress-spinner-active">
+      <div class="progress-spinner-inner"></div>
+      <div class="progress-spinner-inner"></div>
+      <span class="visually-hidden">{{ 'Loading'|t }}...</span>
+    </div>
+  {% endset %}
+
+  {% if settings['strategy'] == 'onclick' %}
+    <button type="button" class="oembed-lazyload__button btn btn-primary" data-bs-accept-from="youtube.com">
+      {{ buttonContent }}
+    </button>
+  {% else %}
+    <a class="oembed-lazyload__button" href="{{ url }}" title="{% trans %}Watch {{ title }} on YouTube.{% endtrans %}">
+      {{ buttonContent }}
+    </a>
+  {% endif %}
+  <div class="form-check">
+    <input id="chk-remember" type="checkbox" data-bs-accept-remember>
+    <label for="chk-remember">{{ 'Remember my choice'|t }}</label>
+  </div>
+{% endapply %}

@@ -17,6 +17,7 @@
 #  modules/bi_twig_extensions/bi_twig_extensions.info.yml: n/a
 #  modules/bi_toc/js/tableOfContents.js: n/a
 #  templates/layout/header/_partial.header.html.twig: n/a
+#  templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig: n/a
 #  templates/node/_partial.content-type--footer-metadata.html.twig: n/a
 #  templates/node/luogo/node--type-luogo--view-mode-full.html.twig: n/a
 #  templates/node/persona/node--type-persona--view-mode-full.html.twig: n/a
@@ -52,8 +53,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2023-10-06 18:38+0200\n"
-"PO-Revision-Date: 2023-10-06 18:38+0200\n"
+"POT-Creation-Date: 2023-10-17 12:59+0200\n"
+"PO-Revision-Date: 2023-10-17 12:59+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Italian <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -66,12 +67,12 @@ msgid "Skenografia"
 msgstr ""
 
 #: skenografia.info.yml:0
-msgid "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole."
-msgstr ""
+msgid "Skenografia is a Drupal sub-theme, based on bootstrap_italia, which implements school design."
+msgstr "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole."
 
 #: skenografia.info.yml:0
 msgid "Ouitoulía"
-msgstr ""
+msgstr "Ouitoulía"
 
 #: skenografia.info.yml:0
 msgid "Page top"
@@ -79,35 +80,35 @@ msgstr "Inizio pagina"
 
 #: skenografia.info.yml:0
 msgid "Blocks disabled"
-msgstr ""
+msgstr "Blocchi disattivati"
 
 #: skenografia.info.yml:0
 msgid "Slim header - Menu"
-msgstr ""
+msgstr "Slim header - Menu"
 
 #: skenografia.info.yml:0
 msgid "Slim header - Language"
-msgstr ""
+msgstr "Slim header - Lingua"
 
 #: skenografia.info.yml:0
 msgid "Slim header - Login and user menu"
-msgstr ""
+msgstr "Slim header - Accedi e menu utente"
 
 #: skenografia.info.yml:0
 msgid "Central Header - Logo and site branding"
-msgstr ""
+msgstr "Header centrale - Logo e denominazione"
 
 #: skenografia.info.yml:0
 msgid "Central Header - Social network"
-msgstr ""
+msgstr "Header Centrale - Social network"
 
 #: skenografia.info.yml:0
 msgid "Central Header - Search area"
-msgstr ""
+msgstr "Header centrale - Cerca"
 
 #: skenografia.info.yml:0
 msgid "Header Nav - Main menu"
-msgstr ""
+msgstr "Header centrale - Menu principale"
 
 #: skenografia.info.yml:0
 msgid "Before content - Full width region"
@@ -151,7 +152,7 @@ msgstr ""
 
 #: skenografia.info.yml:0
 msgid "Main Content"
-msgstr ""
+msgstr "Contenuto principale"
 
 #: skenografia.info.yml:0
 msgid "Sidebar first"
@@ -461,6 +462,22 @@ msgstr ""
 msgid "Search"
 msgstr "Cerca"
 
+#: templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig:21
+msgid "Agree"
+msgstr "Accetto"
+
+#: templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig:25
+msgid "Loading"
+msgstr "Caricamento"
+
+#: templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig:34
+msgid "Watch @title on YouTube."
+msgstr "Guarda @title su Youtube"
+
+#: templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig:40
+msgid "Remember my choice"
+msgstr "Ricorda la mia scelta"
+
 #: templates/node/_partial.content-type--footer-metadata.html.twig:6
 msgid "Published"
 msgstr "Pubblicato"
@@ -481,27 +498,27 @@ msgstr ""
 msgid "Dove si trova"
 msgstr ""
 
-#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:151
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:155
 msgid "Servizi presenti"
 msgstr ""
 
-#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:152
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:156
 msgid "Il luogo è sede di"
 msgstr ""
 
-#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:153 templates/node/persona/node--type-persona--view-mode-full.html.twig:126
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:157 templates/node/persona/node--type-persona--view-mode-full.html.twig:126
 msgid "Contatti"
 msgstr ""
 
-#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:154
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:158
 msgid "Strutture che gestiscono il luogo"
 msgstr ""
 
-#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:155
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:159
 msgid "Le persone che gestiscono il luogo"
 msgstr ""
 
-#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:192
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:197
 msgid "Dettagli del luogo"
 msgstr ""
 
@@ -559,11 +576,11 @@ msgstr "Home"
 
 #: templates/region/brand/block--system-branding-block.html.twig:25
 msgid "Go to home page"
-msgstr ""
+msgstr "Vai alla prima pagina"
 
 #: templates/region/header-nav/region--header-nav.html.twig:42
 msgid "Follow us on"
-msgstr ""
+msgstr "Seguici su"
 
 #: templates/region/header-slim-acction/menu--header-slim-action.html.twig:28
 msgid "User"
@@ -571,7 +588,7 @@ msgstr "Utente"
 
 #: templates/region/header-slim-acction/menu--header-slim-action.html.twig:33
 msgid "User actions"
-msgstr ""
+msgstr "Azioni utente"
 
 #: config/optional/block.block.languageswitcher.yml:0
 msgid "Language switcher"
@@ -583,11 +600,11 @@ msgstr "Menu profilo utente"
 
 #: config/optional/block.block.skenografia_branding.yml:0
 msgid "Site branding"
-msgstr "Branding del sito"
+msgstr "Intestazione del sito"
 
 #: config/optional/block.block.skenografia_breadcrumbs.yml:0
 msgid "Breadcrumbs"
-msgstr "Breadcrumb"
+msgstr "Briciole di pane"
 
 #: config/optional/block.block.skenografia_content.yml:0
 msgid "Main page content"

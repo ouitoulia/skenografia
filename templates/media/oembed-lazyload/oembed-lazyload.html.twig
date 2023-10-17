@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a an oembed lazyload container.
+ *
+ * Available variables:
+ * - provider: A string containing the oembed provider name.
+ * - thumbnail: The thumbnail element.
+ * - button: The button element.
+ * - iframe: The iframe element.
+ *
+ * @see template_preprocess_oembed_lazyload()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{%
+  set classes = [
+    'oembed-lazyload',
+    'oembed-lazyload--' ~ provider|clean_class,
+    'acceptoverlayable',
+  ]
+%}
+<div {{ attributes.addClass(classes) }} data-strategy="{{ strategy|clean_class }}">
+  <div class="acceptoverlay acceptoverlay-primary fade show">
+    <div class="acceptoverlay-inner">
+      <div class="acceptoverlay-icon">
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: 'it-video',
+          size: 'xl'
+        } %}
+      </div>
+      <p>Accetta i cookie di YouTube per vedere il video. Puoi gestire le preferenze nella <a href="#" class="text-white">cookie policy</a>.
+      </p>
+      <div class="acceptoverlay-buttons bg-dark">
+        {{ placeholder }}
+      </div>
+    </div>
+  </div>
+  {{ iframe }}
+</div>
