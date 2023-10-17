@@ -53,8 +53,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2023-10-17 12:59+0200\n"
-"PO-Revision-Date: 2023-10-17 12:59+0200\n"
+"POT-Creation-Date: 2023-10-17 13:13+0200\n"
+"PO-Revision-Date: 2023-10-17 13:13+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Italian <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -68,7 +68,9 @@ msgstr ""
 
 #: skenografia.info.yml:0
 msgid "Skenografia is a Drupal sub-theme, based on bootstrap_italia, which implements school design."
-msgstr "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole."
+msgstr ""
+"Skenografia è un sub-theme drupal, basato su bootstrap_italia, che "
+"implementa il design delle scuole."
 
 #: skenografia.info.yml:0
 msgid "Ouitoulía"
