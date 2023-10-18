@@ -34,8 +34,9 @@
       </div>
       <p>
         {% trans %}
-          Accetta i cookie di {{ provider }} per vedere il video.
-          Puoi gestire le preferenze nella <a href="{{ privacy_path }}" class="text-white" title="Leggi l'informativa sulla gestione dei cookie">cookie policy</a>.{% endtrans %}
+          Accept {{ provider }} cookies to see the video.
+          You can manage preferences in the <a href="{{ privacy_path }}" class="text-white" title="For additional information we invite you to read the section on cookie management">cookie policy</a>.
+        {% endtrans %}
       </p>
       <div class="acceptoverlay-buttons bg-dark">
         {{ placeholder }}
@@ -44,3 +45,4 @@
   </div>
   {{ iframe }}
 </div>
+
