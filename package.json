@@ -53,7 +53,7 @@
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
-    "bootstrap-italia": "2.7.3",
+    "bootstrap-italia": "2.7.4",
     "design-scuole-pagine-statiche": "github:italia/design-scuole-pagine-statiche#main",
     "design-scuole-pagine-statiche-src": "github:italia/design-scuole-pagine-statiche#src-scss",
     "hamburgers": "^1.2.1"

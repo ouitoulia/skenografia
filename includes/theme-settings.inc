@@ -105,7 +105,9 @@ function skenografia_form_system_theme_settings_alter(array &$form, FormStateInt
     '#target_type' => 'node',
     '#tags' => TRUE,
     '#selection_handler' => 'default',
-    '#default_value' => Node::load(theme_get_setting('privacy_policy')[0]['target_id']),
+    '#default_value' =>
+      null !== theme_get_setting('privacy_policy') ?
+      Node::load(theme_get_setting('privacy_policy')[0]['target_id']) : 0,
   ];
 
   $form['#validate'][] = 'skenografia_form_system_theme_settings_validate';

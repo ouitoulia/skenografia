@@ -114,8 +114,11 @@ libraries_cdn_js: ''
 libraries_cdn_minified: 1
 libraries_cdn_fonts: ''
 libraries_cdn_icons: /libraries/ouitoulia-skenografia/svg/sprites.svg
+android: ''
+apple: ''
 figma: ''
 mastodon: ''
+moodle: ''
 pinterest: ''
 quora: ''
 reddit: ''
@@ -126,3 +129,11 @@ stackoverflow: ''
 tiktok: ''
 vimeo: ''
 pa_website_validator_type: school
+codice_meccanografico: ''
+codice_fiscale: ''
+codice_ipa: ''
+indirizzo: ''
+cap: ''
+comune: ''
+provincia: ''
+privacy_policy: 0
