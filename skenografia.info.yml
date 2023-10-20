@@ -120,11 +120,11 @@ regions:
   home_last_row_full_width: "Home page - Last full width region"
 
 dependencies:
-# - drupal:big_pipe
-# - drupal:inline_form_errors
-# - drupal:responsive_image
-# - color_field:color_field
-# - focal_point:focal_point
+ - drupal:big_pipe
+ - drupal:inline_form_errors
+ - drupal:responsive_image
+ - color_field:color_field
+ - focal_point:focal_point
 
 'interface translation project': skenografia
 'interface translation server pattern': themes/contrib/%project/translations/%project.%language.po
