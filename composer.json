@@ -21,8 +21,6 @@
         "issues": "https://github.com/ouitoulia/skenografia/issues",
         "source": "https://github.com/ouitoulia/skenografia"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "drupal/bootstrap_italia": "2.x-dev@dev",
         "drupal/focal_point": ">=2",
