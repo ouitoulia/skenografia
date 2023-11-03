@@ -68,32 +68,82 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_tag_container: 'article',
-  card_title: label,
-  card_shadow: true,
-  card_rounded: true,
-  card_body_classes: ['p-0'],
-  card_attributes: attributes
-} %}
-  {% block cardTitle %}
-    <h3{{ title_attributes.addClass(['card-title', 'big-heading', 'h5', 'p-3']) }}>
-      {{ label }}
-    </h3>
-  {% endblock %}
-  {% block cardText %}
+{%
+  set classes = [
+  'node',
+  'article-wrapper',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+<section class="section bg-white">
+  <div class="container">
     <div class="row variable-gutters">
-      <div class="col-lg-6">
-        {{ content.field_coordinate_geografiche }}
-      </div>
-      <div class="col-lg-6 py-4">
-        <ul class="location-list mt-2 lis">
-          {{ content.field_indirizzo }}
-          {{ content.field_orario_pubblico }}
-          {{ content.field_email }}
-          {{ content.field_telefono }}
-        </ul>
+      <div class="col-md-6 order-md-2">{{ content.field_copertina }}</div>
+      <div class="col-md-6 order-md-1 d-flex align-items-center">
+        <div class="title-content">
+          <h1{{ title_attributes }}>{{ label }}</h1>
+          {{ content.field_abstract }}
+          <div class="">
+            {{ 'Submitted by'|t }}<br />
+            {% if author_profile_nid %}
+              {{ drupal_entity('node', author_profile_nid, 'teaser') }}
+            {% elseif content.field_persone[0]|render|striptags|trim is not empty %}
+              {{ content.field_persone[0] }}
+            {% else %}
+              {{ author_picture }} {{ author_name }}
+            {% endif %}
+          </div>
+        </div>
       </div>
     </div>
-  {% endblock %}
-{% endembed %}
+  </div>
+</section>
+
+<section class="section bg-white pt-5">
+  <div class="container">
+    <div class="row variable-gutters">
+      <div class="col-lg-9 col-md-8 order-lg-1">
+        <article{{ attributes.addClass(classes) }}>
+
+          <div{{ content_attributes.addClass(['node__content']) }}>
+            <div class="row variable-gutters">
+              <div class="col-lg-9">
+                {{ content|without(
+                  'field_abstract',
+                  'field_copertina',
+                  'field_argomenti',
+                  'field_luoghi',
+                  'field_persone'
+                ) }}
+              </div>
+            </div>
+          </div>
+          {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
+          {% include '@skenografia/node/_partial.node--comments.html.twig' %}
+        </article>
+      </div>
+
+      <aside class="col-lg-3 col-md-4 order-lg-0">
+        <div class="actions-wrapper actions-main mb-4">
+          {% include '@bi-bcl/share/content-actions.twig' %}
+          {% include '@bi-bcl/share/share-this.twig' %}
+        </div>
+
+        <div class="badges-wrapper badges-main mb-4">
+          {{ content.field_argomenti }}
+        </div>
+        <div class="mb-4">
+          {{ content.field_persone }}
+        </div>
+        <div class="mb-4">
+          {{ content.field_luoghi }}
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

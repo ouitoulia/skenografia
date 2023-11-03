@@ -1,0 +1,5 @@
+{% for item in items %}
+  {% include '@bi-bcl/icon/icon.html.twig' with {
+    name: item.content['#context']['value']
+  } %}
+{% endfor %}

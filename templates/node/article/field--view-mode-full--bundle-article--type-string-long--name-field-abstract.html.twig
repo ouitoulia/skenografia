@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation for a field.
+ * Campo abstract content type Persona.
  *
  * To override output, copy the "field.html.twig" from the templates directory
  * to your theme's directory and customize it, just like customizing other
@@ -42,8 +42,19 @@
  */
 #}
 {% apply spaceless %}
+  {% set container_classes = [
+    'field',
+    'field--type-' ~ field_type|clean_class,
+    'field--name-' ~ field_name|clean_class,
+    'field--entity-' ~ entity_type|clean_class,
+    multiple ? 'field-multiple',
+    'field--label-' ~ label_display|clean_class,
+    field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
+  ] %}
 
-  {% for item in items %}
-    <span{{ item.attributes.addClass('me-2') }}>{{ item.content }}</span>
-  {% endfor %}
+  <div{{ attributes.addClass(container_classes) }}>
+    {% for item in items %}
+      <p{{ item.attributes.addClass(['lead']) }}>{{ item.content }}</p>
+    {% endfor %}
+  </div>{# End main container. #}
 {% endapply %}

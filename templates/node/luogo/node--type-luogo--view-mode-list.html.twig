@@ -1,7 +1,8 @@
 {#
 /**
  * @file
- * Default theme implementation to display a node.
+ * Default theme implementation to list display a node.
+ * To activate this template you need to add a display named 'card'.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -68,32 +69,24 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_tag_container: 'article',
-  card_title: label,
-  card_shadow: true,
-  card_rounded: true,
-  card_body_classes: ['p-0'],
-  card_attributes: attributes
+{% embed '@bi-bcl/list/list-item.html.twig' with {
+  list_url: url,
+  list_show_end_arrow: true,
+  list_attributes: attributes
 } %}
-  {% block cardTitle %}
-    <h3{{ title_attributes.addClass(['card-title', 'big-heading', 'h5', 'p-3']) }}>
-      {{ label }}
-    </h3>
-  {% endblock %}
-  {% block cardText %}
-    <div class="row variable-gutters">
-      <div class="col-lg-6">
-        {{ content.field_coordinate_geografiche }}
+
+  {% block listImage %}
+    {% if content.field_tipologia_luogo %}
+      <div class="it-thumb">
+        {{ content.field_tipologia_luogo }}
       </div>
-      <div class="col-lg-6 py-4">
-        <ul class="location-list mt-2 lis">
-          {{ content.field_indirizzo }}
-          {{ content.field_orario_pubblico }}
-          {{ content.field_email }}
-          {{ content.field_telefono }}
-        </ul>
-      </div>
-    </div>
+    {% endif %}
   {% endblock %}
+
+  {% block listText %}
+    {% if label %}
+      <span class="text">{{ label }}</span>
+    {% endif %}
+  {% endblock %}
+
 {% endembed %}

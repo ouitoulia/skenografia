@@ -44,6 +44,6 @@
 {% apply spaceless %}
 
   {% for item in items %}
-    <span{{ item.attributes.addClass('me-2') }}>{{ item.content }}</span>
+    <span{{ item.attributes }}>{{ item.content }}</span>
   {% endfor %}
 {% endapply %}
