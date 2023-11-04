@@ -54,23 +54,8 @@
   ] %}
 
   <div{{ attributes.addClass(container_classes) }}>
-
-    {% include '@bi-field/_partial.field-label.html.twig' with {
-      field_label_tag: 'h2',
-      field_label_bold: false,
-      field_label_separator: '',
-      title_attributes: title_attributes.addClass(['h4','mb-4']).setAttribute('id', label|clean_id() )
-    } %}
-
-    {% if multiple %}
-      <div>
-    {% endif %}
     {% for item in items %}
       <div{{ item.attributes.addClass(['it-page-section','anchor-offset','mb-5']) }}>{{ item.content }}</div>
     {% endfor %}
-    {% if multiple %}
-      </div>
-    {% endif %}
-
   </div>{# End main container. #}
 {% endapply %}
