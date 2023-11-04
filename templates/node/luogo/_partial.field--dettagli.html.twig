@@ -42,7 +42,10 @@
  */
 #}
 {% apply spaceless %}
-  <h3{{ title_attributes.addClass(['h6','mb-0']) }}>{{ label }}</h3>
+  {% include '@bi-field/_partial.field-label.html.twig' with {
+    field_label_tag: 'h3',
+    title_attributes: title_attributes.addClass(['h6','mb-0'])
+  } %}
   {% for item in items %}
     <p{{ item.attributes.addClass(['h3','mb-3','text-secondary']) }}>{{ item.content }}</p>
   {% endfor %}

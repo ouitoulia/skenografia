@@ -109,7 +109,9 @@
 
           <div class="row variable-gutters">
             <div class="col-lg-12 d-flex justify-content-end">
-              {% include '@bi-bcl/share/content-actions.twig' %}
+              {% include '@bi-bcl/share/content-actions.twig' with {
+                description: content.field_abstract|render|striptags|trim,
+              } %}
               {% include '@bi-bcl/share/share-this.twig' %}
             </div>
           </div>

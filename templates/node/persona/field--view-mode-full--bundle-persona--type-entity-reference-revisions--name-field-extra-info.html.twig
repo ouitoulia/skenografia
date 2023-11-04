@@ -53,24 +53,24 @@
     field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
   ] %}
 
-  {% set title_classes = [
-    'h4','mb-4'
-  ] %}
+  <div{{ attributes.addClass(container_classes) }}>
 
-<div{{ attributes.addClass(container_classes) }}>
-  <h2{{ title_attributes.addClass(title_classes).setAttribute('id', label|clean_id() ) }}>
-    {{ label }}
-  </h2>{# End label container. #}
+    {% include '@bi-field/_partial.field-label.html.twig' with {
+      field_label_tag: 'h2',
+      field_label_bold: false,
+      field_label_separator: '',
+      title_attributes: title_attributes.addClass(['h4','mb-4']).setAttribute('id', label|clean_id() )
+    } %}
 
-  {% if multiple %}
-    <div>
-  {% endif %}
-  {% for item in items %}
-    <div{{ item.attributes.addClass('mb-5') }}>{{ item.content }}</div>
-  {% endfor %}
-  {% if multiple %}
-    </div>
-  {% endif %}
+    {% if multiple %}
+      <div>
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes.addClass(['it-page-section','anchor-offset','mb-5']) }}>{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
 
-</div>{# End main container. #}
+  </div>{# End main container. #}
 {% endapply %}

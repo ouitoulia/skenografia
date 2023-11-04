@@ -62,6 +62,7 @@
       {% block accordionItems %}
         {% for item in items %}
           {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
+            item_title_tag: 'h3',
             item_show: false,
             container_id: accordion_id,
           } %}

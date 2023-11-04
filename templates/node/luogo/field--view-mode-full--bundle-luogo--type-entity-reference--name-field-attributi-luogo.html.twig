@@ -55,9 +55,12 @@
   ] %}
 
   <div{{ attributes.addClass(container_classes) }}>
-    <h3{{ title_attributes.addClass('h6') }}>
-       {{ label }}
-    </h3>{# End label container. #}
+    {% include '@bi-field/_partial.field-label.html.twig' with {
+      field_label_tag: 'h3',
+      field_label_bold: false,
+      field_label_separator: '',
+      title_attributes: title_attributes.addClass('h6')
+    } %}
 
     <div class="card-wrapper card-teaser-wrapper">
       {% for item in items %}

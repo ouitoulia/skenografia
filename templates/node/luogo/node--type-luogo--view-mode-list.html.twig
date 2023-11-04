@@ -71,21 +71,16 @@
 #}
 {% embed '@bi-bcl/list/list-item.html.twig' with {
   list_url: url,
+  list_text: label|render|striptags|trim,
   list_show_end_arrow: true,
   list_attributes: attributes
 } %}
 
-  {% block listImage %}
+  {% block listIcon %}
     {% if content.field_tipologia_luogo %}
-      <div class="it-thumb">
+      <div class="it-rounded-icon">
         {{ content.field_tipologia_luogo }}
       </div>
-    {% endif %}
-  {% endblock %}
-
-  {% block listText %}
-    {% if label %}
-      <span class="text">{{ label }}</span>
     {% endif %}
   {% endblock %}
 
