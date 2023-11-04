@@ -89,17 +89,32 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/footer';
 
 // Parts
+// Reverse effettuato, non necessario su bootstrap-italia 2. v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/breadcrumb';
-//@import 'design-scuole-pagine-statiche-src/src/scss/parts/actions';
-//@import 'design-scuole-pagine-statiche-src/src/scss/parts/aside';
-//@import 'design-scuole-pagine-statiche-src/src/scss/parts/calendars';
 
-//
+// Da fare
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/actions';
+//@import "r-engineering/parts/actions";
+
+// Da fare
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/aside';
+//@import "r-engineering/parts/aside";
+
+// Da fare
+//@import 'design-scuole-pagine-statiche-src/src/scss/parts/calendars';
+//@import "r-engineering/parts/calendars";
+
+// Da completare
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/article';
 @import "r-engineering/parts/article";
 
+// Da fare
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/note';
+//@import "r-engineering/parts/note";
+
+// Da fare
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/accordion';
+//@import "r-engineering/parts/accordion";
 
 // Fatto 2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/location';

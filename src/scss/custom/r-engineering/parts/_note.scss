@@ -1,0 +1,24 @@
+//
+// Note
+// https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L18343
+// --------------------------------------------------
+
+.note {
+	font-size: .88rem;
+	svg, img {
+		max-width: 67px;
+		margin: 0 0 15px 0;
+	}
+	a {
+		text-decoration: underline;
+		.purplelight & {
+			color: $purplelight;
+		}
+		.redbrown & {
+			color: $redbrown;
+		}
+	  .bluelectric & {
+			color: $bluelectric;
+		}
+	}
+}

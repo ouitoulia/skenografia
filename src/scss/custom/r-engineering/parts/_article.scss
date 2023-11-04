@@ -1,50 +1,51 @@
 //
 // Article
+// https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L17918
 // --------------------------------------------------
 
 .article-title {
-  position: relative;
-  z-index: 0;
-  height: 480px;
-  display: flex;
-  align-items: center;
-  @include media-breakpoint-down(sm) {
-    min-height: inherit;
-    display: block;
-    height: auto;
-  }
-  .container {
-    height: 100%;
-    position: relative;
-    z-index: 0;
-    .row {
-      height: 100%;
-      position: relative;
-      z-index: 0;
-    }
-  }
-  .title-img {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-color: $gray-primary;
-    background-size: cover;
-    background-attachment: scroll;
-    @include media-breakpoint-down(sm) {
-      position: relative;
-      z-index: 0;
-      right: auto;
-      width: 100%;
-      height: 380px;
-    }
-    @include media-breakpoint-down(xs) {
-      height: 270px;
-    }
-  }
+  //position: relative;
+  //z-index: 0;
+  //height: 480px;
+  //display: flex;
+  //align-items: center;
+  //@include media-breakpoint-down(sm) {
+  //  min-height: inherit;
+  //  display: block;
+  //  height: auto;
+  //}
+  //.container {
+  //  height: 100%;
+  //  position: relative;
+  //  z-index: 0;
+  //  .row {
+  //    height: 100%;
+  //    position: relative;
+  //    z-index: 0;
+  //  }
+  //}
+  //.title-img {
+  //  position: absolute;
+  //  z-index: 1;
+  //  top: 0;
+  //  right: 0;
+  //  width: 50%;
+  //  height: 100%;
+  //  background-repeat: no-repeat;
+  //  background-color: $gray-primary;
+  //  background-size: cover;
+  //  background-attachment: scroll;
+  //  @include media-breakpoint-down(sm) {
+  //    position: relative;
+  //    z-index: 0;
+  //    right: auto;
+  //    width: 100%;
+  //    height: 380px;
+  //  }
+  //  @include media-breakpoint-down(xs) {
+  //    height: 270px;
+  //  }
+  //}
   .title-content {
     padding-right: 20px;
     @include media-breakpoint-down(sm) {
@@ -77,24 +78,24 @@
       font-weight: 400;
       color: $dark;
     }
-    h2, .h2 {
-      font-size: 2.8rem;
-      margin: 0 0 7px 0;
-    }
-    h3, .h3 {
-      font-size: 1.7rem;
-      letter-spacing: -1.7px;
-    }
+    //h2, .h2 {
+    //  font-size: 2.8rem;
+    //  margin: 0 0 7px 0;
+    //}
+    //h3, .h3 {
+    //  font-size: 1.7rem;
+    //  letter-spacing: -1.7px;
+    //}
   }
-  &.article-title-author {
-    align-items: flex-start;
-    .title-content {
-      padding-right: 50px;
-      @include media-breakpoint-down(md) {
-        padding-right: 0px;
-      }
-    }
-  }
+    //&.article-title-author {
+    //  align-items: flex-start;
+    //  .title-content {
+    //    padding-right: 50px;
+    //    @include media-breakpoint-down(md) {
+    //      padding-right: 0px;
+    //    }
+    //  }
+    //}
 }
 
 .article-wrapper {
@@ -135,14 +136,12 @@
       font-family: $font-family-sans-serif;
     }
   }
-  p {
-    &.first-letter {
-      &:first-letter {
-        font-size: 3.5rem;
-        float: left;
-        margin-top: 8px;
-        margin-right: 4px;
-      }
+  .first-letter p, p.first-letter {
+    &:first-letter {
+      font-size: 3.5rem;
+      float: left;
+      margin-top: 8px;
+      margin-right: 4px;
     }
   }
   blockquote {
@@ -158,7 +157,7 @@
       border-color: $redbrown;
     }
     .greendark & {
-      border-color: #00ffa6;
+      border-color: $greendark;
     }
     .petrol & {
       border-color: $petrol;
@@ -283,6 +282,6 @@
   padding-top: 50px;
   padding-bottom: 0;
   @include media-breakpoint-down(sm) {
-    padding-top: 0px;
+    padding-top: 0;
   }
 }

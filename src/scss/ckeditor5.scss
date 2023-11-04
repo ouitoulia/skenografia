@@ -35,6 +35,10 @@
 
   // Your custom styles.
   @import "custom/custom";
+}
 
-
+@media (min-width: 61rem) {
+  .layout-region--node-main, .layout-region--node-footer {
+    width: auto !important;
+  }
 }
