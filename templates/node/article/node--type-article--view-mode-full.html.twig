@@ -130,10 +130,24 @@
 
       <aside class="col-lg-3 col-md-4 order-lg-0">
         <div class="actions-wrapper actions-main mb-4">
+          {% set _raw_tags = [] %}
+          {% for tag in content.field_argomenti %}
+            {% if tag['#title'] %}
+              {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
+            {% endif %}
+          {% endfor %}
           {% include '@bi-bcl/share/content-actions.twig' with {
             description: content.field_abstract|render|striptags|trim,
+            dropdown_button_classes: ['text-greendark'],
+            dropdown_icon_color: 'greendark',
+            dropdown_icon_size: 'xs',
           } %}
-          {% include '@bi-bcl/share/share-this.twig' %}
+          {% include '@bi-bcl/share/share-this.twig' with {
+            tags: _raw_tags|join(','),
+            dropdown_button_classes: ['text-greendark'],
+            dropdown_icon_color: 'greendark',
+            dropdown_icon_size: 'xs',
+          } %}
         </div>
 
         <div class="badges-wrapper badges-main mb-4">
