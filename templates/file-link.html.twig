@@ -1,0 +1,27 @@
+{% embed '@bootstrap_italia/base/file-link.html.twig' %}
+  {% block fileLink %}
+    {% embed '@bi-bcl/card/card.html.twig' with {
+      card_shadow: true,
+      card_icon: _icon_name|join|trim,
+      card_teaser: true,
+      card_rounded: true,
+      card_border: true,
+      card_attributes: attributes,
+    } %}
+      {% block cardCategoryIconTop %}
+        <div class="card-icon-content d-flex">
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: _icon_name|join|trim,
+            color: 'greendark',
+          } %}
+          <p class="ms-2 mb-0 lh-1 text-sans-serif">
+            <strong class="text-dark">{{ link }}</strong>
+            {% if file_size and file_link_show_size %}
+              <br /><small>{{ file_size }}</small>
+            {% endif %}
+          </p>
+        </div>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}
