@@ -27,15 +27,20 @@ function skenografia_preprocess_node(&$variables, $hook): void {
   // get codice fiscale from submitter account
   $cf = $account->field_codice_fiscale->getValue()[0]['value'];
 
-  // load profile (Persona), if exists return id else null
-  // https://www.drupal.org/docs/drupal-apis/entity-api/working-with-the-entity-api#s-load-an-entity-from-the-database
-  $nids = \Drupal::entityTypeManager()
-    ->getStorage('node')
-    ->loadByProperties([
-      'field_codice_fiscale' => $cf,
-    ]);
-  // nid or null
-  $variables['author_profile_nid'] = array_key_first($nids);
+  if ($cf) {
+    // load profile (Persona), if exists return id else null
+    // https://www.drupal.org/docs/drupal-apis/entity-api/working-with-the-entity-api#s-load-an-entity-from-the-database
+    $nids = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadByProperties([
+        'field_codice_fiscale' => $cf,
+      ]);
+    // nid or null
+    $variables['author_profile_nid'] = array_key_first($nids);
+  }
+  else {
+    $variables['author_profile_nid'] = NULL;
+  }
 }
 
 /**
