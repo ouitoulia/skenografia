@@ -10,6 +10,7 @@
  *   - organization: Organization.
  *   - address_line1: First address line.
  *   - address_line2: Second address line.
+ *   - address_line3: Third address line.
  *   - postal_code: Postal code.
  *   - sorting_code: Sorting code.
  *   - dependent_locality: The dependent locality.
@@ -36,7 +37,7 @@
  * @ingroup themeable
  */
 #}
-{% if address_line1 or address_line2 or locality.code or postal_code or administrative_area.code or administrative_area.name %}
+{% if address_line1 or address_line2 or address_line3 or locality or postal_code or administrative_area.code %}
   <li class="address" translate="no">
     <div class="location-title">
       <span>{{ 'indirizzo'|t }}</span>
@@ -45,31 +46,31 @@
       <p>
         {% if address_line1 %}{{ address_line1 }},&nbsp;{% endif %}
         {% if address_line2 %}{{ address_line2 }},&nbsp;{% endif %}
-        {% if locality.code or postal_code or administrative_area.code or administrative_area.name %}
-          {{ locality.code }} {{ postal_code }} {{ administrative_area.name }} ({{ administrative_area.code }})
+        {% if locality or postal_code or administrative_area.code %}
+          {{ postal_code }} - {{ locality }} ({{ administrative_area.code }})
         {% endif %}
         {#Via Vaglia, 6, 00139 - Roma RM#}
       </p>
     </div>
   </li>
 {% endif %}
-{% if locality.code or postal_code or administrative_area.code %}
+{% if postal_code %}
   <li class="address" translate="no">
     <div class="location-title">
       <span>{{ 'CAP'|t }}</span>
     </div>
     <div class="location-content">
-      <p>{{ locality.code }} {{ postal_code }}</p>
+      <p>{{ postal_code }}</p>
     </div>
   </li>
 {% endif %}
-{% if administrative_area.name %}
+{% if locality %}
   <li class="address" translate="no">
     <div class="location-title">
       <span>{{ 'Comune'|t }}</span>
     </div>
     <div class="location-content">
-      <p>{{ administrative_area.name }} ({{ administrative_area.code }})</p>
+      <p>{{ locality }}{% if administrative_area.code %} ({{ administrative_area.code }}){% endif %}</p>
     </div>
   </li>
 {% endif %}
