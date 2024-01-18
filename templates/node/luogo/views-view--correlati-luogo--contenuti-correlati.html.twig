@@ -34,32 +34,47 @@
 #}
 {%
   set classes = [
-    dom_id ? 'js-view-dom-id-' ~ dom_id,
-  ]
+  'section',
+  'bg-gray-gradient',
+  'py-5',
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+]
 %}
-{% if header %}
-  {{ header }}
-{% endif %}
-<div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {{ title }}
-  {{ title_suffix }}
+<section{{ attributes.addClass(classes).setAttribute('id', 'contenuti-correlati') }}>
+  <div class="container pt-3">
+    <div class="row variable-gutters">
+      <div class="col">
+        {{ title_prefix }}
+        {{ title }}
+        {{ title_suffix }}
 
-  {{ exposed }}
-  {{ attachment_before }}
+        {% if header %}
+          <header>
+            {{ header }}
+          </header>
+        {% endif %}
 
-  {% if rows -%}
-    {{ rows }}
-  {% elseif empty -%}
-    {{ empty }}
-  {% endif %}
-  {{ pager }}
+        {{ exposed }}
+        {{ attachment_before }}
 
-  {{ attachment_after }}
-  {{ more }}
+        {% if rows -%}
+          {{ rows }}
+        {% elseif empty -%}
+          {{ empty }}
+        {% endif %}
+        {{ pager }}
 
-  {{ feed_icons }}
-</div>
-{% if footer %}
-  {{ footer }}
-{% endif %}
+        {{ attachment_after }}
+        {{ more }}
+
+        {% if footer %}
+          <footer>
+            {{ footer }}
+          </footer>
+        {% endif %}
+
+        {{ feed_icons }}
+      </div>
+    </div>
+  </div>
+</section>
