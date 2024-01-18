@@ -135,6 +135,10 @@ h1 {@extend .fw-semibold;}
   background-color: rgba($petrol, 0.1);
 }
 
+.icon-redbrown {
+  fill: $redbrown;
+}
+
 // Componenti
 @import "components/chip";
 

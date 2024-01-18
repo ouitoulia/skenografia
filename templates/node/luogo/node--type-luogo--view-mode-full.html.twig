@@ -168,11 +168,12 @@
 
             {{ content.field_attributi_luogo }}
 
-            <h2 id="servizi-presenti" class="h4">{{ 'Servizi presenti'|t }}</h2>
-            <h2 id="il-luogo-e-sede-di" class="h4">{{ 'Il luogo è sede di'|t }}</h2>
+            {{ drupal_view('correlati_luogo', 'servizi_presenti') }}
+            {{ drupal_view('correlati_luogo', 'il_luogo_e_sede_di') }}
+
             <h2 id="contatti" class="h4">{{ 'Contatti'|t }}</h2>
-            <h3 class="h6">{{ 'Strutture che gestiscono il luogo'|t }}</h3>
-            <h3 class="h6">{{ 'Le persone che gestiscono il luogo'|t }}</h3>
+            {{ drupal_view('correlati_luogo', 'strutture_che_gestiscono_il_luogo') }}
+            {{ drupal_view('correlati_luogo', 'persone_che_gestiscono_il_luogo') }}
 
             <div class="row variable-gutters">
               <div class="col-lg-9">

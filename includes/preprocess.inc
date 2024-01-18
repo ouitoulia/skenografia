@@ -24,10 +24,10 @@ function skenografia_preprocess_node(&$variables, $hook): void {
   // Load submitter account
   $account = \Drupal\user\Entity\User::load($uid);
 
-  // get codice fiscale from submitter account
-  $cf = $account->field_codice_fiscale->getValue()[0]['value'];
+  if ($account->field_codice_fiscale->getValue()) {
+    // get codice fiscale from submitter account
+    $cf = $account->field_codice_fiscale->getValue()[0]['value'];
 
-  if ($cf) {
     // load profile (Persona), if exists return id else null
     // https://www.drupal.org/docs/drupal-apis/entity-api/working-with-the-entity-api#s-load-an-entity-from-the-database
     $nids = \Drupal::entityTypeManager()
