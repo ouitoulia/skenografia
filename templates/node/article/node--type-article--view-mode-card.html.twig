@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to card teaser display a node.
+ * Default theme implementation to card display a node.
  * To activate this template you need to add a display named 'card'.
  *
  * Available variables:
@@ -69,14 +69,36 @@
  * @ingroup themeable
  */
 #}
-{% include '@bi-bcl/card/card.html.twig' with {
+{% set date_card_format = date|split(' ') %}
+{% embed '@bi-bcl/card/card.html.twig' with {
   card_tag_container: 'article',
   card_title: label|render|striptags|trim,
-  card_text: content.field_abstract|render|striptags|slice(0, 200) ~ '...',
-  card_image: content.field_copertina,
+  card_image: content.field_copertina[0] ? content.field_copertina,
   image_panoramic: true,
-  card_category: content.field_argomenti,
+  card_signature: display_submitted ? author_name : false,
   card_read_more_url: url,
   card_shadow: true,
+  card_border_bottom: true,
   card_attributes: attributes
 } %}
+
+  {% block cardText %}
+    <div{{ content_attributes.addClass('card-text') }}>
+      {{ content|without('field_tags','field_copertina','field_persone') }}
+    </div>
+  {% endblock %}
+
+  {% block cardSignature %}
+    <div class="card-signature mt-3">
+      {{ 'Submitted by'|t }}<br />
+      {% if author_profile_nid %}
+        {{ drupal_entity('node', author_profile_nid, 'teaser') }}
+      {% elseif content.field_persone[0]|render|striptags|trim is not empty %}
+        {{ content.field_persone[0] }}
+      {% else %}
+        {{ author_picture }} {{ author_name }}
+      {% endif %}
+    </div>
+  {% endblock %}
+
+{% endembed %}
