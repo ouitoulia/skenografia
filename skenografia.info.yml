@@ -22,7 +22,7 @@ libraries:
 #   - dist/css/bootstrap-italia.min.css
 
 ckeditor5-stylesheets:
- - dist/css/ckeditor5.min.css
+ - /libraries/ouitoulia-skenografia/css/ckeditor5.min.css
 
 libraries-override:
   oembed_lazyload_youtube/youtube:
