@@ -84,20 +84,13 @@
 
   {% block cardText %}
     <div{{ content_attributes.addClass('card-text') }}>
-      {{ content|without('field_tags','field_copertina','field_persone') }}
+      {{ content.field_abstract }}
     </div>
   {% endblock %}
 
   {% block cardSignature %}
     <div class="card-signature mt-3">
-      {{ 'Submitted by'|t }}<br />
-      {% if author_profile_nid %}
-        {{ drupal_entity('node', author_profile_nid, 'teaser') }}
-      {% elseif content.field_persone[0]|render|striptags|trim is not empty %}
-        {{ content.field_persone[0] }}
-      {% else %}
-        {{ author_picture }} {{ author_name }}
-      {% endif %}
+      {% include '@skenografia/node/_partial.node--author.html.twig' %}
     </div>
   {% endblock %}
 

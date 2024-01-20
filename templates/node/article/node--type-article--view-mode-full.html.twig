@@ -89,14 +89,7 @@
           <h1{{ title_attributes }}>{{ label }}</h1>
           {{ content.field_abstract }}
           <div class="">
-            {{ 'Submitted by'|t }}<br />
-            {% if author_profile_nid %}
-              {{ drupal_entity('node', author_profile_nid, 'teaser') }}
-            {% elseif content.field_persone[0]|render|striptags|trim is not empty %}
-              {{ content.field_persone[0] }}
-            {% else %}
-              {{ author_picture }} {{ author_name }}
-            {% endif %}
+            {% include '@skenografia/node/_partial.node--author.html.twig' %}
           </div>
         </div>
       </div>
@@ -118,7 +111,8 @@
                   'field_copertina',
                   'field_argomenti',
                   'field_luoghi',
-                  'field_persone'
+                  'field_persone',
+                  'field_persona_responsabile'
                 ) }}
               </div>
             </div>
