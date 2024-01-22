@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation for a field with ul.
+ * Campo abstract content type Persona.
  *
  * To override output, copy the "field.html.twig" from the templates directory
  * to your theme's directory and customize it, just like customizing other
@@ -34,7 +34,6 @@
  * - label_display: The display settings for the label.
  * - field_container_vertical_padding: Automatic vertical padding.
  * - field_container_vertical_margin: Automatic vertical margin.
- * - field_label_tag: choose label tag, default('div').
  * - field_view_mode: View mode.
  *
  * @see template_preprocess_field()
@@ -43,7 +42,6 @@
  */
 #}
 {% apply spaceless %}
-
   {% set container_classes = [
     'field',
     'field--type-' ~ field_type|clean_class,
@@ -52,38 +50,23 @@
     multiple ? 'field-multiple',
     'field--label-' ~ label_display|clean_class,
     field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
-    field_container_vertical_padding is not empty and field_view_mode == 'full' ? field_container_vertical_padding,
-    field_container_vertical_margin is not empty and field_view_mode == 'full' ? field_container_vertical_margin,
   ] %}
 
-  {% set container_with_label_classes = [
-    label_display == 'inline' ? 'd-flex'
-  ]|merge(container_classes) %}
+  <div{{ attributes.addClass(container_classes) }}>
 
-  {% if label_hidden %}
-    <ul{{ attributes.addClass(container_classes) }}>
-      {% for item in items %}
-        <li{{ item.attributes }}>{{ item.content }}</li>
-      {% endfor %}
-    </ul>
+    {% include '@bi-field/_partial.field-label.html.twig' with {
+      field_label_tag: 'h3',
+      field_label_bold: false,
+      field_label_separator: '',
+      title_attributes: title_attributes.addClass(['h6', 'mb-0'])
+    } %}
 
-  {% else %}
-    <div{{ attributes.addClass(container_with_label_classes) }}>
+    <p>
+      {%- for item in items -%}
+        {%- if not loop.first -%},&nbsp;{%- endif -%}<span{{ item.attributes }}>{{ item.content }}</span>
+      {%- endfor -%}
+    </p>
 
-    {% block label %}
-      {% include '@bi-field/_partial.field-label.html.twig' %}
-    {% endblock %}
 
-      <ul class="{{ label_display == 'inline' ? 'list-inline' }}">
-        {% for item in items %}
-          {% if label_display == 'inline' %}
-            <li{{ item.attributes.addClass('list-inline-item') }}>{{ item.content }}</li>
-          {% else %}
-            <li{{ item.attributes }}>{{ item.content }}</li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-
-    </div>{# End main container. #}
-  {% endif %}
+  </div>{# End main container. #}
 {% endapply %}
