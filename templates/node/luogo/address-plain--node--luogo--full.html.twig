@@ -46,6 +46,7 @@
       <p>
         {% if address_line1 %}{{ address_line1 }},&nbsp;{% endif %}
         {% if address_line2 %}{{ address_line2 }},&nbsp;{% endif %}
+        {% if address_line3 %}{{ address_line3 }},&nbsp;{% endif %}
         {% if locality or postal_code or administrative_area.code %}
           {{ postal_code }} - {{ locality }} ({{ administrative_area.code }})
         {% endif %}

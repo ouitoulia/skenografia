@@ -68,32 +68,73 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_tag_container: 'article',
-  card_title: label,
-  card_shadow: true,
-  card_rounded: true,
-  card_body_classes: ['p-0'],
-  card_attributes: attributes
-} %}
-  {% block cardTitle %}
-    <h3{{ title_attributes.addClass(['card-title', 'big-heading', 'h5', 'pt-3', 'ps-3', 'semi-bold']) }}>
-      {{ label }}
-    </h3>
-  {% endblock %}
-  {% block cardText %}
+{%
+  set classes = [
+  'node',
+  'article-wrapper',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+<section class="section bg-white article-title">
+  <div class="container">
     <div class="row variable-gutters">
-      <div class="col-lg-6">
-        {{ content.field_coordinate_geografiche }}
-      </div>
-      <div class="col-lg-6 py-4">
-        <ul class="location-list mt-2 lis">
-          {{ content.field_indirizzo }}
-          {{ content.field_orario_pubblico }}
-          {{ content.field_email }}
-          {{ content.field_telefono }}
-        </ul>
+      <div class="col-md-6 order-md-2">{{ content.field_coordinate_geografiche }}</div>
+      <div class="col-md-6 order-md-1 d-flex align-items-center">
+        <div class="title-content pt-5">
+          <h1{{ title_attributes }}>{{ label }}</h1>
+          {{ content.field_abstract }}
+        </div>
       </div>
     </div>
-  {% endblock %}
-{% endembed %}
+  </div>
+</section>
+
+<section class="section bg-white pt-5">
+  <div class="container">
+    <div class="row variable-gutters">
+      <div class="col-lg-9 col-md-8 order-lg-1">
+        <article{{ attributes.addClass(classes) }}>
+
+          <div{{ content_attributes.addClass(['node__content']) }}>
+            <div class="row variable-gutters">
+              <div class="col-lg-9">
+                {{ content.body }}
+
+                <h2 class="h4">Contatti</h2>
+                {{ content.field_indirizzo }}
+                {{ content.field_email }}
+                {{ content.field_telefono }}
+                {{ content.field_link }}
+
+                {{ content|without(
+                  'field_abstract',
+                  'field_copertina',
+                  'field_coordinate_geografiche',
+                  'body',
+                  'field_indirizzo',
+                  'field_email',
+                  'field_telefono',
+                  'field_link'
+                ) }}
+              </div>
+            </div>
+          </div>
+          {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
+          {% include '@skenografia/node/_partial.node--comments.html.twig' %}
+        </article>
+      </div>
+
+      <aside class="col-lg-3 col-md-4 order-lg-0">
+        <div class="mb-4">
+          {{ content.field_copertina }}
+        </div>
+      </aside>
+    </div>
+  </div>
+  <span class="sticky-toc-stop"></span>
+</section>
