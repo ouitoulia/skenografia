@@ -174,7 +174,7 @@
             <h2 id="contatti" class="h4">{{ 'Contatti'|t }}</h2>
             {{ drupal_view('correlati_luogo', 'strutture_che_gestiscono_il_luogo') }}
             {{ drupal_view('correlati_luogo', 'persone_che_gestiscono_il_luogo') }}
-            {{ content.field_collaborazioni }}
+            {{ content.field_struttura_esterna }}
 
             <div class="row variable-gutters">
               <div class="col-lg-9">
@@ -207,7 +207,7 @@
                   'field_prenotabile',
                   'field_codice_identificativo',
                   'field_codice_catastale_comune',
-                  'field_collaborazioni',
+                  'field_struttura_esterna',
                   'toc_js'
                 ) }}
               </div>
