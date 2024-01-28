@@ -7,10 +7,7 @@
       </p>
       {{ metadata }}
       <p class="font-serif small mb-2">
-        {% trans %}
-          Eccetto dove diversamente specificato, questo articolo è stato
-          rilasciato sotto Licenza Creative Commons Attribuzione 4.0 Italia.
-        {% endtrans %}
+        {% trans %}Eccetto dove diversamente specificato, questo articolo è stato rilasciato sotto Licenza{% endtrans %} {{ content.field_tipologia_licenza[0] ?? 'Creative Commons Attribuzione 4.0 Italia' }}.
       </p>
     </div>
   </div>

@@ -1,0 +1,9 @@
+{% include '@bi-field/_partial.field-label.html.twig' with {
+  field_label_tag: 'h2',
+  field_label_bold: false,
+  field_label_separator: '',
+  title_attributes: title_attributes.addClass('h4').setAttribute('id', label|clean_id()),
+} %}
+{% for item in items %}
+  <div{{ item.attributes.addClass('mb-5').setAttribute('data-element', 'service-needed') }}>{{ item.content }}</div>
+{% endfor %}

@@ -38,35 +38,44 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bootstrap_italia_paragraph/content/bi-paragraph-base.html.twig' with {
-  paragraph: paragraph,
-  content: content,
-  attributes: attributes,
-  view_mode: view_mode,
-  logged_in: logged_in,
-  is_admin: is_admin
-} %}
-  {% block content %}
+{% apply spaceless %}
+  {% embed '@bootstrap_italia_paragraph/content/bi-paragraph-base.html.twig' with {
+    paragraph: paragraph,
+    content: content,
+    attributes: attributes,
+    view_mode: view_mode,
+    logged_in: logged_in,
+    is_admin: is_admin
+  } %}
+    {% block content %}
+      {# Azione;icon;type #}
+      {% set _azione = content.field_azione|render|striptags|trim|split(';') %}
 
-    {{ content|without('field_azione','field_icon_name','field_call_to_action') }}
-    {% embed '@bi-bcl/button/button.html.twig' with {
-      label: content.field_azione|render|striptags|trim,
-      url: content.field_call_to_action.0['#url_title'],
-      variant: 'primary',
-      tag: 'a',
-      size: 'lg',
-      button_classes: ['me-1', 'btn-icon'],
-    } %}
-      {% block before %}
-        <span class="rounded-icon">
-        {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: content.field_icon_name.0['#context']['value'],
-          size: 'sm',
-          color: 'primary',
-        } %}
-      </span>&nbsp;
-      {% endblock %}
-    {% endembed %}
+      {{ content|without('field_azione','field_icon_name','field_call_to_action') }}
 
-  {% endblock %}
-{% endembed %}
+      {% embed '@bi-bcl/button/button.html.twig' with {
+        tag: 'a',
+        id: id ~ '--action-button',
+        label: _azione[0],
+        url: content.field_call_to_action.0['#url_title'],
+        variant: 'primary',
+        size: 'lg',
+        button_classes: ['me-1', 'btn-icon'],
+        button_attributes: _azione[2] is not empty ? create_attribute().setAttribute('data-element', _azione[2])
+      } %}
+        {% block before -%}
+          {% if content.field_icon_name.0 or _azione[1] %}
+            <span class="rounded-icon">
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: content.field_icon_name.0['#context']['value'] ?: _azione[1],
+                size: 'sm',
+                color: 'primary',
+              } %}
+            </span>&nbsp;
+          {% endif %}
+        {%- endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
+{% endapply %}

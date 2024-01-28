@@ -9,8 +9,8 @@ base theme: bootstrap_italia
 libraries:
 #  - skenografia/libraries-ui
 #  - skenografia/vanilla
-  - skenografia/custom
-#  - skenografia/cdn
+#  - skenografia/custom
+  - skenografia/cdn
 #  - skenografia/hot
 #  - skenografia/ddev
   - bootstrap_italia/base
@@ -124,8 +124,8 @@ dependencies:
  - drupal:inline_form_errors
  - drupal:responsive_image
 
-#'interface translation project': skenografia
-#'interface translation server pattern': themes/contrib/%project/translations/%project.%language.po
+'interface translation project': skenografia
+'interface translation server pattern': themes/contrib/%project/translations/%project.%language.po
 
 components:
   namespaces:

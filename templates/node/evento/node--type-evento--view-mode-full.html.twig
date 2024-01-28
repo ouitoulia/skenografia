@@ -143,8 +143,10 @@
 
             {{ content.field_persone }}
 
-            <h2 class="h4" id="date-e-orari">Date e orari</h2>
-            {{ content.field_timeline }}
+            {% if content.field_timeline[0] %}
+              <h2 class="h4" id="date-e-orari">Date e orari</h2>
+              {{ content.field_timeline }}
+            {% endif %}
 
             <h2 class="h4" id="costi">Costi</h2>
             <div class="container mb-5">
@@ -172,6 +174,7 @@
 
             <h2 class="h4" id="contatti">Contatti</h2>
             {{ content.field_struttura_responsabile }}
+            {{ content.field_struttura_esterna }}
 
             <h2 class="h4" id="ulteriori-informazioni">Ulteriori informazioni</h2>
 
@@ -209,7 +212,8 @@
               'field_link',
               'field_collaborazioni',
               'field_patrocini',
-              'field_sponsor'
+              'field_sponsor',
+              'field_struttura_esterna',
             ) }}
 
           </div>
