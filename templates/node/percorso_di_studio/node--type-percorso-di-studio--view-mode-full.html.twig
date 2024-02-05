@@ -86,9 +86,9 @@
       <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">{{ content.field_copertina }}</div>
 
       <div class="col-12 col-sm-9 col-lg-5 col-md-8">
-        <small class="h6 text-purplelight text-uppercase">{{ content.field_tipologia_servizio }}</small>
+        <small class="h6 text-purplelight text-uppercase">{{ content.field_grado_di_istruzione }}</small>
         <div class="section-title">
-          <h1{{ title_attributes.addClass('mb-3').setAttribute('data-element', 'service-title') }}>{{ label }}</h1>
+          <h1{{ title_attributes.addClass('mb-3') }}>{{ label }}</h1>
           <p data-element="service-description">{{ content.field_abstract }}</p>
         </div>
       </div>
@@ -114,25 +114,12 @@
             dropdown_icon_size: 'xs',
           } %}
         </div>
-
-        <aside class="badges-wrapper badges-main">{{ content.field_argomenti }}</aside>
+        <aside class="badges-wrapper badges-main">{{ content.field_struttura_didattica }}</aside>
       </div>
 
     </div>
   </div>
 </section>
-
-{% if content.field_attivo|render|striptags|trim == 0 %}
-  <section class="bg-alert py-2" id="alert">
-    <div class="container">
-      <div class="row variable-gutters">
-        <div class="col d-flex align-items-center justify-content-center">
-          <p class="m-0"><strong>Il servizio non è al momento disponibile</strong> {{ content.field_servizio_non_attivo|render|striptags|trim }}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-{% endif %}
 
 <section class="section bg-white">
   <div class="container container-border-top">
@@ -151,68 +138,50 @@
             {{ content.field_cosa_e }}
             {{ content.field_a_cosa_serve }}
 
+            <h2 id="frequentare-l-indirizzo" class="h4">Frequentare l'indirizzo</h2>
+            {{ content.field_piano_di_studio }}
+            <h3 class="h5">Orario delle classi</h3>
+            <h3 class="h5">Libri di testo</h3>
+            <h3 class="h5">Consigli di classe</h3>
+
+            <h2 id="accedi-al-servizio" class="h4">Accedi al servizio</h2>
             {{ content.field_come_si_accede }}
-            {{ content.field_procedure_collegate_esito }}
-            {{ content.field_servizio_online }}
-            {{ content.field_azione }}
-            {{ content.field_tipologia_autenticazione }}
-            {{ content.field_sede_canale_fisico }}
-            {{ content.field_luoghi }}
-
             {{ content.field_cosa_serve }}
+            {{ content.field_servizio }}
 
-            {{ content.field_timeline }}
-
-            {{ content.field_casi_particolari }}
-
-            <h2 class="h4" id="documenti-correlati">Documenti</h2>
+            <h2 id="documenti-correlati" class="h4">Documenti</h2>
 
             <h2 class="h4" id="contatti">Contatti</h2>
-            <div class="mb-5" data-element="contacts">
+            {{ content.field_struttura_responsabile }}
+            {{ content.field_persona_responsabile }}
+            <div class="mb-5">
               {{ content.field_email }}
               {{ content.field_telefono }}
-              {{ content.field_persona_responsabile }}
             </div>
 
-            {{ content.field_struttura_responsabile }}
-
-            <h2 class="h4">Ulteriori informazioni</h2>
-            {{ content.field_codice_identificativo }}
-            {{ content.field_ipa }}
+            {{ content.field_casi_particolari }}
             {{ content.field_extra_info }}
-
-            <h2 class="h4">Progetti correlati al servizio</h2>
 
             <div class="row variable-gutters">
               <div class="col-lg-9">
                 {{ content|without(
                   'field_copertina',
-                  'field_tipologia_servizio',
+                  'field_grado_di_istruzione',
                   'field_abstract',
-                  'field_argomenti',
-                  'field_attivo',
-                  'field_servizio_non_attivo',
+                  'field_struttura_didattica',
                   'toc_js',
                   'field_cosa_e',
                   'field_a_cosa_serve',
+                  'field_servizio',
+                  'field_piano_di_studio',
                   'field_come_si_accede',
-                  'field_procedure_collegate_esito',
-                  'field_servizio_online',
-                  'field_azione',
-                  'field_tipologia_autenticazione',
-                  'field_sede_canale_fisico',
-                  'field_luoghi',
                   'field_cosa_serve',
-                  'field_timeline',
-                  'field_casi_particolari',
+                  'field_struttura_responsabile',
+                  'field_persona_responsabile',
                   'field_email',
                   'field_telefono',
-                  'field_persona_responsabile',
-                  'field_struttura_responsabile',
-                  'field_tipologia_licenza',
+                  'field_casi_particolari',
                   'field_extra_info',
-                  'field_codice_identificativo',
-                  'field_ipa'
                 ) }}
               </div>
             </div>
