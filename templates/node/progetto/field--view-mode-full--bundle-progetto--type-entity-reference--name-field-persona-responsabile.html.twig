@@ -35,8 +35,6 @@
  * - field_container_vertical_padding: Automatic vertical padding.
  * - field_container_vertical_margin: Automatic vertical margin.
  * - field_view_mode: View mode.
- * - field_label_tag
- * - field_label_tag_class
  *
  * @see template_preprocess_field()
  *
@@ -56,19 +54,19 @@
     'mb-5'
   ] %}
 
-<div{{ attributes.addClass(container_classes) }}>
-  {% include '@bi-field/_partial.field-label.html.twig' with {
-    field_label_tag: field_label_tag|default('h3'),
-    field_label_bold: false,
-    field_label_separator: '',
-    title_attributes: title_attributes.addClass([field_label_tag_class|default('h5'), 'mb-0'])
-  } %}
+  <div{{ attributes.addClass(container_classes) }}>
+    {% include '@bi-field/_partial.field-label.html.twig' with {
+      field_label_tag: 'h2',
+      field_label_bold: false,
+      field_label_separator: '',
+      title_attributes: title_attributes.addClass(['h4', 'mb-0'])
+    } %}
 
-  <div class="card-wrapper card-teaser-wrapper">
-    {% for item in items %}
-      {{ item.content }}
-    {% endfor %}
-  </div>
+    <div class="card-wrapper card-teaser-wrapper">
+      {% for item in items %}
+        {{ item.content }}
+      {% endfor %}
+    </div>
 
   </div>{# End main container. #}
 {% endapply %}
