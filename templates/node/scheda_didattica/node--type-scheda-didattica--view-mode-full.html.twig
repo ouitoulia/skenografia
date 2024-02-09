@@ -80,29 +80,45 @@
 ]
 %}
 
-<section class="section bg-white article-title">
+<section class="section bg-white article-title py-2 py-lg-3 py-xl-5">
   <div class="container">
     <div class="row variable-gutters">
-      <div class="col-md-6 order-md-2">{{ content.field_copertina }}</div>
-      <div class="col-md-6 order-md-1 d-flex align-items-center">
-        <div class="title-content pt-5">
-          <small class="h6 text-bluelectric text-uppercase">{{ content.field_tipologia_progetto }}</small>
-          <h1{{ title_attributes }}>{{ label }}</h1>
-          {{ content.field_abstract }}
-          {{ content.field_anno_scolastico }}
-          <aside class="badges-wrapper badges-main">{{ content.field_argomenti }}</aside>
+      <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">{{ content.field_copertina }}</div>
+
+      <div class="col-12 col-sm-9 col-lg-5 col-md-8">
+        <small class="h6 text-bluelectric text-uppercase">{{ content.field_grado_di_istruzione }}</small>
+        <div class="section-title">
+          <h1{{ title_attributes.addClass('mb-0') }}>{{ label }}</h1>
+          <small class="">{{ content.field_materie }}</small>
+          <p>{{ content.field_abstract }}</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="bg-bluelectric py-2">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col d-flex align-items-center fw-bold">
-        {{ content.field_stato_progetto }}
+      <div class="col-lg-3 col-md-4 offset-lg-1">
+        <div class="actions-wrapper actions-main mb-3">
+          {% set _raw_tags = [] %}
+          {% for tag in content.field_argomenti %}
+            {% if tag['#title'] %}
+              {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
+            {% endif %}
+          {% endfor %}
+          {% include '@bi-bcl/share/content-actions.twig' with {
+            description: content.field_abstract|render|striptags|trim,
+            dropdown_button_classes: ['text-bluelectric'],
+            dropdown_icon_color: 'bluelectric',
+            dropdown_icon_size: 'xs',
+          } %}
+          {% include '@bi-bcl/share/share-this.twig' with {
+            tags: _raw_tags|join(','),
+            dropdown_button_classes: ['text-bluelectric'],
+            dropdown_icon_color: 'bluelectric',
+            dropdown_icon_size: 'xs',
+          } %}
+        </div>
+        {{ content.field_persona_responsabile }}
+        <div class="badges-wrapper badges-main">{{ content.field_argomenti }}</div>
       </div>
+
     </div>
   </div>
 </section>
@@ -111,7 +127,7 @@
   <div class="container container-border-top">
     <div class="row variable-gutters">
       <div class="col-lg-3 col-md-4 border-end px-0">
-        <aside>
+        <aside class="aside-main aside-sticky">
           {{ content.toc_js }}
         </aside>
       </div>
@@ -119,59 +135,23 @@
 
         <article{{ attributes.addClass(classes) }}>
 
-          <div class="row variable-gutters">
-            <div class="col-lg-12 d-flex justify-content-end">
-              {% set _raw_tags = [] %}
-              {% for tag in content.field_argomenti %}
-                {% if tag['#title'] %}
-                  {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
-                {% endif %}
-              {% endfor %}
-              {% include '@bi-bcl/share/content-actions.twig' with {
-                description: content.field_abstract|render|striptags|trim,
-                dropdown_button_classes: ['text-bluelectric'],
-                dropdown_icon_color: 'bluelectric',
-                dropdown_icon_size: 'xs',
-              } %}
-              {% include '@bi-bcl/share/share-this.twig' with {
-                tags: _raw_tags|join(','),
-                dropdown_button_classes: ['text-bluelectric'],
-                dropdown_icon_color: 'bluelectric',
-                dropdown_icon_size: 'xs',
-              } %}
-            </div>
-          </div>
-
           <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
 
-            <h2 class="h4">Presentazione</h2>
-            <h3 class="h5">Durata</h3>
-            <div class="text-bluelectric mb-3 fw-bold">
-              {% set giorno_inizio = content.field_data_inizio[0]['#attributes']['datetime']|date('Y-m-d') %}
-              {% set giorno_fine = content.field_data_fine[0]['#attributes']['datetime']|date('Y-m-d') %}
-              {% if giorno_inizio == giorno_fine %}
-                il {{ content.field_data_inizio }} dalle {{ content.field_data_inizio[0]['#attributes']['datetime']|date('H:i') }} alle {{ content.field_data_fine[0]['#attributes']['datetime']|date('H:i') }}
-              {% else %}
-                dal {{ content.field_data_fine }} al {{ content.field_data_inizio }}
-              {% endif %}
+            <div class="row variable-gutters">
+              <div class="col">
+                {{ content|without(
+                  'field_copertina',
+                  'field_grado_di_istruzione',
+                  'field_abstract',
+                  'field_persona_responsabile',
+                  'field_argomenti',
+                  'field_materie',
+                  'toc_js',
+                ) }}
+
+                <h2 class="h4" id="art-par-04">Documenti</h2>
+              </div>
             </div>
-
-            {{ content|without(
-              'field_copertina',
-              'field_tipologia_progetto',
-              'field_abstract',
-              'field_anno_scolastico',
-              'field_argomenti',
-              'field_stato_progetto',
-              'toc_js',
-              'field_data_inizio',
-              'field_data_fine',
-              'field_servizio'
-            ) }}
-
-            <h2 id="art-par-05" class="h4">Documenti</h2>
-
-            {{ content.field_servizio }}
 
           </div>
 

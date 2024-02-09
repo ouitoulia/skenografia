@@ -1,0 +1,19 @@
+{% apply spaceless %}
+  {% include '@bi-field/_partial.field-label.html.twig' with {
+    field_label_tag: 'h3',
+    field_label_bold: false,
+    field_label_separator: '',
+    title_attributes: title_attributes.addClass('h5'),
+    attributes: attributes.addClass(['mb-5'])
+  } %}
+
+  {% for item in items %}
+    {% include '@bi-bcl/card/card.html.twig' with {
+      card_text: item.content,
+      card_shadow: true,
+      card_rounded: true,
+      card_attributes: item.attributes.addClass(['mb-5', 'fw-bold', 'border-start', 'border-bluelectric'])
+    } %}
+  {% endfor %}
+
+{% endapply %}
