@@ -123,6 +123,9 @@ dependencies:
  - drupal:big_pipe
  - drupal:inline_form_errors
  - drupal:responsive_image
+ - easy_breadcrumb:easy_breadcrumb
+ - menu_link_attributes:menu_link_attributes
+ - pathauto:pathauto
 
 'interface translation project': skenografia
 'interface translation server pattern': themes/contrib/%project/translations/%project.%language.po
