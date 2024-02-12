@@ -126,6 +126,7 @@ dependencies:
  - easy_breadcrumb:easy_breadcrumb
  - menu_link_attributes:menu_link_attributes
  - pathauto:pathauto
+ - twig_tweak:twig_tweak
 
 'interface translation project': skenografia
 'interface translation server pattern': themes/contrib/%project/translations/%project.%language.po
