@@ -1,0 +1,239 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: (optional) The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: (optional) Themed creation date field.
+ * - author_name: (optional) Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+  'node',
+  'article-wrapper',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+{% set _annualita = content.field_annualita_classe|render|striptags|trim %}
+{% set _sezione = content.field_sezione|render|striptags|trim %}
+{% set _classe = _annualita ~ _sezione %}
+
+{# Recupero le materie dal campo piano_di_studio che appartiene al bundle
+   percorso_di_studio referenziato da field_percorso_di_studio filtrato per l'annualità #}
+{% set _materie_della_classe =
+  drupal_field(
+    'field_piano_di_studio',
+    'node',
+    content.field_percorso_di_studio[0]['#options']['entity'].id(),
+    'full'
+  )[
+    _annualita - 1
+  ]
+%}
+
+<section class="section bg-redbrown bg-red-gradient py-5 px-3">
+  <div class="container">
+    <div class="row variable-gutters">
+      <div class="col-md-6">
+        {{ content.field_anno_scolastico }}
+        <h1{{ title_attributes.addClass(['mb-3','fw-light', 'display-1']) }}>Classe {{ _classe }}</h1>
+        {{ content.field_struttura_didattica }}
+        {{ content.field_percorso_di_studio }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if content.field_orario_lezioni|render|striptags|trim != '' %}
+  <section class="section bg-white">
+    <div class="container">
+      <div class="row variable-gutters mx-0">
+        <div class="col-12 col-sm-9 py-3 ps-lg-0">
+          <a class="" href="{{ content.field_orario_lezioni|render|striptags|trim }}" data-focus-mouse="false" aria-label="Scarica il calendario della classe {{ _classe }}" title="Scarica il calendario della classe {{ _classe }}">
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: 'it-calendar',
+              color: 'bluelectric',
+              icon_classes: ['me-2']
+            } %}
+            <strong class="text-petrol">Orario Completo delle lezioni classe {{ _classe }}</strong>
+          </a>
+        </div>
+        <div class="d-none d-sm-block col-sm-3">
+          <a class="py-3 text-bluelectric float-end" href="{{ content.field_orario_lezioni|render|striptags|trim }}" data-focus-mouse="false" aria-label="Scarica il calendario della classe {{ _classe }}" title="Scarica il calendario della classe {{ _classe }}">
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: 'icon-download',
+              color: 'bluelectric',
+              size: 'sm',
+              icon_classes: ['me-2']
+            } %}
+            <span><strong>Scarica</strong></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% if _materie_della_classe is iterable %}
+  <section class="section bg-white">
+    <section class="section bg-linear-vertical-blue-light">
+      <div class="container py-5">
+        <div class="row variable-gutters">
+          <div class="col">
+            <div class="section-title text-center mb-4">
+              <h2>Le Materie</h2>
+              <p class="mb-4">
+                Scopri tutte le materie della classe {{ _classe }}<br>
+                <strong>{{ content.field_struttura_didattica|render|striptags|trim }}</strong>
+              </p>
+              <div class="clearfix">
+                <a aria-label="scopri tutte le materie" class="btn btn-bluelectric" style="min-width: 200px;" href="#tutte-le-materie-della-classe-{{ _classe }}" data-focus-mouse="false">Scopri</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="tutte-le-materie-della-classe-{{ _classe }}" class="container bg-white position-relative slided-top pb-5">
+      <div class="row variable-gutters mb-4">
+        {{ _materie_della_classe }}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% if content.field_persona_responsabile[0] is iterable
+      or content.field_rappresentanti_genitori[0] is iterable
+      or content.field_rappresentati_alunni[0] is iterable %}
+  <section class="section bg-linear-vertical-blue-light py-5">
+    <div class="container">
+      <div class="title-section text-center mb-5">
+        <h2 class="h4">Il Consiglio della classe {{ label }}</h2>
+      </div>
+      <div class="row variable-gutters">
+        {{ content.field_persona_responsabile }}
+        {{ content.field_rappresentanti_genitori }}
+        {{ content.field_rappresentati_alunni }}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% if content.field_persone[0] is iterable %}
+  <section class="section bg-gray-light py-5">
+    <div class="container">
+      <div class="title-section text-center mb-5">
+        <h2 class="h4">Gli insegnanti della classe {{ label }}</h2>
+      </div>
+      <div class="row variable-gutters">
+        {{ content.field_persone }}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% if content|without(
+  'field_anno_scolastico',
+  'field_struttura_didattica',
+  'field_percorso_di_studio',
+  'field_annualita_classe',
+  'field_sezione',
+  'field_orario_lezioni',
+  'field_persona_responsabile',
+  'field_rappresentanti_genitori',
+  'field_rappresentati_alunni',
+  'field_persone'
+)|render|striptags|trim != '' %}
+  <section class="section bg-white">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col">
+
+          <article{{ attributes.addClass(classes) }}>
+            <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
+              {{ content|without(
+                'field_anno_scolastico',
+                'field_struttura_didattica',
+                'field_percorso_di_studio',
+                'field_annualita_classe',
+                'field_sezione',
+                'field_orario_lezioni',
+                'field_persona_responsabile',
+                'field_rappresentanti_genitori',
+                'field_rappresentati_alunni',
+                'field_persone'
+              ) }}
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

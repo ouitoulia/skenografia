@@ -1,10 +1,10 @@
 {
   "name": "@ouitoulia/skenografia",
-  "version": "1.0.41",
+  "version": "1.5.0",
   "description": "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole.",
   "engineStrict": true,
   "engines": {
-    "node": ">=v18.0.0"
+    "node": ">=v20.0.0"
   },
   "private": false,
   "scripts": {
@@ -37,23 +37,23 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
-    "css-loader": "^6.8.1",
-    "mini-css-extract-plugin": "^2.7.6",
-    "postcss-loader": "^7.3.3",
-    "rimraf": "^5.0.1",
-    "sass": "^1.63.6",
-    "sass-loader": "^13.3.2",
-    "semver": "^7.5.3",
-    "style-loader": "^3.3.3",
+    "css-loader": "^6.10.0",
+    "mini-css-extract-plugin": "^2.8.0",
+    "postcss-loader": "^7.3.4",
+    "rimraf": "^5.0.5",
+    "sass": "^1.70.0",
+    "sass-loader": "^13.3.3",
+    "semver": "^7.6.0",
+    "style-loader": "^3.3.4",
     "svg-sprite-loader": "^6.0.11",
     "svgo-loader": "^4.0.0",
-    "webpack": "^5.88.0",
+    "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
-    "webpack-merge": "^5.9.0"
+    "webpack-merge": "^5.10.0"
   },
   "dependencies": {
-    "bootstrap-italia": "2.7.5",
+    "bootstrap-italia": "2.7.7",
     "design-scuole-pagine-statiche": "github:italia/design-scuole-pagine-statiche#main",
     "design-scuole-pagine-statiche-src": "github:italia/design-scuole-pagine-statiche#src-scss",
     "hamburgers": "^1.2.1"

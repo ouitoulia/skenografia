@@ -495,23 +495,24 @@
   }
 }
 
-.section-hours-bottom {
-  border-top: 1px solid #d1d6db;
-  border-bottom: 1px solid #d1d6db;
-  .card {
-    margin-left: 157px;
-    @include media-breakpoint-down(lg) {
-  		margin-left: 77px;
-  	}
-  	@include media-breakpoint-down(xs) {
-  		margin-left: 0px;
-  	}
-  }
-  .text-icon {
-    float: right;
-    margin-top: 25px;
-  }
-}
+// Questa parte non è più necessaria con bootstrap-italia > 2
+//.section-hours-bottom {
+//  border-top: 1px solid #d1d6db;
+//  border-bottom: 1px solid #d1d6db;
+//  .card {
+//    margin-left: 157px;
+//    @include media-breakpoint-down(lg) {
+//  		margin-left: 77px;
+//  	}
+//  	@include media-breakpoint-down(xs) {
+//  		margin-left: 0px;
+//  	}
+//  }
+//  .text-icon {
+//    float: right;
+//    margin-top: 25px;
+//  }
+//}
 
 // TODO: questo dovrebbe stare qua?
 .bg-bluelectricdark {
