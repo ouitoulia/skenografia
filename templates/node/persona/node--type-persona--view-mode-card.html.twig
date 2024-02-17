@@ -6,22 +6,6 @@
   card_shadow: true
 } %}
   {% block cardText %}
-    <div class="avatar-wrapper avatar-extra-text my-2">
-      {% include '@bi-bcl/avatar/avatar.html.twig' with {
-        avatar_type: 'image',
-        avatar_image: content.field_ritratto,
-        avatar_icon: false,
-        avatar_icon_color: false,
-        avatar_text: false,
-        avatar_text_color: false,
-        avatar_assistive_text: label|render|striptags|trim,
-        avatar_size: 'md',
-        avatar_url: url|render|striptags|trim,
-      } only %}
-      <div class="extra-text">
-        <strong>{{ content.field_nome }}{{ content.field_cognome }}</strong>
-        {{ content.field_ruolo_persona }}
-      </div>
-    </div>
+    {% include '@skenografia/node/persona/node--type-persona--view-mode-teaser.html.twig' %}
   {% endblock %}
 {% endembed %}

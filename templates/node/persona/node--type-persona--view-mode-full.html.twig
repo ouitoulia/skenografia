@@ -84,9 +84,19 @@
   <div class="container">
     <div class="row variable-gutters">
       <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
-        <div class="section-thumb thumb-large mx-3">
-          {{ content.field_ritratto }}
-        </div>
+        {% if content.field_ritratto[0] is iterable %}
+          <div class="section-thumb thumb-large mx-3">
+            {{ content.field_ritratto }}
+          </div>
+        {% else %}
+          <div class="ratio-1x1 text-align-center">
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: 'it-user',
+              size: 'xl',
+              color: 'white',
+            } %}
+          </div>
+        {% endif %}
       </div>
       <div class="col-12 col-sm-9 col-md-8 col-lg-8 offset-lg-1 d-flex align-items-center">
         <div class="section-title">
