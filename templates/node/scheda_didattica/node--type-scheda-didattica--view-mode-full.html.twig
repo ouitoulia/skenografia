@@ -68,100 +68,102 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-  'node',
-  'article-wrapper',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
-%}
+{% apply spaceless %}
+  {%
+    set classes = [
+    'node',
+    'article-wrapper',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+  %}
 
-<section class="section bg-white article-title py-2 py-lg-3 py-xl-5">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">{{ content.field_copertina }}</div>
+  <section class="section bg-white article-title py-2 py-lg-3 py-xl-5">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">{{ content.field_copertina }}</div>
 
-      <div class="col-12 col-sm-9 col-lg-5 col-md-8">
-        <small class="h6 text-bluelectric text-uppercase">{{ content.field_grado_di_istruzione }}</small>
-        <div class="section-title">
-          <h1{{ title_attributes.addClass('mb-0') }}>{{ label }}</h1>
-          <small class="">{{ content.field_materie }}</small>
-          <p>{{ content.field_abstract }}</p>
+        <div class="col-12 col-sm-9 col-lg-5 col-md-8">
+          <small class="h6 text-bluelectric text-uppercase">{{ content.field_grado_di_istruzione }}</small>
+          <div class="section-title">
+            <h1{{ title_attributes.addClass('mb-0') }}>{{ label }}</h1>
+            <small class="">{{ content.field_materie }}</small>
+            <p>{{ content.field_abstract }}</p>
+          </div>
         </div>
-      </div>
 
-      <div class="col-lg-3 col-md-4 offset-lg-1">
-        <div class="actions-wrapper actions-main mb-3">
-          {% set _raw_tags = [] %}
-          {% for tag in content.field_argomenti %}
-            {% if tag['#title'] %}
-              {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
-            {% endif %}
-          {% endfor %}
-          {% include '@bi-bcl/share/content-actions.twig' with {
-            description: content.field_abstract|render|striptags|trim,
-            dropdown_button_classes: ['text-bluelectric'],
-            dropdown_icon_color: 'bluelectric',
-            dropdown_icon_size: 'xs',
-          } %}
-          {% include '@bi-bcl/share/share-this.twig' with {
-            tags: _raw_tags|join(','),
-            dropdown_button_classes: ['text-bluelectric'],
-            dropdown_icon_color: 'bluelectric',
-            dropdown_icon_size: 'xs',
-          } %}
+        <div class="col-lg-3 col-md-4 offset-lg-1">
+          <div class="actions-wrapper actions-main mb-3">
+            {% set _raw_tags = [] %}
+            {% for tag in content.field_argomenti %}
+              {% if tag['#title'] %}
+                {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
+              {% endif %}
+            {% endfor %}
+            {% include '@bi-bcl/share/content-actions.twig' with {
+              description: content.field_abstract|render|striptags|trim,
+              dropdown_button_classes: ['text-bluelectric'],
+              dropdown_icon_color: 'bluelectric',
+              dropdown_icon_size: 'xs',
+            } %}
+            {% include '@bi-bcl/share/share-this.twig' with {
+              tags: _raw_tags|join(','),
+              dropdown_button_classes: ['text-bluelectric'],
+              dropdown_icon_color: 'bluelectric',
+              dropdown_icon_size: 'xs',
+            } %}
+          </div>
+          {{ content.field_persona_responsabile }}
+          <div class="badges-wrapper badges-main">{{ content.field_argomenti }}</div>
         </div>
-        {{ content.field_persona_responsabile }}
-        <div class="badges-wrapper badges-main">{{ content.field_argomenti }}</div>
-      </div>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section bg-white">
-  <div class="container container-border-top">
-    <div class="row variable-gutters">
-      <div class="col-lg-3 col-md-4 border-end px-0">
-        <aside class="aside-main aside-sticky">
-          {{ content.toc_js }}
-        </aside>
-      </div>
-      <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
+  <section class="section bg-white">
+    <div class="container container-border-top">
+      <div class="row variable-gutters">
+        <div class="col-lg-3 col-md-4 border-end px-0">
+          <aside class="aside-main aside-sticky">
+            {{ content.toc_js }}
+          </aside>
+        </div>
+        <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
 
-        <article{{ attributes.addClass(classes) }}>
+          <article{{ attributes.addClass(classes) }}>
 
-          <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
+            <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
 
-            <div class="row variable-gutters">
-              <div class="col">
-                {{ content|without(
-                  'field_copertina',
-                  'field_grado_di_istruzione',
-                  'field_abstract',
-                  'field_persona_responsabile',
-                  'field_argomenti',
-                  'field_materie',
-                  'toc_js',
-                ) }}
+              <div class="row variable-gutters">
+                <div class="col">
+                  {{ content|without(
+                    'field_copertina',
+                    'field_grado_di_istruzione',
+                    'field_abstract',
+                    'field_persona_responsabile',
+                    'field_argomenti',
+                    'field_materie',
+                    'toc_js',
+                  ) }}
 
-                <h2 class="h4" id="art-par-04">Documenti</h2>
+                  <h2 class="h4" id="art-par-04">Documenti</h2>
+                </div>
               </div>
+
             </div>
 
-          </div>
+            {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
+            {% include '@skenografia/node/_partial.node--comments.html.twig' %}
 
-          {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
-          {% include '@skenografia/node/_partial.node--comments.html.twig' %}
+          </article>
 
-        </article>
-
+        </div>
       </div>
     </div>
-  </div>
-  <span class="sticky-toc-stop"></span>
-</section>
+    <span class="sticky-toc-stop"></span>
+  </section>
+{% endapply %}

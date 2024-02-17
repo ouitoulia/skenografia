@@ -69,23 +69,25 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/list/list-item.html.twig' with {
-  list_url: url,
-  list_text: label|render|striptags|trim,
-  list_show_end_arrow: true,
-  list_attributes: attributes
-} %}
+{% apply spaceless %}
+  {% embed '@bi-bcl/list/list-item.html.twig' with {
+    list_url: url,
+    list_text: label|render|striptags|trim,
+    list_show_end_arrow: true,
+    list_attributes: attributes
+  } %}
 
-  {% block listIcon %}
-    {% if content.field_tipologia_struttura %}
-      <div class="it-rounded-icon">
-        {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: content.field_tipologia_struttura|render|striptags|trim,
-          color: 'redbrown',
-          size: 'sm'
-        } %}
-      </div>
-    {% endif %}
-  {% endblock %}
+    {% block listIcon %}
+      {% if content.field_tipologia_struttura %}
+        <div class="it-rounded-icon">
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: content.field_tipologia_struttura|render|striptags|trim,
+            color: 'redbrown',
+            size: 'sm'
+          } %}
+        </div>
+      {% endif %}
+    {% endblock %}
 
-{% endembed %}
+  {% endembed %}
+{% endapply %}

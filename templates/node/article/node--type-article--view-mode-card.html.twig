@@ -69,29 +69,31 @@
  * @ingroup themeable
  */
 #}
-{% set date_card_format = date|split(' ') %}
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_tag_container: 'article',
-  card_title: label|render|striptags|trim,
-  card_image: content.field_copertina[0] ? content.field_copertina,
-  image_panoramic: true,
-  card_signature: display_submitted ? author_name : false,
-  card_read_more_url: url,
-  card_shadow: true,
-  card_border_bottom: true,
-  card_attributes: attributes
-} %}
+{% apply spaceless %}
+  {% set date_card_format = date|split(' ') %}
+  {% embed '@bi-bcl/card/card.html.twig' with {
+    card_tag_container: 'article',
+    card_title: label|render|striptags|trim,
+    card_image: content.field_copertina[0] ? content.field_copertina,
+    image_panoramic: true,
+    card_signature: display_submitted ? author_name : false,
+    card_read_more_url: url,
+    card_shadow: true,
+    card_border_bottom: true,
+    card_attributes: attributes
+  } %}
 
-  {% block cardText %}
-    <div{{ content_attributes.addClass('card-text') }}>
-      {{ content.field_abstract }}
-    </div>
-  {% endblock %}
+    {% block cardText %}
+      <div{{ content_attributes.addClass('card-text') }}>
+        {{ content.field_abstract }}
+      </div>
+    {% endblock %}
 
-  {% block cardSignature %}
-    <div class="card-signature mt-3">
-      {% include '@skenografia/node/_partial.node--author.html.twig' %}
-    </div>
-  {% endblock %}
+    {% block cardSignature %}
+      <div class="card-signature mt-3">
+        {% include '@skenografia/node/_partial.node--author.html.twig' %}
+      </div>
+    {% endblock %}
 
-{% endembed %}
+  {% endembed %}
+{% endapply %}

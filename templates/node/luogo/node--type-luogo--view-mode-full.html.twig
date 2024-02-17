@@ -68,190 +68,192 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-  'node',
-  'article-wrapper',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
-%}
+{% apply spaceless %}
+  {%
+    set classes = [
+    'node',
+    'article-wrapper',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+  %}
 
-<section class="section bg-white article-title">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col-md-6 order-md-2">{{ content.field_copertina }}</div>
-      <div class="col-md-6 order-md-1 d-flex align-items-center">
-        <div class="title-content pt-5">
-          <h1{{ title_attributes }}>{{ label }}</h1>
-          {{ content.field_abstract }}
-          <aside class="badges-wrapper badges-main">{{ content.field_argomenti }}</aside>
+  <section class="section bg-white article-title">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-md-6 order-md-2">{{ content.field_copertina }}</div>
+        <div class="col-md-6 order-md-1 d-flex align-items-center">
+          <div class="title-content pt-5">
+            <h1{{ title_attributes }}>{{ label }}</h1>
+            {{ content.field_abstract }}
+            <aside class="badges-wrapper badges-main">{{ content.field_argomenti }}</aside>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section bg-white">
-  <div class="container container-border-top">
-    <div class="row variable-gutters">
-      <div class="col-lg-3 col-md-4 border-end px-0">
-        <aside>
-          {{ content.toc_js }}
-        </aside>
-      </div>
-      <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
+  <section class="section bg-white">
+    <div class="container container-border-top">
+      <div class="row variable-gutters">
+        <div class="col-lg-3 col-md-4 border-end px-0">
+          <aside>
+            {{ content.toc_js }}
+          </aside>
+        </div>
+        <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
 
-        <article{{ attributes.addClass(classes) }}>
+          <article{{ attributes.addClass(classes) }}>
 
-          <div class="row variable-gutters">
-            <div class="col-lg-12 d-flex justify-content-end">
-              {% set _raw_tags = [] %}
-              {% for tag in content.field_argomenti %}
-                {% if tag['#title'] %}
-                  {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
-                {% endif %}
-              {% endfor %}
-              {% include '@bi-bcl/share/content-actions.twig' with {
-                description: content.field_abstract|render|striptags|trim,
-                dropdown_button_classes: ['text-redbrown'],
-                dropdown_icon_color: 'redbrown',
-                dropdown_icon_size: 'xs',
-              } %}
-              {% include '@bi-bcl/share/share-this.twig' with {
-                tags: _raw_tags|join(','),
-                dropdown_button_classes: ['text-redbrown'],
-                dropdown_icon_color: 'redbrown',
-                dropdown_icon_size: 'xs',
-              } %}
-            </div>
-          </div>
-
-          <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
-            {{ content.field_video }}
-            {{ content.body }}
-            {{ content.field_elementi_di_interesse }}
-
-            <h2 id="dove-si-trova" class="h4">{{ 'Dove si trova'|t }}</h2>
-            <div class="row variable-gutters mb-5">
-              <div class="col-lg-12">
-                {% if content.field_luoghi|render|striptags|trim is not empty %}
-                  {{ content.field_luoghi }}
-                {% else %}
-                  {% embed '@bi-bcl/card/card.html.twig' with {
-                    card_shadow: true,
-                    card_rounded: true,
-                    card_body_classes: ['p-0']
-                  } %}
-                    {% block cardText %}
-                      <div class="row variable-gutters">
-                        <div class="col-lg-6">
-                          {{ content.field_coordinate_geografiche }}
-                        </div>
-                        <div class="col-lg-6 py-4">
-                          <ul class="location-list mt-2 lis">
-                            {{ content.field_indirizzo }}
-                            {{ content.field_orario_pubblico }}
-                            {{ content.field_email }}
-                            {{ content.field_telefono }}
-                          </ul>
-                        </div>
-                      </div>
-                    {% endblock %}
-                  {% endembed %}
-                {% endif %}
+            <div class="row variable-gutters">
+              <div class="col-lg-12 d-flex justify-content-end">
+                {% set _raw_tags = [] %}
+                {% for tag in content.field_argomenti %}
+                  {% if tag['#title'] %}
+                    {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
+                  {% endif %}
+                {% endfor %}
+                {% include '@bi-bcl/share/content-actions.twig' with {
+                  description: content.field_abstract|render|striptags|trim,
+                  dropdown_button_classes: ['text-redbrown'],
+                  dropdown_icon_color: 'redbrown',
+                  dropdown_icon_size: 'xs',
+                } %}
+                {% include '@bi-bcl/share/share-this.twig' with {
+                  tags: _raw_tags|join(','),
+                  dropdown_button_classes: ['text-redbrown'],
+                  dropdown_icon_color: 'redbrown',
+                  dropdown_icon_size: 'xs',
+                } %}
               </div>
             </div>
 
-            {{ content.field_attributi_luogo }}
+            <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
+              {{ content.field_video }}
+              {{ content.body }}
+              {{ content.field_elementi_di_interesse }}
 
-            {{ drupal_view('correlati_luogo', 'servizi_presenti') }}
-            {{ drupal_view('correlati_luogo', 'il_luogo_e_sede_di') }}
-
-            <h2 id="contatti" class="h4">{{ 'Contatti'|t }}</h2>
-            {{ drupal_view('correlati_luogo', 'strutture_che_gestiscono_il_luogo') }}
-            {{ drupal_view('correlati_luogo', 'persone_che_gestiscono_il_luogo') }}
-            {{ content.field_struttura_esterna }}
-
-            <div class="row variable-gutters">
-              <div class="col-lg-9">
-                {{ content.field_extra_info }}
-                {{ content|without(
-                  'field_abstract',
-                  'field_argomenti',
-                  'field_copertina',
-                  'field_video',
-                  'body',
-                  'field_elementi_di_interesse',
-                  'field_luoghi',
-                  'field_coordinate_geografiche',
-                  'field_indirizzo',
-                  'field_email',
-                  'field_telefono',
-                  'field_orario_pubblico',
-                  'field_attributi_luogo',
-                  'field_extra_info',
-                  'field_anno_costruzione',
-                  'field_numero_piani',
-                  'field_posti',
-                  'field_tipologia_luogo',
-                  'field_uso_scolastico',
-                  'field_destinazione_uso',
-                  'field_anno_adattamento',
-                  'field_superficie_area_libera',
-                  'field_superficie_area_totale',
-                  'field_volume',
-                  'field_prenotabile',
-                  'field_codice_identificativo',
-                  'field_codice_catastale_comune',
-                  'field_struttura_esterna',
-                  'toc_js'
-                ) }}
-              </div>
-            </div>
-
-            <h3 class="h6">{{ 'Dettagli del luogo'|t }}</h3>
-            <div class="row variable-gutters">
-              <div class="col-lg-9">
-                <div class="d-flex">
-                  <div class="avatar size-xxl bg-redbrown me-5">
-                    {% include '@bi-bcl/icon/icon.html.twig' with {
-                      name: 'icon-building',
-                      size: 'xl',
-                      color: 'white',
-                      icon_classes: ['bg-redbrown']
+              <h2 id="dove-si-trova" class="h4">{{ 'Dove si trova'|t }}</h2>
+              <div class="row variable-gutters mb-5">
+                <div class="col-lg-12">
+                  {% if content.field_luoghi|render|striptags|trim is not empty %}
+                    {{ content.field_luoghi }}
+                  {% else %}
+                    {% embed '@bi-bcl/card/card.html.twig' with {
+                      card_shadow: true,
+                      card_rounded: true,
+                      card_body_classes: ['p-0']
                     } %}
-                  </div>
-                  <div class="big-data-rounded-icon-content">
-                    {{ content.field_anno_costruzione }}
-                    {{ content.field_numero_piani }}
-                    {{ content.field_posti }}
-                    {{ content.field_tipologia_luogo }}
-                    {{ content.field_uso_scolastico }}
-                    {{ content.field_destinazione_uso }}
-                    {{ content.field_anno_adattamento }}
-                    {{ content.field_superficie_area_libera }}
-                    {{ content.field_superficie_area_totale }}
-                    {{ content.field_volume }}
-                    {{ content.field_prenotabile }}
-                    {{ content.field_codice_identificativo }}
-                    {{ content.field_codice_catastale_comune }}
+                      {% block cardText %}
+                        <div class="row variable-gutters">
+                          <div class="col-lg-6">
+                            {{ content.field_coordinate_geografiche }}
+                          </div>
+                          <div class="col-lg-6 py-4">
+                            <ul class="location-list mt-2 lis">
+                              {{ content.field_indirizzo }}
+                              {{ content.field_orario_pubblico }}
+                              {{ content.field_email }}
+                              {{ content.field_telefono }}
+                            </ul>
+                          </div>
+                        </div>
+                      {% endblock %}
+                    {% endembed %}
+                  {% endif %}
+                </div>
+              </div>
+
+              {{ content.field_attributi_luogo }}
+
+              {{ drupal_view('correlati_luogo', 'servizi_presenti') }}
+              {{ drupal_view('correlati_luogo', 'il_luogo_e_sede_di') }}
+
+              <h2 id="contatti" class="h4">{{ 'Contatti'|t }}</h2>
+              {{ drupal_view('correlati_luogo', 'strutture_che_gestiscono_il_luogo') }}
+              {{ drupal_view('correlati_luogo', 'persone_che_gestiscono_il_luogo') }}
+              {{ content.field_struttura_esterna }}
+
+              <div class="row variable-gutters">
+                <div class="col-lg-9">
+                  {{ content.field_extra_info }}
+                  {{ content|without(
+                    'field_abstract',
+                    'field_argomenti',
+                    'field_copertina',
+                    'field_video',
+                    'body',
+                    'field_elementi_di_interesse',
+                    'field_luoghi',
+                    'field_coordinate_geografiche',
+                    'field_indirizzo',
+                    'field_email',
+                    'field_telefono',
+                    'field_orario_pubblico',
+                    'field_attributi_luogo',
+                    'field_extra_info',
+                    'field_anno_costruzione',
+                    'field_numero_piani',
+                    'field_posti',
+                    'field_tipologia_luogo',
+                    'field_uso_scolastico',
+                    'field_destinazione_uso',
+                    'field_anno_adattamento',
+                    'field_superficie_area_libera',
+                    'field_superficie_area_totale',
+                    'field_volume',
+                    'field_prenotabile',
+                    'field_codice_identificativo',
+                    'field_codice_catastale_comune',
+                    'field_struttura_esterna',
+                    'toc_js'
+                  ) }}
+                </div>
+              </div>
+
+              <h3 class="h6">{{ 'Dettagli del luogo'|t }}</h3>
+              <div class="row variable-gutters">
+                <div class="col-lg-9">
+                  <div class="d-flex">
+                    <div class="avatar size-xxl bg-redbrown me-5">
+                      {% include '@bi-bcl/icon/icon.html.twig' with {
+                        name: 'icon-building',
+                        size: 'xl',
+                        color: 'white',
+                        icon_classes: ['bg-redbrown']
+                      } %}
+                    </div>
+                    <div class="big-data-rounded-icon-content">
+                      {{ content.field_anno_costruzione }}
+                      {{ content.field_numero_piani }}
+                      {{ content.field_posti }}
+                      {{ content.field_tipologia_luogo }}
+                      {{ content.field_uso_scolastico }}
+                      {{ content.field_destinazione_uso }}
+                      {{ content.field_anno_adattamento }}
+                      {{ content.field_superficie_area_libera }}
+                      {{ content.field_superficie_area_totale }}
+                      {{ content.field_volume }}
+                      {{ content.field_prenotabile }}
+                      {{ content.field_codice_identificativo }}
+                      {{ content.field_codice_catastale_comune }}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
-          {% include '@skenografia/node/_partial.node--comments.html.twig' %}
+            {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
+            {% include '@skenografia/node/_partial.node--comments.html.twig' %}
 
-        </article>
+          </article>
 
+        </div>
       </div>
     </div>
-  </div>
-  <span class="sticky-toc-stop"></span>
-</section>
+    <span class="sticky-toc-stop"></span>
+  </section>
+{% endapply %}

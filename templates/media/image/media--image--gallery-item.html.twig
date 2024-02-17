@@ -31,15 +31,17 @@
  * @ingroup themeable
  */
 #}
-{{ title_suffix.contextual_links }}
-{% embed '@bi-bcl/gallery/gallery-item.html.twig' with {
-  image_description: content.field_media_image['#items'][0].alt,
-  show_image_caption: true,
-  icon_name: content.field_icona|render|striptags|trim,
-  gallery_item_attributes: attributes
-} %}
-  {% block galleryItemImage %}
-    {{ content.field_media_image }}
-  {% endblock %}
-{% endembed %}
+{% apply spaceless %}
+  {{ title_suffix.contextual_links }}
+  {% embed '@bi-bcl/gallery/gallery-item.html.twig' with {
+    image_description: content.field_media_image['#items'][0].alt,
+    show_image_caption: true,
+    icon_name: content.field_icona|render|striptags|trim,
+    gallery_item_attributes: attributes
+  } %}
+    {% block galleryItemImage %}
+      {{ content.field_media_image }}
+    {% endblock %}
+  {% endembed %}
+{% endapply %}
 

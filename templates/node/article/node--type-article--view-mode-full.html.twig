@@ -68,93 +68,95 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-  'node',
-  'article-wrapper',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
-%}
+{% apply spaceless %}
+  {%
+    set classes = [
+    'node',
+    'article-wrapper',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+  %}
 
-<section class="section bg-white article-title">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col-md-6 order-md-2">{{ content.field_copertina }}</div>
-      <div class="col-md-6 order-md-1 d-flex align-items-center">
-        <div class="title-content pt-5">
-          <h1{{ title_attributes }}>{{ label }}</h1>
-          {{ content.field_abstract }}
-          <div class="">
-            {% include '@skenografia/node/_partial.node--author.html.twig' %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section bg-white pt-5">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col-lg-9 col-md-8 order-lg-1">
-        <article{{ attributes.addClass(classes) }}>
-
-          <div{{ content_attributes.addClass(['node__content']) }}>
-            <div class="row variable-gutters">
-              <div class="col-lg-9">
-                {{ content|without(
-                  'field_abstract',
-                  'field_copertina',
-                  'field_argomenti',
-                  'field_luoghi',
-                  'field_persone',
-                  'field_persona_responsabile'
-                ) }}
-              </div>
+  <section class="section bg-white article-title">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-md-6 order-md-2">{{ content.field_copertina }}</div>
+        <div class="col-md-6 order-md-1 d-flex align-items-center">
+          <div class="title-content pt-5">
+            <h1{{ title_attributes }}>{{ label }}</h1>
+            {{ content.field_abstract }}
+            <div class="">
+              {% include '@skenografia/node/_partial.node--author.html.twig' %}
             </div>
           </div>
-          {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
-          {% include '@skenografia/node/_partial.node--comments.html.twig' %}
-        </article>
+        </div>
       </div>
-
-      <aside class="col-lg-3 col-md-4 order-lg-0">
-        <div class="actions-wrapper actions-main mb-4">
-          {% set _raw_tags = [] %}
-          {% for tag in content.field_argomenti %}
-            {% if tag['#title'] %}
-              {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
-            {% endif %}
-          {% endfor %}
-          {% include '@bi-bcl/share/content-actions.twig' with {
-            description: content.field_abstract|render|striptags|trim,
-            dropdown_button_classes: ['text-greendark'],
-            dropdown_icon_color: 'greendark',
-            dropdown_icon_size: 'xs',
-          } %}
-          {% include '@bi-bcl/share/share-this.twig' with {
-            tags: _raw_tags|join(','),
-            dropdown_button_classes: ['text-greendark'],
-            dropdown_icon_color: 'greendark',
-            dropdown_icon_size: 'xs',
-          } %}
-        </div>
-
-        <div class="badges-wrapper badges-main mb-4">
-          {{ content.field_argomenti }}
-        </div>
-        <div class="mb-4">
-          {{ content.field_persone }}
-        </div>
-        <div class="mb-4">
-          {{ content.field_luoghi }}
-        </div>
-      </aside>
     </div>
-  </div>
-  <span class="sticky-toc-stop"></span>
-</section>
+  </section>
+
+  <section class="section bg-white pt-5">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-lg-9 col-md-8 order-lg-1">
+          <article{{ attributes.addClass(classes) }}>
+
+            <div{{ content_attributes.addClass(['node__content']) }}>
+              <div class="row variable-gutters">
+                <div class="col-lg-9">
+                  {{ content|without(
+                    'field_abstract',
+                    'field_copertina',
+                    'field_argomenti',
+                    'field_luoghi',
+                    'field_persone',
+                    'field_persona_responsabile'
+                  ) }}
+                </div>
+              </div>
+            </div>
+            {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
+            {% include '@skenografia/node/_partial.node--comments.html.twig' %}
+          </article>
+        </div>
+
+        <aside class="col-lg-3 col-md-4 order-lg-0">
+          <div class="actions-wrapper actions-main mb-4">
+            {% set _raw_tags = [] %}
+            {% for tag in content.field_argomenti %}
+              {% if tag['#title'] %}
+                {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
+              {% endif %}
+            {% endfor %}
+            {% include '@bi-bcl/share/content-actions.twig' with {
+              description: content.field_abstract|render|striptags|trim,
+              dropdown_button_classes: ['text-greendark'],
+              dropdown_icon_color: 'greendark',
+              dropdown_icon_size: 'xs',
+            } %}
+            {% include '@bi-bcl/share/share-this.twig' with {
+              tags: _raw_tags|join(','),
+              dropdown_button_classes: ['text-greendark'],
+              dropdown_icon_color: 'greendark',
+              dropdown_icon_size: 'xs',
+            } %}
+          </div>
+
+          <div class="badges-wrapper badges-main mb-4">
+            {{ content.field_argomenti }}
+          </div>
+          <div class="mb-4">
+            {{ content.field_persone }}
+          </div>
+          <div class="mb-4">
+            {{ content.field_luoghi }}
+          </div>
+        </aside>
+      </div>
+    </div>
+    <span class="sticky-toc-stop"></span>
+  </section>
+{% endapply %}

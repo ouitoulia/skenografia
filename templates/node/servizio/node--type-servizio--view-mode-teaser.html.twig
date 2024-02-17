@@ -69,27 +69,29 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_tag_container: 'article',
-  card_title: label,
-  card_text: content.field_abstract,
-  card_shadow: true,
-  card_rounded: true,
-  card_teaser: true,
-  card_attributes: attributes
-} %}
-  {% block cardTitle %}
-      <h3 class="card-title h5">
-        <h3{{ title_attributes.addClass(['card-title', 'h5']) }}>
-          <a class="d-flex" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">
-            {% include '@bi-bcl/icon/icon.html.twig' with {
-              name: 'icon-service',
-              size: 'sm',
-              icon_classes: ['me-4', 'icon-redbrown']
-            } %}
-            {{ label }}
-          </a>
+{% apply spaceless %}
+  {% embed '@bi-bcl/card/card.html.twig' with {
+    card_tag_container: 'article',
+    card_title: label,
+    card_text: content.field_abstract,
+    card_shadow: true,
+    card_rounded: true,
+    card_teaser: true,
+    card_attributes: attributes
+  } %}
+    {% block cardTitle %}
+        <h3 class="card-title h5">
+          <h3{{ title_attributes.addClass(['card-title', 'h5']) }}>
+            <a class="d-flex" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'icon-service',
+                size: 'sm',
+                icon_classes: ['me-4', 'icon-redbrown']
+              } %}
+              {{ label }}
+            </a>
+          </h3>
         </h3>
-      </h3>
-  {% endblock %}
-{% endembed %}
+    {% endblock %}
+  {% endembed %}
+{% endapply %}

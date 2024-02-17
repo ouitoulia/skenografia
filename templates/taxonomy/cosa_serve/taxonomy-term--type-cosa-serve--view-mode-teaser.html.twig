@@ -25,11 +25,13 @@
  * @ingroup themeable
  */
 #}
-<div{{ attributes }}>
-  {{ title_prefix }}
-  {% if name and not page %}
-    <div class="h6 mb-0">{{ name }}</div>
-  {% endif %}
-  {{ title_suffix }}
-  {{ content }}
-</div>
+{% apply spaceless %}
+  <div{{ attributes }}>
+    {{ title_prefix }}
+    {% if name and not page %}
+      <div class="h6 mb-0">{{ name }}</div>
+    {% endif %}
+    {{ title_suffix }}
+    {{ content }}
+  </div>
+{% endapply %}

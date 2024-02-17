@@ -12,6 +12,8 @@
  * @ingroup themeable
  */
 #}
-<form{{ attributes.addClass('container') }}>
-  {{ children }}
-</form>
+{% apply spaceless %}
+  <form{{ attributes.addClass('container') }}>
+    {{ children }}
+  </form>
+{% endapply %}

@@ -1,121 +1,123 @@
-{% embed '@bootstrap_italia/layout/header/_partial.header.html.twig' %}
-  {% block headerSlim %}
-    {% embed '@bootstrap_italia/layout/header/_partial.header-slim.html.twig' %}
-      {% block headerSlimRightZone %}
-        <div class="it-header-slim-right-zone" role="navigation">
-        {% if page.header_slim_language %}
-          {{ page.header_slim_language }}
-        {% endif %}
-
-        {% if slim_header_action_type != 'full' %}
-        <div class="it-access-top-wrapper">
-        {% endif %}
-
-        {% if logged_in %}
-          {% if page.header_slim_action %}
-            {{ page.header_slim_action }}
+{% apply spaceless %}
+  {% embed '@bootstrap_italia/layout/header/_partial.header.html.twig' %}
+    {% block headerSlim %}
+      {% embed '@bootstrap_italia/layout/header/_partial.header-slim.html.twig' %}
+        {% block headerSlimRightZone %}
+          <div class="it-header-slim-right-zone" role="navigation">
+          {% if page.header_slim_language %}
+            {{ page.header_slim_language }}
           {% endif %}
-        {% elseif slim_header_action_active_login %}
-          {# Compliance C.SI.5.1 and C.SI.5.2 Municipality #}
-          {% set login_button_attributes = create_attribute() %}
-          {% if pa_website_validator_type == 'municipality' %}
-            {% set login_button_attributes = login_button_attributes.setAttribute('data-element', 'personal-area-login') %}
+
+          {% if slim_header_action_type != 'full' %}
+          <div class="it-access-top-wrapper">
           {% endif %}
-          {% set login_button_attributes = login_button_attributes.setAttribute('data-focus-mouse', 'false') %}
 
-          {% embed '@bi-bcl/button/button.html.twig' with {
-            label: 'Login to your personal area'|t,
-            variant: 'default',
-            tag: 'a',
-            size: 'xs',
-            url: slim_header_action_url ?: path('user.login'),
-            button_classes: [
-              'btn-icon',
-              slim_header_action_type == 'full' ? 'btn-full'
-            ],
-            label_classes: ['d-none', 'd-lg-block'],
-            button_attributes: login_button_attributes,
-          } %}
-            {% block after %}
-              {% if slim_header_action_type == 'full' and slim_header_action_icon %}
-                {% include '@bi-bcl/icon/icon.html.twig' with {
-                  name: 'icon-user',
-                  color: 'white',
-                  icon_classes: ['ms-3']
-                } %}
-              {% endif %}
-            {% endblock %}
-          {% endembed %}
-        {% endif %}{# End login button for anonymous user. #}
+          {% if logged_in %}
+            {% if page.header_slim_action %}
+              {{ page.header_slim_action }}
+            {% endif %}
+          {% elseif slim_header_action_active_login %}
+            {# Compliance C.SI.5.1 and C.SI.5.2 Municipality #}
+            {% set login_button_attributes = create_attribute() %}
+            {% if pa_website_validator_type == 'municipality' %}
+              {% set login_button_attributes = login_button_attributes.setAttribute('data-element', 'personal-area-login') %}
+            {% endif %}
+            {% set login_button_attributes = login_button_attributes.setAttribute('data-focus-mouse', 'false') %}
 
-        {% if slim_header_action_type != 'full' %}
-        </div>{# End it-access-top-wrapper. #}
-        {% endif %}
-        </div>{# End it-header-slim-right-zone. #}
-      {% endblock %}
-    {% endembed %}
-  {% endblock %}
-
-  {% block headerCenter %}
-    {% embed '@bootstrap_italia/layout/header/_partial.header-center.html.twig' %}
-      {% block headerCenterSearch %}
-        {% if page.header_center_search %}
-          <div class="it-search-wrapper">
-          {% if search_type == 'modal' %}
-            {% embed '@bi-bcl/modal/modal.html.twig' with {
-              id: 'modal-header-center-search',
-              modal_label: 'Site search'|t,
-              scrollable: true,
-              modal_size: search_modal_size ?: 'fullscreen',
-              dismissibile: false,
+            {% embed '@bi-bcl/button/button.html.twig' with {
+              label: 'Login to your personal area'|t,
+              variant: 'default',
+              tag: 'a',
+              size: 'xs',
+              url: slim_header_action_url ?: path('user.login'),
+              button_classes: [
+                'btn-icon',
+                slim_header_action_type == 'full' ? 'btn-full'
+              ],
+              label_classes: ['d-none', 'd-lg-block'],
+              button_attributes: login_button_attributes,
             } %}
-              {% block modalBody %}
-                <div class="container">
-                  {{ page.header_center_search }}
-                </div>
-              {% endblock %}
-
-              {% block modalButton %}
-                <span class="d-none d-md-block me-2">{{ 'Search'|t }}</span>
-                <a class="search-link bg-white"
-                   type="button"
-                   aria-label="{{ 'Site search'|t }}"
-                   data-bs-toggle="modal"
-                   data-bs-target="#modal-header-center-search"
-                   href="#"
-                >
+              {% block after %}
+                {% if slim_header_action_type == 'full' and slim_header_action_icon %}
                   {% include '@bi-bcl/icon/icon.html.twig' with {
-                    name: 'icon-search',
-                    size: 'sm',
-                    color: 'gray-primary'
+                    name: 'icon-user',
+                    color: 'white',
+                    icon_classes: ['ms-3']
                   } %}
-                </a>
+                {% endif %}
               {% endblock %}
             {% endembed %}
-          {% endif %}{# End search modal #}
+          {% endif %}{# End login button for anonymous user. #}
 
-          {% if search_type == 'page' %}
-            <span class="d-none d-md-block me-2">{{ 'Search'|t }}</span>
-            <a class="search-link bg-white"
-               aria-label="{{ 'Site search'|t }}"
-               title="{{ 'Site search'|t }}"
-               href="{{ search_page_url ?: '/search/node' }}"
-            >
-              {% include '@bi-bcl/icon/icon.html.twig' with {
-                name: 'icon-search',
-                size: 'sm',
-                color: 'gray-primary'
-              } %}
-            </a>
+          {% if slim_header_action_type != 'full' %}
+          </div>{# End it-access-top-wrapper. #}
           {% endif %}
+          </div>{# End it-header-slim-right-zone. #}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
 
-{#                  {% if search_type == 'inline' %}#}
-{#                    {{ page.header_center_search }}#}
-{#                  {% endif %}#}
+    {% block headerCenter %}
+      {% embed '@bootstrap_italia/layout/header/_partial.header-center.html.twig' %}
+        {% block headerCenterSearch %}
+          {% if page.header_center_search %}
+            <div class="it-search-wrapper">
+            {% if search_type == 'modal' %}
+              {% embed '@bi-bcl/modal/modal.html.twig' with {
+                id: 'modal-header-center-search',
+                modal_label: 'Site search'|t,
+                scrollable: true,
+                modal_size: search_modal_size ?: 'fullscreen',
+                dismissibile: false,
+              } %}
+                {% block modalBody %}
+                  <div class="container">
+                    {{ page.header_center_search }}
+                  </div>
+                {% endblock %}
 
-          </div>{# End it-search-wrapper. #}
-        {% endif %}
-      {% endblock %}{# End headerCenterSearch block. #}
-    {% endembed %}
-  {% endblock %}
-{% endembed %}
+                {% block modalButton %}
+                  <span class="d-none d-md-block me-2">{{ 'Search'|t }}</span>
+                  <a class="search-link bg-white"
+                     type="button"
+                     aria-label="{{ 'Site search'|t }}"
+                     data-bs-toggle="modal"
+                     data-bs-target="#modal-header-center-search"
+                     href="#"
+                  >
+                    {% include '@bi-bcl/icon/icon.html.twig' with {
+                      name: 'icon-search',
+                      size: 'sm',
+                      color: 'gray-primary'
+                    } %}
+                  </a>
+                {% endblock %}
+              {% endembed %}
+            {% endif %}{# End search modal #}
+
+            {% if search_type == 'page' %}
+              <span class="d-none d-md-block me-2">{{ 'Search'|t }}</span>
+              <a class="search-link bg-white"
+                 aria-label="{{ 'Site search'|t }}"
+                 title="{{ 'Site search'|t }}"
+                 href="{{ search_page_url ?: '/search/node' }}"
+              >
+                {% include '@bi-bcl/icon/icon.html.twig' with {
+                  name: 'icon-search',
+                  size: 'sm',
+                  color: 'gray-primary'
+                } %}
+              </a>
+            {% endif %}
+
+  {#                  {% if search_type == 'inline' %}#}
+  {#                    {{ page.header_center_search }}#}
+  {#                  {% endif %}#}
+
+            </div>{# End it-search-wrapper. #}
+          {% endif %}
+        {% endblock %}{# End headerCenterSearch block. #}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+{% endapply %}

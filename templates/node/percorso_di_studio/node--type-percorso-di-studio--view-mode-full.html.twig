@@ -68,133 +68,135 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-  'node',
-  'article-wrapper',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
-%}
+{% apply spaceless %}
+  {%
+    set classes = [
+    'node',
+    'article-wrapper',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+  %}
 
-<section class="section bg-white article-title py-2 py-lg-3 py-xl-5">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">{{ content.field_copertina }}</div>
+  <section class="section bg-white article-title py-2 py-lg-3 py-xl-5">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">{{ content.field_copertina }}</div>
 
-      <div class="col-12 col-sm-9 col-lg-5 col-md-8">
-        <small class="h6 text-purplelight text-uppercase">{{ content.field_struttura_didattica }}</small>
-        <div class="section-title">
-          <h1{{ title_attributes.addClass('mb-3') }}>{{ label }}</h1>
-          <p>{{ content.field_abstract }}</p>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-4 offset-lg-1">
-        <div class="actions-wrapper actions-main mb-3">
-          {% set _raw_tags = [] %}
-          {% for tag in content.field_argomenti %}
-            {% if tag['#title'] %}
-              {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
-            {% endif %}
-          {% endfor %}
-          {% include '@bi-bcl/share/content-actions.twig' with {
-            description: content.field_abstract|render|striptags|trim,
-            dropdown_button_classes: ['text-purplelight'],
-            dropdown_icon_color: 'purplelight',
-            dropdown_icon_size: 'xs',
-          } %}
-          {% include '@bi-bcl/share/share-this.twig' with {
-            tags: _raw_tags|join(','),
-            dropdown_button_classes: ['text-purplelight'],
-            dropdown_icon_color: 'purplelight',
-            dropdown_icon_size: 'xs',
-          } %}
-        </div>
-        <aside class="badges-wrapper badges-main">{{ content.field_grado_di_istruzione }}</aside>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="section bg-white">
-  <div class="container container-border-top">
-    <div class="row variable-gutters">
-      <div class="col-lg-3 col-md-4 border-end px-0">
-        <aside class="aside-main aside-sticky">
-          {{ content.toc_js }}
-        </aside>
-      </div>
-      <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
-
-        <article{{ attributes.addClass(classes) }}>
-
-          <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
-
-            {{ content.field_cosa_e }}
-            {{ content.field_a_cosa_serve }}
-
-            <h2 id="frequentare-l-indirizzo" class="h4">Frequentare l'indirizzo</h2>
-            {{ content.field_piano_di_studio }}
-            <h3 class="h5">Orario delle classi</h3>
-            <h3 class="h5">Libri di testo</h3>
-            <h3 class="h5">Consigli di classe</h3>
-
-            <h2 id="accedi-al-servizio" class="h4">Accedi al servizio</h2>
-            {{ content.field_come_si_accede }}
-            {{ content.field_cosa_serve }}
-            {{ content.field_servizio }}
-
-            <h2 id="documenti-correlati" class="h4">Documenti</h2>
-
-            <h2 class="h4" id="contatti">Contatti</h2>
-            {{ content.field_struttura_responsabile }}
-            {{ content.field_persona_responsabile }}
-            <div class="mb-5">
-              {{ content.field_email }}
-              {{ content.field_telefono }}
-            </div>
-
-            {{ content.field_casi_particolari }}
-            {{ content.field_extra_info }}
-
-            <div class="row variable-gutters">
-              <div class="col-lg-9">
-                {{ content|without(
-                  'field_copertina',
-                  'field_grado_di_istruzione',
-                  'field_abstract',
-                  'field_struttura_didattica',
-                  'toc_js',
-                  'field_cosa_e',
-                  'field_a_cosa_serve',
-                  'field_servizio',
-                  'field_piano_di_studio',
-                  'field_come_si_accede',
-                  'field_cosa_serve',
-                  'field_struttura_responsabile',
-                  'field_persona_responsabile',
-                  'field_email',
-                  'field_telefono',
-                  'field_casi_particolari',
-                  'field_extra_info',
-                ) }}
-              </div>
-            </div>
-
+        <div class="col-12 col-sm-9 col-lg-5 col-md-8">
+          <small class="h6 text-purplelight text-uppercase">{{ content.field_struttura_didattica }}</small>
+          <div class="section-title">
+            <h1{{ title_attributes.addClass('mb-3') }}>{{ label }}</h1>
+            <p>{{ content.field_abstract }}</p>
           </div>
+        </div>
 
-          {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
-          {% include '@skenografia/node/_partial.node--comments.html.twig' %}
-
-        </article>
+        <div class="col-lg-3 col-md-4 offset-lg-1">
+          <div class="actions-wrapper actions-main mb-3">
+            {% set _raw_tags = [] %}
+            {% for tag in content.field_argomenti %}
+              {% if tag['#title'] %}
+                {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
+              {% endif %}
+            {% endfor %}
+            {% include '@bi-bcl/share/content-actions.twig' with {
+              description: content.field_abstract|render|striptags|trim,
+              dropdown_button_classes: ['text-purplelight'],
+              dropdown_icon_color: 'purplelight',
+              dropdown_icon_size: 'xs',
+            } %}
+            {% include '@bi-bcl/share/share-this.twig' with {
+              tags: _raw_tags|join(','),
+              dropdown_button_classes: ['text-purplelight'],
+              dropdown_icon_color: 'purplelight',
+              dropdown_icon_size: 'xs',
+            } %}
+          </div>
+          <aside class="badges-wrapper badges-main">{{ content.field_grado_di_istruzione }}</aside>
+        </div>
 
       </div>
     </div>
-  </div>
-  <span class="sticky-toc-stop"></span>
-</section>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container container-border-top">
+      <div class="row variable-gutters">
+        <div class="col-lg-3 col-md-4 border-end px-0">
+          <aside class="aside-main aside-sticky">
+            {{ content.toc_js }}
+          </aside>
+        </div>
+        <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
+
+          <article{{ attributes.addClass(classes) }}>
+
+            <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
+
+              {{ content.field_cosa_e }}
+              {{ content.field_a_cosa_serve }}
+
+              <h2 id="frequentare-l-indirizzo" class="h4">Frequentare l'indirizzo</h2>
+              {{ content.field_piano_di_studio }}
+              <h3 class="h5">Orario delle classi</h3>
+              <h3 class="h5">Libri di testo</h3>
+              <h3 class="h5">Consigli di classe</h3>
+
+              <h2 id="accedi-al-servizio" class="h4">Accedi al servizio</h2>
+              {{ content.field_come_si_accede }}
+              {{ content.field_cosa_serve }}
+              {{ content.field_servizio }}
+
+              <h2 id="documenti-correlati" class="h4">Documenti</h2>
+
+              <h2 class="h4" id="contatti">Contatti</h2>
+              {{ content.field_struttura_responsabile }}
+              {{ content.field_persona_responsabile }}
+              <div class="mb-5">
+                {{ content.field_email }}
+                {{ content.field_telefono }}
+              </div>
+
+              {{ content.field_casi_particolari }}
+              {{ content.field_extra_info }}
+
+              <div class="row variable-gutters">
+                <div class="col-lg-9">
+                  {{ content|without(
+                    'field_copertina',
+                    'field_grado_di_istruzione',
+                    'field_abstract',
+                    'field_struttura_didattica',
+                    'toc_js',
+                    'field_cosa_e',
+                    'field_a_cosa_serve',
+                    'field_servizio',
+                    'field_piano_di_studio',
+                    'field_come_si_accede',
+                    'field_cosa_serve',
+                    'field_struttura_responsabile',
+                    'field_persona_responsabile',
+                    'field_email',
+                    'field_telefono',
+                    'field_casi_particolari',
+                    'field_extra_info',
+                  ) }}
+                </div>
+              </div>
+
+            </div>
+
+            {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
+            {% include '@skenografia/node/_partial.node--comments.html.twig' %}
+
+          </article>
+
+        </div>
+      </div>
+    </div>
+    <span class="sticky-toc-stop"></span>
+  </section>
+{% endapply %}

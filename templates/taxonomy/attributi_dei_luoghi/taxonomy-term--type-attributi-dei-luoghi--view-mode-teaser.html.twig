@@ -25,22 +25,24 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_title: name,
-  card_shadow: true,
-  card_rounded: true,
-  card_teaser: true
-} %}
-  {% block cardTitle %}
-    <div class="d-flex">
-      {% include '@bi-bcl/icon/icon.html.twig' with {
-        name: content.field_icona|render|striptags|trim,
-        size: 'xl',
-        icon_classes: ['me-4']
-      } %}
-      <h4 class="card-title h5">
-        {{ name }}
-      </h4>
-    </div>
-  {% endblock %}
-{% endembed %}
+{% apply spaceless %}
+  {% embed '@bi-bcl/card/card.html.twig' with {
+    card_title: name,
+    card_shadow: true,
+    card_rounded: true,
+    card_teaser: true
+  } %}
+    {% block cardTitle %}
+      <div class="d-flex">
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: content.field_icona|render|striptags|trim,
+          size: 'xl',
+          icon_classes: ['me-4']
+        } %}
+        <h4 class="card-title h5">
+          {{ name }}
+        </h4>
+      </div>
+    {% endblock %}
+  {% endembed %}
+{% endapply %}

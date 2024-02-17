@@ -68,172 +68,174 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-  'node',
-  'article-wrapper',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
-%}
-{% set _annualita = content.field_annualita_classe|render|striptags|trim %}
-{% set _sezione = content.field_sezione|render|striptags|trim %}
-{% set _classe = _annualita ~ _sezione %}
-
-{# Recupero le materie dal campo piano_di_studio che appartiene al bundle
-   percorso_di_studio referenziato da field_percorso_di_studio filtrato per l'annualità #}
-{% set _materie_della_classe =
-  drupal_field(
-    'field_piano_di_studio',
+{% apply spaceless %}
+  {%
+    set classes = [
     'node',
-    content.field_percorso_di_studio[0]['#options']['entity'].id(),
-    'full'
-  )[
-    _annualita - 1
+    'article-wrapper',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
-%}
+  %}
+  {% set _annualita = content.field_annualita_classe|render|striptags|trim %}
+  {% set _sezione = content.field_sezione|render|striptags|trim %}
+  {% set _classe = _annualita ~ _sezione %}
 
-<section class="section bg-redbrown bg-red-gradient py-5 px-3">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col-md-6">
-        {{ content.field_anno_scolastico }}
-        <h1{{ title_attributes.addClass(['mb-3','fw-light', 'display-1']) }}>Classe {{ _classe }}</h1>
-        {{ content.field_struttura_didattica }}
-        {{ content.field_percorso_di_studio }}
-      </div>
-    </div>
-  </div>
-</section>
+  {# Recupero le materie dal campo piano_di_studio che appartiene al bundle
+     percorso_di_studio referenziato da field_percorso_di_studio filtrato per l'annualità #}
+  {% set _materie_della_classe =
+    drupal_field(
+      'field_piano_di_studio',
+      'node',
+      content.field_percorso_di_studio[0]['#options']['entity'].id(),
+      'full'
+    )[
+      _annualita - 1
+    ]
+  %}
 
-{% if content.field_orario_lezioni|render|striptags|trim != '' %}
-  <section class="section bg-white">
+  <section class="section bg-redbrown bg-red-gradient py-5 px-3">
     <div class="container">
-      <div class="row variable-gutters mx-0">
-        <div class="col-12 col-sm-9 py-3 ps-lg-0">
-          <a class="" href="{{ content.field_orario_lezioni|render|striptags|trim }}" data-focus-mouse="false" aria-label="Scarica il calendario della classe {{ _classe }}" title="Scarica il calendario della classe {{ _classe }}">
-            {% include '@bi-bcl/icon/icon.html.twig' with {
-              name: 'it-calendar',
-              color: 'bluelectric',
-              icon_classes: ['me-2']
-            } %}
-            <strong class="text-petrol">Orario Completo delle lezioni classe {{ _classe }}</strong>
-          </a>
-        </div>
-        <div class="d-none d-sm-block col-sm-3">
-          <a class="py-3 text-bluelectric float-end" href="{{ content.field_orario_lezioni|render|striptags|trim }}" data-focus-mouse="false" aria-label="Scarica il calendario della classe {{ _classe }}" title="Scarica il calendario della classe {{ _classe }}">
-            {% include '@bi-bcl/icon/icon.html.twig' with {
-              name: 'icon-download',
-              color: 'bluelectric',
-              size: 'sm',
-              icon_classes: ['me-2']
-            } %}
-            <span><strong>Scarica</strong></span>
-          </a>
+      <div class="row variable-gutters">
+        <div class="col-md-6">
+          {{ content.field_anno_scolastico }}
+          <h1{{ title_attributes.addClass(['mb-3','fw-light', 'display-1']) }}>Classe {{ _classe }}</h1>
+          {{ content.field_struttura_didattica }}
+          {{ content.field_percorso_di_studio }}
         </div>
       </div>
     </div>
   </section>
-{% endif %}
 
-{% if _materie_della_classe is iterable %}
-  <section class="section bg-white">
-    <section class="section bg-linear-vertical-blue-light">
-      <div class="container py-5">
-        <div class="row variable-gutters">
-          <div class="col">
-            <div class="section-title text-center mb-4">
-              <h2>Le Materie</h2>
-              <p class="mb-4">
-                Scopri tutte le materie della classe {{ _classe }}<br>
-                <strong>{{ content.field_struttura_didattica|render|striptags|trim }}</strong>
-              </p>
-              <div class="clearfix">
-                <a aria-label="scopri tutte le materie" class="btn btn-bluelectric" style="min-width: 200px;" href="#tutte-le-materie-della-classe-{{ _classe }}" data-focus-mouse="false">Scopri</a>
-              </div>
-            </div>
+  {% if content.field_orario_lezioni|render|striptags|trim != '' %}
+    <section class="section bg-white">
+      <div class="container">
+        <div class="row variable-gutters mx-0">
+          <div class="col-12 col-sm-9 py-3 ps-lg-0">
+            <a class="" href="{{ content.field_orario_lezioni|render|striptags|trim }}" data-focus-mouse="false" aria-label="Scarica il calendario della classe {{ _classe }}" title="Scarica il calendario della classe {{ _classe }}">
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-calendar',
+                color: 'bluelectric',
+                icon_classes: ['me-2']
+              } %}
+              <strong class="text-petrol">Orario Completo delle lezioni classe {{ _classe }}</strong>
+            </a>
+          </div>
+          <div class="d-none d-sm-block col-sm-3">
+            <a class="py-3 text-bluelectric float-end" href="{{ content.field_orario_lezioni|render|striptags|trim }}" data-focus-mouse="false" aria-label="Scarica il calendario della classe {{ _classe }}" title="Scarica il calendario della classe {{ _classe }}">
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'icon-download',
+                color: 'bluelectric',
+                size: 'sm',
+                icon_classes: ['me-2']
+              } %}
+              <span><strong>Scarica</strong></span>
+            </a>
           </div>
         </div>
       </div>
     </section>
+  {% endif %}
 
-    <div id="tutte-le-materie-della-classe-{{ _classe }}" class="container bg-white position-relative slided-top pb-5">
-      <div class="row variable-gutters mb-4">
-        {{ _materie_della_classe }}
-      </div>
-    </div>
-  </section>
-{% endif %}
-
-{% if content.field_persona_responsabile[0] is iterable
-      or content.field_rappresentanti_genitori[0] is iterable
-      or content.field_rappresentanti_alunni[0] is iterable %}
-  <section class="section bg-linear-vertical-blue-light py-5">
-    <div class="container">
-      <div class="title-section text-center mb-5">
-        <h2 class="h4">Il Consiglio della classe {{ label }}</h2>
-      </div>
-      <div class="row variable-gutters">
-        {{ content.field_persona_responsabile }}
-        {{ content.field_rappresentanti_genitori }}
-        {{ content.field_rappresentanti_alunni }}
-      </div>
-    </div>
-  </section>
-{% endif %}
-
-{% if content.field_persone[0] is iterable %}
-  <section class="section bg-gray-light py-5">
-    <div class="container">
-      <div class="title-section text-center mb-5">
-        <h2 class="h4">Gli insegnanti della classe {{ label }}</h2>
-      </div>
-      <div class="row variable-gutters">
-        {{ content.field_persone }}
-      </div>
-    </div>
-  </section>
-{% endif %}
-
-{% if content|without(
-  'field_anno_scolastico',
-  'field_struttura_didattica',
-  'field_percorso_di_studio',
-  'field_annualita_classe',
-  'field_sezione',
-  'field_orario_lezioni',
-  'field_persona_responsabile',
-  'field_rappresentanti_genitori',
-  'field_rappresentanti_alunni',
-  'field_persone'
-)|render|striptags|trim != '' %}
-  <section class="section bg-white">
-    <div class="container">
-      <div class="row variable-gutters">
-        <div class="col">
-
-          <article{{ attributes.addClass(classes) }}>
-            <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
-              {{ content|without(
-                'field_anno_scolastico',
-                'field_struttura_didattica',
-                'field_percorso_di_studio',
-                'field_annualita_classe',
-                'field_sezione',
-                'field_orario_lezioni',
-                'field_persona_responsabile',
-                'field_rappresentanti_genitori',
-                'field_rappresentanti_alunni',
-                'field_persone'
-              ) }}
+  {% if _materie_della_classe is iterable %}
+    <section class="section bg-white">
+      <section class="section bg-linear-vertical-blue-light">
+        <div class="container py-5">
+          <div class="row variable-gutters">
+            <div class="col">
+              <div class="section-title text-center mb-4">
+                <h2>Le Materie</h2>
+                <p class="mb-4">
+                  Scopri tutte le materie della classe {{ _classe }}<br>
+                  <strong>{{ content.field_struttura_didattica|render|striptags|trim }}</strong>
+                </p>
+                <div class="clearfix">
+                  <a aria-label="scopri tutte le materie" class="btn btn-bluelectric" style="min-width: 200px;" href="#tutte-le-materie-della-classe-{{ _classe }}" data-focus-mouse="false">Scopri</a>
+                </div>
+              </div>
             </div>
-          </article>
+          </div>
+        </div>
+      </section>
 
+      <div id="tutte-le-materie-della-classe-{{ _classe }}" class="container bg-white position-relative slided-top pb-5">
+        <div class="row variable-gutters mb-4">
+          {{ _materie_della_classe }}
         </div>
       </div>
-    </div>
-  </section>
-{% endif %}
+    </section>
+  {% endif %}
+
+  {% if content.field_persona_responsabile[0] is iterable
+        or content.field_rappresentanti_genitori[0] is iterable
+        or content.field_rappresentanti_alunni[0] is iterable %}
+    <section class="section bg-linear-vertical-blue-light py-5">
+      <div class="container">
+        <div class="title-section text-center mb-5">
+          <h2 class="h4">Il Consiglio della classe {{ label }}</h2>
+        </div>
+        <div class="row variable-gutters">
+          {{ content.field_persona_responsabile }}
+          {{ content.field_rappresentanti_genitori }}
+          {{ content.field_rappresentanti_alunni }}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if content.field_persone[0] is iterable %}
+    <section class="section bg-gray-light py-5">
+      <div class="container">
+        <div class="title-section text-center mb-5">
+          <h2 class="h4">Gli insegnanti della classe {{ label }}</h2>
+        </div>
+        <div class="row variable-gutters">
+          {{ content.field_persone }}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if content|without(
+    'field_anno_scolastico',
+    'field_struttura_didattica',
+    'field_percorso_di_studio',
+    'field_annualita_classe',
+    'field_sezione',
+    'field_orario_lezioni',
+    'field_persona_responsabile',
+    'field_rappresentanti_genitori',
+    'field_rappresentanti_alunni',
+    'field_persone'
+  )|render|striptags|trim != '' %}
+    <section class="section bg-white">
+      <div class="container">
+        <div class="row variable-gutters">
+          <div class="col">
+
+            <article{{ attributes.addClass(classes) }}>
+              <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
+                {{ content|without(
+                  'field_anno_scolastico',
+                  'field_struttura_didattica',
+                  'field_percorso_di_studio',
+                  'field_annualita_classe',
+                  'field_sezione',
+                  'field_orario_lezioni',
+                  'field_persona_responsabile',
+                  'field_rappresentanti_genitori',
+                  'field_rappresentanti_alunni',
+                  'field_persone'
+                ) }}
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+{% endapply %}

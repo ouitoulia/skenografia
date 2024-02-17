@@ -38,8 +38,10 @@
  * @ingroup themeable
  */
 #}
-{% block paragraph %}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
-{% endblock paragraph %}
+{% apply spaceless %}
+  {% block paragraph %}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  {% endblock paragraph %}
+{% endapply %}

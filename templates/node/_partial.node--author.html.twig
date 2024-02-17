@@ -1,8 +1,10 @@
-<span class="d-block">{{ 'Submitted by'|t }}</span>
-{% if content.field_persona_responsabile[0]|render|striptags|trim is not empty %}
-  {{ content.field_persona_responsabile[0] }}
-{% elseif author_profile_nid %}
-  {{ drupal_entity('node', author_profile_nid, 'teaser') }}
-{% else %}
-  {{ author_picture }} {{ author_name }}
-{% endif %}
+{% apply spaceless %}
+  <span class="d-block">{{ 'Submitted by'|t }}</span>
+  {% if content.field_persona_responsabile[0]|render|striptags|trim is not empty %}
+    {{ content.field_persona_responsabile[0] }}
+  {% elseif author_profile_nid %}
+    {{ drupal_entity('node', author_profile_nid, 'teaser') }}
+  {% else %}
+    {{ author_picture }} {{ author_name }}
+  {% endif %}
+{% endapply %}

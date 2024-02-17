@@ -68,73 +68,79 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-  'node',
-  'article-wrapper',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
-%}
+{% apply spaceless %}
+  {%
+    set classes = [
+    'node',
+    'article-wrapper',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+  %}
 
-<section class="section bg-white article-title">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col-md-6 order-md-2">{{ content.field_coordinate_geografiche }}</div>
-      <div class="col-md-6 order-md-1 d-flex align-items-center">
-        <div class="title-content pt-5">
-          <h1{{ title_attributes }}>{{ label }}</h1>
-          {{ content.field_abstract }}
+  <section class="section bg-petrol py-3 py-lg-3 py-xl-5">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
+          <div class="mx-3">
+            {{ content.field_copertina }}
+          </div>
+        </div>
+        <div class="col-12 col-sm-9 col-md-8 col-lg-8 offset-lg-1 d-flex align-items-center">
+          <div class="section-title">
+            <h1{{ title_attributes.addClass('mb-3') }}>{{ label }}</h1>
+            <p>{{ content.field_abstract }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section bg-white pt-5">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col-lg-9 col-md-8 order-lg-1">
-        <article{{ attributes.addClass(classes) }}>
+  <section class="section bg-white pt-5">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-lg-9 col-md-8 order-lg-1">
+          <article{{ attributes.addClass(classes) }}>
 
-          <div{{ content_attributes.addClass(['node__content']) }}>
-            <div class="row variable-gutters">
-              <div class="col-lg-9">
-                {{ content.body }}
+            <div{{ content_attributes.addClass(['node__content']) }}>
+              <div class="row variable-gutters">
+                <div class="col-lg-9">
+                  {{ content.body }}
 
-                <h2 class="h4">Contatti</h2>
-                {{ content.field_indirizzo }}
-                {{ content.field_email }}
-                {{ content.field_telefono }}
-                {{ content.field_link }}
+                  <h2 class="h4">Contatti</h2>
+                  {{ content.field_indirizzo }}
+                  {{ content.field_email }}
+                  {{ content.field_telefono }}
+                  {{ content.field_link }}
 
-                {{ content|without(
-                  'field_abstract',
-                  'field_copertina',
-                  'field_coordinate_geografiche',
-                  'body',
-                  'field_indirizzo',
-                  'field_email',
-                  'field_telefono',
-                  'field_link'
-                ) }}
+                  {{ content|without(
+                    'field_abstract',
+                    'field_copertina',
+                    'field_coordinate_geografiche',
+                    'body',
+                    'field_indirizzo',
+                    'field_email',
+                    'field_telefono',
+                    'field_link'
+                  ) }}
+                </div>
               </div>
             </div>
-          </div>
-          {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
-          {% include '@skenografia/node/_partial.node--comments.html.twig' %}
-        </article>
-      </div>
-
-      <aside class="col-lg-3 col-md-4 order-lg-0">
-        <div class="mb-4">
-          {{ content.field_copertina }}
+            {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
+            {% include '@skenografia/node/_partial.node--comments.html.twig' %}
+          </article>
         </div>
-      </aside>
+
+        <aside class="col-lg-3 col-md-4 order-lg-0">
+          <div class="mb-4">
+            {{ content.field_coordinate_geografiche }}
+          </div>
+        </aside>
+      </div>
     </div>
-  </div>
-  <span class="sticky-toc-stop"></span>
-</section>
+    <span class="sticky-toc-stop"></span>
+  </section>
+{% endapply %}

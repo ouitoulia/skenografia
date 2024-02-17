@@ -25,16 +25,18 @@
  * @ingroup themeable
  */
 #}
-<div{{ attributes }}>
-  {{ title_prefix }}
-  {% if name and not page %}
-    <h3 class="visually-hidden-focusable">{{ name }}</h3>
-  {% endif %}
-  {{ title_suffix }}
-  {% include '@bi-bcl/icon/icon.html.twig' with {
-    name: content.field_icona|render|striptags|trim,
-    color: 'primary',
-    size: 'xl'
-  } %}
-  {{ content|without('field_icona') }}
-</div>
+{% apply spaceless %}
+  <div{{ attributes }}>
+    {{ title_prefix }}
+    {% if name and not page %}
+      <h3 class="visually-hidden-focusable">{{ name }}</h3>
+    {% endif %}
+    {{ title_suffix }}
+    {% include '@bi-bcl/icon/icon.html.twig' with {
+      name: content.field_icona|render|striptags|trim,
+      color: 'primary',
+      size: 'xl'
+    } %}
+    {{ content|without('field_icona') }}
+  </div>
+{% endapply %}

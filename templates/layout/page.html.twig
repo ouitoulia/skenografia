@@ -45,10 +45,12 @@
  * @ingroup themeable
  */
 #}
-<div id="page-default">
-  {% include '@skenografia/layout/header/_partial.header.html.twig' %}
-  {% include '@bootstrap_italia/layout/content/_partial.before-content.html.twig' %}
-  {% include '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
-  {% include '@bootstrap_italia/layout/content/_partial.after-content.html.twig' %}
-  {% include '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
-</div>
+{% apply spaceless %}
+  <div id="page-default">
+    {% include '@skenografia/layout/header/_partial.header.html.twig' %}
+    {% include '@bootstrap_italia/layout/content/_partial.before-content.html.twig' %}
+    {% include '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
+    {% include '@bootstrap_italia/layout/content/_partial.after-content.html.twig' %}
+    {% include '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
+  </div>
+{% endapply %}

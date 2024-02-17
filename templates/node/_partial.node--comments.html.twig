@@ -1,5 +1,7 @@
-{% if content.comment %}
-  <div id="node--comments" class="node_comments">
-    {{ content.comment }}
-  </div>
-{% endif %}
+{% apply spaceless %}
+  {% if content.comment %}
+    <div id="node--comments" class="node_comments">
+      {{ content.comment }}
+    </div>
+  {% endif %}
+{% endapply %}

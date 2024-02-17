@@ -14,37 +14,39 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bootstrap_italia/region/header-nav/region--header-nav.html.twig' %}
+{% apply spaceless %}
+  {% embed '@bootstrap_italia/region/header-nav/region--header-nav.html.twig' %}
 
-  {% block togglerIcon %}
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-  {% endblock %}
+    {% block togglerIcon %}
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    {% endblock %}
 
-  {% block menuContent %}
+    {% block menuContent %}
 
-    <div class="brand-mobile-menu mt-4 d-block d-lg-none">
-      {% include '@skenografia/region/brand/block--system-branding-block.html.twig' with {
-        site_logo: base_path ~ '/' ~ site_logo,
-        site_name: site_name,
-        site_slogan: site_slogan,
-        comune: comune,
-        provincia: provincia
-      } only %}
-    </div>
+      <div class="brand-mobile-menu mt-4 d-block d-lg-none">
+        {% include '@skenografia/region/brand/block--system-branding-block.html.twig' with {
+          site_logo: base_path ~ '/' ~ site_logo,
+          site_name: site_name,
+          site_slogan: site_slogan,
+          comune: comune,
+          provincia: provincia
+        } only %}
+      </div>
 
-    {{ content }}
+      {{ content }}
 
-    {% if socials %}
-      {% include '@bi-bcl/share/follow-us.html.twig' with {
-        socials: socials,
-        label: 'Follow us on'|t,
-        icon_color: center_header_light ? 'white' : 'gray-primary',
-        blank: social_new_window,
-        followus_classes: ["it-socials", "social-mobile-menu", "d-lg-none", "mt-4"]
-      } %}
-    {% endif %}
+      {% if socials %}
+        {% include '@bi-bcl/share/follow-us.html.twig' with {
+          socials: socials,
+          label: 'Follow us on'|t,
+          icon_color: center_header_light ? 'white' : 'gray-primary',
+          blank: social_new_window,
+          followus_classes: ["it-socials", "social-mobile-menu", "d-lg-none", "mt-4"]
+        } %}
+      {% endif %}
 
-  {% endblock %}
-{% endembed %}
+    {% endblock %}
+  {% endembed %}
+{% endapply %}

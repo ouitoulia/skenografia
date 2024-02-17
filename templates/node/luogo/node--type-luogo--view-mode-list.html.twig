@@ -69,19 +69,21 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/list/list-item.html.twig' with {
-  list_url: url,
-  list_text: label|render|striptags|trim,
-  list_show_end_arrow: true,
-  list_attributes: attributes
-} %}
+{% apply spaceless %}
+  {% embed '@bi-bcl/list/list-item.html.twig' with {
+    list_url: url,
+    list_text: label|render|striptags|trim,
+    list_show_end_arrow: true,
+    list_attributes: attributes
+  } %}
 
-  {% block listIcon %}
-    {% if content.field_tipologia_luogo %}
-      <div class="it-rounded-icon">
-        {{ content.field_tipologia_luogo }}
-      </div>
-    {% endif %}
-  {% endblock %}
+    {% block listIcon %}
+      {% if content.field_tipologia_luogo %}
+        <div class="it-rounded-icon">
+          {{ content.field_tipologia_luogo }}
+        </div>
+      {% endif %}
+    {% endblock %}
 
-{% endembed %}
+  {% endembed %}
+{% endapply %}

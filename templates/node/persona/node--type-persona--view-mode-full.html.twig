@@ -68,96 +68,98 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-  'node',
-  'article-wrapper',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
-%}
+{% apply spaceless %}
+  {%
+    set classes = [
+    'node',
+    'article-wrapper',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+  %}
 
-<section class="section bg-petrol py-3 py-lg-3 py-xl-5">
-  <div class="container">
-    <div class="row variable-gutters">
-      <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
-        {% if content.field_ritratto[0] is iterable %}
-          <div class="section-thumb thumb-large mx-3">
-            {{ content.field_ritratto }}
+  <section class="section bg-petrol py-3 py-lg-3 py-xl-5">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
+          {% if content.field_ritratto[0] is iterable %}
+            <div class="section-thumb thumb-large mx-3">
+              {{ content.field_ritratto }}
+            </div>
+          {% else %}
+            <div class="ratio-1x1 text-align-center">
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-user',
+                size: 'xxl',
+                color: 'white',
+              } %}
+            </div>
+          {% endif %}
+        </div>
+        <div class="col-12 col-sm-9 col-md-8 col-lg-8 offset-lg-1 d-flex align-items-center">
+          <div class="section-title">
+            <h1{{ title_attributes.addClass('mb-3') }}>{{ content.field_nome }}{{ content.field_cognome }}</h1>
+            <p>{{ content.field_ruolo_persona }}</p>
           </div>
-        {% else %}
-          <div class="ratio-1x1 text-align-center">
-            {% include '@bi-bcl/icon/icon.html.twig' with {
-              name: 'it-user',
-              size: 'xxl',
-              color: 'white',
-            } %}
-          </div>
-        {% endif %}
-      </div>
-      <div class="col-12 col-sm-9 col-md-8 col-lg-8 offset-lg-1 d-flex align-items-center">
-        <div class="section-title">
-          <h1{{ title_attributes.addClass('mb-3') }}>{{ content.field_nome }}{{ content.field_cognome }}</h1>
-          <p>{{ content.field_ruolo_persona }}</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section bg-white">
-  <div class="container container-border-top">
-    <div class="row variable-gutters">
-      <div class="col-lg-3 col-md-4 border-end px-0">
-        <aside>
-          {{ content.toc_js }}
-        </aside>
-      </div>
-      <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
+  <section class="section bg-white">
+    <div class="container container-border-top">
+      <div class="row variable-gutters">
+        <div class="col-lg-3 col-md-4 border-end px-0">
+          <aside>
+            {{ content.toc_js }}
+          </aside>
+        </div>
+        <div class="col-lg-8 col-md-8 offset-lg-1 pt-5">
 
-        <article{{ attributes.addClass(classes) }}>
+          <article{{ attributes.addClass(classes) }}>
 
-          <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
-            {{ content.field_abstract }}
+            <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
+              {{ content.field_abstract }}
 
-            <h2 id="didattica" class="h4">{{ 'Didattica'|t }}</h2>
-            {{ content.field_materie }}
+              <h2 id="didattica" class="h4">{{ 'Didattica'|t }}</h2>
+              {{ content.field_materie }}
 
-            <h3 id="schede-didattiche" class="h5 mb-4">{{ 'Schede didattiche'|t }}</h3>
-            <h3 id="progetti" class="h5 mb-4">{{ 'Progetti'|t }}</h3>
+              <h3 id="schede-didattiche" class="h5 mb-4">{{ 'Schede didattiche'|t }}</h3>
+              <h3 id="progetti" class="h5 mb-4">{{ 'Progetti'|t }}</h3>
 
-            <h2 id="documenti" class="h4 mb-4">{{ 'Documenti'|t }}</h2>
+              <h2 id="documenti" class="h4 mb-4">{{ 'Documenti'|t }}</h2>
 
-            {{ content.field_extra_info }}
+              {{ content.field_extra_info }}
 
-            <h2 id="contatti" class="h4 mb-4">{{ 'Contatti'|t }}</h2>
-            {{ content.field_telefono }}
-            {{ content.field_email }}
+              <h2 id="contatti" class="h4 mb-4">{{ 'Contatti'|t }}</h2>
+              {{ content.field_telefono }}
+              {{ content.field_email }}
 
-            {{ content|without(
-              'field_nome',
-              'field_cognome',
-              'field_ruolo_persona',
-              'field_ritratto',
-              'field_abstract',
-              'field_materie',
-              'field_extra_info',
-              'field_telefono',
-              'field_email',
-              'toc_js'
-            ) }}
-          </div>
+              {{ content|without(
+                'field_nome',
+                'field_cognome',
+                'field_ruolo_persona',
+                'field_ritratto',
+                'field_abstract',
+                'field_materie',
+                'field_extra_info',
+                'field_telefono',
+                'field_email',
+                'toc_js'
+              ) }}
+            </div>
 
-          {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
-          {% include '@skenografia/node/_partial.node--comments.html.twig' %}
+            {% include '@skenografia/node/_partial.content-type--footer-metadata.html.twig' %}
+            {% include '@skenografia/node/_partial.node--comments.html.twig' %}
 
-        </article>
+          </article>
 
+        </div>
       </div>
     </div>
-  </div>
-  <span class="sticky-toc-stop"></span>
-</section>
+    <span class="sticky-toc-stop"></span>
+  </section>
+{% endapply %}

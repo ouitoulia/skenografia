@@ -47,28 +47,30 @@
  * @ingroup themeable
  */
 #}
-<div id="{{ page['#type']|clean_id ~ '-' ~ node.bundle|clean_id }}">
-  {% include '@skenografia/layout/header/_partial.header.html.twig' %}
-  {% include '@bootstrap_italia/layout/content/_partial.before-content.html.twig' %}
+{% apply spaceless %}
+  <div id="{{ page['#type']|clean_id ~ '-' ~ node.bundle|clean_id }}">
+    {% include '@skenografia/layout/header/_partial.header.html.twig' %}
+    {% include '@bootstrap_italia/layout/content/_partial.before-content.html.twig' %}
 
-  {% embed '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
-    {% block contentTitle %}{% endblock %}
-    {% block contentBreadcrumb %}
-      {% if page.breadcrumb %}
-        <section class="it-breadcrumb__wrapper px-4 mt-4 d-none d-sm-block {{ content_container_type ?: 'container' }}">
-          <div class="row">
-            <div class="col px-lg-4">
-              {{ page.breadcrumb }}
+    {% embed '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
+      {% block contentTitle %}{% endblock %}
+      {% block contentBreadcrumb %}
+        {% if page.breadcrumb %}
+          <section class="it-breadcrumb__wrapper px-4 mt-4 d-none d-sm-block {{ content_container_type ?: 'container' }}">
+            <div class="row">
+              <div class="col px-lg-4">
+                {{ page.breadcrumb }}
+              </div>
             </div>
-          </div>
-        </section>
-      {% endif %}
-    {% endblock %}
-    {% block contentMain %}
-      {{ page.content }}
-    {% endblock %}
-  {% endembed %}
+          </section>
+        {% endif %}
+      {% endblock %}
+      {% block contentMain %}
+        {{ page.content }}
+      {% endblock %}
+    {% endembed %}
 
-  {% include '@bootstrap_italia/layout/content/_partial.after-content.html.twig' with {content_container_type: 'container-w100'} %}
-  {% include '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
-</div>
+    {% include '@bootstrap_italia/layout/content/_partial.after-content.html.twig' with {content_container_type: 'container-w100'} %}
+    {% include '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
+  </div>
+{% endapply %}

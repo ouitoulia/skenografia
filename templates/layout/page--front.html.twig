@@ -45,29 +45,31 @@
  * @ingroup themeable
  */
 #}
-<div id="it-page-front">
-  {% include '@skenografia/layout/header/_partial.header.html.twig' %}
+{% apply spaceless %}
+  <div id="it-page-front">
+    {% include '@skenografia/layout/header/_partial.header.html.twig' %}
 
-  {% block homePageTitle %}
-    <h1 class="visually-hidden" id="it-main-content">{{ site_name }}</h1>
-  {% endblock %}
+    {% block homePageTitle %}
+      <h1 class="visually-hidden" id="it-main-content">{{ site_name }}</h1>
+    {% endblock %}
 
-  {% include '@bootstrap_italia/layout/front/_partial.home-first-row.html.twig' %}
-  {% include '@bootstrap_italia/layout/front/_partial.home-second-row.html.twig' %}
+    {% include '@bootstrap_italia/layout/front/_partial.home-first-row.html.twig' %}
+    {% include '@bootstrap_italia/layout/front/_partial.home-second-row.html.twig' %}
 
-  {% if show_main_content_in_front %}
-    {% include '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
-  {% endif %}
+    {% if show_main_content_in_front %}
+      {% include '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
+    {% endif %}
 
-  {% include '@bootstrap_italia/layout/front/_partial.home-third-row.html.twig' %}
-  {% include '@bootstrap_italia/layout/front/_partial.home-fourth-row.html.twig' %}
+    {% include '@bootstrap_italia/layout/front/_partial.home-third-row.html.twig' %}
+    {% include '@bootstrap_italia/layout/front/_partial.home-fourth-row.html.twig' %}
 
-  {# If you need a fifth row, copy this file in your theme,
-    then insert the new line between the fourth and the last row.
-    For example:
-    include '@your_child_theme/path/to/_partial.home-fifth-row.html.twig'
-  #}
+    {# If you need a fifth row, copy this file in your theme,
+      then insert the new line between the fourth and the last row.
+      For example:
+      include '@your_child_theme/path/to/_partial.home-fifth-row.html.twig'
+    #}
 
-  {% include '@bootstrap_italia/layout/front/_partial.home-last-row.html.twig' %}
-  {% include '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
-</div>
+    {% include '@bootstrap_italia/layout/front/_partial.home-last-row.html.twig' %}
+    {% include '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
+  </div>
+{% endapply %}

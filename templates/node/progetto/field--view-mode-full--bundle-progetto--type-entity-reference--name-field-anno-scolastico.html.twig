@@ -1,3 +1,5 @@
-{% for item in items %}
-  <div{{ item.attributes.addClass(['h4', 'mb-3']) }}>A.S. {{ item.content }}</div>
-{% endfor %}
+{% apply spaceless %}
+  {% for item in items %}
+    <div{{ item.attributes.addClass(['h4', 'mb-3']) }}>A.S. {{ item.content }}</div>
+  {% endfor %}
+{% endapply %}

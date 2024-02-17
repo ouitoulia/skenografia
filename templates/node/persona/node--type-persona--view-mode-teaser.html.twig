@@ -1,17 +1,19 @@
-<div class="avatar-wrapper avatar-extra-text my-2">
-  {% include '@bi-bcl/avatar/avatar.html.twig' with {
-    avatar_type: content.field_ritratto[0] is iterable ? 'image' : 'text',
-    avatar_image: content.field_ritratto[0] is iterable ? content.field_ritratto : false,
-    avatar_icon: false,
-    avatar_icon_color: false,
-    avatar_text: content.field_ritratto[0] is iterable ? false : content.field_nome|render|striptags|trim|first ~ ' ' ~ content.field_cognome|render|striptags|trim|first,
-    avatar_text_color: false,
-    avatar_assistive_text: label|render|striptags|trim,
-    avatar_size: 'md',
-    avatar_url: url|render|striptags|trim,
-  } %}
-  <div class="extra-text">
-    <strong>{{ content.field_nome }}{{ content.field_cognome }}</strong>
-    {{ content.field_ruolo_persona }}
+{% apply spaceless %}
+  <div class="avatar-wrapper avatar-extra-text my-2">
+    {% include '@bi-bcl/avatar/avatar.html.twig' with {
+      avatar_type: content.field_ritratto[0] is iterable ? 'image' : 'text',
+      avatar_image: content.field_ritratto[0] is iterable ? content.field_ritratto : false,
+      avatar_icon: false,
+      avatar_icon_color: false,
+      avatar_text: content.field_ritratto[0] is iterable ? false : content.field_nome|render|striptags|trim|first ~ ' ' ~ content.field_cognome|render|striptags|trim|first,
+      avatar_text_color: false,
+      avatar_assistive_text: label|render|striptags|trim,
+      avatar_size: 'md',
+      avatar_url: url|render|striptags|trim,
+    } %}
+    <div class="extra-text">
+      <strong>{{ content.field_nome }}{{ content.field_cognome }}</strong>
+      {{ content.field_ruolo_persona }}
+    </div>
   </div>
-</div>
+{% endapply %}
