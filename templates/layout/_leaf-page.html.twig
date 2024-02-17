@@ -53,6 +53,17 @@
 
   {% embed '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
     {% block contentTitle %}{% endblock %}
+    {% block contentBreadcrumb %}
+      {% if page.breadcrumb %}
+        <section class="it-breadcrumb__wrapper px-4 mt-4 d-none d-sm-block {{ content_container_type ?: 'container' }}">
+          <div class="row">
+            <div class="col px-lg-4">
+              {{ page.breadcrumb }}
+            </div>
+          </div>
+        </section>
+      {% endif %}
+    {% endblock %}
     {% block contentMain %}
       {{ page.content }}
     {% endblock %}
