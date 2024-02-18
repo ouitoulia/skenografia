@@ -9,11 +9,11 @@
 // Link: https://github.com/italia/design-scuole-pagine-statiche/blob/src-scss/src/scss/scuole.scss
 
 // Override
-// Fatto 2.3.0
+// Fatto v2.3.0
 //@import "design-scuole-pagine-statiche-src/src/scss/override/colors";
 @import "r-engineering/override/colors";
 
-// Fatto 2.3.0
+// Fatto v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/type';
 @import "r-engineering/override/type";
 
@@ -26,7 +26,7 @@
 // non presente in 2.3.0 https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/forms';
 
-// Fatto 2.3.0
+// Fatto v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/custom-forms';
 @import "r-engineering/override/custom-forms";
 
@@ -34,7 +34,7 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/cards';
 @import "r-engineering/override/cards";
 
-// Fatto 2.3.0
+// Fatto v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/override/buttons';
 @import "r-engineering/override/buttons";
 
@@ -43,7 +43,12 @@
 
 // Components
 //@import 'design-scuole-pagine-statiche-src/src/scss/components/jpush-menu';
+
+// OWL Carousel è stato sostituito da Splide
+// Da ottimizzare v2.4.1
 //@import 'design-scuole-pagine-statiche-src/src/scss/components/owl-carousel';
+@import "r-engineering/components/splide";
+
 //@import 'design-scuole-pagine-statiche-src/src/scss/components/perfect-scrollbar';
 //@import 'design-scuole-pagine-statiche-src/src/scss/components/responsive-multilevel-menu';
 //@import 'design-scuole-pagine-statiche-src/src/scss/components/leaflet';
@@ -51,19 +56,19 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/components/clndr';
 
 // Main
-// Fatto 2.3.0
+// Fatto v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/utils';
 @import "r-engineering/main/utils";
 
-// Fatto 2.3.0
+// Fatto v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/containers';
 @import "r-engineering/main/containers";
 
-// Fatto 2.3.0
+// Fatto v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/sections';
 @import "r-engineering/main/sections";
 
-// Fatto 2.3.0
+// Fatto v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/type';
 @import "r-engineering/main/type";
 
@@ -116,7 +121,7 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/accordion';
 //@import "r-engineering/parts/accordion";
 
-// Fatto 2.3.0
+// Fatto v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/location';
 @import "r-engineering/parts/location";
 

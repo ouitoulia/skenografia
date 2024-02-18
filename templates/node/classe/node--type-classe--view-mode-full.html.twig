@@ -169,13 +169,25 @@
     </section>
   {% endif %}
 
+  {% if content.field_libri_di_testo[0] is iterable %}
+    <section class="section section-bluedark py-5">
+      <div class="container pt-3">
+        <div class="row variable-gutters">
+          <div class="col-lg-12">
+            {{ content.field_libri_di_testo }}
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
   {% if content.field_persona_responsabile[0] is iterable
         or content.field_rappresentanti_genitori[0] is iterable
         or content.field_rappresentanti_alunni[0] is iterable %}
     <section class="section bg-linear-vertical-blue-light py-5">
       <div class="container">
         <div class="title-section text-center mb-5">
-          <h2 class="h4">Il Consiglio della classe {{ label }}</h2>
+          <h2 class="h4">Il Consiglio della classe {{ _classe }}</h2>
         </div>
         <div class="row variable-gutters">
           {{ content.field_persona_responsabile }}
@@ -190,7 +202,7 @@
     <section class="section bg-gray-light py-5">
       <div class="container">
         <div class="title-section text-center mb-5">
-          <h2 class="h4">Gli insegnanti della classe {{ label }}</h2>
+          <h2 class="h4">Gli insegnanti della classe {{ _classe }}</h2>
         </div>
         <div class="row variable-gutters">
           {{ content.field_persone }}
@@ -206,6 +218,7 @@
     'field_annualita_classe',
     'field_sezione',
     'field_orario_lezioni',
+    'field_libri_di_testo',
     'field_persona_responsabile',
     'field_rappresentanti_genitori',
     'field_rappresentanti_alunni',
@@ -225,6 +238,7 @@
                   'field_annualita_classe',
                   'field_sezione',
                   'field_orario_lezioni',
+                  'field_libri_di_testo',
                   'field_persona_responsabile',
                   'field_rappresentanti_genitori',
                   'field_rappresentanti_alunni',

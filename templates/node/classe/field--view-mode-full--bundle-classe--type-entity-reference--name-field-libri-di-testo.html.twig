@@ -54,11 +54,30 @@
     'mb-5'
   ] %}
 
-  <div{{ attributes.addClass(container_classes) }}>
-    <div class="card-wrapper card-teaser-wrapper">
-      {% for item in items %}
-        {{ item.content }}
-      {% endfor %}
+  <div class="row variable-gutters justify-content-center mb-5">
+    <div class="col-lg-6 text-center">
+      <h2{{ title_attributes.addClass(['h3', 'text-center', 'semi-bold', 'mb-2']) }}>{{ label }}</h2>
+      <p class="lead">
+        Tutti i libri di testo e i materiali di studio della classe
+      </p>
     </div>
+  </div>
+
+  <div{{ attributes.addClass(container_classes) }}>
+
+    {% embed '@bi-bcl/carousel/carousel.html.twig' with {
+      carousel_classes: ['carousel-notice']
+    }%}
+      {% block carouselSlides %}
+        {% for item in items %}
+          {% include '@bi-bcl/carousel/carousel-slide.html.twig' with {
+            content: item.content,
+            slide_image_wrapper: false,
+            slide_attributes: item.attributes
+          } %}
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+
   </div>{# End main container. #}
 {% endapply %}

@@ -61,9 +61,10 @@
 			display: block;
 		}
 	}
-	&.section-padding {
-		padding: 64px 0 64px 0;
-	}
+  // non necessario con bootstrap-italia2
+	//&.section-padding {
+	//	padding: 64px 0 64px 0;
+	//}
 	&.section-hero {
 		/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#feffff+0,f6f5ff+95 */
 		//background: #feffff; /* Old browsers */
