@@ -51,6 +51,7 @@
     multiple ? 'field-multiple',
     'field--label-' ~ label_display|clean_class,
     field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
+    'mb-4'
   ] %}
 
   <div{{ attributes.addClass(container_classes) }}>
@@ -59,7 +60,7 @@
       field_label_tag: 'h3',
       field_label_bold: false,
       field_label_separator: '',
-      title_attributes: title_attributes.addClass('h5')
+      title_attributes: title_attributes.addClass(['h5','fw-lighter'])
     } %}
 
     <div class="card-wrapper card-teaser-wrapper">

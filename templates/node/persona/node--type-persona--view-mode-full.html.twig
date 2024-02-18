@@ -123,14 +123,25 @@
 
             <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
               {{ content.field_abstract }}
+              {{ drupal_view('correlati_persona', 'dove_lavora') }}
+              {{ drupal_view('correlati_persona', 'strutture_di_cui_e_responsabile') }}
+              {{ drupal_view('correlati_persona', 'servizi_di_cui_e_responsabile') }}
 
-              <h2 id="didattica" class="h4">{{ 'Didattica'|t }}</h2>
-              {{ content.field_materie }}
+              {% if content.field_ruolo_persona[0]['#plain_text'] == 'Personale Docente' %}
+                <h2 id="didattica" class="h4">{{ 'Didattica'|t }}</h2>
+                {{ content.field_materie }}
+                {{ drupal_view('correlati_persona', 'schede_didattiche') }}
+              {% endif %}
 
-              <h3 id="schede-didattiche" class="h5 mb-4">{{ 'Schede didattiche'|t }}</h3>
-              <h3 id="progetti" class="h5 mb-4">{{ 'Progetti'|t }}</h3>
+              {{ drupal_view('correlati_persona', 'progetti') }}
 
               <h2 id="documenti" class="h4 mb-4">{{ 'Documenti'|t }}</h2>
+              {% include '@bi-bcl/alert/alert.html.twig' with {
+                heading_tag: 'h3',
+                message: 'Da fare vista',
+                dismissible: false,
+                alert_classes: ['mb-5']
+              } %}
 
               {{ content.field_extra_info }}
 
