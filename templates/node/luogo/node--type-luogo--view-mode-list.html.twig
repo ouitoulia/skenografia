@@ -72,7 +72,7 @@
 {% apply spaceless %}
   {% embed '@bi-bcl/list/list-item.html.twig' with {
     list_url: url,
-    list_text: label|render|striptags|trim,
+    list_text: label,
     list_show_end_arrow: true,
     list_attributes: attributes
   } %}
