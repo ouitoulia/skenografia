@@ -25,11 +25,9 @@
  * @ingroup themeable
  *
  * @todo Delete as part of https://www.drupal.org/node/3015623
- * originale in web/core/modules/node/templates/field--node--title.html.twig
  */
 #}
-{% apply spaceless %}
-  {%- for item in items -%}
-    {{ item.content }}
-  {%- endfor -%}
-{% endapply %}
+{% include '@node/field--node--title.html.twig' with {
+  is_inline: true,
+  attributes: attributes.addClass('text')
+} %}
