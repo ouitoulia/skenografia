@@ -134,12 +134,10 @@
             <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
               {{ content.body }}
 
-              <h2 class="h4" id="art-par-02">Percorsi di studio</h2>
-              <h3 class="h6">Tutti i percorsi di studio disponibili</h3>
-
+              {{ drupal_view('correlati_struttura_organizzativa', 'percorsi_di_studio') }}
               {{ drupal_view('correlati_struttura_organizzativa', 'servizi') }}
 
-              <h2 class="h4" id="art-par-04">Organizzazione e contatti</h2>
+              <h2 class="h4" id="organizzazione-e-contatti">Organizzazione e contatti</h2>
               {# Dipende da #}
               {{ content.field_struttura_organizzativa }}
               {# Responsabile #}
@@ -149,7 +147,7 @@
               {# Altri componenti #}
               {{ content.field_persone_esterne }}
 
-              <h3 class="h6">Contatti</h3>
+              <h3 class="h5 fw-lighter">Contatti</h3>
               {% embed '@bi-bcl/card/card.html.twig' with {
                 card_teaser: true,
                 card_shadow: true,
@@ -166,7 +164,16 @@
               {# Ulteriori informazioni #}
               {{ content.field_extra_info }}
 
-              <h3 class="h6">Progetti</h3>
+              {% if is_admin %}
+                <h3 class="h5 fw-lighter">Progetti</h3>
+                {% include '@bi-bcl/alert/alert.html.twig' with {
+                  heading_tag: 'h3',
+                  type: 'danger',
+                  message: "Da fare vista. Nell'architettura dei contenuti manca il campo di riferimento?",
+                  dismissible: false,
+                  alert_classes: ['mb-5']
+                } %}
+              {% endif %}
 
               <div class="row variable-gutters">
                 <div class="col-lg-9">
