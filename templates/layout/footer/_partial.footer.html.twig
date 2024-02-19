@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Template for footer component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/footer/
+ * Latest revision: v2.7.1
+ *
+ * Available variables:
+ *
+ * @see template_preprocess_page()
+ * @see page.html.twig
+ *
+ * @ingroup themeable
+ *
+ */
+#}
+{% apply spaceless %}
+  {% embed '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
+    {% block footerBrand %}
+      {% if page.brand %}
+        <section>
+          <div class="row clearfix">
+            <div class="col-sm-12 footer-items-wrapper logo-wrapper d-flex align-items-center">
+              <img class="ue-logo" src="/libraries/ouitoulia-skenografia/images/logo-eu-inverted.svg" alt="logo Unione Europea">
+              {{ page.brand }}
+            </div>
+          </div>
+        </section>
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+{% endapply %}
