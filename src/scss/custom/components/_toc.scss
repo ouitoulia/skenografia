@@ -1,0 +1,67 @@
+.toc-js.link-list-wrapper.menu-link-list {
+  h3 {
+    font-size: 1rem;
+    text-transform: initial;
+
+    &:after {
+      @include media-breakpoint-up(lg) {
+        background-color: $petrol;
+      }
+
+      #page-struttura-organizzativa.struttura-organizzativa &,
+      #page-luogo.luogo & {
+        @include media-breakpoint-up(lg) {
+          background-color: $redbrown;
+        }
+      }
+
+      #page-servizio.servizio &,
+      #page-percorso-di-studio.percorso-di-studio & {
+        @include media-breakpoint-up(lg) {
+          background-color: $purplelight;
+        }
+      }
+
+      #page-evento.evento & {
+        @include media-breakpoint-up(lg) {
+          background-color:  $greendark;
+        }
+      }
+
+      #page-scheda-didattica.scheda-didattica &,
+      #page-progetto.progetto & {
+        @include media-breakpoint-up(lg) {
+          background-color:  $bluelectric;
+        }
+      }
+    }
+  }
+
+  ul {
+    li {
+      a {
+        color: $petrol;
+
+        #page-struttura-organizzativa.struttura-organizzativa &,
+        #page-luogo.luogo & {
+          color: $redbrown;
+        }
+
+        #page-servizio.servizio &,
+        #page-percorso-di-studio.percorso-di-studio & {
+          color: $purplelight;
+        }
+
+        #page-evento.evento & {
+          color: $greendark;
+        }
+
+        #page-scheda-didattica.scheda-didattica &,
+        #page-progetto.progetto & {
+          color: $bluelectric;
+        }
+
+      }
+    }
+  }
+}

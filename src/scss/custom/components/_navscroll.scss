@@ -1,0 +1,23 @@
+.navbar.it-navscroll-wrapper .custom-navbar-toggler,
+.navbar.it-navscroll-wrapper .it-back-button {
+  color: $petrol;
+
+  #page-struttura-organizzativa.struttura-organizzativa &,
+  #page-luogo.luogo & {
+    color: $redbrown;
+  }
+
+  #page-servizio.servizio &,
+  #page-percorso-di-studio.percorso-di-studio & {
+    color: $purplelight;
+  }
+
+  #page-evento.evento & {
+    color: $greendark;
+  }
+
+  #page-scheda-didattica.scheda-didattica &,
+  #page-progetto.progetto & {
+    color: $bluelectric;
+  }
+}

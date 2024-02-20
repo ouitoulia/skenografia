@@ -48,7 +48,7 @@
  */
 #}
 {% apply spaceless %}
-  <div id="{{ page['#type']|clean_id ~ '-' ~ node.bundle|clean_id }}">
+  <div id="{{ page['#type']|clean_id ~ '-' ~ node.bundle|clean_id }}" class="{{ node.bundle|clean_id }}">
     {% include '@skenografia/layout/header/_partial.header.html.twig' %}
     {% include '@bootstrap_italia/layout/content/_partial.before-content.html.twig' %}
 
