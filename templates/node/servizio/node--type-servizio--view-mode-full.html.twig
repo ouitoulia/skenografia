@@ -167,7 +167,16 @@
 
               {{ content.field_casi_particolari }}
 
-              <h2 class="h4" id="documenti-correlati">Documenti</h2>
+              {% if is_admin %}
+                <h2 class="h4" id="documenti-correlati">Documenti</h2>
+                {% include '@bi-bcl/alert/alert.html.twig' with {
+                  heading_tag: 'h3',
+                  type: 'danger',
+                  message: "Da fare content type e vista",
+                  dismissible: false,
+                  alert_classes: ['mb-5']
+                } %}
+              {% endif %}
 
               <h2 class="h4" id="contatti">Contatti</h2>
               <div class="mb-5" data-element="contacts">
@@ -178,12 +187,14 @@
 
               {{ content.field_struttura_responsabile }}
 
-              <h2 class="h4">Ulteriori informazioni</h2>
-              {{ content.field_codice_identificativo }}
-              {{ content.field_ipa }}
-              {{ content.field_extra_info }}
+              {% if content.field_codice_identificativo[0] is iterable or content.field_ipa[0] is iterable or content.field_extra_info[0] is iterable %}
+                <h2 class="h4">Ulteriori informazioni</h2>
+                {{ content.field_codice_identificativo }}
+                {{ content.field_ipa }}
+                {{ content.field_extra_info }}
+              {% endif %}
 
-              <h2 class="h4">Progetti correlati al servizio</h2>
+              {{ drupal_view('correlati_servizio', 'progetti_correlati') }}
 
               <div class="row variable-gutters">
                 <div class="col-lg-9">
