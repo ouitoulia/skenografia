@@ -139,7 +139,7 @@
               <h2 id="dove-si-trova" class="h4">{{ 'Dove si trova'|t }}</h2>
               <div class="row variable-gutters mb-5">
                 <div class="col-lg-12">
-                  {% if content.field_luoghi|render|striptags|trim is not empty %}
+                  {% if content.field_luoghi[0] is iterable %}
                     {{ content.field_luoghi }}
                   {% else %}
                     {% embed '@bi-bcl/card/card.html.twig' with {
@@ -167,6 +167,7 @@
                 </div>
               </div>
 
+              {# Modalità di accesso #}
               {{ content.field_attributi_luogo }}
 
               {{ drupal_view('correlati_luogo', 'servizi_presenti') }}
@@ -214,7 +215,7 @@
                 </div>
               </div>
 
-              <h3 class="h6">{{ 'Dettagli del luogo'|t }}</h3>
+              <h3 class="h5 fw-lighter mb-2">{{ 'Dettagli del luogo'|t }}</h3>
               <div class="row variable-gutters">
                 <div class="col-lg-9">
                   <div class="d-flex">
