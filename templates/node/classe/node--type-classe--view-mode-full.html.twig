@@ -170,7 +170,7 @@
   {% endif %}
 
   {% if content.field_libri_di_testo[0] is iterable %}
-    <section class="section section-bluedark py-5">
+    <section id="libri-di-testo" class="section section-bluedark py-5">
       <div class="container pt-3">
         <div class="row variable-gutters">
           <div class="col-lg-12">
@@ -184,7 +184,7 @@
   {% if content.field_persona_responsabile[0] is iterable
         or content.field_rappresentanti_genitori[0] is iterable
         or content.field_rappresentanti_alunni[0] is iterable %}
-    <section class="section bg-linear-vertical-blue-light py-5">
+    <section id="consiglio-di-classe" class="section bg-linear-vertical-blue-light py-5">
       <div class="container">
         <div class="title-section text-center mb-5">
           <h2 class="h4">Il Consiglio della classe {{ _classe }}</h2>

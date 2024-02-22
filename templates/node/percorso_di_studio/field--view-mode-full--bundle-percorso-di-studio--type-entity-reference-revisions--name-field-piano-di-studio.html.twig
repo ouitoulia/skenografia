@@ -3,7 +3,7 @@
     field_label_tag: 'h3',
     field_label_bold: false,
     field_label_separator: '',
-    title_attributes: title_attributes.addClass('h5'),
+    title_attributes: title_attributes.addClass(['h5', 'fw-lighter']),
   } %}
   {% for item in items %}
     <div{{ item.attributes.addClass('mb-5') }}>{{ item.content }}</div>
