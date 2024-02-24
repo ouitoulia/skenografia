@@ -9,7 +9,8 @@
       }
 
       #page-struttura-organizzativa.struttura-organizzativa &,
-      #page-luogo.luogo & {
+      #page-luogo.luogo &,
+      #page-documento.documento & {
         @include media-breakpoint-up(lg) {
           background-color: $redbrown;
         }
@@ -43,7 +44,8 @@
         color: $petrol;
 
         #page-struttura-organizzativa.struttura-organizzativa &,
-        #page-luogo.luogo & {
+        #page-luogo.luogo &,
+        #page-documento.documento & {
           color: $redbrown;
         }
 

@@ -1,0 +1,11 @@
+{% include '@bi-field/field-reference--format-label--component-badge.html.twig' with {
+  background: 'redbrown',
+  rounded_pill: true,
+  outline: true,
+  field_label_tag: 'h2',
+  field_label_separator: '',
+  field_label_bold: false,
+  title_attributes: title_attributes.addClass('h6'),
+  attributes: attributes.addClass(['badges','mb-2']),
+  badge_attributes: create_attribute().setAttribute('data-element', 'topic-list')
+} %}
