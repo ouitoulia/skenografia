@@ -167,16 +167,7 @@
 
               {{ content.field_casi_particolari }}
 
-              {% if is_admin %}
-                <h2 class="h4" id="documenti-correlati">Documenti</h2>
-                {% include '@bi-bcl/alert/alert.html.twig' with {
-                  heading_tag: 'h3',
-                  type: 'danger',
-                  message: "Da fare content type e vista",
-                  dismissible: false,
-                  alert_classes: ['mb-5']
-                } %}
-              {% endif %}
+              {{ drupal_view('correlati_servizio', 'documenti') }}
 
               <h2 class="h4" id="contatti">Contatti</h2>
               <div class="mb-5" data-element="contacts">
