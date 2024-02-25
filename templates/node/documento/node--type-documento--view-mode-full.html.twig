@@ -143,13 +143,11 @@
 
               {{ content.field_allegati }}
 
-              {# -----------------------------------------------------------  #}
               {% if content.field_frequenza[0] is iterable %}
                 <div class="mb-5">
                   {{ content.field_frequenza }}
                 </div>
               {% endif %}
-              {# -----------------------------------------------------------  #}
 
               {{ content.field_servizio }}
 
@@ -177,7 +175,6 @@
                     'field_struttura_responsabile',
                     'field_extra_info',
                     'field_frequenza',
-
                     'field_tipologia_licenza',
                   ) }}
                 </div>

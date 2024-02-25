@@ -149,16 +149,7 @@
               {{ content.field_cosa_serve }}
               {{ content.field_servizio }}
 
-              {% if is_admin %}
-                <h2 id="documenti" class="h4 mb-4">{{ 'Documenti'|t }}</h2>
-                {% include '@bi-bcl/alert/alert.html.twig' with {
-                  heading_tag: 'h3',
-                  type: 'danger',
-                  message: 'Da fare vista',
-                  dismissible: false,
-                  alert_classes: ['mb-5']
-                } %}
-              {% endif %}
+              {{ drupal_view('correlati_percorso_di_studio', 'documenti') }}
 
               <h2 class="h4" id="contatti">Contatti</h2>
               {{ content.field_struttura_responsabile }}

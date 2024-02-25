@@ -73,7 +73,7 @@
   {% embed '@bi-bcl/card/card.html.twig' with {
     card_tag_container: 'article',
     card_title: label,
-    card_text: content.field_abstract,
+    card_text: content,
     card_shadow: true,
     card_rounded: true,
     card_teaser: true,
@@ -83,9 +83,9 @@
       <h3{{ title_attributes.addClass(['card-title', 'h5']) }}>
         <a class="d-flex" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">
           {% include '@bi-bcl/icon/icon.html.twig' with {
-            name: 'icon-service',
+            name: 'logo-repubblica-italiana',
             size: 'sm',
-            color: 'purplelight',
+            color: 'redbrown',
             icon_classes: ['me-2']
           } %}
           {{ label }}
