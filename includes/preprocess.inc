@@ -11,7 +11,8 @@ use Drupal\node\Entity\Node;
  * Implements hook_preprocess_HOOK() for all templates.
  */
 function skenografia_preprocess(&$variables): void {
-
+  // @todo: Ricordarsi di fare UI per permettere la modifica della variabile
+  $variables['skenografia_libraries_path'] = '/libraries/ouitoulia-skenografia';
 }
 
 /**
