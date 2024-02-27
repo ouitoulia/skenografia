@@ -138,7 +138,7 @@
               {{ content.body }}
               {{ content.field_extra_info }}
 
-              <h3 class="h6">Destinatari</h3>
+              <h3 class="h5 fw-lighter">Destinatari</h3>
               {{ content.field_destinatari }}
               {{ content.field_descrizione_destinatari }}
 
@@ -179,7 +179,10 @@
 
               <h2 class="h4" id="ulteriori-informazioni">Ulteriori informazioni</h2>
 
+              {{ drupal_view('correlati_evento', 'documenti') }}
+
               {% if content.field_email[0] or content.field_telefono[0] or content.field_link[0] %}
+                <h3 class="h5 fw-lighter mb-3">Riferimenti</h3>
                 <div class="in-evidence">
                   {{ content.field_email }}
                   {{ content.field_telefono }}
