@@ -66,6 +66,15 @@
         {% endif %}
       {% endblock %}
       {% block contentMain %}
+        {% if page and not node.isPublished() %}
+          <div class="container">
+            {% include '@bi-bcl/alert/alert.html.twig' with {
+              message: "Questo contenuto è in modalità bozza. Solo gli utenti a cui sono stati assegnati i permessi possono visualizzarlo.",
+              type: 'warning',
+              dismissible: false
+            } %}
+          </div>
+        {% endif %}
         {{ page.content }}
       {% endblock %}
     {% endembed %}
