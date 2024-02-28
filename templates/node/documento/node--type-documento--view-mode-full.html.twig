@@ -84,7 +84,13 @@
   <section class="section bg-white article-title py-2 py-lg-3 py-xl-5">
     <div class="container">
       <div class="row variable-gutters">
-        <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">{{ content.field_copertina }}</div>
+        <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">
+          {% if content.field_copertina[0] is iterable %}
+            {{ content.field_copertina }}
+          {% else %}
+            <img class="img-fluid p-3" src="{{ skenografia_libraries_path }}/images/logo-repubblica-italiana.svg" alt="Logo circolare"/>
+          {% endif %}
+        </div>
 
         <div class="col-12 col-sm-9 col-lg-5 col-md-8">
           <small class="h6 text-redbrown text-uppercase">{{ content.field_tipologia_documento }}</small>
