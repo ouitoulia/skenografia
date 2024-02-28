@@ -71,14 +71,14 @@
 #}
 {% apply spaceless %}
   {% embed '@bi-bcl/card/card.html.twig' with {
+    card_tag_container: 'article',
     card_title: label|render|striptags|trim,
     card_subtitle: content.field_grado_di_istruzione,
-    card_tag_container: 'article',
     card_image: content.field_copertina[0] ? content.field_copertina,
+    image_panoramic: true,
     card_read_more_url: url,
     card_read_more_text: label[0]['#context'].value,
     card_shadow: true,
-    image_panoramic: true,
     card_border_bottom: true,
     card_attributes: attributes
   } %}

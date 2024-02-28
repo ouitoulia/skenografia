@@ -69,28 +69,33 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/card/card-big-flag.html.twig' with {
-  card_tag_container: 'article',
-  card_title: label,
-  card_text: content.field_abstract,
-  card_icon: 'icon-service',
-  card_flag_invisible: true,
-  card_category: content.field_tipologia_servizio,
-  card_read_more_url: url,
-  card_read_more_text: label[0]['#context'].value,
-  card_shadow: true,
-  card_border_bottom: true,
-  card_attributes: attributes
-} %}
+{% apply spaceless %}
+  {% embed '@bi-bcl/card/card.html.twig' with {
+    card_tag_container: 'article',
+    card_title: label,
+    card_subtitle: content.field_tipologia_servizio,
+    card_text: content.field_abstract,
+    card_image: content.field_copertina[0] ? content.field_copertina,
+    image_panoramic: true,
+    card_icon: 'icon-service',
+    card_read_more_url: url,
+    card_read_more_text: label[0]['#context'].value,
+    card_shadow: true,
+    card_border_bottom: true,
+    card_attributes: attributes,
+    icon_classes: ['icon-purplelight']
+  } %}
 
-  {% block cardTitle %}
-    {{ title_prefix }}
-    {% if label and not page %}
-      <h3{{ title_attributes.addClass(['card-title','h5']) }}>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-      </h3>
-    {% endif %}
-    {{ title_suffix }}
-  {% endblock %}
+    {% block cardTitle %}
+      {{ title_prefix }}
+      {% if label and not page %}
+        <h3{{ title_attributes.addClass(['card-title','h5','mb-0']) }}>
+          <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        </h3>
+      {% endif %}
+      {{ title_suffix }}
+      {% include '@bi-bcl/card/_partial.card-subtitle-block.html.twig' %}
+    {% endblock %}
 
-{% endembed %}
+  {% endembed %}
+{% endapply %}
