@@ -180,6 +180,7 @@
               <h2 class="h4" id="ulteriori-informazioni">Ulteriori informazioni</h2>
 
               {{ drupal_view('correlati_evento', 'documenti') }}
+              {{ drupal_view('correlati_evento', 'per_approfondire') }}
 
               {% if content.field_email[0] or content.field_telefono[0] or content.field_link[0] %}
                 <h3 class="h5 fw-lighter mb-3">Riferimenti</h3>

@@ -72,19 +72,25 @@
 {% apply spaceless %}
   {% embed '@bi-bcl/card/card.html.twig' with {
     card_tag_container: 'article',
-    card_title: label|render|striptags|trim,
-    card_text: content.field_abstract|render|striptags|slice(0, 200) ~ '...',
+    card_title: label,
+    card_text: content|without('field_numero_circolare','field_anno_scolastico'),
     card_shadow: true,
+    card_rounded: true,
     card_teaser: true,
     card_attributes: attributes
   } %}
-
     {% block cardTitle %}
       <h3{{ title_attributes.addClass(['card-title', 'h5']) }}>
-        {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-horn', color: 'greendark', icon_classes: ['me-2']} %}
-        <a href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">{{ label }}</a>
+        <a class="d-flex" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-horn',
+            size: 'sm',
+            color: 'greendark',
+            icon_classes: ['me-2']
+          } %}
+          {{ label }}&nbsp;({{ content.field_numero_circolare }}-{{ content.field_anno_scolastico }})
+        </a>
       </h3>
     {% endblock %}
-
   {% endembed %}
 {% endapply %}
