@@ -178,10 +178,8 @@
 
               {{ content.field_struttura_responsabile }}
 
-              {% if content.field_codice_identificativo[0] is iterable or content.field_ipa[0] is iterable or content.field_extra_info[0] is iterable %}
+              {% if content.field_extra_info[0] is iterable %}
                 <h2 class="h4">Ulteriori informazioni</h2>
-                {{ content.field_codice_identificativo }}
-                {{ content.field_ipa }}
                 {{ content.field_extra_info }}
               {% endif %}
 
@@ -214,9 +212,7 @@
                     'field_persona_responsabile',
                     'field_struttura_responsabile',
                     'field_tipologia_licenza',
-                    'field_extra_info',
-                    'field_codice_identificativo',
-                    'field_ipa'
+                    'field_extra_info'
                   ) }}
                 </div>
               </div>
