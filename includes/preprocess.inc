@@ -61,3 +61,12 @@ function skenografia_preprocess_oembed_lazyload(&$variables): void {
     null !== theme_get_setting('privacy_policy') ?
     Drupal::service('path_alias.manager')->getAliasByPath('/node/' . theme_get_setting('privacy_policy')[0]['target_id']) : '#';
 }
+
+/**
+ * Implements hook_preprocess_file_link().
+ */
+function skenografia_preprocess_file_link(&$variables): void {
+  /** @var Drupal\file\Entity\File $file */
+  $file = $variables['file'];
+  $variables['file_link_changed'] = $file->getChangedTime();
+}
