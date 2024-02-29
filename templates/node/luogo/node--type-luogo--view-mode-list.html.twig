@@ -78,9 +78,9 @@
   } %}
 
     {% block listIcon %}
-      {% if content.field_tipologia_luogo %}
+      {% if content.field_tipologia_luogo[0] is iterable %}
         <div class="it-rounded-icon">
-          {{ content.field_tipologia_luogo }}
+          {{ content }}
         </div>
       {% endif %}
     {% endblock %}

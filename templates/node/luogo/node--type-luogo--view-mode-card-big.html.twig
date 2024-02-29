@@ -87,12 +87,9 @@
         <div class="col-lg-6">
           {{ content.field_coordinate_geografiche }}
         </div>
-        <div class="col-lg-6 py-4">
-          <ul class="location-list mt-2 lis">
-            {{ content.field_indirizzo }}
-            {{ content.field_orario_pubblico }}
-            {{ content.field_email }}
-            {{ content.field_telefono }}
+        <div class="col-lg-6 py-3">
+          <ul class="location-list mt-2">
+            {{ content|without('field_coordinate_geografiche') }}
           </ul>
         </div>
       </div>
