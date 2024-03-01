@@ -28,5 +28,34 @@
         </section>
       {% endif %}
     {% endblock %}
+
+    {% block footerEnd %}
+      <section class="it-footer-main">
+        <div class="container">
+          <div class="row variable-gutters">
+            <div class="col">
+              {{ page.footer_info_legali }}
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row variable-gutters justify-content-end">
+            <div class="col py-5">
+              <p class="small text-center">
+                <a  class="text-uppercase fw-bolder" href="https://github.com/ouitoulia/" title="Ouitoulía - CMS Drupal basato sul modello delle scuole italiane">Ouitoulía</a> è un CMS open source sviluppato con Drupal,
+                promosso dall'<a href="https://icmarvasivizzone.edu.it" title="Sito web dell'Istituto comprensivo Marvasi-Vizzone Rosarno-San Ferdinando (RC)">Istituto comprensivo "Marvasi-Vizzone"</a>
+                e finanziato con la misura 1.4.1 del PNRR.
+              </p>
+              <p class="small text-end">
+                <a class="text-underline-hover mt-2" href="https://github.com/ouitoulia/" title="Lista degli sviluppatori di Ouitoulía">
+                  Sviluppato da Pietro Arturo Panetta e ...
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endblock %}
+
   {% endembed %}
 {% endapply %}

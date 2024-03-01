@@ -119,6 +119,9 @@ regions:
 
   home_last_row_full_width: "Home page - Last full width region"
 
+  # Regioni aggiunte
+  footer_info_legali: "Footer - Info legali della scuola"
+
 dependencies:
  - drupal:big_pipe
  - drupal:inline_form_errors
