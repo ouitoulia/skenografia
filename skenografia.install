@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Install file for Skenografia sub-theme.
+ */
+
+/**
+ * Dalla 1.7.0 le informazioni rimosse vengono gestite con node.bundle['luogo']
+ */
+function skenografia_update_8001() {
+  $config = \Drupal::configFactory()->getEditable('skenografia.settings');
+  $config->clear('codice_meccanografico');
+  $config->clear('codice_fiscale');
+  $config->clear('codice_ipa');
+  $config->clear('indirizzo');
+  $config->clear('cap');
+  $config->clear('comune');
+  $config->clear('provincia');
+  $config->save();
+}
