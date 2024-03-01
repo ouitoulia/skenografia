@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Theme file for Bootstrap Italia.
+ * Theme file for Skenografia sub-theme.
  */
 
 use Drupal\bootstrap_italia\Helper\Libraries;
