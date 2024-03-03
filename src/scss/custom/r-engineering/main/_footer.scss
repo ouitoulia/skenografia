@@ -80,25 +80,25 @@
 	      height: 45px;
 	    }
 	  }
-	  h1, .h1 {
-	    display: block;
-	    font-weight: 400;
-	    font-size: 1.313rem; //TODO: da verificare dimensione
-	    line-height: 1.29;
-	    letter-spacing: 0;
-	    margin: 0 0 0 25px;
-			color: $white;
-	    @include media-breakpoint-down(md) {
-	      font-size: .88rem; //TODO: da verificare dimensione
-	      margin-left: 15px;
-	    }
-	    span {
-	      display: block;
-	      strong {
-	        font-weight: 700;
-	      }
-	    }
-	  }
+	  //h1, .h1 {
+	  //  display: block;
+	  //  font-weight: 400;
+	  //  font-size: 1.313rem; //TODO: da verificare dimensione
+	  //  line-height: 1.29;
+	  //  letter-spacing: 0;
+	  //  margin: 0 0 0 25px;
+		//	color: $white;
+	  //  @include media-breakpoint-down(md) {
+	  //    font-size: .88rem; //TODO: da verificare dimensione
+	  //    margin-left: 15px;
+	  //  }
+	  //  span {
+	  //    display: block;
+	  //    strong {
+	  //      font-weight: 700;
+	  //    }
+	  //  }
+	  //}
 	}
 	h3, .h3 {
 		color: $white;
@@ -112,30 +112,39 @@
 .region-footer-fourth {
   @extend .ps-lg-5;
 }
-.it-footer-small-prints nav {
-  @extend .px-3;
+.it-footer-small-prints {
+  .it-socials {
+    ul {
+      @extend .list-inline;
+      @extend .ps-lg-3;
+      li {
+        @extend .list-inline-item;
+      }
+    }
+  }
 }
+// fine aggiunta
 
-.footer-list {
-	padding: 0;
-	list-style: none;
-	li {
-		margin: 0 0 0 0;
-	}
-}
+//.footer-list {
+//	padding: 0;
+//	list-style: none;
+//	li {
+//		margin: 0 0 0 0;
+//	}
+//}
 
 // TODO: da controllare se necessario con bi2
-.footer-inline-menu {
-  display: flex;
-  flex-direction: row;
-  font-weight: 600;
-  list-style: none;
-  padding: 0;
-  // in 2.4.2 è commentato #L17304
-  //li {
-  //  padding-right: 30px;
-  //}
-}
+//.footer-inline-menu {
+//  display: flex;
+//  flex-direction: row;
+//  font-weight: 600;
+//  list-style: none;
+//  padding: 0;
+//  // in 2.4.2 è commentato #L17304
+//  //li {
+//  //  padding-right: 30px;
+//  //}
+//}
 
 .footer-text {
   font-size: 0.875rem; //TODO: da verificare dimensione
@@ -171,21 +180,21 @@
     opacity: 0.27;
   }
 }
-
-.sub-footer {
-  // TODO: da verificare se necessario con bi2
-  display: flex;
-  @include media-breakpoint-down(md) {
-    flex-direction: column;
-  }
-  .footer-social {
-    margin-left: auto;
-    // TODO: da verificare se necessario con bi2
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    @include media-breakpoint-down(md) {
-      margin-left: 0;
-    }
-  }
-}
+//
+//.sub-footer {
+//  // TODO: da verificare se necessario con bi2
+//  display: flex;
+//  @include media-breakpoint-down(md) {
+//    flex-direction: column;
+//  }
+//  .footer-social {
+//    margin-left: auto;
+//    // TODO: da verificare se necessario con bi2
+//    display: flex;
+//    flex-direction: row;
+//    align-items: center;
+//    @include media-breakpoint-down(md) {
+//      margin-left: 0;
+//    }
+//  }
+//}

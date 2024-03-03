@@ -29,6 +29,36 @@
       {% endif %}
     {% endblock %}
 
+    {% block footerSmallPrints %}
+      {% if page.footer_small_prints or socials %}
+        {% set footer_small_prints_classes = page.footer_small_prints and socials ? 'col-md-7 col-lg-9' : 'col' %}
+        {% set footer_socials_classes = page.footer_small_prints and socials ? 'col-md-5 col-lg-3 pt-4' : 'col pt-4' %}
+
+        <div class="it-footer-small-prints clearfix">
+          <div class="container px-3">
+            <div class="row">
+              {% if page.footer_small_prints %}
+                <div class="{{ footer_small_prints_classes }}">
+                  {{ page.footer_small_prints }}
+                </div>
+              {% endif %}
+              {% if socials %}
+                <div class="text-light text-align-right {{ footer_socials_classes }}">
+                  {% include '@bi-bcl/share/follow-us.html.twig' with {
+                    socials: socials,
+                    label: 'Follow us on'|t,
+                    icon_color: 'white',
+                    blank: social_new_window,
+                    followus_classes: ['it-socials', 'd-flex', 'justify-content-end']
+                  } %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endblock %}
+
     {% block footerEnd %}
       <section class="it-footer-main">
         <div class="container">
