@@ -112,6 +112,9 @@
 .region-footer-fourth {
   @extend .ps-lg-5;
 }
+.it-footer-small-prints nav {
+  @extend .px-3;
+}
 
 .footer-list {
 	padding: 0;
