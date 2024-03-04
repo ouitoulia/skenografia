@@ -39,6 +39,24 @@
         display: block;
       }
     }
+
+    .it-brand-text {
+      .it-brand-title {
+        font-weight: $header-center-h2-weight;
+      }
+      .it-brand-tagline,
+      .it-brand-comune {
+        font-size: $header-center-h2-size-mob;
+      }
+      @include media-breakpoint-up(lg) {
+        .it-brand-tagline,
+        .it-brand-comune,
+        .it-brand-title {
+          font-size: $header-center-h3-size;
+        }
+      }
+    }
+
   }
 
   // Fatti, guarda qualche linea più in alto
@@ -116,7 +134,6 @@
   .it-socials {
     ul {
       @extend .list-inline;
-      @extend .ps-lg-3;
       li {
         @extend .list-inline-item;
       }
