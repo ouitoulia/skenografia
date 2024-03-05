@@ -1,6 +1,7 @@
 //
 // Sections
 // https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L14204
+// @todo: bisogna finire di convertire i @media-breakpoint-down da B4 a B5
 // --------------------------------------------------
 
 .section {
@@ -323,15 +324,15 @@
 .people-red-forms {
   width: 364px;
   height: 245px;
-  position: absolute;
+//  position: absolute; // fornito da bootstrap 5
   z-index: 0;
   top: 0;
-  right: 100px;
-  @include media-breakpoint-down(sm) {
+  right: -50px;
+  @include media-breakpoint-up(sm) {
     right: 0px;
   }
-  @include media-breakpoint-down(xs) {
-    right: -50px;
+  @include media-breakpoint-up(lg) {
+    right: 100px;
   }
   svg {
     width: 364px;
@@ -543,4 +544,11 @@
   z-index: 3;
   top: 0;
   margin-top: -50px;
+}
+
+// aggiunta
+div.sections-wrapper.bg-gray-light-striped {
+  & > section:nth-child(odd) {
+    @extend .bg-gray-light;
+  }
 }

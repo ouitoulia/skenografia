@@ -1,0 +1,12 @@
+.card-wrapper {
+  &.card-teaser-wrapper {
+    &.card-teaser-wrapper-3-col {
+      @include media-breakpoint-up(md) {
+        .card-teaser {
+          flex: 0 0 30%;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}

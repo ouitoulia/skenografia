@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  <div class="row variable-gutters mb-4">
+    <div class="col-lg-3 pe-4">
+      <h3 class="text-lg-end my-3 h4">{{ title }}</h3>
+    </div>
+
+    <div class="col-lg-9">
+      {% for row in rows %}
+        {%
+          set row_classes = [
+          default_row_class ? 'views-row',
+        ]
+        %}
+        <div{{ row.attributes.addClass(row_classes) }}>
+          {{- row.content -}}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endapply %}

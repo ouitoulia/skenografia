@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a single views grouping.
+ *
+ * Available variables:
+ * - view: The view object.
+ * - grouping: The grouping instruction.
+ * - grouping_level: A number indicating the hierarchical level of the grouping.
+ * - title: The group heading.
+ * - content: The content to be grouped.
+ * - rows: The rows returned from the view.
+ *
+ * @see template_preprocess_views_view_grouping()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  <section class="section py-5">
+    <div class="container">
+      {{ title }}
+      {{ content }}
+    </div>
+  </section>
+{% endapply %}

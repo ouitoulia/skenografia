@@ -39,7 +39,6 @@
  * - page.sidebar_second: Items for the second sidebar.
  * - page.footer: Items for the footer region.
  * - page.breadcrumb: Items for the breadcrumb region.
- * -
  *
  * @see template_preprocess_page()
  * @see html.html.twig
@@ -50,7 +49,7 @@
  */
 #}
 {% apply spaceless %}
-  <div id="{{ page['#type']|clean_id ~ '-' ~ node.bundle|clean_id }}" class="{{ node.bundle|clean_id }}">
+  <div id="{{ page['#type']|clean_id }}">
     {% include '@skenografia/layout/header/_partial.header.html.twig' %}
     {% include '@bootstrap_italia/layout/content/_partial.before-content.html.twig' %}
 
@@ -68,15 +67,6 @@
         {% endif %}
       {% endblock %}
       {% block contentMain %}
-        {% if page and node and not node.isPublished() %}
-          <div class="container">
-            {% include '@bi-bcl/alert/alert.html.twig' with {
-              message: "Questo contenuto è in modalità bozza. Solo gli utenti a cui sono stati assegnati i permessi possono visualizzarlo.",
-              type: 'warning',
-              dismissible: false
-            } %}
-          </div>
-        {% endif %}
         {{ page.content }}
       {% endblock %}
     {% endembed %}
@@ -85,3 +75,4 @@
     {% include '@skenografia/layout/footer/_partial.footer.html.twig' %}
   </div>
 {% endapply %}
+

@@ -1,9 +1,9 @@
 {% embed '@bi-bcl/card/card.html.twig' with {
   card_image: '',
   card_title: '',
-  url: '',
   card_teaser: true,
-  card_shadow: true
+  card_shadow: true,
+  card_classes: ['py-2']
 } %}
   {% block cardText %}
     {% include '@skenografia/node/persona/node--type-persona--view-mode-teaser.html.twig' %}
