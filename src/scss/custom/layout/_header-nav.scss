@@ -42,6 +42,9 @@
               a.nav-link svg {
                 fill: $bi-school;
               }
+              a.nav-link.active {
+                border-bottom-color: $bi-school;
+              }
             }
 
             > li.section-services {
@@ -51,6 +54,9 @@
               }
               a.nav-link svg {
                 fill: $bi-services;
+              }
+              a.nav-link.active {
+                border-bottom-color: $bi-services;
               }
             }
 
@@ -62,6 +68,9 @@
               a.nav-link svg {
                 fill: $bi-news;
               }
+              a.nav-link.active {
+                border-bottom-color: $bi-news;
+              }
             }
 
             > li.section-learning {
@@ -71,6 +80,9 @@
               }
               a.nav-link svg {
                 fill: $bi-learning;
+              }
+              a.nav-link.active {
+                border-bottom-color: $bi-learning;
               }
             }
 
