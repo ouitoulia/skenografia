@@ -64,9 +64,9 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/utils';
 @import "r-engineering/main/utils";
 
-// Fatto v2.3.0
+//Reverse effettuato, migrato su bootstrap-italia 2. v2.4.1
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/containers';
-@import "r-engineering/main/containers";
+//@import "r-engineering/main/containers";
 
 // Fatto v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/sections';
@@ -132,6 +132,7 @@
 @import "r-engineering/parts/location";
 
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/hero';
+@import "r-engineering/parts/hero";
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/quote';
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/gallery';
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/big-data';
