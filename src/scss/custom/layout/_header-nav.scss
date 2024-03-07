@@ -93,8 +93,6 @@
               }
               .nav-item {
                 a.nav-link {
-                  padding-left: 0;
-                  padding-right: 0;
                   font-size: 1.25rem;
                   &.show {
                     text-decoration: underline;
@@ -104,15 +102,15 @@
                     height: 24px;
                     float: right;
                   }
+                  &.active {
+                    padding-left:  $navigation-h-padding - $navigation-link-active-bar-size;
+                  }
                 }
                 .dropdown-menu .link-list-wrapper {
-                  padding-left: 0;
-                  padding-right: 0;
                   margin-bottom: 0;
                   ul li a {
                     padding-top: 6px;
                     padding-bottom: 6px;
-                    padding-left: 0;
                     font-size: 1.25rem;
                   }
                   li.menu-title a span {
