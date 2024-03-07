@@ -324,16 +324,16 @@
 .people-red-forms {
   width: 364px;
   height: 245px;
-//  position: absolute; // fornito da bootstrap 5
+  //position: absolute; // fornito da bootstrap 5
   z-index: -1;
-  top: 0;
-  right: -50px;
-  @include media-breakpoint-up(sm) {
-    right: 0px;
-  }
-  @include media-breakpoint-up(lg) {
-    right: 100px;
-  }
+  //top: 0; // fornito da bootstrap 5
+  //right: -50px; // fornito da bootstrap 5
+  //@include media-breakpoint-up(sm) {
+  //  right: 0px;
+  //}
+  //@include media-breakpoint-up(lg) {
+  //  right: 100px;
+  //}
   svg {
     width: 364px;
     height: 245px;
