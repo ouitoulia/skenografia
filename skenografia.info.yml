@@ -120,6 +120,8 @@ regions:
   home_last_row_full_width: "Home page - Last full width region"
 
   # Regioni aggiunte
+  content_views_first_level: "Content per le views di primo livello"
+  content_views_second_level: "Content per le views di secondo livello"
   footer_info_legali: "Footer - Info legali della scuola"
 
 dependencies:

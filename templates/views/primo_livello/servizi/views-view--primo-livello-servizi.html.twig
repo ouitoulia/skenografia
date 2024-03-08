@@ -43,10 +43,7 @@
   {{ title_suffix }}
 
   {% if header %}
-    <section class="section bg-purplelight bg-purplegradient py-5 py-md-4 py-lg-0 position-relative overflow-hidden">
-      <div class="purple-oval-forms position-absolute top-0 end-0 d-none d-lg-block" aria-hidden="true">
-        {% include '@skenografia_components/inline-svg/oval.svg.twig' %}
-      </div>
+    <section class="section bg-purplelight bg-purplegradient py-5 py-md-4 py-lg-0 d-flex overflow-hidden">
       <div class="container">
         <div class="row variable-gutters">
           <div class="col-md-5">
@@ -62,7 +59,7 @@
   {{ exposed }}
   {{ attachment_before }}
 
-  <div class="sections-wrapper bg-white">
+  <div class="sections-wrapper bg-gray-light-striped">
     <section class="section py-5">
       <div class="container">
         {% if rows -%}
