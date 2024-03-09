@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Template for card_article component.
+ * Docs: https://italia.github.io/design-scuole-pagine-statiche/scuole-archivio.html
+ * Latest revision: 2.4.1
+ *
+ * Parameters:
+ * - card_article_variant (string) (default: 'petrol')
+ *   - options ["redbrown", "purplelight", "greendark", "bluelectric"]
+ *
+ * see @bi-bcl/card/card.html.twig for more parameters
+ *
+ * Examples:
+   {% include '@skenografia_components/card/card-article.html.twig' with {
+     card_article_variant: 'greendark',
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _card_article_variant = card_article_variant|default('petrol') %}
+
+  {# Component #}
+  {% embed '@bi-bcl/card/card.html.twig' with {
+    card_tag_container: 'article',
+    card_classes: [
+      'card-article',
+      _card_article_variant is not empty ? 'card-article-' ~ _card_article_variant
+    ],
+    card_shadow: true,
+    card_border_bottom: false,
+  } %}
+    {% block cardImage %}{% endblock %}
+    {% block cardTitle %}{% endblock %}
+    {% block cardText %}
+      <div class="card-article-img position-relative">
+        {{ _card_image }}
+        {% if _card_image_date is not empty %}
+          <div class="card-calendar d-flex flex-column justify-content-center position-absolute start-0 top-0 bg-{{ _card_article_variant }} text-white">
+            {% if _card_image_date['year'] or
+              _card_image_date['day'] or
+              _card_image_date['time'] or
+              _card_image_date['month']
+            %}
+              {% if _card_image_date['year'] %}
+                <span class="card-year">{{ _card_image_date['year'] }}</span>
+              {% endif %}
+              {% if _card_image_date['day'] %}
+                <span class="card-date font-monospace">{{ _card_image_date['day'] }}</span>
+              {% endif %}
+              {% if _card_image_date['time'] %}
+                <span class="card-time">{{ _card_image_date['time'] }}</span>
+              {% endif %}
+              {% if _card_image_date['month'] %}
+                <span class="card-month">{{ _card_image_date['month'] }}</span>
+              {% endif %}
+            {% elseif _card_image_date['date-full'] %}
+              <span class="card-date-full p-1">{{ _card_image_date['date-full'] }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="card-article-content">
+        {{ title_prefix }}
+        {% if label and not page %}
+          <h2{{ title_attributes.addClass(['card-title','h5']) }}>
+            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+          </h2>
+        {% endif %}
+        {{ title_suffix }}
+        {% include '@bi-bcl/card/_partial.card-subtitle-block.html.twig' %}
+        <div{{ content_attributes.addClass('card-text') }}>
+          {{ content|without('field_copertina') }}
+        </div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+
+{% endapply %}

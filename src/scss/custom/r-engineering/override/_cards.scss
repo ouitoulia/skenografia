@@ -603,16 +603,16 @@
     }
   }
   &.card-article {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    position: relative;
-    z-index: 0;
-    margin: 0 0 35px 0;
-    overflow: hidden;
-    @include media-breakpoint-down(md) {
-      margin-bottom: 20px;
-    }
+    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    //border-bottom-right-radius: 4px;
+    //border-bottom-left-radius: 4px;
+    //position: relative;
+    //z-index: 0;
+    //margin: 0 0 35px 0;
+    //overflow: hidden;
+    //@include media-breakpoint-down(md) {
+    //  margin-bottom: 20px;
+    //}
     &:before {
       content: "";
       width: 100%;
@@ -630,15 +630,15 @@
     }
     .card-article-img {
       width: 275px;
-      flex-shrink: 0;
-      background-repeat: no-repeat;
-      background-color: #e7eaed;
-      background-size: cover;
-      background-attachment: scroll;
-      position: relative;
+      //flex-shrink: 0;
+      //background-repeat: no-repeat;
+      //background-color: #e7eaed;
+      //background-size: cover;
+      //background-attachment: scroll;
+      //position: relative;
       z-index: 0;
-      min-height: 220px;
-      overflow: hidden;
+      //min-height: 220px;
+      //overflow: hidden;
       @include media-breakpoint-down(md) {
         display: none;
       }
@@ -649,36 +649,40 @@
         height: 100%;
         display: block;
       }
-      .date {
-        position: absolute;
+      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+      .card-calendar {
+        //position: absolute;
         z-index: 2;
-        top: 0;
-        left: 0;
+        //top: 0;
+        //left: 0;
         width: 84px;
         height: 110px;
-        background-color: $petrol;
-        color: $white;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        max-height: 110px;
+        border-radius: unset;
+        //background-color: $petrol;
+        //color: $white;
+        //text-align: center;
+        //display: flex;
+        //flex-direction: column;
+        //justify-content: center;
         span {
-          line-height: 1;
-          display: block;
-          &.year {
-            font-weight: 700;
-            font-size: .88rem;
-            letter-spacing: 2.3px;
-          }
-          &.day {
-            font-family: $font-family-monospace;
+        //  line-height: 1;
+        //  display: block;
+        //  &.year {
+        //    font-weight: 700;
+        //    font-size: .88rem;
+        //    letter-spacing: 2.3px;
+        //  }
+        //  &.day {// con bootstrap-italia2 il selettore corretto è .card-date
+          &.card-date {
+            //font-family: $font-family-monospace;
             font-size: 2.5rem;
             font-weight: 400;
           }
-          &.month {
-            font-size: 1.31rem;
-            font-weight: 700;
-          }
+        //  &.month {
+        //    font-size: 1.31rem;
+        //    font-weight: 700;
+        //  }
         }
       }
       svg {
@@ -752,41 +756,46 @@
       &:before {
         background-color: $purplelight;
       }
-      .date {
-        background-color: $purplelight;
-      }
+      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+      //.card-calendar {
+      //  background-color: $purplelight;
+      //}
     }
     &.card-article-redbrown {
       &:before {
         background-color: $redbrown;
       }
-      .date {
-        background-color: $redbrown;
-      }
+      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+      //.card-calendar {
+      //  background-color: $redbrown;
+      //}
     }
     &.card-article-bluelectric {
       &:before {
         background-color: $bluelectric;
       }
-      .date {
-        background-color: $bluelectric;
-      }
+      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+      //.card-calendar {
+      //  background-color: $bluelectric;
+      //}
     }
     &.card-article-greendark {
       &:before {
         background-color: $greendark;
       }
-      .date {
-        background-color: $greendark;
-      }
+      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+      //.card-calendar {
+      //  background-color: $greendark;
+      //}
     }
     &.card-article-petrol {
       &:before {
         background-color: $petrol;
       }
-      .date {
-        background-color: $petrol;
-      }
+      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+      //.card-calendar {
+      //  background-color: $petrol;
+      //}
     }
   }
 }
