@@ -59,21 +59,38 @@
     </section>
   {% endif %}
 
-  {{ exposed }}
   {{ attachment_before }}
 
-    <div class="container pt-5">
-      {% if rows -%}
-        {{ rows }}
-      {% elseif empty -%}
-        {{ empty }}
-      {% endif %}
+  <section class="bg-gray-light">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-lg-3 pt-5 bg-white bg-white-left affix-parent">
+          <aside class="aside-list affix-top mb-5">
+            {% block asideA11yDescription %}
+              <h2 class="visually-hidden">Filtra i percorsi di studio</h2>
+              <p class="visually-hidden">Scegli se visualizzare qualsiasi percorso di studio, oppure che di uno specifico grado di istruzione.</p>
+            {% endblock %}
+            {{ exposed }}
+          </aside>
+        </div>
+        <div class="col-lg-7 pt-5 offset-lg-1">
+          {% block contentA11yDescription %}
+            <h2 class="visually-hidden">Lista dei percorsi di studio</h2>
+          {% endblock %}
+          {% if rows -%}
+            {{ rows }}
+          {% elseif empty -%}
+            {{ empty }}
+          {% endif %}
 
-      {{ pager }}
-
-      {{ attachment_after }}
-      {{ more }}
+          {{ pager }}
+        </div>
+      </div>
     </div>
+  </section>
+
+  {{ attachment_after }}
+  {{ more }}
 
 
   {% if footer %}

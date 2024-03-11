@@ -613,59 +613,59 @@
     //@include media-breakpoint-down(md) {
     //  margin-bottom: 20px;
     //}
-    &:before {
-      content: "";
-      width: 100%;
-      height: 2px;
-      display: block;
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: $petrol;
-    }
-    .card-body {
-      padding: 0;
-      display: flex;
-    }
+    //&:before {
+    //  content: "";
+    //  width: 100%;
+    //  height: 2px;
+    //  display: block;
+    //  position: absolute;
+    //  z-index: 1;
+    //  top: 0;
+    //  left: 0;
+    //  background-color: $petrol;
+    //}
+    //.card-body {
+    //  padding: 0;
+    //  display: flex;
+    //}
     .card-article-img {
-      width: 275px;
+      //width: 275px;
       //flex-shrink: 0;
       //background-repeat: no-repeat;
       //background-color: #e7eaed;
       //background-size: cover;
       //background-attachment: scroll;
       //position: relative;
-      z-index: 0;
+      //z-index: 0;
       //min-height: 220px;
       //overflow: hidden;
-      @include media-breakpoint-down(md) {
-        display: none;
-      }
-      a {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
+      //@include media-breakpoint-down(md) {
+      //  display: none;
+      //}
+      //a {
+      //  position: relative;
+      //  //z-index: 1;
+      //  width: 100%;
+      //  height: 100%;
+      //  display: block;
+      //}
       // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
       .card-calendar {
         //position: absolute;
-        z-index: 2;
+        //z-index: 2;
         //top: 0;
         //left: 0;
         width: 84px;
         height: 110px;
         max-height: 110px;
-        border-radius: unset;
+        border-radius: 0;
         //background-color: $petrol;
         //color: $white;
         //text-align: center;
         //display: flex;
         //flex-direction: column;
         //justify-content: center;
-        span {
+        //span {
         //  line-height: 1;
         //  display: block;
         //  &.year {
@@ -674,59 +674,59 @@
         //    letter-spacing: 2.3px;
         //  }
         //  &.day {// con bootstrap-italia2 il selettore corretto è .card-date
-          &.card-date {
-            //font-family: $font-family-monospace;
-            font-size: 2.5rem;
-            font-weight: 400;
-          }
+        //  &.card-date {
+        //    font-family: $font-family-monospace;
+        //    font-size: 2.5rem;
+        //    font-weight: 400;
+        //  }
         //  &.month {
         //    font-size: 1.31rem;
         //    font-weight: 700;
         //  }
-        }
+        //}
       }
-      svg {
-        display: block;
-        position: absolute;
-        z-index: 1;
-        opacity: 0.1;
-      }
-      .icon-bluelectric {
-        bottom: -27px;
-        right: -50px;
-        fill: $bluelectric;
-        width: 230px;
-        height: 230px;
-      }
-      .icon-greendark {
-        bottom: -27px;
-        right: -50px;
-        fill: $greendark;
-        width: 230px;
-        height: 230px;
-        transform: rotate(-25deg);
-      }
-      .icon-redbrown {
-        bottom: -27px;
-        right: -50px;
-        fill: $redbrown;
-        width: 230px;
-        height: 230px;
-      }
-      .icon-purplelight {
-        bottom: -17px;
-        right: -20px;
-        fill: $purplelight;
-        width: 220px;
-        height: 220px;
-      }
-      .icon-petrol {
-        bottom: -17px;
-        right: -17px;
-        fill: $petrol;
-        width: 200px;
-        height: 200px;
-      }
+      //svg {
+      //  display: block;
+      //  position: absolute;
+      //  z-index: 1;
+      //  opacity: 0.1;
+      //}
+      //.icon-bluelectric {
+      //  bottom: -27px;
+      //  right: -50px;
+      //  fill: $bluelectric;
+      //  width: 230px;
+      //  height: 230px;
+      //}
+      //.icon-greendark {
+      //  bottom: -27px;
+      //  right: -50px;
+      //  fill: $greendark;
+      //  width: 230px;
+      //  height: 230px;
+      //  transform: rotate(-25deg);
+      //}
+      //.icon-redbrown {
+      //  bottom: -27px;
+      //  right: -50px;
+      //  fill: $redbrown;
+      //  width: 230px;
+      //  height: 230px;
+      //}
+      //.icon-purplelight {
+      //  bottom: -17px;
+      //  right: -20px;
+      //  fill: $purplelight;
+      //  width: 220px;
+      //  height: 220px;
+      //}
+      //.icon-petrol {
+      //  bottom: -17px;
+      //  right: -17px;
+      //  fill: $petrol;
+      //  width: 200px;
+      //  height: 200px;
+      //}
     }
     .card-article-content {
       padding: 25px;
@@ -752,51 +752,51 @@
         }
       }
     }
-    &.card-article-purplelight {
-      &:before {
-        background-color: $purplelight;
-      }
-      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
-      //.card-calendar {
-      //  background-color: $purplelight;
-      //}
-    }
-    &.card-article-redbrown {
-      &:before {
-        background-color: $redbrown;
-      }
-      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
-      //.card-calendar {
-      //  background-color: $redbrown;
-      //}
-    }
-    &.card-article-bluelectric {
-      &:before {
-        background-color: $bluelectric;
-      }
-      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
-      //.card-calendar {
-      //  background-color: $bluelectric;
-      //}
-    }
-    &.card-article-greendark {
-      &:before {
-        background-color: $greendark;
-      }
-      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
-      //.card-calendar {
-      //  background-color: $greendark;
-      //}
-    }
-    &.card-article-petrol {
-      &:before {
-        background-color: $petrol;
-      }
-      // .date { // con bootstrap-italia2 il selettore corretto è .card-calendar
-      //.card-calendar {
-      //  background-color: $petrol;
-      //}
-    }
+    //&.card-article-purplelight {
+    //  &:before {
+    //    background-color: $purplelight;
+    //  }
+    //  //.date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+    //  .card-calendar {
+    //    background-color: $purplelight;
+    //  }
+    //}
+    //&.card-article-redbrown {
+    //  &:before {
+    //    background-color: $redbrown;
+    //  }
+    //  //.date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+    //  .card-calendar {
+    //    background-color: $redbrown;
+    //  }
+    //}
+    //&.card-article-bluelectric {
+    //  &:before {
+    //    background-color: $bluelectric;
+    //  }
+    //  //.date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+    //  .card-calendar {
+    //    background-color: $bluelectric;
+    //  }
+    //}
+    //&.card-article-greendark {
+    //  &:before {
+    //    background-color: $greendark;
+    //  }
+    //  //.date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+    //  .card-calendar {
+    //    background-color: $greendark;
+    //  }
+    //}
+    //&.card-article-petrol {
+    //  &:before {
+    //    background-color: $petrol;
+    //  }
+    //  //.date { // con bootstrap-italia2 il selettore corretto è .card-calendar
+    //  .card-calendar {
+    //    background-color: $petrol;
+    //  }
+    //}
   }
 }
 

@@ -109,7 +109,7 @@
 
 // Da fare
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/aside';
-//@import "r-engineering/parts/aside";
+@import "r-engineering/parts/aside";
 
 // Da fare
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/calendars';
@@ -152,6 +152,7 @@ h1 {@extend .fw-semibold;}
 //}
 
 // Componenti
+@import "components/affix";
 @import "components/card";
 @import "components/chip";
 @import "components/icon";

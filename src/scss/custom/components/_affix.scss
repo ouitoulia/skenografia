@@ -1,0 +1,9 @@
+.affix-top {
+  top: 110px;
+  body.toolbar-fixed & {
+    top: 150px;
+  }
+  body.toolbar-fixed.toolbar-tray-open & {
+    top: 200px;
+  }
+}
