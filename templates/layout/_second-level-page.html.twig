@@ -67,7 +67,9 @@
         {% endif %}
       {% endblock %}
       {% block contentMain %}
-        {{ page.content }}
+        {% if not hide_content %}
+          {{ page.content }}
+        {% endif %}
         {{ page.content_views_second_level }}
       {% endblock %}
     {% endembed %}

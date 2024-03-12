@@ -27,7 +27,7 @@
     card_tag_container: 'article',
     card_shadow: true,
     card_border_bottom: false,
-    card_body_classes: ['p-0', 'd-flex'],
+    card_body_classes: ['row','p-0'],
     card_classes: [
       'card-article',
       _card_article_variant is not empty ? 'card-article-' ~ _card_article_variant,
@@ -39,7 +39,7 @@
     {% block cardImage %}{% endblock %}
     {% block cardTitle %}{% endblock %}
     {% block cardText %}
-      <div class="card-article-img position-relative d-none d-md-block">
+      <div class="card-article-img position-relative d-none d-md-block col-md-4">
         {{ _card_image }}
         {% if _card_image_date is not empty %}
           <div class="card-calendar d-flex flex-column justify-content-center position-absolute start-0 top-0 bg-{{ _card_article_variant }} text-white">
@@ -66,10 +66,10 @@
           </div>
         {% endif %}
       </div>
-      <div class="card-article-content pt-5">
+      <div class="card-article-content col-md-8 p-5 p-md-4 p-lg-3 p-xl-4 py-xxl-5 pe-xxl-5">
         {{ title_prefix }}
         {% if label and not page %}
-          <h3{{ title_attributes.addClass(['card-title','h5']) }}>
+          <h3{{ title_attributes.addClass(['card-title','h5','mb-3']) }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
           </h3>
         {% endif %}
