@@ -34,6 +34,12 @@ libraries-override:
       theme:
         css/oembed-lazyload.css: false
         css/oembed-lazyload-style.css: false
+  toc_js/toc:
+    css:
+      theme:
+        css/toc.css: false
+    js:
+      js/toc_js.js: false
 
 # hidden: true # <---- Remember to set false, comment or delete line
 

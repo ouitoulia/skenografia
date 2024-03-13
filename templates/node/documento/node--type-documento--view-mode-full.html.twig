@@ -131,9 +131,8 @@
   <section class="section bg-white">
     <div class="container container-border-top">
       <div class="row variable-gutters">
-        <div class="col-lg-3 border-end px-0">
-          <aside class="aside-main aside-sticky">
-            <h2 class="visually-hidden-focusable">Indice della pagina e informazioni correlate</h2>
+        <div class="col-lg-3 border-end px-0 affix-parent">
+          <aside class="aside-main aside-sticky affix-top">
             {{ content.toc_js }}
           </aside>
         </div>
@@ -196,6 +195,5 @@
         </div>
       </div>
     </div>
-    <span class="sticky-toc-stop"></span>
   </section>
 {% endapply %}

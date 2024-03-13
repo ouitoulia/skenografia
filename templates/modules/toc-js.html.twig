@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a responsive table of contents.
+ *
+ * Returns HTML for a responsive table of contents.
+ *
+ * Available variables:
+ * - entity: the entity the TOC belongs to.
+ * - title: the title to display for the table of content.
+ * - tag: the tag to use for the title.
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {{ attach_library('skenografia/toc') }}
+  <div class="cmp-navscroll" aria-labelledby="accordion-title-one">
+    <div class="accordion border-0">
+      <div class="accordion-item">
+        <span class="accordion-header" id="accordion-title-one">
+          <button class="accordion-button pb-10 px-3 border-top-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+            {{ title }}
+          </button>
+        </span>
+        <div class="progress">
+          <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+          <div class="accordion-body">
+            <div class="menu-wrapper">
+              <div {{ attributes.addClass(['link-list-wrapper', 'menu-link-list']) }}>
+                <{{ tag }} {{ title_attributes.addClass('visually-hidden') }}>{{ title }}</{{ tag }}>
+                <nav class="navbar it-navscroll-wrapper navbar-expand-lg" role="navigation" aria-label="{{ title }}"></nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endapply %}
