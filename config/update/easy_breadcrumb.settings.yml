@@ -3,7 +3,7 @@ applies_admin_routes: true
 include_invalid_paths: true
 excluded_paths: ''
 replaced_titles: ''
-custom_paths: ''
+custom_paths: "/novita :: Novità | /novita\r\n/novita/notizie :: Novità | /novita :: Le notizie | /novita/notizie\r\n/novita/articoli :: Novità | /novita :: Gli articoli | /novita/articoli\r\n/novita/rassegna-stampa :: Novità | /novita :: La rassegna stampa | /novita/rassegna-stampa\r\nregex!/novita/notizie/([^/]*) :: Novità | /novita :: Le notizie | /novita/notizie\r\nregex!/novita/articoli/([^/]*) :: Novità | /novita :: Gli articoli | /novita/articoli\r\nregex!/novita/rassegna-stampa/([^/]*) :: Novità | /novita :: La rassegna stampa | /novita/rassegna-stampa"
 include_home_segment: true
 alternative_title_field: field_breadcrumb_title
 home_segment_title: Home
@@ -11,9 +11,9 @@ home_segment_keep: false
 include_title_segment: false
 title_from_page_when_available: true
 title_segment_as_link: false
-use_menu_title_as_fallback: false
-use_page_title_as_menu_title_fallback: false
-menu_title_preferred_menu: ''
+use_menu_title_as_fallback: true
+use_page_title_as_menu_title_fallback: true
+menu_title_preferred_menu: main
 remove_repeated_segments: true
 language_path_prefix_as_segment: false
 absolute_paths: false
@@ -40,5 +40,5 @@ segment_display_limit: 0
 truncator_mode: true
 truncator_length: 42
 truncator_dots: true
-remove_repeated_segments_text_only: 0
-home_segment_validation_skip: 0
+remove_repeated_segments_text_only: false
+home_segment_validation_skip: false
