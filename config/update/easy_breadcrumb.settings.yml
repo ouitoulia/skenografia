@@ -3,7 +3,7 @@ applies_admin_routes: true
 include_invalid_paths: true
 excluded_paths: ''
 replaced_titles: ''
-custom_paths: "/novita :: Novità | /novita\r\n/novita/notizie :: Novità | /novita :: Le notizie | /novita/notizie\r\n/novita/articoli :: Novità | /novita :: Gli articoli | /novita/articoli\r\n/novita/rassegna-stampa :: Novità | /novita :: La rassegna stampa | /novita/rassegna-stampa\r\nregex!/novita/notizie/([^/]*) :: Novità | /novita :: Le notizie | /novita/notizie\r\nregex!/novita/articoli/([^/]*) :: Novità | /novita :: Gli articoli | /novita/articoli\r\nregex!/novita/rassegna-stampa/([^/]*) :: Novità | /novita :: La rassegna stampa | /novita/rassegna-stampa"
+custom_paths: "/novita :: Novità | /novita\r\n/novita/notizie :: Novità | /novita :: Le notizie | /novita/notizie\r\n/novita/articoli :: Novità | /novita :: Gli articoli | /novita/articoli\r\n/novita/rassegna-stampa :: Novità | /novita :: La rassegna stampa | /novita/rassegna-stampa\r\nregex!/novita/notizie/([^/]*) :: Novità | /novita :: Le notizie | /novita/notizie\r\nregex!/novita/articoli/([^/]*) :: Novità | /novita :: Gli articoli | /novita/articoli\r\nregex!/novita/rassegna-stampa/([^/]*) :: Novità | /novita :: La rassegna stampa | /novita/rassegna-stampa\r\n/novita/circolari :: Novità | /novita :: Le circolari | /novita/circolari\r\nregex!/novita/circolari/([^/]*) :: Novità | /novita :: Le circolari | /novita/circolari"
 include_home_segment: true
 alternative_title_field: field_breadcrumb_title
 home_segment_title: Home
