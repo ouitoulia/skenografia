@@ -77,7 +77,7 @@
     'struttura-organizzativa': 'redbrown',
     'servizio': 'purplelight',
     'percorso-di-studio': 'purplelight',
-    'notizia': 'greendark',
+    'article': 'greendark',
     'circolare': 'greendark',
     'evento': 'greendark',
     'scheda-didattica': 'bluelectric',
@@ -90,7 +90,7 @@
   {% include '@skenografia_components/card/card-article.html.twig' with {
     card_article_variant: node_variants_map[node.bundle|clean_id] ?? 'petrol',
     card_image: content.field_copertina[0] ? content.field_copertina,
-    card_image_date: node.bundle|clean_id == 'notizia' or node.bundle|clean_id == 'circolare' ? date_card,
+    card_image_date: node.bundle|clean_id == 'article' or node.bundle|clean_id == 'circolare' ? date_card,
     card_date: content.field_image[0] ? false : date,
     card_category: content.field_image[0] ? false : content.field_tags[0],
     card_signature: display_submitted ? author_name : false,

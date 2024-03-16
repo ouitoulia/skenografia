@@ -13,7 +13,7 @@ custom:
 
 # Bootstrap-italia library if you use a CDN
 cdn:
-  version: 1.15.0
+  version: 1.15.1
   css:
     theme:
       /libraries/ouitoulia-skenografia/css/bootstrap-italia.min.css: { minified: true }
@@ -24,7 +24,7 @@ cdn:
 
 # Skenografia toc_js custom loader
 toc:
-  version: 1.15.0
+  version: 1.15.1
   js:
     /libraries/ouitoulia-skenografia/js/toc_js_loader.min.js: { minified: true }
     #dist/js/toc_js_loader.min.js: { }
