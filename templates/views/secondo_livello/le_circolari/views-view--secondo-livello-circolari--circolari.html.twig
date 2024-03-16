@@ -80,7 +80,16 @@
           {% if rows -%}
             {{ rows }}
           {% elseif empty -%}
-            {{ empty }}
+            {% include '@bi-bcl/hero/hero.html.twig' with {
+              hero_kicker: '',
+              hero_small: true,
+              hero_title: 'Nessuna circolare',
+              hero_text: empty,
+              hero_cta_url: '/novita/le-circolari',
+              hero_cta_label: 'Vedi tutte le circolari',
+              hero_cta_type: 'outline-primary',
+              hero_text_centered: true,
+            } %}
           {% endif %}
 
           {{ pager }}
