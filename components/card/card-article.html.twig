@@ -29,7 +29,8 @@
     card_border_bottom: false,
     card_body_classes: [
       'row',
-      'p-0'
+      'p-0',
+      'm-0'
     ],
     card_classes: [
       'card-article',
@@ -42,7 +43,7 @@
     {% block cardImage %}{% endblock %}
     {% block cardTitle %}{% endblock %}
     {% block cardText %}
-      <div class="card-article-img position-relative d-none d-md-block col-md-4">
+      <div class="card-article-img p-0 position-relative d-none d-md-block col-md-4 bg-gray-light overflow-hidden">
         {{ _card_image }}
         {% if _card_image_date is not empty %}
           <div class="card-calendar d-flex flex-column justify-content-center position-absolute start-0 top-0 bg-{{ _card_article_variant }} text-white">
@@ -70,13 +71,13 @@
         {% endif %}
       </div>
       <div class="card-article-content col-md-8 p-5 p-md-4 p-lg-3 p-xl-4 py-xxl-5 pe-xxl-5">
-        {{ title_prefix }}
+        <small>{{ title_prefix }}</small>
         {% if label and not page %}
           <h3{{ title_attributes.addClass(['card-title','h5','mb-3']) }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+            <small class="d-block">{{ title_suffix }}</small>
           </h3>
         {% endif %}
-        {{ title_suffix }}
         {% include '@bi-bcl/card/_partial.card-subtitle-block.html.twig' %}
         <div{{ content_attributes.addClass('card-text') }}>
           {{ content|without('field_copertina') }}

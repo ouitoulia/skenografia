@@ -85,15 +85,43 @@
     'classe': 'bluelectric'
   } %}
 
+  {% set node_default_image_map = {
+    'persona': 'icon-user',
+    'luogo': 'icon-marker-simple',
+    'documento': 'it-files',
+    'struttura-organizzativa': 'icon-school-building',
+    'servizio': 'icon-service',
+    'percorso-di-studio': 'icon-road',
+    'article': 'icon-newspaper',
+    'circolare': 'icon-news',
+    'evento': 'icon-calendar',
+    'scheda-didattica': 'icon-timetable',
+    'progetto': 'icon-books',
+    'classe': 'icon-classes'
+  } %}
+
+  {# Image #}
+  {% if content.field_copertina[0] %}
+    {% set _image = content.field_copertina[0] %}
+  {% else %}
+    {% set _image %}
+      {% include '@bi-bcl/icon/icon.html.twig' with {
+        name: node_default_image_map[node.bundle|clean_id],
+        color: node_variants_map[node.bundle|clean_id],
+        size: 'xxxl',
+        icon_classes: ['position-absolute', 'bottom-0', 'end-0', 'opacity-25', 'me-3', 'mb-3']
+      } %}
+    {% endset %}
+  {% endif %}
+
+  {# Format date #}
   {% set date_card_format = date|split(' ') %}
   {% set date_card = {'day': date_card_format[0], 'month': date_card_format[1], 'year': date_card_format[2]} %}
+
   {% include '@skenografia_components/card/card-article.html.twig' with {
     card_article_variant: node_variants_map[node.bundle|clean_id] ?? 'petrol',
-    card_image: content.field_copertina[0] ? content.field_copertina,
+    card_image: _image,
     card_image_date: node.bundle|clean_id == 'article' or node.bundle|clean_id == 'circolare' ? date_card,
-    card_date: content.field_image[0] ? false : date,
-    card_category: content.field_image[0] ? false : content.field_tags[0],
-    card_signature: display_submitted ? author_name : false,
     card_attributes: attributes
   } %}
 {% endapply %}

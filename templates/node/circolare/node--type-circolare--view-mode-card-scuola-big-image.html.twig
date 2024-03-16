@@ -1,0 +1,4 @@
+{% include '@skenografia/templates/node/node--card-scuola-big-image.html.twig' with {
+  title_suffix: content.field_numero_circolare|render|striptags|trim ~ '-' ~ content.field_anno_scolastico|render|striptags|trim,
+  content: content|without('field_numero_circolare','field_anno_scolastico')
+} %}
