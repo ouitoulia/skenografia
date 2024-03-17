@@ -1,5 +1,10 @@
-{% include '@skenografia_components/card/card-vertical-thumb.html.twig' with {
-  card_image: content.field_copertina,
-  card_text: content.field_abstract|render|striptags|trim,
-  card_signature: content.field_persona_responsabile
-} %}
+{% apply spaceless %}
+  {% set card_signature %}
+    <div>{% include '@skenografia/node/_partial.node--author.html.twig' %}</div>
+  {% endset %}
+  {% include '@skenografia_components/card/card-vertical-thumb.html.twig' with {
+    card_image: content.field_copertina,
+    card_text: content.field_abstract|render|striptags|trim,
+    card_signature: card_signature
+  } %}
+{% endapply %}
