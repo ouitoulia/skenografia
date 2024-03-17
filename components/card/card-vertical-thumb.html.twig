@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Template for card_article component.
+ * Docs: https://italia.github.io/design-scuole-pagine-statiche/scuole-sezione-notizie.html
+ * Latest revision: 2.4.1
+ *
+ * Parameters:
+ * - card_image (drupal_field) (default: '')
+ * - card_comments (drupal_field) (default: '')
+ *     campo con il numero di commenti, esempio: "144"; può essere un link
+ *
+ * see @bi-bcl/card/card.html.twig for more parameters
+ *
+ * Examples:
+   {% include '@skenografia_components/card/card-vertical-thumb.html.twig' with {
+      card_image: content.field_copertina,
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _card_image = card_image|default('') %}
+  {% set _card_comments = card_comments|default('') %}
+
+  {% embed '@bi-bcl/card/card.html.twig' with {
+    card_tag_container: 'article',
+    card_shadow: true,
+    card_rounded: true,
+    card_teaser: true,
+    card_border_bottom: false,
+    card_body_classes: ['p-0'],
+    card_classes: ['card-vertical-thumb', 'p-0']
+  } %}
+    {% block cardImage %}{% endblock %}
+    {% block cardText %}
+      {% if _card_image is not empty %}
+        <div class="w-25 float-end ms-2 mb-1">
+          {{ card_image }}
+        </div>
+      {% endif %}
+      <div class="p-4">
+        {% if label and not page %}
+          {% if title_prefix %}<small>{{ title_prefix }}</small>{% endif %}
+          <h3{{ title_attributes.addClass(['card-title','fs-5','lh-1','mb-2']) }}>
+            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+            {% if title_suffix %}<small class="d-block">{{ title_suffix }}</small>{% endif %}
+          </h3>
+        {% endif %}
+        {% include '@bi-bcl/card/_partial.card-subtitle-block.html.twig' %}
+        <p class="fs-6">{{ card_text }}</p>
+      </div>
+    {% endblock %}
+
+    {% block cardSignature %}
+      <div class="card-comments-wrapper d-flex align-items-center p-4">
+        {{ card_signature }}
+        {% if _card_comments is not empty %}
+          <div class="comments ms-auto">
+            <p class="font-sans-serif fs-6 pe-4 position-relative">{{ _card_comments }}</p>
+          </div>
+        {% endif %}
+      </div>
+    {% endblock %}
+
+  {% endembed %}
+{% endapply %}

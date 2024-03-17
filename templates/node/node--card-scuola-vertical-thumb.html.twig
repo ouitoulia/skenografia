@@ -1,0 +1,5 @@
+{% include '@skenografia_components/card/card-vertical-thumb.html.twig' with {
+  card_image: content.field_copertina,
+  card_text: content.field_abstract|render|striptags|trim,
+  card_signature: content.field_persona_responsabile
+} %}

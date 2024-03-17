@@ -122,6 +122,7 @@
     card_article_variant: node_variants_map[node.bundle|clean_id] ?? 'petrol',
     card_image: _image,
     card_image_date: node.bundle|clean_id == 'article' or node.bundle|clean_id == 'circolare' ? date_card,
-    card_attributes: attributes
+    card_attributes: attributes,
+    content: content|without('field_copertina')
   } %}
 {% endapply %}

@@ -72,16 +72,16 @@
         {% endif %}
       </div>
       <div class="card-article-content col-md-8 p-5 p-md-4 p-lg-3 p-xl-4 py-xxl-5 pe-xxl-5">
-        <small>{{ title_prefix }}</small>
+        {% if title_prefix %}<small>{{ title_prefix }}</small>{% endif %}
         {% if label and not page %}
           <h3{{ title_attributes.addClass(['card-title','h5','mb-3']) }}>
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-            <small class="d-block">{{ title_suffix }}</small>
+            {% if title_suffix %}<small class="d-block">{{ title_suffix }}</small>{% endif %}
           </h3>
         {% endif %}
         {% include '@bi-bcl/card/_partial.card-subtitle-block.html.twig' %}
         <div{{ content_attributes.addClass('card-text') }}>
-          {{ content|without('field_copertina') }}
+          {{ content }}
         </div>
       </div>
     {% endblock %}
