@@ -1,0 +1,7 @@
+{% set title_suffix %}
+  {% include '@skenografia/node/evento/_partial.node--type-evento--dal-al.html.twig' %}
+{% endset %}
+{% include '@skenografia/templates/node/node--card-scuola-big-image.html.twig' with {
+  title_suffix: title_suffix,
+  content: content|without('field_data_inizio','field_data_fine')
+} %}

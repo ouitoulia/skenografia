@@ -67,15 +67,15 @@
         <div class="col-lg-3 pt-5 bg-white bg-white-left affix-parent">
           <aside class="aside-list affix-top mb-5">
             {% block asideA11yDescription %}
-              <h2 class="visually-hidden">Filtra le circolari</h2>
-              <p class="visually-hidden">Puoi filtrare le circolari per specifici destinatari oppure listarle senza filtri.</p>
+              <h2 class="visually-hidden">Filtra gli eventi</h2>
+              <p class="visually-hidden">Puoi filtrare gli eventi in base a diversi tipi di filtro.</p>
             {% endblock %}
             {{ exposed }}
           </aside>
         </div>
         <div class="col-lg-7 pt-5 offset-lg-1">
           {% block contentA11yDescription %}
-            <h2 class="visually-hidden">Lista delle circolari</h2>
+            <h2 class="visually-hidden">Lista dei prossimi eventi</h2>
           {% endblock %}
           {% if rows -%}
             {{ rows }}
@@ -83,10 +83,10 @@
             {% include '@bi-bcl/hero/hero.html.twig' with {
               hero_kicker: '',
               hero_small: true,
-              hero_title: 'Nessuna circolare',
+              hero_title: 'Nessun evento in programma',
               hero_text: empty,
-              hero_cta_url: '/novita/le-circolari',
-              hero_cta_label: 'Vedi tutte le circolari',
+              hero_cta_url: '/novita',
+              hero_cta_label: 'Vedi tutte le novità',
               hero_cta_type: 'outline-primary',
               hero_text_centered: true,
               hero_classes: ['mb-5']
