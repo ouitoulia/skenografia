@@ -88,13 +88,7 @@
           <div class="title-content pt-5">
             <h1{{ title_attributes }}>{{ label }}</h1>
             <div class="h3 text-greendark mb-3">
-              {% set giorno_inizio = content.field_data_inizio[0]['#attributes']['datetime']|date('Y-m-d') %}
-              {% set giorno_fine = content.field_data_fine[0]['#attributes']['datetime']|date('Y-m-d') %}
-              {% if giorno_inizio == giorno_fine %}
-                il {{ content.field_data_inizio }} dalle {{ content.field_data_inizio[0]['#attributes']['datetime']|date('H:i') }} alle {{ content.field_data_fine[0]['#attributes']['datetime']|date('H:i') }}
-              {% else %}
-                dal {{ content.field_data_fine }} al {{ content.field_data_inizio }}
-              {% endif %}
+              {% include '@skenografia/node/evento/_partial.node--type-evento--dal-al.html.twig' %}
             </div>
             {{ content.field_abstract }}
             <aside class="badges-wrapper badges-main">{{ content.field_argomenti }}</aside>

@@ -73,7 +73,7 @@
   {% embed '@bi-bcl/card/card.html.twig' with {
     card_tag_container: 'article',
     card_title: label|render|striptags|trim,
-    card_text: content.field_data_inizio[0]['#text'] ~ ' - ' ~ content.field_abstract|render|striptags|slice(0, 200) ~ '...',
+    card_text: content.field_abstract|render|striptags|slice(0, 200) ~ '...',
     card_shadow: true,
     card_teaser: true,
     card_attributes: attributes
@@ -81,9 +81,21 @@
 
     {% block cardTitle %}
       <h3{{ title_attributes.addClass(['card-title', 'h5']) }}>
-        {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-calendar', color: 'greendark', icon_classes: ['me-2']} %}
         <a href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">{{ label }}</a>
       </h3>
+    {% endblock %}
+
+    {% block readMore %}
+      <div class="pt-4 d-inline-flex">
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: 'it-calendar',
+          color: 'greendark',
+          icon_classes: ['me-2']
+        } %}
+        <span>
+          {% include '@skenografia/node/evento/_partial.node--type-evento--dal-al.html.twig' %}
+        </span>
+      </div>
     {% endblock %}
 
   {% endembed %}

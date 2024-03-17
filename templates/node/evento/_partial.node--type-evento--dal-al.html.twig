@@ -1,0 +1,7 @@
+{% set giorno_inizio = content.field_data_inizio[0]['#attributes']['datetime']|date('Y-m-d') %}
+{% set giorno_fine = content.field_data_fine[0]['#attributes']['datetime']|date('Y-m-d') %}
+{% if giorno_inizio == giorno_fine %}
+  {{ content.field_data_inizio }} dalle {{ content.field_data_inizio[0]['#attributes']['datetime']|date('H:i') }} alle {{ content.field_data_fine[0]['#attributes']['datetime']|date('H:i') }}
+{% else %}
+  dal {{ content.field_data_fine }} al {{ content.field_data_inizio }}
+{% endif %}
