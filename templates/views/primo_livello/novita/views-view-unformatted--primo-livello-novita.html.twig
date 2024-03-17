@@ -18,7 +18,9 @@
  */
 #}
 {% apply spaceless %}
-  <h2 class="fw-lighter">{{ title }}</h2>
+  {% if title %}
+    <h2 class="fw-lighter">{{ title }}</h2>
+  {% endif %}
 
   <div class="row variable-gutters">
     <div class="col">

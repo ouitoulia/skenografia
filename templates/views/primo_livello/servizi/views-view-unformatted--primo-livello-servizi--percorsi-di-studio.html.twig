@@ -20,13 +20,15 @@
 {% apply spaceless %}
   <section class="section py-5">
     <div class="container">
-      <div class="row variable-gutters">
-        <div class="col">
-          <div class="title-section mb-4">
-            <h3 class="h4">{{ title }}</h3>
+      {% if title %}
+        <div class="row variable-gutters">
+          <div class="col">
+            <div class="title-section mb-4">
+              <h3 class="h4">{{ title }}</h3>
+            </div>
           </div>
         </div>
-      </div>
+      {% endif %}
 
       <div class="row variable-gutters">
         <div class="col">
