@@ -191,31 +191,33 @@
 			}
 		}
 	}
-	&.section-tabs-bg {
-  	.responsive-tabs {
-    	ul {
-      	background-color: #0a00cb;
-      	position: relative;
-      	z-index: 0;
-        &:before {
-      		content: "";
-      		position: absolute;
-      		z-index: 1;
-      		top: 0;
-      		background-color: #0a00cb;
-      		--widthA: calc(100vw - 1172px);
-      		--widthB: calc(-100vw + 1172px);
-      		width: calc(var(--widthA) / 2);
-      		left: calc(var(--widthB) / 2);
-      		height: 100%;
-          @include media-breakpoint-down(lg) {
-        		width: 16px;
-        		left: -16px;
-    			}
-      	}
-    	}
-  	}
-	}
+  // l'HTML di questi tabs non è standard boostrap-italia 2
+  // viene riscritto in custom/components/_nav-tabs.scss
+	//&.section-tabs-bg {
+  //	.responsive-tabs {
+  //  	ul {
+  //    	background-color: #0a00cb;
+  //    	position: relative;
+  //    	z-index: 0;
+  //      &:before {
+  //    		content: "";
+  //    		position: absolute;
+  //    		z-index: 1;
+  //    		top: 0;
+  //    		background-color: #0a00cb;
+  //    		--widthA: calc(100vw - 1172px);
+  //    		--widthB: calc(-100vw + 1172px);
+  //    		width: calc(var(--widthA) / 2);
+  //    		left: calc(var(--widthB) / 2);
+  //    		height: 100%;
+  //        @include media-breakpoint-down(lg) {
+  //      		width: 16px;
+  //      		left: -16px;
+  //  			}
+  //    	}
+  //  	}
+  //	}
+	//}
 	&.bg-purplelight {
   	color: $white;
   	h1, .h1, h2, .h2, h3, .h3, p {

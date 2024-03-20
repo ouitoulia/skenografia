@@ -1,0 +1,108 @@
+// bootstrap-italia/src/scss/custom/_accordion.scss
+@use 'sass:map';
+
+$color-map: (
+  petrol: (
+    background: var(--bs-petrol),
+    dark: var(--bs-dark),
+    light: var(--bs-petrol)
+  ),
+  redbrown: (
+    background: var(--bs-redbrown),
+    dark: var(--bs-redbrown-dark),
+    light: var(--bs-redbrown)
+  ),
+  purplelight: (
+    background: var(--bs-purplelight),
+    dark: var(--bs-purplelight-dark),
+    light: var(--bs-purplelight)
+  ),
+  greendark: (
+    background: var(--bs-greendark),t
+    dark: var(--bs-dark),
+    light: var(--bs-greendark)
+  ),
+  bluelectric: (
+    background: var(--bs-bluelectric),
+    dark: var(--bs-bluelectric-dark),
+    light: var(--bs-bluelectric)
+  ),
+);
+
+@function get-color-values($color-name) {
+  @return map.get($color-map, $color-name);
+}
+
+
+//collapse wrapper
+.accordion {
+  @each $color-name, $color-values in $color-map {
+    &.bg-#{$color-name} {
+      border-bottom-color: map.get($color-values, dark);
+
+      .accordion-item {
+        background-color: map.get($color-values, background);
+
+        .accordion-header {
+          .accordion-button[aria-expanded='false'],
+          .accordion-button[aria-expanded='true'] {
+            background-color: map.get($color-values, background);
+            color: var(--bs-white);
+            border-color: map.get($color-values, background);
+
+            &:before {
+              color: var(--bs-white);
+            }
+
+            &:after {
+              .accordion:not(.accordion-left-icon) & {
+                content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' %3E%3Cg%3E%3Cpath fill='#{url-friendly-color(--bs-white)}' d='M12,10.3l4.8,4.8c0.3,0.3,0.8,0.3,1.1,0c0.3-0.3,0.3-0.8,0-1c0,0,0,0,0,0l-4.8-4.8c-0.6-0.6-1.5-0.6-2.1,0L6.2,14c-0.3,0.3-0.3,0.8,0,1c0,0,0,0,0,0c0.3,0.3,0.8,0.3,1.1,0L12,10.3z'/%3E%3C/g%3E%3C/svg%3E");
+              }
+              .accordion-left-icon & {
+                content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' %3E%3Cg%3E%3Cpath fill='none' d='M12,10.3l4.8,4.8c0.3,0.3,0.8,0.3,1.1,0c0.3-0.3,0.3-0.8,0-1c0,0,0,0,0,0l-4.8-4.8c-0.6-0.6-1.5-0.6-2.1,0L6.2,14c-0.3,0.3-0.3,0.8,0,1c0,0,0,0,0,0c0.3,0.3,0.8,0.3,1.1,0L12,10.3z'/%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+        }
+
+        .accordion-collapse {
+          background-color: map.get($color-values, background);
+
+          .accordion-body {
+            color: var(--bs-white);
+          }
+        }
+      }
+    }
+  }
+
+  &.accordion-large {
+    .accordion-header {
+      .accordion-button {
+        @include media-breakpoint-up(lg) {
+          font-size: 2rem;
+          line-height: 3rem;
+        }
+      }
+    }
+  }
+  &.accordion-left-icon.accordion-large {
+    .accordion-header {
+      .accordion-button {
+        &:before {
+          @include media-breakpoint-up(lg) {
+            width: 1.7rem;
+            font-size: 2.8rem;
+            line-height: 3rem;
+            height: 2.6rem;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+  .accordion-body {
+    padding-left: 64px;
+    font-size: 1.15rem;
+  }
+}

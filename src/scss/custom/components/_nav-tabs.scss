@@ -1,0 +1,43 @@
+// bootstrap-italia/src/scss/custom/_tab.scss
+.nav-tabs {
+  &.nav-dark {
+    .bg-bluelectric-dark & {
+      background-color: var(--bs-bluelectric-dark);
+    }
+    border-right: none;
+    .nav-link {
+      color: var(--bs-white);
+      .icon {
+        fill: var(--bs-white);
+      }
+      &:hover {
+        color: var(--bs-white);
+        .icon {
+          fill: var(--bs-white);
+        }
+      }
+    }
+    .nav-link.active,
+    .nav-item.show .nav-link {
+      color: var(--bs-white);
+      border-bottom-color: var(--bs-dark);
+      .bg-bluelectric-dark & {
+        background-color: var(--bs-bluelectric);
+        border-bottom-color: var(--bs-bluelectric);
+      }
+      .icon {
+        fill: var(--bs-white);
+      }
+    }
+
+    &.nav-tabs-vertical {
+      .nav-link.active,
+      .nav-item.show .nav-link {
+        border-right-color: var(--bs-dark);
+        .bg-bluelectric-dark & {
+          border-right-color: var(--bs-bluelectric);
+        }
+      }
+    }
+  }
+}

@@ -123,7 +123,7 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/note';
 //@import "r-engineering/parts/note";
 
-// Da fare
+// Da fare. accordion-large e accordion-bg-bluelectric migrati su b12
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/accordion';
 //@import "r-engineering/parts/accordion";
 
@@ -152,10 +152,12 @@ h1 {@extend .fw-semibold;}
 //}
 
 // Componenti
+@import "components/accordion";
 @import "components/affix";
 @import "components/card";
 @import "components/chip";
 @import "components/icon";
+@import "components/nav-tabs";
 @import "components/navscroll";
 @import "components/toc";
 

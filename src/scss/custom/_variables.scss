@@ -24,9 +24,12 @@
 $petrol:           #51758d !default;
 $petrol-dark-21:   mix(#160009, $petrol, 21%) !default;  // #455c71 == #455c71
 $redbrown:         #d1344c !default;
+$redbrown-dark:    mix($redbrown, $petrol, 10%) !default;
 $purplelight:      #b21dd0 !default;
+$purplelight-dark: mix($purplelight, $petrol, 10) !default;
 $greendark:        #0e865c !default; // diverso in 2.3.0 originale 0e8a5c
 $bluelectric:      #0d00ff !default;
+$bluelectric-dark: #0a00cb !default;
 $bluedark:         #30465c !default;
 $bluedark-petrol:  mix(#00112c, $petrol, 52%) !default; // #27415b == #27415b
 $secondary-green:  #00615e !default;

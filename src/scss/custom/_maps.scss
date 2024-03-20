@@ -14,27 +14,33 @@
  */
 
 $colors: map-merge($colors, (
-  'petrol':       $petrol,
-  'redbrown':     $redbrown,
-  'purplelight':  $purplelight,
-  'greendark':    $greendark,
-  'bluelectric':  $bluelectric,
-  'gray100':      $gray-100,
-  'white':        $white,
-  'gray-primary': $gray-primary,
-  'bluedark':     $bluedark,
-  'secondary-green': $secondary-green
+  'petrol':           $petrol,
+  'redbrown':         $redbrown,
+  'redbrown-dark':    $redbrown-dark,
+  'purplelight':      $purplelight,
+  'purplelight-dark': $purplelight-dark,
+  'greendark':        $greendark,
+  'bluelectric':      $bluelectric,
+  'bluelectric-dark': $bluelectric-dark,
+  'gray100':          $gray-100,
+  'white':            $white,
+  'gray-primary':     $gray-primary,
+  'bluedark':         $bluedark,
+  'secondary-green':  $secondary-green
 ));
 
 $theme-colors: map-merge($theme-colors, (
-  'petrol':       $petrol,
-  'redbrown':     $redbrown,
-  'purplelight':  $purplelight,
-  'greendark':    $greendark,
-  'bluelectric':  $bluelectric,
-  'gray100':      $gray-100,
-  'white':        $white,
-  'gray-primary': $gray-primary,
-  'bluedark':     $bluedark,
-  'secondary-green': $secondary-green
+  'petrol':           $petrol,
+  'redbrown':         $redbrown,
+  'redbrown-dark':    $redbrown-dark,
+  'purplelight':      $purplelight,
+  'purplelight-dark': $purplelight-dark,
+  'greendark':        $greendark,
+  'bluelectric':      $bluelectric,
+  'bluelectric-dark': $bluelectric-dark,
+  'gray100':          $gray-100,
+  'white':            $white,
+  'gray-primary':     $gray-primary,
+  'bluedark':         $bluedark,
+  'secondary-green':  $secondary-green
 ));
