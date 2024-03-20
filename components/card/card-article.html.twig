@@ -21,6 +21,11 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _card_article_variant = card_article_variant|default('petrol') %}
+  {% set _url_attributes = url_attributes|default('') %}
+
+  {% if _url_attributes is empty %}
+    {% set url_attributes = create_attribute() %}
+  {% endif %}
 
   {# Component #}
   {% embed '@bi-bcl/card/card.html.twig' with {
@@ -75,7 +80,7 @@
         {% if title_prefix %}<small>{{ title_prefix }}</small>{% endif %}
         {% if label and not page %}
           <h3{{ title_attributes.addClass(['card-title','h5','mb-3']) }}>
-            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+            <a href="{{ url }}" {{ url_attributes.setAttribute('rel', 'bookmark') }}>{{ label }}</a>
             {% if title_suffix %}<small class="d-block">{{ title_suffix }}</small>{% endif %}
           </h3>
         {% endif %}
