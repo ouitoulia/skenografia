@@ -62,7 +62,9 @@
             </div>
           </div>
           <div class="col-md-8 col-lg-9 bg-bluelectric p-5">
-            {{ header }}
+            <div class="ps-lg-5">
+              {{ header }}
+            </div>
           </div>
         </div>
       </header>
@@ -98,8 +100,8 @@
             </div>
           </div>
 
-          <div class="col-md-8 col-lg-9 p-4 bg-bluelectric ms-0 d-flex flex-column">
-            <div class="tab-content mb-5" id="{{ _id }}--content">
+          <div class="col-md-8 col-lg-9 bg-bluelectric ms-0 d-flex flex-column">
+            <div class="tab-content ps-lg-5 mb-5" id="{{ _id }}--content">
               {{ rows }}
             </div>
             {% include '@bi-bcl/button/button.html.twig' with {
