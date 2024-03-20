@@ -76,14 +76,14 @@
     {% if rows -%}
       <div class="container">
         <div class="row g-0">
-          <div class="col-md-4 col-lg-3">
+          <div class="col-md-4 col-lg-3 d-flex flex-column">
             <div class="nav nav-tabs nav-tabs-vertical nav-dark" id="{{ _id }}--nav" role="tablist" aria-orientation="vertical">
               {% for item in rows %}
                 {% set _clean_title = item['#title']|render|striptags|trim|clean_id %}
                 {% set _nav_link_attributes = create_attribute()
                   .addClass([
                     'nav-link',
-                    'py-4',
+                    'py-3',
                     loop.first ? ' active',
                   ])
                   .setAttribute('id', _id ~ '--tab-' ~ _clean_title)
@@ -98,21 +98,26 @@
                 </a>
               {% endfor %}
             </div>
+            <div class="mt-auto pt-5 d-none d-md-block" aria-hidden="true">
+              <img class="img-fluid mt-5 pe-5 pb-5" src="{{ skenografia_libraries_path }}/img/didattica-mockup.png" alt="Immagine decorativa">
+            </div>
           </div>
 
           <div class="col-md-8 col-lg-9 bg-bluelectric ms-0 d-flex flex-column">
             <div class="tab-content ps-lg-5 mb-5" id="{{ _id }}--content">
               {{ rows }}
             </div>
-            {% include '@bi-bcl/button/button.html.twig' with {
-              label: 'Vai alla presentazione della scuola',
-              tag: 'a',
-              url: '/la-scuola',
-              variant: 'redbrown',
-              size: 'lg',
-              assistive_text: 'Vai alla pagina di presentazione della scuola',
-              button_classes: ['my-5', 'mx-4', 'mt-auto', 'w-auto']
-            }%}
+            <div class="mt-auto ps-5">
+              {% include '@bi-bcl/button/button.html.twig' with {
+                label: 'Vai alla presentazione della scuola',
+                tag: 'a',
+                url: '/la-scuola',
+                variant: 'redbrown',
+                size: 'lg',
+                assistive_text: 'Vai alla pagina di presentazione della scuola',
+                button_classes: ['m-5']
+              }%}
+            </div>
           </div>
         </div>
       </div>
