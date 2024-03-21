@@ -56,7 +56,7 @@
       <header class="container">
         <div class="row g-0">
           <div class="col-md-4 col-lg-3 d-flex flex-column">
-            <div class="h6 text-white ms-4 mb-5 mt-auto">
+            <div class="h6 text-white ms-4 mb-5 mt-auto pt-5">
               <span class="mb-1 d-block">La Scuola</span>
               <span class="d-block"><abbr aria-label="Anno Scolastico">A.S.</abbr> {{ anno_scolastico_corrente }}</span>
             </div>
@@ -107,7 +107,7 @@
             <div class="tab-content ps-lg-5 mb-5" id="{{ _id }}--content">
               {{ rows }}
             </div>
-            <div class="mt-auto ps-5">
+            <div class="mt-auto ps-lg-5">
               {% include '@bi-bcl/button/button.html.twig' with {
                 label: 'Vai alla presentazione della scuola',
                 tag: 'a',
