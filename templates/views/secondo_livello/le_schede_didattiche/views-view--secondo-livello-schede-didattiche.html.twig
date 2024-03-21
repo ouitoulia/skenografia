@@ -1,0 +1,113 @@
+{#
+/**
+ * @file
+ * Default theme implementation for main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A CSS-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   JavaScript.
+ *
+ * @see template_preprocess_views_view()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  {% if header %}
+    <section class="section bg-bluelectric bg-bluelectricgradient py-5 py-md-4 py-lg-0 position-relative overflow-hidden">
+      <div class="green-square-forms position-absolute top-0 end-0 d-none d-lg-block" aria-hidden="true">
+        {% include '@skenografia_components/inline-svg/square-forms.svg.twig' %}
+      </div>
+      <div class="container">
+        <div class="row variable-gutters">
+          <div class="col-md-5">
+            <div class="hero-title text-start">
+              {{ header }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {{ attachment_before }}
+
+  <section class="bg-gray-light">
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-lg-3 pt-5 bg-white bg-white-left affix-parent">
+          <aside class="aside-list affix-top mb-5">
+            {% block asideA11yDescription %}
+              <h2 class="visually-hidden">Filtra le schede didattiche</h2>
+              <p class="visually-hidden">Scegli se visualizzare qualsiasi scheda didattica, oppure filtrare per livello.</p>
+            {% endblock %}
+            {{ exposed }}
+          </aside>
+        </div>
+        <div class="col-lg-7 pt-5 offset-lg-1">
+          {% block contentA11yDescription %}
+            <h2 class="visually-hidden">Lista delle schede didattiche</h2>
+          {% endblock %}
+          {% if rows -%}
+            {{ rows }}
+          {% elseif empty -%}
+            {% include '@bi-bcl/hero/hero.html.twig' with {
+              hero_kicker: '',
+              hero_small: true,
+              hero_title: 'Nessuna scheda',
+              hero_text: empty,
+              hero_cta_url: '/didattica',
+              hero_cta_label: 'Vai alla sezione didattica',
+              hero_cta_type: 'outline-primary',
+              hero_text_centered: true,
+              hero_classes: ['mb-5']
+            } %}
+          {% endif %}
+
+          {{ pager }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{ attachment_after }}
+  {{ more }}
+
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>
