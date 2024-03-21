@@ -17,11 +17,11 @@
                 color: _icon_name == 'it-warning-circle' ? 'danger' : 'greendark',
               } %}
               <p class="ms-2 mb-0 lh-1 text-sans-serif text-petroldark">
-                <strong>{{ link['#title']|render }}</strong>
-                <br /><time class="small" datetime="{{ file_link_changed|format_date('html_datetime') }}">{{ file_link_changed|format_date('short') }}</time>
+                <strong class="d-block mb-2">{{ link['#title']|render }}</strong>
+                <time class="small" datetime="{{ file_link_changed|format_date('html_datetime') }}">{{ file_link_changed|format_date('short') }}</time>
                 {% if file_size and file_link_show_size %} | <small>{{ file_size }}</small>{% endif %}
                 {% if _icon_name == 'it-warning-circle' %}
-                  <br /><small class="text-danger">{{ 'Non è possibile verificare in automatico la sicurezza di questo file, controllalo con un antivirus prima di eseguirlo.'|t }}</small>
+                  <small class="text-danger d-block mt-2">{{ 'Non è possibile verificare in automatico la sicurezza di questo file, controllalo con un antivirus prima di eseguirlo.'|t }}</small>
                 {% endif %}
               </p>
             </div>
