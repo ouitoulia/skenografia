@@ -15,7 +15,7 @@
 #}
 {% apply spaceless %}
   {{ attach_library('skenografia/toc') }}
-  <div class="cmp-navscroll" aria-labelledby="accordion-title-one">
+  <div class="navscroll" aria-labelledby="accordion-title-one">
     <div class="accordion border-0">
       <div class="accordion-item">
         <span class="accordion-header" id="accordion-title-one">
@@ -27,7 +27,7 @@
           <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
-          <div class="accordion-body">
+          <div class="accordion-body p-0">
             <div class="menu-wrapper">
               <div {{ attributes.addClass(['link-list-wrapper', 'menu-link-list']) }}>
                 <{{ tag }} {{ title_attributes.addClass('visually-hidden') }}>{{ title }}</{{ tag }}>
