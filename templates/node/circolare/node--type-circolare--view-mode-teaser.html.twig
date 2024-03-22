@@ -88,7 +88,9 @@
             color: 'greendark',
             icon_classes: ['me-2']
           } %}
-          {{ label }}&nbsp;({{ content.field_numero_circolare }}-{{ content.field_anno_scolastico }})
+          <span>
+            {{ label }}&nbsp;({{- content.field_numero_circolare -}}-{{- content.field_anno_scolastico -}})
+          </span>
         </a>
       </h3>
     {% endblock %}
