@@ -577,32 +577,35 @@
       }
     }
   }
-  &.card-horizontal {
-    display: flex;
-    flex-direction: row;
-    .card-thumb {
-      width: 175px;
-      height: auto;
-      flex-shrink: 0;
-      margin: 0 25px 0 0;
-      &.rounded {
-        a {
-          display: block;
-          border-radius: 4px;
-          overflow: hidden;
-        }
-      }
-    }
-    .card-body {
-      padding: 0 0 0 0;
-      display: flex;
-      flex-direction: column;
-      h3, .h3 {
-        font-size: 1.25rem;
-      }
-    }
-  }
-  // Vengono usati le utility di bootstrap 5.2 al posto delle regole commentate
+  // Vengono usate le utility di bootstrap 5.2
+  // components/card/card-horizontal.html.twig
+  //&.card-horizontal {
+  //  display: flex;
+  //  flex-direction: row;
+  //  .card-thumb {
+  //    width: 175px;
+  //    height: auto;
+  //    flex-shrink: 0;
+  //    margin: 0 25px 0 0;
+  //    &.rounded {
+  //      a {
+  //        display: block;
+  //        border-radius: 4px;
+  //        overflow: hidden;
+  //      }
+  //    }
+  //  }
+  //  .card-body {
+  //    padding: 0 0 0 0;
+  //    display: flex;
+  //    flex-direction: column;
+  //    h3, .h3 {
+  //      font-size: 1.25rem;
+  //    }
+  //  }
+  //}
+
+  // Vengono usate le utility di bootstrap 5.2 al posto delle regole commentate
   // components/card/card-article.html.twig
   &.card-article {
     //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);

@@ -1,0 +1,208 @@
+{#
+/**
+ * @file
+ * Default theme implementation for main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A CSS-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   JavaScript.
+ *
+ * @see template_preprocess_views_view()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% set classes = [
+    'section',
+    'section-padding',
+    'bg-bluelectric-dark',
+    'py-0',
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-name-' ~ css_name,
+    'view-display-id-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ] %}
+  {% set _id = 'view-' ~ id|clean_id ~ '--' ~ 'view-display-id-' ~ display_id|clean_id %}
+
+  <section{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+    {{ title }}
+    {{ title_suffix }}
+
+    {% if header %}
+      <header class="container">
+        <div class="row g-0">
+          <div class="col-md-4 col-lg-3 d-flex flex-column">
+            <div class="h6 text-white ms-4 mb-5 mt-auto pt-5">
+              <span class="mb-1 d-block">La Scuola</span>
+              <span class="d-block"><abbr aria-label="Anno Scolastico">A.S.</abbr> {{ anno_scolastico_corrente }}</span>
+            </div>
+          </div>
+          <div class="col-md-8 col-lg-9 bg-bluelectric p-5">
+            <div class="ps-lg-5">
+              {{ header }}
+            </div>
+          </div>
+        </div>
+      </header>
+    {% endif %}
+
+    {{ exposed }}
+    {{ attachment_before }}
+
+    {% if rows -%}
+      <div class="container">
+        <div class="row g-0">
+          <div class="col-md-4 col-lg-3 d-flex flex-column">
+            <div class="nav nav-tabs nav-tabs-vertical nav-dark" id="{{ _id }}--nav" role="tablist" aria-orientation="vertical">
+              {% for item in rows %}
+                {% set _clean_title = item['#title']|render|striptags|trim|clean_id %}
+                {% set _nav_link_attributes = create_attribute()
+                  .addClass([
+                    'nav-link',
+                    'py-3',
+                    loop.first ? ' active',
+                  ])
+                  .setAttribute('id', _id ~ '--tab-' ~ _clean_title)
+                  .setAttribute('data-bs-toggle', 'tab')
+                  .setAttribute('href', '#' ~ _id ~ '--pane-' ~ _clean_title)
+                  .setAttribute('role', 'tab')
+                  .setAttribute('aria-controls', _id ~ '--pane-' ~ _clean_title)
+                  .setAttribute('aria-selected', lopp.first ? 'true', 'false')
+                %}
+                <a{{ _nav_link_attributes }}>
+                  {{ item['#title'] }}
+                </a>
+              {% endfor %}
+            </div>
+            <div class="mt-auto pt-5 d-none d-md-block" aria-hidden="true">
+              <img class="img-fluid mt-5 pe-5 pb-5" src="{{ skenografia_libraries_path }}/img/didattica-mockup.png" alt="Immagine decorativa">
+            </div>
+          </div>
+
+          <div class="col-md-8 col-lg-9 bg-bluelectric ms-0 d-flex flex-column">
+            <div class="tab-content ps-lg-5 mb-5" id="{{ _id }}--content">
+              {{ rows }}
+            </div>
+            <div class="mt-auto ps-lg-5">
+              {% include '@bi-bcl/button/button.html.twig' with {
+                label: 'Vai alla presentazione della scuola',
+                tag: 'a',
+                url: '/la-scuola',
+                variant: 'redbrown',
+                size: 'lg',
+                assistive_text: 'Vai alla pagina di presentazione della scuola',
+                button_classes: ['m-5']
+              }%}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% elseif empty -%}
+      {{ empty }}
+    {% endif %}
+    {{ pager }}
+
+    {{ attachment_after }}
+    {{ more }}
+  </section>
+
+  {% if footer %}
+    <footer>
+      <section class="section bg-white py-5">
+        <div class="container">
+          <div class="row variable-gutters">
+
+            <div class="col-lg-4">
+              {{ footer }}
+            </div>
+
+            <div class="col-lg-8">
+              <div class="row variable-gutters pt-5">
+
+                <div class="col-lg-6">
+                  {% embed '@bi-bcl/card/card.html.twig' with {
+                    card_tag_container: 'article',
+                    card_title: label,
+                    card_shadow: true,
+                    card_rounded: true,
+                    card_teaser: true,
+                    card_attributes: false,
+                    card_classes: ['mb-5']
+                  } %}
+                    {% block cardTitle %}
+                      <h3{{ title_attributes.addClass(['h4', 'mb-0', 'fw-lighter']) }}>
+                        <a class="d-flex align-items-center" href="/didattica/i-progetti-delle-classi" title="Tutti i progetti delle classi" rel="bookmark">
+                          {% include '@bi-bcl/icon/icon.html.twig' with {
+                            name: 'icon-books',
+                            size: 'lg',
+                            color: 'bluelectric',
+                            icon_classes: ['me-4']
+                          } %}
+                          <span>I progetti delle classi</span>
+                        </a>
+                      </h3>
+                    {% endblock %}
+                  {% endembed %}
+                </div>
+
+                <div class="col-lg-6">
+                  {% embed '@bi-bcl/card/card.html.twig' with {
+                    card_tag_container: 'article',
+                    card_title: label,
+                    card_shadow: true,
+                    card_rounded: true,
+                    card_teaser: true,
+                    card_attributes: false,
+                    card_classes: ['mb-5']
+                  } %}
+                    {% block cardTitle %}
+                      <h3{{ title_attributes.addClass(['h4', 'mb-0', 'fw-lighter']) }}>
+                        <a class="d-flex align-items-center" href="/didattica/le-schede-didattiche" title="Tutte le schede didattiche" rel="bookmark">
+                          {% include '@bi-bcl/icon/icon.html.twig' with {
+                            name: 'icon-timetable',
+                            size: 'lg',
+                            color: 'bluelectric',
+                            icon_classes: ['me-4']
+                          } %}
+                          <span>Le schede didattiche</span>
+                        </a>
+                      </h3>
+                    {% endblock %}
+                  {% endembed %}
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+{% endapply %}

@@ -2,7 +2,8 @@
   {% set card_signature %}
     <div>{% include '@skenografia/node/_partial.node--author.html.twig' %}</div>
   {% endset %}
-  {% include '@skenografia_components/card/card-vertical-thumb.html.twig' with {
+  {% include '@skenografia_components/card/card-horizontal.html.twig' with {
+    title_prefix: date,
     card_image: content.field_copertina,
     card_text: content.field_abstract|render|striptags|trim,
     content: content|without('field_copertina','field_abstract','field_persona_responsabile'),

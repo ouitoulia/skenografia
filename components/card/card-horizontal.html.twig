@@ -30,17 +30,17 @@
     card_rounded: true,
     card_teaser: true,
     card_border_bottom: false,
-    card_body_classes: ['p-0'],
-    card_classes: ['card-vertical-thumb', 'p-0']
+    card_body_classes: ['d-flex', 'p-1'],
+    card_classes: ['p-0']
   } %}
     {% block cardImage %}{% endblock %}
     {% block cardText %}
       {% if _card_image is not empty %}
-        <div class="w-25 float-end ms-2 mb-1">
+        <div class="w-30 rounded">
           {{ card_image }}
         </div>
       {% endif %}
-      <div class="px-4 pt-4">
+      <div class="px-4">
         {% if label and not page %}
           {% if title_prefix %}<small>{{ title_prefix }}</small>{% endif %}
           <h3{{ title_attributes.addClass(['card-title','fs-5','lh-1','mb-2']) }}>
@@ -51,19 +51,20 @@
         {% include '@bi-bcl/card/_partial.card-subtitle-block.html.twig' %}
         <p class="fs-6">{{ card_text }}</p>
         {{ content }}
+
+        <div class="card-comments-wrapper d-flex align-items-center py-4">
+          {{ card_signature }}
+          {% if _card_comments is not empty %}
+            <div class="comments ms-auto">
+              <p class="font-sans-serif fs-6 pe-4 position-relative">{{ _card_comments }}</p>
+            </div>
+          {% endif %}
+        </div>
+
       </div>
     {% endblock %}
 
-    {% block cardSignature %}
-      <div class="card-comments-wrapper d-flex align-items-center p-4">
-        {{ card_signature }}
-        {% if _card_comments is not empty %}
-          <div class="comments ms-auto">
-            <p class="font-sans-serif fs-6 pe-4 position-relative">{{ _card_comments }}</p>
-          </div>
-        {% endif %}
-      </div>
-    {% endblock %}
+    {% block cardSignature %}{% endblock %}
 
   {% endembed %}
 {% endapply %}

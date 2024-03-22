@@ -80,7 +80,7 @@
 
     {% block cardTitle %}
       <h3{{ title_attributes.addClass(['card-title', 'h5', 'mb-0']) }}>
-        <a href="{{ url }}" class="d-flex flex-wrap" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">
+        <a href="{{ url }}" class="d-flex align-items-center" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">
           {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-external-link', color: 'redbrown', icon_classes: ['me-2']} %}
           {{ label }}
         </a>
