@@ -84,7 +84,18 @@
   <section class="section bg-white article-title">
     <div class="container">
       <div class="row variable-gutters">
-        <div class="col-md-6 order-md-2">{{ content.field_copertina }}</div>
+        <div class="col-md-6 order-md-2">
+          {% if content.field_copertina[0] %}
+            {{ content.field_copertina }}
+          {% else %}
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: 'icon-newspaper',
+              color: 'greendark',
+              size: 'xxxl',
+              icon_classes: ['opacity-25', 'm-5']
+            } %}
+          {% endif %}
+        </div>
         <div class="col-md-6 order-md-1 d-flex align-items-center">
           <div class="title-content pt-5">
             <h1{{ title_attributes }}>{{ label }}</h1>
