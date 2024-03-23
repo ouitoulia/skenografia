@@ -150,7 +150,16 @@
                     'toc_js',
                   ) }}
 
-                  <h2 class="h4" id="art-par-04">Documenti</h2>
+                  {% if is_admin %}
+                    <h2 class="h4" id="art-par-04">Documenti</h2>
+                    {% include '@bi-bcl/alert/alert.html.twig' with {
+                      heading_tag: 'h3',
+                      type: 'danger',
+                      message: "Da fare vista.",
+                      dismissible: false,
+                      alert_classes: ['mb-5']
+                    } %}
+                  {% endif %}
                 </div>
               </div>
 
