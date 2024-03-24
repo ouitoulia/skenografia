@@ -1,0 +1,11 @@
+{% apply spaceless %}
+<a
+  class="text-underline-hover"
+  href="https://www.google.com/maps/search/{{- output|render|striptags|trim -}}"
+  title="Visualizza su google Maps (nuova finestra)"
+  target="_blank"
+  rel="nofollow noreferrer"
+>
+  {{- output -}}
+</a>
+{% endapply %}
