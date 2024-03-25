@@ -87,6 +87,7 @@
         <div class="col-md-6 order-md-2">{{ content.field_copertina }}</div>
         <div class="col-md-6 order-md-1 d-flex align-items-center">
           <div class="title-content pt-5">
+            <small class="h6 text-redbrown text-uppercase">{{ content.field_codice_meccanografico }}</small>
             <h1{{ title_attributes }}>{{ label }}</h1>
             {{ content.field_abstract }}
             <aside class="badges-wrapper badges-main">{{ content.field_argomenti }}</aside>
@@ -179,6 +180,7 @@
                 <div class="col-lg-9">
                   {{ content|without(
                     'field_copertina',
+                    'field_codice_meccanografico',
                     'field_abstract',
                     'field_argomenti',
                     'body',
