@@ -30,7 +30,7 @@ $purplelight-dark: mix($purplelight, $petrol, 10) !default;
 $greendark:        #0e865c !default; // diverso in 2.3.0 originale 0e8a5c
 $bluelectric:      #0d00ff !default;
 $bluelectric-dark: #0a00cb !default;
-$bluedark:         #30465c !default;
+$bluedark:         #001a33!default; // #30465c
 $bluedark-petrol:  mix(#00112c, $petrol, 52%) !default; // #27415b == #27415b
 $secondary-green:  #00615e !default;
 // scss-docs-end color-variables

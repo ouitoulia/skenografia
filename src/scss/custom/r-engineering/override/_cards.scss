@@ -30,13 +30,13 @@
       left: 0;
       background-color: $petrol-dark-21;
       .redbrown & {
-        background-color: $redbrown;
+        background-color: var(--bs-redbrown);
       }
       .petrol & {
-        background-color: $petrol;
+        background-color: var(--bs-petrol);
       }
       .bluelectric & {
-        background-color: $bluelectric;
+        background-color: var(--bs-bluelectric);
       }
     }
   }
@@ -78,12 +78,12 @@
         background-color: #f2f6f9 !important;
       }
       &.bg-dark {
-        color: $white;
+        color: var(--bs-white);
         a {
-          color: $white;
+          color: var(--bs-white);
         }
         small {
-          color: $white;
+          color: var(--bs-white);
         }
       }
       .bluelectric & {
@@ -108,7 +108,7 @@
         z-index: 1;
         top: 0;
         left: 0;
-        background-color: $petrol;
+        background-color: var(--bs-petrol);
         .purplelight & {
           background-color: #fbeaff;
         }
@@ -116,18 +116,18 @@
           background-color: #f7d2d8;
         }
         .bluelectric & {
-          background-color: $bluelectric;
+          background-color: var(--bs-bluelectric);
         }
       }
     }
     &.bg-bluedark {
       background-color: #27415b;
-      color: $white;
+      color: var(--bs-white);
       h1, .h1, h2, .h2, h3, .h3 {
-        color: $white;
+        color: var(--bs-white);
       }
       a {
-        color: $white;
+        color: var(--bs-white);
       }
     }
     // https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L9728
@@ -147,19 +147,19 @@
     //}
     svg {
       .purplelight & {
-        fill: $purplelight;
+        fill: var(--bs-purplelight);
       }
       .redbrown & {
-        fill: $redbrown;
+        fill: var(--bs-redbrown);
       }
       .petrol & {
-        fill: $petrol;
+        fill: var(--bs-petrol);
       }
       .greendark & {
-        fill: $greendark;
+        fill: var(--bs-greendark);
       }
       .bluelectric & {
-        fill: $bluelectric;
+        fill: var(--bs-bluedark);
       }
     }
     //.card-body {
@@ -366,25 +366,27 @@
   //    display: block;
   //  }
   //}
-  .bg-blue-dark & {
-    color: $white;
+  // @todo: il selettore forse è errato, è usato dappertutto bg-bluedark
+  .bg-blue-dark &,
+  .bg-bluedark & {
+    color: var(--bs-white);
     h3, .h3 {
-      color: $white;
+      color: var(--bs-white);
     }
     .card-body {
       p {
-        color: $white;
+        color: var(--bs-white);
       }
     }
   }
   .bg-bluedark & {
-    background-color: #27415b;
-    color: $white;
+    background-color: var(--bs-bluedark);
+    color: var(--bs-white);
     h1, .h1, h2, .h2, h3, .h3 {
-      color: $white;
+      color: var(--bs-white);
     }
     a {
-      color: $white;
+      color: var(--bs-white);
     }
   }
   //&.card-serif {
@@ -460,10 +462,10 @@
             margin: 3px 15px 0 0;
           }
           .redbrown & {
-            fill: $redbrown;
+            fill: var(--bs-redbrown);
           }
           .petrol & {
-            fill: $petrol;
+            fill: var(--bs-petrol);
           }
         }
         h3, .h3 {
@@ -483,15 +485,15 @@
             font-size: 1.5rem;
           }
           .redbrown & {
-            color: $redbrown;
+            color: var(--bs-redbrown);
             a {
-              color: $redbrown;
+              color: var(--bs-redbrown);
             }
           }
           .petrol & {
-            color: $petrol;
+            color: var(--bs-petrol);
             a {
-              color: $petrol;
+              color: var(--bs-petrol);
             }
           }
         }
@@ -752,7 +754,7 @@
       .badges {
         a {
           &:hover {
-            color: $white;
+            color: var(--bs-white);
           }
         }
       }
@@ -831,7 +833,7 @@
     display: block;
     text-align: right;
     font-weight: bold;
-    color: #D1344C;
+    color:  var(--bs-redbrown);
     padding: 10px 0 0;
   }
 }
@@ -981,12 +983,12 @@
           background-color: #f7d2d8;
         }
         .bluelectric & {
-          background-color: $bluelectric;
+          background-color: var(--bs-bluelectric);
         }
       }
     }
     &:last-child {
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
   }
 }
@@ -1040,7 +1042,7 @@
       &:before {
         position: absolute;
         z-index: 1;
-        top: 0px;
+        top: 0;
         right: 0;
         display: block;
         width: 18px;
@@ -1169,8 +1171,8 @@
 .card-aside {
   .card-header {
     padding: 1rem 1.25rem;
-    background-color: $bluelectric;
-    color: $white;
+    background-color: var(--bs-bluelectric);
+    color: var(--bs-white);
     font-weight: 700;
   }
 }

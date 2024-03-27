@@ -1,0 +1,7 @@
+<div class="d-flex flex-column align-items-center my-3">
+  {% for item in items %}
+    <div{{ item.attributes.addClass(['badge', 'bg-redbrown', 'p-3', 'rounded-pill']) }}>
+      {{ item.content }}
+    </div>
+  {% endfor %}
+</div>

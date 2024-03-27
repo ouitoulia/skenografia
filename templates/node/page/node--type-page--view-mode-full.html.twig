@@ -69,8 +69,26 @@
  */
 #}
 {% apply spaceless %}
-  {%
-    set classes = [
+
+  {% set tipologia_sezione_map = {
+    'generica': 'petrol',
+    'scuola': 'redbrown',
+    'servizi': 'purplelight',
+    'notizie': 'greendark',
+    'didattica': 'bluelectric'
+  } %}
+
+  {% set _sezione = content.field_tipologia_sezione[0]['#markup'] ?? 'generica' %}
+  {% set _has_image = content.field_copertina[0] is iterable %}
+
+  {% set _section_classes = [
+    'section',
+    'bg-' ~ tipologia_sezione_map[_sezione],
+    'py-5',
+    'py-lg-3'
+  ] %}
+
+  {% set classes = [
     'node',
     'article-wrapper',
     'node--type-' ~ node.bundle|clean_class,
@@ -78,21 +96,24 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
-  %}
+  ] %}
 
-  <section class="section bg-petrol py-3 py-lg-3 py-xl-5">
+  <section{{ create_attribute().addClass(_section_classes) }}>
     <div class="container">
       <div class="row variable-gutters">
-        <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
-          <div class="section-thumb thumb-large mx-3">
-            {{ content.field_copertina }}
+        {% if _has_image %}
+          <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
+            <div class="section-thumb thumb-large mx-3">
+              {{ content.field_copertina }}
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-sm-9 col-md-8 col-lg-8 offset-lg-1 d-flex align-items-center">
-          <div class="section-title">
-            <h1{{ title_attributes.addClass('mb-3') }}>{{ label }}</h1>
-            <p>{{ content.field_abstract }}</p>
+        {% endif %}
+        <div class="col-12 col-sm-9 col-md-8 col-lg-8 d-flex align-items-center{{ _has_image ? ' offset-lg-1' }}">
+          <div class="hero-title text-start">
+            <h1{{ title_attributes.addClass('ps-0','mb-2','text-white') }}>{{ label }}</h1>
+            {% if content.field_abstract[0] is iterable %}
+              <p>{{ content.field_abstract }}</p>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -100,14 +121,15 @@
   </section>
 
   <section class="section bg-white">
-    <div class="container container-border-top">
+    <div class="container">
       <div class="row variable-gutters">
         <div class="col">
 
           <article{{ attributes.addClass(classes) }}>
 
-            <div{{ content_attributes.addClass(['node__content','pt-5']) }}>
+            <div{{ content_attributes.addClass(['node__content']) }}>
               {{ content|without(
+                'field_tipologia_sezione',
                 'field_copertina',
                 'field_abstract'
               ) }}

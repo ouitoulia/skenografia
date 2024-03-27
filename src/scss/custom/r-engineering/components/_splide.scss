@@ -4,71 +4,100 @@
 // --------------------------------------------------
 /* INIZIO STILI SPLIDE */
 
-.splide .splide__arrow {
-  text-align: center;
-  -webkit-tap-highlight-color: transparent;
-  background: none;
-  border: 1px solid;
-  opacity: 1;
-}
+.splide {
+  // Non necessario. Fornito da bootstrap-italia v2
+  //.splide__arrow {
+  //  text-align: center;
+  //  -webkit-tap-highlight-color: transparent;
+  //  background: none;
+  //  border: 1px solid;
+  //  opacity: 1;
+  //}
 
-.splide__arrow:disabled {
-  opacity: 0.3;
-}
+  .splide__arrow:disabled {
+    opacity: 0.3;
+  }
 
-.splide .splide__arrow:not(:disabled):hover {
-  border: 2px solid;
-}
+  .splide__arrow .disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 
-.splide .splide__arrow [class*='splide__arrow--'] {
-  color: #51758d;
-  font-size: 1.68em;
-  margin: 0px;
-  padding: 0px;
-  background: none;
-  display: inline-block;
-  cursor: pointer;
-}
+  .splide__arrow:not(:disabled):hover {
+    border: 2px solid;
+  }
 
-.splide .splide__arrow [class*='splide__arrow--']:hover {
-  background: none;
-  color: #51758d;
-  text-decoration: none;
-}
+  .splide__arrow [class*='splide__arrow--'] {
+     color: var(--bs-petrol);
+     font-size: 1.68em;
+     margin: 0;
+     padding: 0;
+     background: none;
+     display: inline-block;
+     cursor: pointer;
+   }
 
-.splide .splide__arrow .disabled {
-  opacity: 0.5;
-  cursor: default;
+  .splide__arrow [class*='splide__arrow--']:hover {
+    background: none;
+    color: var(--bs-petrol);
+    text-decoration: none;
+  }
+
+  .splide__arrow.disabled+.splide__pagination {
+    margin-top: 10px;
+  }
+
+  .splide__track {
+    padding-bottom: 20px;
+  }
+
+  .splide__pagination {
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    bottom: 0;
+  }
+
+  .splide__pagination {
+
+    .splide__pagination__page {
+      //display: inline-block;
+      //zoom: 1;
+      //display: inline;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px 0 5px;
+      background: transparent;
+      border: 2px solid var(--bs-petrol);
+      display: block;
+      -webkit-backface-visibility: visible;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-bottom-left-radius: 50%;
+      opacity: 0.5;
+
+      &.is-active,
+      &:hover {
+        background: var(--bs-petrol);
+        border: 2px solid var(--bs-petrol);
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+  }
+
+  //.splide__list {
+  //  padding: 0 5px !important;
+  //}
+
 }
 
 .splide .splide__slide .card {
   height: 100%;
 }
 
-.splide .splide__arrow.disabled+.splide__pagination {
-  margin-top: 10px;
-}
-
-.splide .splide__track {
-  padding-bottom: 20px;
-}
-
-.splide .splide__pagination {
-  text-align: center;
-  -webkit-tap-highlight-color: transparent;
-  position: relative;
-  bottom: 0;
-}
-
-/* .splide .splide__pagination .splide__pagination__page{
-      display: inline-block;
-  zoom: 1;
-  *display: inline;
-} */
-
-/* .splide__list {
-  padding: 0 5px !important;
-} */
 
 .splide__track--nav>.splide__list>.splide__slide.is-active {
   border: 0;
@@ -76,21 +105,6 @@
 
 .splide__track--nav>.splide__list>.splide__slide {
   border: 0;
-}
-
-.splide .splide__pagination .splide__pagination__page {
-  width: 12px;
-  height: 12px;
-  margin: 0 5px 0 5px;
-  background: transparent;
-  border: 2px solid #51758d;
-  display: block;
-  -webkit-backface-visibility: visible;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-bottom-left-radius: 50%;
-  opacity: 0.5;
 }
 
 @media (min-width: 1300px) {
@@ -101,27 +115,19 @@
 
 .bg-bluelectric .splide .splide__pagination .splide__pagination__page,
 .bg-bluelectricdark .splide .splide__pagination .splide__pagination__page {
-  border-color: #ffffff;
-}
-
-.splide .splide__pagination__page.is-active,
-.splide .splide__pagination__page:hover {
-  background: #51758d;
-  border: 2px solid #51758d;
-  opacity: 1;
-  transform: none;
+  border-color: var(--bs-white);
 }
 
 .bg-bluelectricdark .splide .splide__pagination .splide__pagination__page.is-active,
 .bg-bluelectricdark .splide .splide__pagination .splide__pagination__page:hover {
-  border-color: #ffffff;
-  background: #ffffff;
+  border-color: var(--bs-white);
+  background: var(--bs-white);
 }
 
 .bg-bluelectric .splide .splide__pagination .splide__pagination__page.is-active,
 .bg-bluelectric .splide .splide__pagination .splide__pagination__page:hover {
-  border-color: #ffffff;
-  background: #ffffff;
+  border-color: var(--bs-white);
+  background: var(--bs-white);
 }
 
 .splide .splide__pagination .splide__arrow--prev,
@@ -159,72 +165,72 @@
 
 .redbrown .splide .splide__arrows .splide__arrow--prev svg,
 .redbrown .splide .splide__arrows .splide__arrow--next svg {
-  fill: #D1344C;
+  fill: var(--bs-redbrown);
 }
 
 .redbrown .splide .didascalia-text {
-  background-color: #D1344C;
+  background-color: var(--bs-redbrown);
 }
 
 .redbrown .splide__arrow {
-  color: #D1344C;
+  color: var(--bs-redbrown);
 }
 
 .bluelectric .splide .splide__arrows .splide__arrow--prev svg,
 .bluelectric .splide .splide__arrows .splide__arrow--next svg {
-  fill: #0D00FF;
+  fill: var(--bs-bluelectric);
 }
 
 .bluelectric .didascalia-text {
-  background-color: #0D00FF;
+  background-color: var(--bs-bluelectric);
 }
 
 .bluelectric .splide__arrow {
-  color: #0D00FF;
+  color: var(--bs-bluelectric);
 }
 
 .bg-bluelectric .splide .splide__arrows .splide__arrow--prev svg,
 .bg-bluelectric .splide .splide__arrows .splide__arrow--next svg {
-  fill: #ffffff;
+  fill: var(--bs-white);
 }
 
 .section-bluedark .splide .splide__arrows .splide__arrow--prev svg,
 .section-bluedark .splide .splide__arrows .splide__arrow--next svg {
-  fill: #ffffff;
+  fill: var(--bs-white);
 }
 
 .greendark .splide .splide__arrows .splide__arrow--prev svg,
 .greendark .splide .splide__arrows .splide__arrow--next svg {
-  fill: #0E865C;
+  fill: var(--bs-greendark);
 }
 
 .greendark .didascalia-text {
-  background-color: #0E865c;
+  background-color: var(--bs-greendark);
 }
 
 .greendark .splide__arrow svg {
-  fill: #0E865C;
+  fill: var(--bs-greendark);
 }
 
 .greendark .splide__arrow {
-  color: #0E865c;
+  color: var(--bs-greendark);
 }
 
 .section-bluedark .splide__arrow svg,
 .bg-bluelectricdark .splide__arrow svg {
-  fill: #ffffff;
+  fill: var(--bs-white);
 ;
 }
 
 .section-bluedark .splide__arrow,
 .bg-bluelectricdark .splide__arrow {
-  color: #ffffff;
+  color: var(--bs-white);
 }
 
 .didascalia-text {
   bottom: 0;
   font-size: .88rem;
-  color: white;
+  color: var(--bs-white);
   max-width: 100%;
 }
 
@@ -330,14 +336,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0D00FF !important;
+  color: var(--bs-bluelectric) !important;
 }
 
 .carousel-classroom .splide__arrows .splide__arrow--prev svg,
 .carousel-classroom .splide__arrows .splide__arrow--next svg {
   width: 50%;
   height: 100%;
-  fill: #0D00FF !important;
+  fill: var(--bs-bluelectric) !important;
 }
 
 .carousel-classroom .splide__arrows .splide__arrow--next {
@@ -362,7 +368,7 @@
 }
 
 .redbrown .year-carousel .splide__slide .dot-text {
-  color: #D1344C;
+  color: var(--bs-redbrown);
 }
 
 .year-carousel .splide__slide .dot-text:before {
@@ -372,7 +378,7 @@
   right: 0;
   width: 100%;
   height: 1px;
-  background-color: #D1344C;
+  background-color: var(--bs-redbrown);
 }
 
 .year-carousel .splide__slide:first-child .dot-text:before {
@@ -387,14 +393,16 @@
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  border: 1px solid #D1344C;
+  border: 1px solid var(--bs-redbrown);
   border-radius: 50%;
   z-index: 1;
-  background-color: #ffffff;
+  background-color: var(--bs-white);
 }
 
-.bg-blue-dark .year-carousel .splide__slide .dot-text:after {
-  background-color: #001a33;
+// @todo: il selettore forse è errato, è usato dappertutto bg-bluedark
+.bg-blue-dark .year-carousel .splide__slide .dot-text:after,
+.bg-bluedark .year-carousel .splide__slide .dot-text:after {
+  background-color: var(--bs-bluedark);
 }
 
 .year-carousel .splide__arrow--prev {
