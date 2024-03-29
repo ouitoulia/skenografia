@@ -1,0 +1,19 @@
+.bef-exposed-form {
+  .fieldset-legend {
+    @extend h6;
+    @extend .text-uppercase;
+  }
+  .fieldset-wrapper {
+    @extend .px-2;
+  }
+
+  .form-checkboxes {
+    .bef-checkbox-inline & {
+      display: flex;
+      flex-wrap: wrap;
+      .form-item {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
