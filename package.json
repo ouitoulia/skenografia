@@ -32,7 +32,7 @@
     "bootstrap5"
   ],
   "author": "Skenografia developer - See https://github.com/ouitoulia/skenografia/graphs/contributors",
-  "license": "GPL-3.0-only",
+  "license": "AGPL-3.0-only",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
