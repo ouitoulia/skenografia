@@ -5,6 +5,10 @@
  * Hook THEME_preprocess.
  */
 
+use Drupal\skenografia\Helper\Helper as SHelper;
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+
 /**
  * Implements hook_preprocess_HOOK() for all templates.
  */
@@ -26,6 +30,8 @@ function skenografia_preprocess(&$variables): void {
  * Implements hook_preprocess_node().
  */
 function skenografia_preprocess_node(&$variables): void {
+  // Recupero le informazioni sull'autore nel caso siano presenti in
+  // un contenuto di tipo Persona
   if (
     isset($variables['node']) &&
     $variables['node']->hasField('field_persona_responsabile')
@@ -58,6 +64,16 @@ function skenografia_preprocess_node(&$variables): void {
   } else {
     $variables['author_profile_nid'] = NULL;
   }
+
+  // Variabili necessarie nel nodo "/scuola"
+  if ($variables['url'] == '/scuola') {
+    $variables['site_logo'] = Drupal::theme()->getActiveTheme()->getLogo();
+    $variables['site_name'] = Drupal::config('system.site')->get('name');
+    $variables['site_slogan'] = Drupal::config('system.site')->get('slogan');
+    try {$variables = array_merge_recursive($variables, SHelper::getLocality());}
+    catch (InvalidPluginDefinitionException|PluginNotFoundException $e) {}
+  }
+
 }
 
 /**

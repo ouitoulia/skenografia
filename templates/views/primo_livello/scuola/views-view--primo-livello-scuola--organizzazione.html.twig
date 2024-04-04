@@ -1,0 +1,100 @@
+{#
+/**
+ * @file
+ * Default theme implementation for main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A CSS-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   JavaScript.
+ *
+ * @see template_preprocess_views_view()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+{% set classes = [
+  'section',
+  'py-5',
+  'bg-redbrown',
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+] %}
+
+  {% set attributes = attributes
+    .addClass(classes)
+    .setAttribute(
+      'style',
+      "background-image: url('" ~ skenografia_libraries_path ~ '/images/abstract-redbrown-line.svg' ~ "');background-repeat: no-repeat;background-position: bottom center;"
+    )
+  %}
+
+  {% embed '@bi-bcl/hero/hero.html.twig' with {
+    hero_attributes: attributes
+  } %}
+    {% block heroContent %}
+
+      {{ title_prefix }}
+      {{ title }}
+      {{ title_suffix }}
+
+      <div class="container">
+        <div class="row variable-gutters">
+
+          {% if header %}
+            <div class="col-md-6">
+              <div class="big-quote big-quote-secondary">
+                {{ header }}
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="col-md-5 offset-md-1 d-flex flex-column justify-content-center">
+            {{ exposed }}
+            {{ attachment_before }}
+
+            {% if rows -%}
+              {{ rows }}
+            {% elseif empty -%}
+              {{ empty }}
+            {% endif %}
+            {{ pager }}
+
+            {{ attachment_after }}
+            {{ more }}
+          </div>
+        </div>
+
+        {% if footer %}
+          <div class="row variable-gutters my-5">
+            <div class="col d-flex flex-column align-items-center">
+              {{ footer }}
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+      {{ feed_icons }}
+
+    {% endblock %}
+  {% endembed %}
+{% endapply %}

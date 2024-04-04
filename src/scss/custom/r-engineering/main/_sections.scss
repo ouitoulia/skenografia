@@ -5,12 +5,12 @@
 // --------------------------------------------------
 
 .section {
-	padding: 0 0 0 0;
+	padding: 0 0 0 0; //@todo questa regola è problematica, bisogna sistemarla
 	.section-title {
 		color: $dark;
 		margin: 0 0 10px 0;
 		@include media-breakpoint-down(md) {
-			margin-bottom: 0px;
+			margin-bottom: 0;
 			padding-left: 15px;
 			padding-right: 15px;
 		}
@@ -175,7 +175,7 @@
 				padding: 0;
 			}
 			.card.card-bg.rounded {
-				border-radius: 0px !important;
+				border-radius: 0 !important;
 			}
 		}
 	}

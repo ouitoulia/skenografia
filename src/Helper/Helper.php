@@ -2,9 +2,6 @@
 
 namespace Drupal\skenografia\Helper;
 
-use Drupal\Core\Config\Config;
-use Drupal\Core\Theme\ActiveTheme;
-
 /**
  * Helper class for Skenografia theme.
  *

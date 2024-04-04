@@ -131,9 +131,14 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/location';
 @import "r-engineering/parts/location";
 
+// Fatto v2.4.1.
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/hero';
 @import "r-engineering/parts/hero";
+
+// Fatto v2.4.1.
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/quote';
+@import "r-engineering/parts/quote";
+
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/gallery';
 
 // Da completare v2.4.2
@@ -150,10 +155,6 @@ h1 {@extend .fw-semibold;}
 .bd-example {
   background-color: rgba($petrol, 0.1);
 }
-
-//.icon-redbrown {
-//  fill: $redbrown;
-//}
 
 // Componenti
 @import "components/accordion";

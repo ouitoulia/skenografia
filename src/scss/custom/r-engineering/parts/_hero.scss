@@ -4,39 +4,39 @@
 // Rimane da convertire i media-breakpoint
 // --------------------------------------------------
 
-.section-hero {
-  position: relative;
-  z-index: 0;
-  min-height: inherit;
-  display: block;
-  align-items: center;
-  @include media-breakpoint-up(sm) {
-    min-height: 480px;
-    display: flex;
-  }
-  .hero-img {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background-repeat: no-repeat;
-	  background-color: $gray-primary;
-		background-size: cover;
-		background-attachment: scroll;
-    @include media-breakpoint-down(sm) {
-      position: relative;
-      z-index: 0;
-      right: auto;
-      width: 100%;
-      height: 380px;
-    }
-    @include media-breakpoint-down(xs) {
-      height: 270px;
-    }
-  }
-}
+//.section-hero {
+//  position: relative;
+//  z-index: 0;
+//  min-height: inherit;
+//  display: block;
+//  align-items: center;
+//  @include media-breakpoint-up(sm) {
+//    min-height: 480px;
+//    display: flex;
+//  }
+//  .hero-img {
+//    position: absolute;
+//    z-index: 1;
+//    top: 0;
+//    right: 0;
+//    width: 50%;
+//    height: 100%;
+//    background-repeat: no-repeat;
+//	  background-color: $gray-primary;
+//		background-size: cover;
+//		background-attachment: scroll;
+//    @include media-breakpoint-down(sm) {
+//      position: relative;
+//      z-index: 0;
+//      right: auto;
+//      width: 100%;
+//      height: 380px;
+//    }
+//    @include media-breakpoint-down(xs) {
+//      height: 270px;
+//    }
+//  }
+//}
 
 .hero-title {
   text-align: center;
@@ -79,6 +79,7 @@
   }
 }
 
+// @todo non sembra usato
 .section-hero-left {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d1344c+0,ab2b3e+100 */
   //background: #d1344c; /* Old browsers */
@@ -123,7 +124,7 @@
     @include media-breakpoint-down(sm) {
       left: auto;
       right: 0;
-      margin-left: 0px;
+      margin-left: 0;
       margin-right: -156px;
     }
   }
@@ -209,7 +210,7 @@
   }
 }
 
-
+// @todo non sembra usato
 .section-hero-blue {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#554dff+0,0b00d9+100 */
   //background: #554dff; /* Old browsers */

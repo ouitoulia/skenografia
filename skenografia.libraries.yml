@@ -1,19 +1,15 @@
 # Bootstrap-italia library managed from theme setting UI
 #libraries-ui:
 
-# Bootstrap-italia library if you use a custom compiled library
-custom:
-  css:
-    theme:
-      dist/css/bootstrap-italia.min.css: { minified: true }
-  js:
-    dist/js/bootstrap-italia.min.js: { minified: true }
-  dependencies:
-    - core/drupal
+##############################################################
+#
+#     PRODUCTION CONFIGS
+#
+##############################################################
 
 # Bootstrap-italia library if you use a CDN
 cdn:
-  version: 1.21.0
+  version: 1.22.0
   css:
     theme:
       /libraries/ouitoulia-skenografia/css/bootstrap-italia.min.css: { minified: true }
@@ -24,7 +20,7 @@ cdn:
 
 # Skenografia toc_js custom loader
 toc:
-  version: 1.21.0
+  version: 1.22.0
   js:
     /libraries/ouitoulia-skenografia/js/toc_js_loader.min.js: { minified: true }
     #dist/js/toc_js_loader.min.js: { }
@@ -32,6 +28,23 @@ toc:
     - core/jquery
     - core/drupal
     - toc_js/tocjs
+
+
+##############################################################
+#
+#     DEV CONFIGS
+#
+##############################################################
+
+# Bootstrap-italia library if you use a custom compiled library
+custom:
+  css:
+    theme:
+      dist/css/bootstrap-italia.min.css: { minified: true }
+  js:
+    dist/js/bootstrap-italia.min.js: { minified: true }
+  dependencies:
+    - core/drupal
 
 # Bootstrap-italia library if you use a webpack hot mode.
 # If you need customize host and port, copy `<sub-theme>/webpack.settings.dist.js`

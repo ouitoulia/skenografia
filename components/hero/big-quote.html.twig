@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ * Template for section big-quote component.
+ * Docs: https://italia.github.io/design-scuole-pagine-statiche/scuole-la-scuola.html
+ * Latest revision: 2.4.1
+ *
+ * Parameters:
+ * - big_quote_text (string) (default: '')
+ * - big_quote_background (string) (default: 'petrol')
+ *   options ['petrol', 'redbrown', 'greendark', ...]
+ * - big_quote_background_image (string) (default: '')
+ *   background image url
+ * - big_quote_classes (array) (default: '')
+ * - big_quote_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@skenografia_components/section/big-quote.html.twig' with {
+     big_quote_text: 'Lorem ipsum',
+     big_quote_background: 'redbrown',
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _big_quote_text = big_quote_text|default('') %}
+  {% set _big_quote_background = big_quote_background|default('petrol') %}
+  {% set _big_quote_background_image = big_quote_background_image|default('') %}
+  {% set _big_quote_classes = card_classes|default('') %}
+  {% set _big_quote_attributes = card_attributes|default('') %}
+
+  {# Set options #}
+  {% set _classes = [
+    'section',
+    'py-4',
+    'mt-5',
+    'bg-' ~ _big_quote_background,
+  ] %}
+
+  {% if _big_quote_classes is not empty %}
+    {% set _classes = _classes|merge(big_quote_classes) %}
+  {% endif %}
+
+  {% if _big_quote_attributes is empty %}
+    {% set big_quote_attributes = create_attribute() %}
+  {% endif %}
+  {% set big_quote_attributes = big_quote_attributes
+    .addClass(_classes)
+  %}
+
+  {% if _big_quote_background_image is not empty %}
+    {% set big_quote_attributes = big_quote_attributes.setAttribute(
+      'style',
+      "background-image: url('" ~ big_quote_background_image ~ "');background-repeat: no-repeat;background-position: bottom center;"
+    ) %}
+  {% endif %}
+
+  {# Component #}
+  {% embed '@bi-bcl/hero/hero.html.twig' with {
+    hero_attributes: big_quote_attributes
+  } %}
+    {% block heroContent %}
+      <div class="container my-5 py-5">
+        <div class="row variable-gutters d-flex justify-content-center">
+          <div class="col-md-10">
+            <div class="big-quote">
+              <h2 class="fw-semibold{{ _big_quote_background != 'white' ? ' text-white' : ' text-dark' }}">{{ _big_quote_text }}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+{% endapply %}

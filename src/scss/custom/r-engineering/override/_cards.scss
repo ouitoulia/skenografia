@@ -284,7 +284,7 @@
             &:before {
               position: absolute;
               z-index: 1;
-              top: 0px;
+              top: 0;
               right: 0;
               display: block;
               width: 18px;
@@ -872,8 +872,8 @@
 
 .card-deck {
   &.card-deck-spaced {
-    margin-right:0px;
-    margin-left: 0px;
+    margin-right:0;
+    margin-left: 0;
     @include media-breakpoint-up(sm) {
       display: block;
     }
@@ -891,17 +891,17 @@
       display: flex;
     }
     .card {
-      margin-right: 0px;
-      margin-left: 0px;
+      margin-right: 0;
+      margin-left: 0;
       margin-bottom: 12px;
       @include media-breakpoint-up(sm) {
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-right: 0;
+        margin-left: 0;
         margin-bottom: 12px;
       }
       @include media-breakpoint-up(md) {
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-right: 0;
+        margin-left: 0;
         margin-bottom: 20px;
       }
       @include media-breakpoint-up(lg) {
@@ -930,7 +930,6 @@
 //  padding-bottom: 25px;
 //}
 
-// in bi2 non c'è card-wrapper-center
 // vengono usate le utility di bootstrap 5.2
 //.cards-wrapper-center {
 //  display: flex;
