@@ -83,7 +83,7 @@
             {% include '@bi-bcl/hero/hero.html.twig' with {
               hero_kicker: '',
               hero_small: true,
-              hero_title: 'Nessun evento in programma',
+              hero_title: 'Nessun evento',
               hero_text: empty,
               hero_cta_url: '/novita',
               hero_cta_label: 'Vedi tutte le novità',
@@ -94,6 +94,12 @@
           {% endif %}
 
           {{ pager }}
+
+          {% if footer %}
+            <footer class="my-5">
+              {{ footer }}
+            </footer>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -101,13 +107,6 @@
 
   {{ attachment_after }}
   {{ more }}
-
-
-  {% if footer %}
-    <footer>
-      {{ footer }}
-    </footer>
-  {% endif %}
 
   {{ feed_icons }}
 </div>
