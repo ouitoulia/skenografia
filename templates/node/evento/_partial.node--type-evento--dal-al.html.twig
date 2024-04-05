@@ -3,5 +3,5 @@
 {% if giorno_inizio == giorno_fine %}
   {{ content.field_data_inizio }} dalle {{ content.field_data_inizio[0]['#attributes']['datetime']|date('H:i') }} alle {{ content.field_data_fine[0]['#attributes']['datetime']|date('H:i') }}
 {% else %}
-  dal {{ content.field_data_fine }} al {{ content.field_data_inizio }}
+  dal {{ content.field_data_inizio }} al {{ content.field_data_fine }}
 {% endif %}
