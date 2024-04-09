@@ -8,9 +8,9 @@ include_home_segment: true
 alternative_title_field: field_breadcrumb_title
 home_segment_title: Home
 home_segment_keep: false
-include_title_segment: false
+include_title_segment: true
 title_from_page_when_available: true
-title_segment_as_link: false
+title_segment_as_link: true
 use_menu_title_as_fallback: true
 use_page_title_as_menu_title_fallback: true
 menu_title_preferred_menu: main
@@ -38,7 +38,7 @@ follow_redirects: true
 limit_segment_display: false
 segment_display_limit: 0
 truncator_mode: true
-truncator_length: 42
+truncator_length: 64
 truncator_dots: true
 remove_repeated_segments_text_only: false
 home_segment_validation_skip: false
