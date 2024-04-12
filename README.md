@@ -63,7 +63,13 @@ in modo che siano già pronte per la produzione.
 - https://classic.yarnpkg.com/en/package/@ouitoulia/skenografia (build produzione)
 - https://unpkg.com/browse/@ouitoulia/skenografia@1.20.0/ (sorgenti scss e js e build produzione)
 
-## Contributori, dipendenze ed altre informazioni
+## Issue
+Le issue vengono gestite nel repository principale del progetto:
+https://github.com/ouitoulia/diagraphe/issues
+
+## Contributori, dipendenze e altre informazioni
+Per contribuire al progetto effettua un Fork, aggiungi le tue modifiche e poi fai una Pull Request.
+
 - [Contributori di Skenografia](https://github.com/ouitoulia/skenografia/graphs/contributors)
 - [Elenco delle dipendenze di Skenografia](https://github.com/ouitoulia/skenografia/network/dependencies)
 
