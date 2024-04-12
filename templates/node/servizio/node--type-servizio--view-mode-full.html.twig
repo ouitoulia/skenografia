@@ -86,7 +86,7 @@
       <div class="row variable-gutters">
         <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">{{ content.field_copertina }}</div>
 
-        <div class="col-12 col-sm-9 col-lg-5 col-md-8">
+        <div class="col-12 col-sm-9 col-md-8 col-lg-5">
           <div class="section-title">
             <small class="h6 text-purplelight text-uppercase">{{ content.field_tipologia_servizio }}</small>
             <h1{{ title_attributes.addClass('mb-3').setAttribute('data-element', 'service-title') }}>{{ label }}</h1>
@@ -94,26 +94,9 @@
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 offset-lg-1 pt-5 pt-md-0">
+        <div class="col-md-4 col-lg-3 offset-lg-1 pt-5 pt-md-0">
           <div class="actions-wrapper actions-main mb-3">
-            {% set _raw_tags = [] %}
-            {% for tag in content.field_argomenti %}
-              {% if tag['#title'] %}
-                {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
-              {% endif %}
-            {% endfor %}
-            {% include '@bi-bcl/share/content-actions.twig' with {
-              description: content.field_abstract|render|striptags|trim,
-              dropdown_button_classes: ['text-purplelight'],
-              dropdown_icon_color: 'purplelight',
-              dropdown_icon_size: 'xs',
-            } %}
-            {% include '@bi-bcl/share/share-this.twig' with {
-              tags: _raw_tags|join(','),
-              dropdown_button_classes: ['text-purplelight'],
-              dropdown_icon_color: 'purplelight',
-              dropdown_icon_size: 'xs',
-            } %}
+            {% include '@skenografia/node/_partial.node-share.html.twig' with {color_variant: 'purplelight'} %}
           </div>
 
           <aside class="badges-wrapper badges-main ps-2">{{ content.field_argomenti }}</aside>

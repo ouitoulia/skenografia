@@ -1,0 +1,24 @@
+{% apply spaceless %}
+  {% set _color_variant = color_variant|default('petrol') %}
+  {% set _raw_tags = [] %}
+  {% if content.field_argomenti[0] is iterable %}
+    {% for tag in content.field_argomenti %}
+      {% if tag['#title'] %}
+        {% set _raw_tags = _raw_tags|merge([tag['#title']]) %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% include '@bi-bcl/share/content-actions.twig' with {
+    description: content.field_abstract|render|striptags|trim,
+    dropdown_button_classes: ['text-' ~ _color_variant],
+    dropdown_icon_color: _color_variant,
+    dropdown_icon_size: 'xs',
+  } %}
+  {% include '@bi-bcl/share/share-this.twig' with {
+    tags: _raw_tags|join(','),
+    dropdown_button_classes: ['text-' ~ _color_variant],
+    dropdown_icon_color: _color_variant,
+    dropdown_icon_size: 'xs',
+  } %}
+{% endapply %}
