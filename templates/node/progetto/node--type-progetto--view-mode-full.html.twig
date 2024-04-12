@@ -131,13 +131,7 @@
               <h2 class="h4">Presentazione</h2>
               <h3 class="h5">Durata</h3>
               <div class="text-bluelectric mb-3 fw-bold">
-                {% set giorno_inizio = content.field_data_inizio[0]['#attributes']['datetime']|date('Y-m-d') %}
-                {% set giorno_fine = content.field_data_fine[0]['#attributes']['datetime']|date('Y-m-d') %}
-                {% if giorno_inizio == giorno_fine %}
-                  il {{ content.field_data_inizio }} dalle {{ content.field_data_inizio[0]['#attributes']['datetime']|date('H:i') }} alle {{ content.field_data_fine[0]['#attributes']['datetime']|date('H:i') }}
-                {% else %}
-                  dal {{ content.field_data_inizio }} al {{ content.field_data_fine }}
-                {% endif %}
+                {% include '@skenografia/node/_partial.field--type-date--name-dal-al.html.twig' %}
               </div>
 
               {{ content|without(
