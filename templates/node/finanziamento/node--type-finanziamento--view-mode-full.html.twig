@@ -97,14 +97,14 @@
 
         <div class="col-12 col-sm-9 col-md-8 col-lg-5">
           <div class="title-content">
-            <small class="h6 text-greendark text-uppercase">{{ content.field_codice_cup }}</small>
+            <small class="h6 text-greendark text-uppercase">{{ content.field_tipologia_progetto }}</small>
             <h1{{ title_attributes }}>{{ label }}</h1>
             {{ content.field_abstract }}
           </div>
         </div>
 
         <div class="col-md-4 col-lg-3 offset-lg-1 pt-5 pt-md-0">
-          <div>@todo Tipologia Progetto con logo</div>
+          <div class="mb-3">{{ drupal_field('field_copertina', 'taxonomy_term', content.field_tipologia_progetto[0]['#entity'].id(), 'image' ) }}</div>
           <aside class="badges-wrapper badges-main">{{ content.field_argomenti }}</aside>
         </div>
 
@@ -176,7 +176,8 @@
                 'field_persone',
                 'field_persone_esterne',
                 'field_collaborazioni',
-                'field_extra_info'
+                'field_extra_info',
+                'field_tipologia_progetto'
               ) }}
 
             </div>
