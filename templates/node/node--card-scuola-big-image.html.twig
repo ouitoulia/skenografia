@@ -80,6 +80,7 @@
     'article': 'greendark',
     'circolare': 'greendark',
     'evento': 'greendark',
+    'finanziamento': 'greendark',
     'scheda-didattica': 'bluelectric',
     'progetto': 'bluelectric',
     'classe': 'bluelectric'
@@ -106,7 +107,7 @@
   {% else %}
     {% set _image %}
       {% include '@bi-bcl/icon/icon.html.twig' with {
-        name: node_default_image_map[node.bundle|clean_id],
+        name: node_default_image_map[node.bundle|clean_id]|default('it-pa'),
         color: node_variants_map[node.bundle|clean_id],
         size: 'xxxl',
         icon_classes: ['position-absolute', 'bottom-0', 'end-0', 'opacity-25', 'me-3', 'mb-3']
