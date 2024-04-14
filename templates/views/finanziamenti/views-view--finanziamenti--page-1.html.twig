@@ -80,7 +80,11 @@
           {% if rows -%}
             {{ rows }}
           {% elseif empty -%}
-            {{ empty }}
+            {% include '@bi-bcl/hero/hero.html.twig' with {
+              hero_title: 'Nessun finanziamento',
+              hero_text: empty,
+              hero_classes: ['bg-petrol', 'bg-petrolgradient', 'mb-5']
+            } %}
           {% endif %}
 
           {{ pager }}
