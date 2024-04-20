@@ -93,3 +93,19 @@ function skenografia_preprocess_file_link(&$variables): void {
   $file = $variables['file'];
   $variables['file_link_changed'] = $file->getChangedTime();
 }
+
+/**
+ * Implements template_preprocess_field().
+ */
+function skenografia_preprocess_field(&$variables) {
+  $element = $variables['element'];
+  $field_name = $element['#field_name'];
+  $bundle = $element['#bundle'];
+  $view_mode = $element['#view_mode'];
+
+  if ($field_name == 'field_argomenti') {
+    foreach ($variables['items'] as $key => $item) {
+      $variables['items'][$key]['content']['#options']['attributes']['data-element'] = 'topic-list';
+    }
+  }
+}
