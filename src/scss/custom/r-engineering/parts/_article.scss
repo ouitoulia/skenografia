@@ -136,7 +136,7 @@
       font-family: $font-family-sans-serif;
     }
   }
-  .first-letter p, p.first-letter {
+  .first-letter p:first-child, p.first-letter {
     &:first-letter {
       font-size: 3.5rem;
       float: left;
