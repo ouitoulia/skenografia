@@ -90,6 +90,15 @@
         <div class="col-lg-6 py-3">
           <ul class="location-list mt-2" data-element="places">
             {{ content|without('field_coordinate_geografiche') }}
+            <li>
+              <div class="location-title">
+                {% include '@bi-bcl/icon/icon.html.twig' with {name: 'icon-marker-simple', size: 'xs'} %}
+              </div>
+              <div class="location-content">
+                {% set _q = content.field_indirizzo[0]['#address_line1'] ~ ' ' ~ content.field_indirizzo[0]['#address_line2'] ~ ' ' ~ content.field_indirizzo[0]['#address_line3'] ~ ' ' ~ content.field_indirizzo[0]['#locality'] ~ ' ' ~ content.field_indirizzo[0]['#administrative_area']['code'] ~ ' ' ~ content.field_indirizzo[0]['#postal_code'] ~ ' ' ~ content.field_indirizzo[0]['#country']['code'] ~ ' ' ~ label|render|striptags|trim %}
+                <a href="https://google.com/maps?q={{ _q }}" target="_blank" rel="external nofollow" title="Naviga su google maps">Naviga su google map</a>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
