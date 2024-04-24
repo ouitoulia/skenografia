@@ -1,2 +1,5 @@
-{% set attributes = attributes.setAttribute('data-element', 'search-modal-input') %}
+{% set attributes = attributes
+  .setAttribute('data-element', 'search-modal-input')
+  .setAttribute('placeholder', 'Cerca servizi, notizie o documenti')
+%}
 {% include '@system/input.html.twig' %}
