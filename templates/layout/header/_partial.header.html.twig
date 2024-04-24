@@ -78,19 +78,20 @@
 
                 {% block modalButton %}
                   <span class="d-none d-md-block me-2">{{ 'Search'|t }}</span>
-                  <a class="search-link bg-white"
+                  <button class="search-btn"
                      type="button"
                      aria-label="{{ 'Site search'|t }}"
                      data-bs-toggle="modal"
                      data-bs-target="#modal-header-center-search"
                      href="#"
+                     data-element="search-modal-button"
                   >
                     {% include '@bi-bcl/icon/icon.html.twig' with {
                       name: 'icon-search',
                       size: 'sm',
                       color: 'gray-primary'
                     } %}
-                  </a>
+                  </button>
                 {% endblock %}
               {% endembed %}
             {% endif %}{# End search modal #}
