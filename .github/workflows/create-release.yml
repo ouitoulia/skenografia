@@ -57,7 +57,6 @@ jobs:
               echo "version: '$TAG'" >> "${{ env.project_name }}.info.yml"
               echo "project: '$(echo ${{ env.project_name }} | awk '{print toupper(substr($1,1,1)) tolower(substr($1,2))}')'" >> "${{ env.project_name }}.info.yml"
               echo "datestamp: ${{ env.datestamp }}" >> "${{ env.project_name }}.info.yml"
-              echo "message: '$MESSAGE'" >> "${{ env.project_name }}.info.yml"
 
               git add "${{ env.project_name }}.info.yml"
               git commit -m "Update version"
@@ -104,11 +103,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: rm ~/.npmrc
 
-      # Add dist to release
-      - name: Create Package dist
-        id: create_release
+      - name: Create GitHub Release
+        if: env.valid_tag == 'true'
         uses: ncipollo/release-action@v1
         with:
+          name: ${{ env.release_tag }}
+          tag: ${{ env.release_tag }}
           token: ${{ secrets.GITHUB_TOKEN }}
           artifactErrorsFailBuild: true
           artifacts: skenografia.zip
