@@ -2,14 +2,13 @@ name: Build Release
 
 on:
   push:
-    tags:
+    branches:
       - '*'
-#      - '/^\d+\.\d+\.\d+(-\w+)?$/'
 
 jobs:
   build:
-    name: Upload Release Asset
-    runs-on: ubuntu-latest
+    name: "Release theme"
+    runs-on: "ubuntu-latest"
     permissions:
       contents: write
 
@@ -20,18 +19,68 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: 1.x
+
+      - name: Fixup git permissions
+        # https://github.com/actions/checkout/issues/766
+        shell: bash
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+      - name: Get current date and commit message
+        id: data
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+          echo "datestamp=$(date +'%s')" >> $GITHUB_ENV
+          echo "commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+          echo "project_name=$(echo $GITHUB_REPOSITORY | cut -d/ -f2)" >> $GITHUB_ENV
+
+      - name: Check release tag in commit message
+        id: check_tag
+        run: |
+          COMMIT_MESSAGE="${{ env.commit_message }}"
+          if [[ $COMMIT_MESSAGE == release* ]]; then
+            TAG=$(echo "$COMMIT_MESSAGE" | grep -o -P '\(.*?\)' | tr -d '()')
+            MESSAGE=$(echo "$COMMIT_MESSAGE" | sed -n -e 's/^release(.*):\(.*\)$/\1/p')
+            if [ -n "$TAG" ] && [ -n "$MESSAGE" ]; then
+              echo "Release tag found: $TAG"
+
+              if grep -q "^# Information added by GitHub Action" "${{ env.project_name }}.info.yml"; then
+                sed -i -e '/^# Information added by GitHub Action/,$d' "${{ env.project_name }}.info.yml"
+              fi
+
+              echo -e "# Information added by GitHub Action packaging script on ${{ env.date }}" >> "${{ env.project_name }}.info.yml"
+              echo "version: '$TAG'" >> "${{ env.project_name }}.info.yml"
+              echo "project: '$(echo ${{ env.project_name }} | awk '{print toupper(substr($1,1,1)) tolower(substr($1,2))}')'" >> "${{ env.project_name }}.info.yml"
+              echo "datestamp: ${{ env.datestamp }}" >> "${{ env.project_name }}.info.yml"
+              echo "message: '$MESSAGE'" >> "${{ env.project_name }}.info.yml"
+
+              git add "${{ env.project_name }}.info.yml"
+              git commit -m "Update version"
+              git push origin
+              git tag $TAG
+              git push origin $TAG
+
+              echo "valid_tag=true" >> $GITHUB_ENV
+              echo "release_tag=${TAG}" >> $GITHUB_ENV
+            else
+              echo "Invalid release tag format. Skipping the action."
+              echo "valid_tag=false" >> $GITHUB_ENV
+            fi
+          else
+            echo "No valid release tag found in commit message. Skipping the action."
+            echo "valid_tag=false" >> $GITHUB_ENV
+          fi
+
+      # Push to npm registry
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Fixup git permissions
-        # https://github.com/actions/checkout/issues/766
-        shell: bash
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - name: git config
-        run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - name: Build Project
         run: |
           npm install
@@ -39,27 +88,11 @@ jobs:
       - name: Clean package
         run: |
           rm -rf .git .github node_modules .gitignore
-      - name: Get current date
-        id: date
-        run: |
-          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-          echo "datestamp=$(date +'%s')" >> $GITHUB_OUTPUT
-      - name: Versioning
-        uses: "DamianReeves/write-file-action@master"
-        with:
-          path: skenografia.info.yml
-          write-mode: append
-          contents: |
-
-            # Information added by Github Action packaging script on ${{ steps.date.outputs.date }}
-            version: '${{  github.ref_name }}'
-            project: 'skenografia'
-            datestamp: ${{ steps.date.outputs.datestamp }}
       - name: Compress Dist Folder
         run: zip -r skenografia.zip ./dist
       - name: Set Package Version
         run: |
-          npm version ${{  github.ref_name }}
+          npm version ${{ env.release_tag }}
       - name: NPM registry
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
@@ -70,6 +103,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: rm ~/.npmrc
+
+      # Add dist to release
       - name: Create Package dist
         id: create_release
         uses: ncipollo/release-action@v1
