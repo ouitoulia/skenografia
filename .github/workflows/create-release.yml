@@ -68,9 +68,9 @@ jobs:
 
               # Update release in skenografia.libraries.yml
               sed -i "s/version: .*/version: $TAG/" "${{ env.project_name }}.libraries.yml"
-          
-              # Update version in package.json  
-              sed -i 's/"version": "[^"]*"/"version": "$TAG"/' package.json
+
+              # Update version in package.json
+              sed -i 's/"version": "[^"]*"/"version": "${TAG}"/' package.json
 
               git add "${{ env.project_name }}.info.yml"
               git add "version.css"
