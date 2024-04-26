@@ -34,7 +34,7 @@ version:
   version: 1.32.8
   css:
     theme:
-      version.css: { minified: true }
+      version.css: { minified: true, preprocess: false }
 
 
 ##############################################################
