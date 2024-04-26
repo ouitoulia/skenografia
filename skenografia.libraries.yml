@@ -29,6 +29,13 @@ toc:
     - core/drupal
     - toc_js/tocjs
 
+# Bootstrap-italia library if you use a CDN
+version:
+  version: 1.32.7
+  css:
+    theme:
+      version.css: { minified: true }
+
 
 ##############################################################
 #
