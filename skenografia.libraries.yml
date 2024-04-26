@@ -9,7 +9,7 @@
 
 # Bootstrap-italia library if you use a CDN
 cdn:
-  version: ''
+  version: 1.32.7
   css:
     theme:
       /libraries/ouitoulia-skenografia/css/bootstrap-italia.min.css: { minified: true }
@@ -20,7 +20,7 @@ cdn:
 
 # Skenografia toc_js custom loader
 toc:
-  version: ''
+  version: 1.32.7
   js:
     /libraries/ouitoulia-skenografia/js/toc_js_loader.min.js: { minified: true }
     #dist/js/toc_js_loader.min.js: { }
@@ -64,7 +64,7 @@ hot:
 # ---
 # <project-name>/.ddev/docker-compose.ports.yaml
 #
-#   version: ''
+#   version: 1.32.7
 #   services:
 #     web:
 #       expose:

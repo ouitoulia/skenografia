@@ -21,13 +21,13 @@
       "type": "package",
       "package": {
         "name": "ouitoulia/skenografia-dist",
-        "version": "",
+        "version": "1.32.7",
         "type": "drupal-library",
         "extra": {
           "installer-name": "ouitoulia-skenografia"
         },
         "dist": {
-          "url": "https://github.com/ouitoulia/skenografia/releases/download//skenografia.zip",
+          "url": "https://github.com/ouitoulia/skenografia/releases/download/1.32.7/skenografia.zip",
           "type": "zip"
         }
       }
