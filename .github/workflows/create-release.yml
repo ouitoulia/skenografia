@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: 1.x
+          ref: 2.x
 
       - name: Fixup git permissions
         # https://github.com/actions/checkout/issues/766
@@ -68,11 +68,15 @@ jobs:
 
               # Update release in skenografia.libraries.yml
               sed -i "s/version: .*/version: $TAG/" "${{ env.project_name }}.libraries.yml"
+          
+              # Update version in package.json  
+              sed -i 's/"version": "[^"]*"/"version": "$TAG"/' package.json
 
               git add "${{ env.project_name }}.info.yml"
               git add "version.css"
               git add "composer.libraries.json"
               git add "${{ env.project_name }}.libraries.yml"
+              git add "package.json"
 
               git commit -m "Update version"
               git push origin
