@@ -67,12 +67,12 @@ jobs:
               jq --arg release_tag "${{ env.release_tag }}" '.repositories |= map(if .package.name == "ouitoulia/skenografia-dist" then .package.dist.url = "https://github.com/ouitoulia/skenografia/releases/download/\($release_tag)/skenografia.zip" else . end)' composer.libraries.json > temp.json && mv temp.json composer.libraries.json
 
               # Update release in skenografia.libraries.yml
-              sed -i "s/version: .*/version: '${{ env.release_tag }}'/" "${{ env.project_name }}.libraries.info.yml"
+              sed -i "s/version: .*/version: '${{ env.release_tag }}'/" "${{ env.project_name }}.libraries.yml"
 
               git add "${{ env.project_name }}.info.yml"
               git add "version.css"
               git add "composer.libraries.json"
-              git add "${{ env.project_name }}.libraries.info.yml"
+              git add "${{ env.project_name }}.libraries.yml"
 
               git commit -m "Update version"
               git push origin
