@@ -49,7 +49,7 @@ jobs:
             if [ -n "$TAG" ] && [ -n "$MESSAGE" ]; then
               echo "Release tag found: $TAG"
 
-              # Add release info to skenografia.info.yml
+              # Update release info to skenografia.info.yml
               if grep -q "^# Information added by GitHub Action" "${{ env.project_name }}.info.yml"; then
                 sed -i -e '/^# Information added by GitHub Action/,$d' "${{ env.project_name }}.info.yml"
               fi
@@ -59,10 +59,32 @@ jobs:
               echo "project: '$(echo ${{ env.project_name }} | awk '{print toupper(substr($1,1,1)) tolower(substr($1,2))}')'" >> "${{ env.project_name }}.info.yml"
               echo "datestamp: ${{ env.datestamp }}" >> "${{ env.project_name }}.info.yml"
 
+              # Update release in version.css
               sed -i "s/Version: [0-9.]\+/Version: $TAG/" version.css
+
+              # Update release in composer.libraries.json
+              python3 - <<EOF
+                import json
+
+                with open('composer.libraries.json', 'r') as f:
+                    data = json.load(f)
+
+                for repo in data["repositories"]:
+                    if repo["package"]["name"] == "ouitoulia/skenografia-dist":
+                        repo["package"]["version"] = "${{ env.release_tag }}"
+                        repo["package"]["dist"]["url"] = f"https://github.com/ouitoulia/skenografia/releases/download/${{ env.release_tag }}/skenografia.zip"
+
+                with open('composer.libraries.json', 'w') as f:
+                    json.dump(data, f, indent=4)
+              EOF
+
+              # Update release in skenografia.libraries.yml
+              sed -i "s/version: .*/version: '${{ env.release_tag }}'/" "${{ env.project_name }}.libraries.info.yml"
 
               git add "${{ env.project_name }}.info.yml"
               git add "version.css"
+              git add "composer.libraries.json"
+              git add "${{ env.project_name }}.libraries.info.yml"
 
               git commit -m "Update version"
               git push origin
@@ -79,6 +101,7 @@ jobs:
             echo "No valid release tag found in commit message. Skipping the action."
             echo "valid_tag=false" >> $GITHUB_ENV
           fi
+        shell: bash
 
       # Push to npm registry
       - name: Use Node.js ${{ matrix.node-version }}
