@@ -31,58 +31,21 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      - name: Get current date and commit message
+      - name: Get current date, commit message and other variables
         id: data
         run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+
           echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
           echo "datestamp=$(date +'%s')" >> $GITHUB_ENV
-          echo "commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+          echo "commit_message=$COMMIT_MESSAGE" >> $GITHUB_ENV
           echo "project_name=$(echo $GITHUB_REPOSITORY | cut -d/ -f2)" >> $GITHUB_ENV
 
-      - name: Check release tag in commit message
-        id: check_tag
-        run: |
-          COMMIT_MESSAGE="${{ env.commit_message }}"
           if [[ $COMMIT_MESSAGE == release* ]]; then
             TAG=$(echo "$COMMIT_MESSAGE" | grep -o -P '\(.*?\)' | tr -d '()')
             MESSAGE=$(echo "$COMMIT_MESSAGE" | sed -n -e 's/^release(.*):\(.*\)$/\1/p')
             if [ -n "$TAG" ] && [ -n "$MESSAGE" ]; then
               echo "Release tag found: $TAG"
-
-              # Update release info to skenografia.info.yml
-              if grep -q "^# Information added by GitHub Action" "${{ env.project_name }}.info.yml"; then
-                sed -i -e '/^# Information added by GitHub Action/,$d' "${{ env.project_name }}.info.yml"
-              fi
-
-              echo -e "# Information added by GitHub Action packaging script on ${{ env.date }}" >> "${{ env.project_name }}.info.yml"
-              echo "version: '$TAG'" >> "${{ env.project_name }}.info.yml"
-              echo "project: '$(echo ${{ env.project_name }} | awk '{print toupper(substr($1,1,1)) tolower(substr($1,2))}')'" >> "${{ env.project_name }}.info.yml"
-              echo "datestamp: ${{ env.datestamp }}" >> "${{ env.project_name }}.info.yml"
-
-              # Update release in version.css
-              sed -i "s/Version: [0-9.]\+/Version: $TAG/" version.css
-
-              # Update release in composer.libraries.json
-              jq --arg release_tag "$TAG" '.repositories |= map(if .package.name == "ouitoulia/skenografia-dist" then .package.version = $release_tag else . end)' composer.libraries.json > temp.json && mv temp.json composer.libraries.json
-              jq --arg release_tag "$TAG" '.repositories |= map(if .package.name == "ouitoulia/skenografia-dist" then .package.dist.url = "https://github.com/ouitoulia/skenografia/releases/download/\($release_tag)/skenografia.zip" else . end)' composer.libraries.json > temp.json && mv temp.json composer.libraries.json
-
-              # Update release in skenografia.libraries.yml
-              sed -i "s/version: .*/version: $TAG/" "${{ env.project_name }}.libraries.yml"
-
-              # Update version in package.json
-              jq --arg tag "$TAG" '.version = $tag' package.json > temp.json && mv temp.json package.json
-
-              git add "${{ env.project_name }}.info.yml"
-              git add "version.css"
-              git add "composer.libraries.json"
-              git add "${{ env.project_name }}.libraries.yml"
-              git add "package.json"
-
-              git commit -m "Update version"
-              git push origin
-              git tag $TAG
-              git push origin $TAG
-
               echo "valid_tag=true" >> $GITHUB_ENV
               echo "release_tag=${TAG}" >> $GITHUB_ENV
             else
@@ -95,24 +58,61 @@ jobs:
           fi
         shell: bash
 
-      # Build and Push to npm registry
       - name: Use Node.js ${{ matrix.node-version }}
         if: env.valid_tag == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Build Project
+
+      - name: Update version in files
+        if: env.valid_tag == 'true'
+        run: |
+          # Update release info to skenografia.info.yml
+          if grep -q "^# Information added by GitHub Action" "${{ env.project_name }}.info.yml"; then
+            sed -i -e '/^# Information added by GitHub Action/,$d' "${{ env.project_name }}.info.yml"
+          fi
+
+          echo -e "# Information added by GitHub Action packaging script on ${{ env.date }}" >> "${{ env.project_name }}.info.yml"
+          echo "version: '${{ env.release_tag }}'" >> "${{ env.project_name }}.info.yml"
+          echo "project: '$(echo ${{ env.project_name }} | awk '{print toupper(substr($1,1,1)) tolower(substr($1,2))}')'" >> "${{ env.project_name }}.info.yml"
+          echo "datestamp: ${{ env.datestamp }}" >> "${{ env.project_name }}.info.yml"
+
+          # Update release in version.css
+          sed -i "s/Version: [0-9.]\+/Version: ${{ env.release_tag }}/" version.css
+
+          # Update release in composer.libraries.json
+          jq --arg release_tag "${{ env.release_tag }}" '.repositories |= map(if .package.name == "ouitoulia/skenografia-dist" then .package.version = $release_tag else . end)' composer.libraries.json > temp.json && mv temp.json composer.libraries.json
+          jq --arg release_tag "${{ env.release_tag }}" '.repositories |= map(if .package.name == "ouitoulia/skenografia-dist" then .package.dist.url = "https://github.com/ouitoulia/skenografia/releases/download/\($release_tag)/skenografia.zip" else . end)' composer.libraries.json > temp.json && mv temp.json composer.libraries.json
+
+          # Update release in skenografia.libraries.yml
+          sed -i "s/version: .*/version: ${{ env.release_tag }}/" "${{ env.project_name }}.libraries.yml"
+
+          # Update version in package.json
+          npm version ${{ env.release_tag }}
+
+          git add "${{ env.project_name }}.info.yml"
+          git add "version.css"
+          git add "composer.libraries.json"
+          git add "${{ env.project_name }}.libraries.yml"
+          git add "package.json"
+
+          git commit -m "Update version"
+          git push origin
+          git tag ${{ env.release_tag }}
+          git push origin ${{ env.release_tag }}
+        shell: bash
+
+      - name: Build and Push to npm registry
         if: env.valid_tag == 'true'
         run: |
           npm install
           npm run build:prod
           rm -rf .git .github node_modules .gitignore
-          zip -r skenografia.zip ./dist
-          npm version ${{ env.release_tag }}
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           npm config set registry https://registry.npmjs.org/
           npm publish --access=public
           rm ~/.npmrc
+          zip -r skenografia.zip ./dist
         shell: bash
         continue-on-error: true
         env:
