@@ -95,33 +95,28 @@ jobs:
           fi
         shell: bash
 
-      # Push to npm registry
+      # Build and Push to npm registry
       - name: Use Node.js ${{ matrix.node-version }}
+        if: env.valid_tag == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: Build Project
+        if: env.valid_tag == 'true'
         run: |
           npm install
           npm run build:prod
-      - name: Clean package
-        run: |
           rm -rf .git .github node_modules .gitignore
-      - name: Compress Dist Folder
-        run: zip -r skenografia.zip ./dist
-      - name: Set Package Version
-        run: |
+          zip -r skenografia.zip ./dist
           npm version ${{ env.release_tag }}
-      - name: NPM registry
-        run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           npm config set registry https://registry.npmjs.org/
-      - name: Publish package to NPM
-        run: npm publish --access=public
+          npm publish --access=public
+          rm ~/.npmrc
+        shell: bash
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: rm ~/.npmrc
 
       - name: Create GitHub Release
         if: env.valid_tag == 'true'
