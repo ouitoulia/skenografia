@@ -70,7 +70,7 @@ jobs:
               sed -i "s/version: .*/version: $TAG/" "${{ env.project_name }}.libraries.yml"
 
               # Update version in package.json
-              sed -i 's/"version": "[^"]*"/"version": "${TAG}"/' package.json
+              jq --arg tag "$TAG" '.version = $tag' package.json > temp.json && mv temp.json package.json
 
               git add "${{ env.project_name }}.info.yml"
               git add "version.css"
