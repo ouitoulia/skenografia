@@ -95,9 +95,9 @@ jobs:
           git commit -m "Update file version ${{ env.release_tag }}"
 
           # Update version in package.json
-          npm version ${{ env.release_tag }}
-          git add "package.json"
-          git commit -m "Update package.json version ${{ env.release_tag }}"
+          #npm version ${{ env.release_tag }}
+          #git add "package.json"
+          #git commit -m "Update package.json version ${{ env.release_tag }}"
 
           git push origin
           git tag ${{ env.release_tag }}
@@ -107,6 +107,7 @@ jobs:
       - name: Build and Push to npm registry
         if: env.valid_tag == 'true'
         run: |
+          npm version ${{ env.release_tag }}
           npm install
           npm run build:prod
           rm -rf .git .github node_modules .gitignore
