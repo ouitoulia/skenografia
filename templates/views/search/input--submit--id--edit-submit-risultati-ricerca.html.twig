@@ -15,7 +15,7 @@
 {% set attributes = attributes
   .setAttribute('type', 'submit')
   .removeClass(attributes.classList)
-  .addClass('search-btn')
+  .addClass(['search-btn','visually-hidden'])
   .setAttribute('aria-label', 'Avvia la ricerca')
   .setAttribute('data-element', 'search-submit')
 %}
