@@ -87,16 +87,18 @@ jobs:
           # Update release in skenografia.libraries.yml
           sed -i "s/version: .*/version: ${{ env.release_tag }}/" "${{ env.project_name }}.libraries.yml"
 
-          # Update version in package.json
-          npm version ${{ env.release_tag }}
-
           git add "${{ env.project_name }}.info.yml"
           git add "version.css"
           git add "composer.libraries.json"
           git add "${{ env.project_name }}.libraries.yml"
-          git add "package.json"
 
-          git commit -m "Update version"
+          git commit -m "Update file version ${{ env.project_name }"
+
+          # Update version in package.json
+          npm version ${{ env.release_tag }}
+          git add "package.json"
+          git commit -m "Update package.json version ${{ env.project_name }"
+
           git push origin
           git tag ${{ env.release_tag }}
           git push origin ${{ env.release_tag }}
@@ -114,7 +116,7 @@ jobs:
           rm ~/.npmrc
           zip -r skenografia.zip ./dist
         shell: bash
-        continue-on-error: true
+        continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
