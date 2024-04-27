@@ -92,12 +92,12 @@ jobs:
           git add "composer.libraries.json"
           git add "${{ env.project_name }}.libraries.yml"
 
-          git commit -m "Update file version ${{ env.project_name }"
+          git commit -m "Update file version ${{ env.release_tag }}"
 
           # Update version in package.json
           npm version ${{ env.release_tag }}
           git add "package.json"
-          git commit -m "Update package.json version ${{ env.project_name }"
+          git commit -m "Update package.json version ${{ env.release_tag }}"
 
           git push origin
           git tag ${{ env.release_tag }}
