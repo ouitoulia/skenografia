@@ -70,6 +70,8 @@
                 modal_size: search_modal_size ?: 'fullscreen',
                 dismissibile: false,
               } %}
+                {% block modalClose %}{% endblock %}
+
                 {% block modalBody %}
                   <div class="container">
                     {{ page.header_center_search }}
