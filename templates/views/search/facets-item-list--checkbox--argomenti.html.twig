@@ -1,2 +1,3 @@
-{% set attribute = attributes.setAttribute('data-element', 'all-topics') %}
-{% include '@facets/facets-item-list.html.twig' %}
+{% include '@facets/facets-item-list.html.twig' with {
+  attributes: attributes.addClass(['list-unstyled', 'ms-4', 'form-check']).setAttribute('data-element', 'all-topics')
+} %}

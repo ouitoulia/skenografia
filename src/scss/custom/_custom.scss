@@ -92,6 +92,8 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/hamburger';
 
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/search';
+@import "r-engineering/main/search";
+
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/access';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/menu-mobile/nav-mobile';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/menu-user';
@@ -160,6 +162,7 @@ h1 {@extend .fw-semibold;}
 @import "components/accordion";
 @import "components/affix";
 @import "components/better_exposed_filters";
+@import "components/buttons";
 @import "components/card";
 @import "components/chip";
 @import "components/icon";

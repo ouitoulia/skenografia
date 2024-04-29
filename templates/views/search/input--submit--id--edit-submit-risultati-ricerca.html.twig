@@ -12,17 +12,77 @@
  * @ingroup themeable
  */
 #}
-{% set attributes = attributes
-  .setAttribute('type', 'submit')
-  .removeClass(attributes.classList)
-  .addClass(['search-btn','visually-hidden'])
-  .setAttribute('aria-label', 'Avvia la ricerca')
-  .setAttribute('data-element', 'search-submit')
-%}
-<button{{ attributes }}>
-  {% include '@bi-bcl/icon/icon.html.twig' with {
-    name: 'icon-search',
-    size: 'xl',
-    icon_classes: ['svg-search']
-  } %}
-</button>{{ children }}
+{% apply spaceless %}
+  <div class="text-center">
+    {% set _attributes = attributes
+      .removeClass('btn-primary')
+      .addClass(['btn-xs', 'me-2', 'mb-2'])
+      .setAttribute('type', 'submit')
+    %}
+
+    <button{{ _attributes
+      .addClass('btn-outline-redbrown')
+      .setAttribute('aria-label', 'Avvia la ricerca nella sezione scuola')
+      .setAttribute('onclick', 'addHiddenValues(["scuola:documento", "scuola:luogo", "scuola:struttura_organizzativa"])')
+    }}>
+      Cerca nella sezione
+      <strong class="text-uppercase text-small-bold">Scuola</strong>
+    </button>
+
+    <button{{ _attributes
+      .removeClass('btn-outline-redbrown')
+      .addClass('btn-outline-greendark')
+      .setAttribute('aria-label', 'Avvia la ricerca nella sezione novità')
+      .setAttribute('onclick', 'addHiddenValues(["novita:article", "novita:circolare", "novita:evento"])')
+    }}>
+      Cerca tra le
+      <strong class="text-uppercase text-small-bold">{{ 'Novità' }}</strong>
+    </button>
+
+    <button{{ _attributes
+      .removeClass('btn-outline-greendark')
+      .addClass('btn-outline-purplelight')
+      .setAttribute('aria-label', 'Avvia la ricerca nella sezione Servizi')
+      .setAttribute('onclick', 'addHiddenValues(["servizi:1201", "servizi:1202", "servizi:1203"])')
+    }}>
+      Cerca nei
+      <strong class="text-uppercase text-small-bold">Servizi</strong>
+    </button>
+
+    <button{{ _attributes
+      .removeClass('btn-outline-purplelight')
+      .addClass('btn-outline-bluelectric')
+      .setAttribute('aria-label', 'Avvia la ricerca nella sezione Servizi')
+      .setAttribute('onclick', 'addHiddenValues(["didattica:progetto", "didattica:scheda_didattica"])')
+    }}>
+      Cerca nella
+      <strong class="text-uppercase text-small-bold">Didattica</strong>
+    </button>
+
+    <button{{ _attributes
+      .removeClass('btn-outline-bluelectric')
+      .addClass('btn-outline-primary')
+      .setAttribute('aria-label', 'Avvia la ricerca')
+      .setAttribute('data-element', 'search-submit')
+      .setAttribute('onclick', 'addHiddenValues(["tutti_i_valori"])')
+    }}>
+      Cerca in
+      <strong class="text-uppercase text-small-bold">tutto il sito</strong>
+    </button>
+
+    <input type="hidden" name="f[]" id="hidden-field" value="">
+  </div>
+{% endapply %}
+
+<script>
+  function addHiddenValues(values) {
+    let hiddenField = document.getElementById('hidden-field');
+    values.forEach(function(value) {
+      let input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'f[]';
+      input.value = value;
+      hiddenField.parentNode.insertBefore(input, hiddenField);
+    });
+  }
+</script>
