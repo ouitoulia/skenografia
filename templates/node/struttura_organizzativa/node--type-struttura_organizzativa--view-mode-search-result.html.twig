@@ -1,0 +1,6 @@
+{% include '@skenografia_components/card/card-highlighting-search-results.html.twig' with {
+  card_variant: 'redbrown',
+  title_prefix: 'Struttura organizzativa - ' ~ content.field_tipologia_struttura|render|striptags|trim,
+  title_suffix: content.field_abstract|render|striptags|trim,
+  content: content|without('field_tipologia_struttura', 'field_abstract')
+} %}

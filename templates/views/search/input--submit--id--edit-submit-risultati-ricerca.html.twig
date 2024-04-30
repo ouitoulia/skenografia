@@ -21,6 +21,17 @@
     %}
 
     <button{{ _attributes
+      .removeClass('btn-outline-bluelectric')
+      .addClass('btn-outline-primary')
+      .setAttribute('aria-label', 'Avvia la ricerca')
+      .setAttribute('data-element', 'search-submit')
+      .setAttribute('onclick', 'addHiddenValues(["tutti_i_valori"])')
+    }}>
+      Cerca in
+      <strong class="text-uppercase text-small-bold">tutto il sito</strong>
+    </button>
+
+    <button{{ _attributes
       .addClass('btn-outline-redbrown')
       .setAttribute('aria-label', 'Avvia la ricerca nella sezione scuola')
       .setAttribute('onclick', 'addHiddenValues(["scuola:documento", "scuola:luogo", "scuola:struttura_organizzativa"])')
@@ -57,17 +68,6 @@
     }}>
       Cerca nella
       <strong class="text-uppercase text-small-bold">Didattica</strong>
-    </button>
-
-    <button{{ _attributes
-      .removeClass('btn-outline-bluelectric')
-      .addClass('btn-outline-primary')
-      .setAttribute('aria-label', 'Avvia la ricerca')
-      .setAttribute('data-element', 'search-submit')
-      .setAttribute('onclick', 'addHiddenValues(["tutti_i_valori"])')
-    }}>
-      Cerca in
-      <strong class="text-uppercase text-small-bold">tutto il sito</strong>
     </button>
 
     <input type="hidden" name="f[]" id="hidden-field" value="">

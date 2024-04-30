@@ -1,0 +1,6 @@
+{% include '@skenografia_components/card/card-highlighting-search-results.html.twig' with {
+  card_variant: 'greendark',
+  title_prefix: 'Finanziamento ' ~ content.field_tipologia_finanziamento|render|striptags|trim,
+  title_suffix: content.field_abstract|render|striptags|trim,
+  content: content|without('field_tipologia_finanziamento', 'field_abstract')
+} %}

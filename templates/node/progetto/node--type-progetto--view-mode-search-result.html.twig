@@ -1,0 +1,11 @@
+{% apply spaceless %}
+  {% set _dal_al %}
+    {% include '@skenografia/node/_partial.field--type-date--name-dal-al.html.twig' %}
+  {% endset %}
+  {% include '@skenografia_components/card/card-highlighting-search-results.html.twig' with {
+    card_variant: 'bluelectric',
+    title_prefix: 'Progetto - ' ~ _dal_al|striptags|trim,
+    title_suffix: content.field_abstract|render|striptags|trim,
+    content: content|without('field_data_inizio', 'field_data_fine','field_abstract')
+  } %}
+{% endapply %}

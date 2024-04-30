@@ -1,0 +1,6 @@
+{% include '@skenografia_components/card/card-highlighting-search-results.html.twig' with {
+  card_variant: 'redbrown',
+  title_prefix: 'Documento Prot. ' ~ content.field_protocollo|render|striptags|trim ~ ' del ' ~ content.field_data_inizio|render|striptags|trim ~ ' - ' ~ content.field_tipologia_documento|render|striptags|trim,
+  title_suffix: content.field_abstract|render|striptags|trim,
+  content: content|without('field_protocollo', 'field_data_inizio', 'field_tipologia_documento','field_abstract')
+} %}
