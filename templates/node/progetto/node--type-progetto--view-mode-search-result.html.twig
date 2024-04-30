@@ -5,7 +5,7 @@
   {% include '@skenografia_components/card/card-highlighting-search-results.html.twig' with {
     card_variant: 'bluelectric',
     title_prefix: 'Progetto - ' ~ _dal_al|striptags|trim,
-    title_suffix: content.field_abstract|render|striptags|trim,
+    title_suffix: content.field_abstract,
     content: content|without('field_data_inizio', 'field_data_fine','field_abstract')
   } %}
 {% endapply %}

@@ -88,7 +88,7 @@
   {% include '@skenografia_components/card/card-highlighting-search-results.html.twig' with {
     card_variant: node_variants_map[node.bundle|clean_id] ?? 'petrol',
     title_prefix: drupal_config('node.type.' ~ node.bundle, 'name'),
-    title_suffix: content.field_abstract|render|striptags|trim,
+    title_suffix: content.field_abstract,
     content: content|without('field_abstract')
   } %}
 {% endapply %}
