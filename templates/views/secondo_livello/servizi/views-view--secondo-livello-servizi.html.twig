@@ -1,1 +1,9 @@
-{% include '@skenografia/views/secondo_livello/percorsi_di_studio/views-view--secondo-livello-percorsi-di-studio--page-1.html.twig' %}
+{% embed '@skenografia/views/secondo_livello/percorsi_di_studio/views-view--secondo-livello-percorsi-di-studio--page-1.html.twig' %}
+  {% block asideA11yDescription %}
+    <h2 class="visually-hidden">Filtra i servizi</h2>
+    <p class="visually-hidden">Scegli se visualizzare tutti i servizi o filtrati per categoria.</p>
+  {% endblock %}
+  {% block contentA11yDescription %}
+    <h2 class="visually-hidden">Lista dei servizi</h2>
+  {% endblock %}
+{% endembed %}
