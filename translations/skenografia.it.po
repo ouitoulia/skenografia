@@ -5,9 +5,6 @@
 # Generated from files:
 #  skenografia.post_update.php: n/a
 #  skenografia.info.yml: n/a
-#  config/optional/block.block.skenografia_page_title.yml: n/a
-#  config/optional/block.block.skenografia_help.yml: n/a
-#  config/optional/block.block.skenografia_footer.yml: n/a
 #  components/navscroll/page-index.html.twig: n/a
 #  config/schema/skenografia.schema.yml: n/a
 #  includes/theme-settings.inc: n/a
@@ -17,6 +14,8 @@
 #  modules/bi_twig_extensions/bi_twig_extensions.info.yml: n/a
 #  modules/bi_toc/js/tableOfContents.js: n/a
 #  templates/file-link.html.twig: n/a
+#  templates/layout/footer/_partial.footer.html.twig: n/a
+#  templates/region/header-nav/region--header-nav.html.twig: n/a
 #  templates/layout/header/_partial.header.html.twig: n/a
 #  templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig: n/a
 #  templates/media/oembed-lazyload/oembed-lazyload-placeholder.html.twig: n/a
@@ -26,13 +25,16 @@
 #  templates/node/article/node--type-article--view-mode-teaser.html.twig: n/a
 #  templates/node/circolare/node--type-circolare--view-mode-teaser.html.twig: n/a
 #  templates/node/classe/node--type-classe--view-mode-teaser.html.twig: n/a
+#  templates/node/documento/node--type-documento--view-mode-card-big.html.twig: n/a
 #  templates/node/documento/node--type-documento--view-mode-teaser.html.twig: n/a
 #  templates/node/evento/node--type-evento--view-mode-card.html.twig: n/a
 #  templates/node/evento/node--type-evento--view-mode-teaser.html.twig: n/a
+#  templates/node/luogo/node--type-luogo--view-mode-teaser.html.twig: n/a
 #  templates/node/partner/node--type-partner--view-mode-teaser.html.twig: n/a
 #  templates/node/percorso_di_studio/node--type-percorso-di-studio--view-mode-teaser.html.twig: n/a
 #  templates/node/progetto/node--type-progetto--view-mode-teaser.html.twig: n/a
 #  templates/node/scheda_didattica/node--type-scheda-didattica--view-mode-teaser.html.twig: n/a
+#  templates/node/servizio/node--type-servizio--view-mode-card.html.twig: n/a
 #  templates/node/servizio/node--type-servizio--view-mode-teaser.html.twig: n/a
 #  templates/node/struttura_organizzativa/node--type-struttura-organizzativa--view-mode-teaser.html.twig: n/a
 #  templates/node/luogo/address-plain--node--luogo--full.html.twig: n/a
@@ -40,29 +42,15 @@
 #  templates/node/persona/node--type-persona--view-mode-full.html.twig: n/a
 #  templates/node/luogo/office-hours-status--node--field-orario-pubblico--luogo--full.html.twig: n/a
 #  templates/region/brand/block--system-branding-block.html.twig: n/a
-#  templates/region/header-nav/region--header-nav.html.twig: n/a
-#  templates/region/header-slim-acction/menu--header-slim-action.html.twig: n/a
-#  config/optional/block.block.skenografia_account_menu.yml: n/a
-#  config/optional/block.block.skenografia_branding.yml: n/a
-#  config/optional/block.block.skenografia_breadcrumbs.yml: n/a
-#  config/optional/block.block.skenografia_content.yml: n/a
-#  config/optional/block.block.skenografia_local_actions.yml: n/a
-#  config/optional/block.block.skenografia_local_tasks.yml: n/a
-#  config/optional/block.block.skenografia_main_menu.yml: n/a
-#  config/optional/system.menu.main.yml: n/a
-#  config/optional/block.block.skenografia_messages.yml: n/a
-#  config/optional/block.block.slimtop.yml: n/a
-#  config/optional/system.menu.slim-top.yml: n/a
-#  config/optional/block.block.smallprints.yml: n/a
-#  config/optional/system.menu.small-prints.yml: n/a
-#  config/optional/system.menu.footer.yml: n/a
+#  templates/views/primo_livello/scuola/node--type-page--view-mode-full--path--scuola.html.twig: n/a
+#  templates/region/header-slim-action/menu--header-slim-action.html.twig: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2024-03-02 08:35+0000\n"
-"PO-Revision-Date: 2024-03-02 08:35+0000\n"
+"POT-Creation-Date: 2024-04-30 17:11+0200\n"
+"PO-Revision-Date: 2024-04-30 17:11+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Italian <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -146,7 +134,7 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr "Briciole di pane"
 
-#: skenografia.info.yml:0 config/optional/block.block.skenografia_page_title.yml:0
+#: skenografia.info.yml:0
 msgid "Page title"
 msgstr "Titolo della pagina"
 
@@ -154,7 +142,7 @@ msgstr "Titolo della pagina"
 msgid "Administration tabs"
 msgstr ""
 
-#: skenografia.info.yml:0 config/optional/block.block.skenografia_help.yml:0
+#: skenografia.info.yml:0
 msgid "Help"
 msgstr "Aiuto"
 
@@ -194,7 +182,7 @@ msgstr ""
 msgid "After content - Full width region"
 msgstr ""
 
-#: skenografia.info.yml:0 config/optional/block.block.skenografia_footer.yml:0
+#: skenografia.info.yml:0
 msgid "Footer menu"
 msgstr ""
 
@@ -311,6 +299,14 @@ msgid "Home page - Last full width region"
 msgstr ""
 
 #: skenografia.info.yml:0
+msgid "Content per le views di primo livello"
+msgstr ""
+
+#: skenografia.info.yml:0
+msgid "Content per le views di secondo livello"
+msgstr ""
+
+#: skenografia.info.yml:0
 msgid "Footer - Info legali della scuola"
 msgstr ""
 
@@ -392,7 +388,7 @@ msgstr ""
 
 #: modules/bi_toc/js/tableOfContents.js:0
 msgid "Table of Contents"
-msgstr ""
+msgstr "Indice della pagina"
 
 #: modules/bi_twig_extensions/bi_twig_extensions.info.yml:0
 msgid "Bootstrap Italia Twig Extensions"
@@ -406,25 +402,29 @@ msgstr ""
 msgid "Non è possibile verificare in automatico la sicurezza di questo file, controllalo con un antivirus prima di eseguirlo."
 msgstr ""
 
+#: templates/layout/footer/_partial.footer.html.twig:49 templates/region/header-nav/region--header-nav.html.twig:43
+msgid "Follow us on"
+msgstr "Seguici su"
+
 #: templates/layout/header/_partial.header.html.twig:28
 msgid "Login to your personal area"
-msgstr ""
+msgstr "Accedi alla tua area personale"
 
-#: templates/layout/header/_partial.header.html.twig:68;83;101;102
+#: templates/layout/header/_partial.header.html.twig:68;85;104;105
 msgid "Site search"
-msgstr ""
+msgstr "Ricerca sul sito"
 
-#: templates/layout/header/_partial.header.html.twig:80;99
+#: templates/layout/header/_partial.header.html.twig:82;102
 msgid "Search"
 msgstr "Cerca"
 
 #: templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig:21
 msgid "Agree"
-msgstr ""
+msgstr "D'accordo"
 
 #: templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig:25
 msgid "Loading"
-msgstr ""
+msgstr "Caricamento"
 
 #: templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig:34
 msgid "Watch @title on YouTube."
@@ -432,19 +432,19 @@ msgstr ""
 
 #: templates/media/oembed-lazyload/oembed-lazyload-placeholder--youtube.html.twig:40 templates/media/oembed-lazyload/oembed-lazyload-placeholder.html.twig:37
 msgid "Remember my choice"
-msgstr ""
+msgstr "Ricorda la mia scelta"
 
 #: templates/media/oembed-lazyload/oembed-lazyload-placeholder.html.twig:23;31
 msgid "Watch @title"
-msgstr ""
+msgstr "Guarda @title"
 
 #: templates/media/oembed-lazyload/oembed-lazyload-placeholder.html.twig:24
 msgid "Load video"
-msgstr ""
+msgstr "Carica il video"
 
 #: templates/media/oembed-lazyload/oembed-lazyload.html.twig:36
 msgid "Accept @provider cookies to see the video.\n            You can manage preferences in the <a href=\"@privacy_path\" class=\"text-white\" title=\"For additional information we invite you to read the section on cookie management\">cookie policy</a>."
-msgstr ""
+msgstr "Accetta i cookie di @provider per vedere il video.\n    Puoi gestire le preferenze su <a href=\"@privacy_path\" class=\"text-white\" title=\"Per ulteriori informazioni ti invitiamo a leggere la sezione sulla gestione dei cookie\">cookie policy</a>"
 
 #: templates/node/_partial.content-type--footer-metadata.html.twig:7
 msgid "Published"
@@ -460,11 +460,11 @@ msgstr ""
 
 #: templates/node/_partial.node--author.html.twig:2
 msgid "Submitted by"
-msgstr ""
+msgstr "Pubblicato da"
 
-#: templates/node/article/node--type-article--view-mode-teaser.html.twig:85 templates/node/circolare/node--type-circolare--view-mode-teaser.html.twig:84 templates/node/classe/node--type-classe--view-mode-teaser.html.twig:86 templates/node/documento/node--type-documento--view-mode-teaser.html.twig:84 templates/node/evento/node--type-evento--view-mode-card.html.twig:90 templates/node/evento/node--type-evento--view-mode-teaser.html.twig:85 templates/node/partner/node--type-partner--view-mode-teaser.html.twig:83 templates/node/percorso_di_studio/node--type-percorso-di-studio--view-mode-teaser.html.twig:84 templates/node/progetto/node--type-progetto--view-mode-teaser.html.twig:83 templates/node/scheda_didattica/node--type-scheda-didattica--view-mode-teaser.html.twig:83 templates/node/servizio/node--type-servizio--view-mode-teaser.html.twig:84 templates/node/struttura_organizzativa/node--type-struttura-organizzativa--view-mode-teaser.html.twig:83
+#: templates/node/article/node--type-article--view-mode-teaser.html.twig:85 templates/node/circolare/node--type-circolare--view-mode-teaser.html.twig:84 templates/node/classe/node--type-classe--view-mode-teaser.html.twig:86 templates/node/documento/node--type-documento--view-mode-card-big.html.twig:84 templates/node/documento/node--type-documento--view-mode-teaser.html.twig:84 templates/node/evento/node--type-evento--view-mode-card.html.twig:90 templates/node/evento/node--type-evento--view-mode-teaser.html.twig:84 templates/node/luogo/node--type-luogo--view-mode-teaser.html.twig:83 templates/node/partner/node--type-partner--view-mode-teaser.html.twig:83 templates/node/percorso_di_studio/node--type-percorso-di-studio--view-mode-teaser.html.twig:84 templates/node/progetto/node--type-progetto--view-mode-teaser.html.twig:83 templates/node/scheda_didattica/node--type-scheda-didattica--view-mode-teaser.html.twig:83 templates/node/servizio/node--type-servizio--view-mode-card.html.twig:93 templates/node/servizio/node--type-servizio--view-mode-teaser.html.twig:84 templates/node/struttura_organizzativa/node--type-struttura-organizzativa--view-mode-teaser.html.twig:83
 msgid "Read more about:"
-msgstr ""
+msgstr "Per saperne di più su"
 
 #: templates/node/luogo/address-plain--node--luogo--full.html.twig:44
 msgid "indirizzo"
@@ -478,15 +478,15 @@ msgstr ""
 msgid "Comune"
 msgstr ""
 
-#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:140
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:125
 msgid "Dove si trova"
 msgstr ""
 
-#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:178 templates/node/persona/node--type-persona--view-mode-full.html.twig:143
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:163 templates/node/persona/node--type-persona--view-mode-full.html.twig:142
 msgid "Contatti"
 msgstr ""
 
-#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:221
+#: templates/node/luogo/node--type-luogo--view-mode-full.html.twig:207
 msgid "Dettagli del luogo"
 msgstr ""
 
@@ -502,87 +502,23 @@ msgstr ""
 msgid "chiuso"
 msgstr ""
 
-#: templates/node/persona/node--type-persona--view-mode-full.html.twig:132
+#: templates/node/persona/node--type-persona--view-mode-full.html.twig:131
 msgid "Didattica"
 msgstr ""
 
-#: templates/region/brand/block--system-branding-block.html.twig:24
+#: templates/region/brand/block--system-branding-block.html.twig:24 templates/views/primo_livello/scuola/node--type-page--view-mode-full--path--scuola.html.twig:90
 msgid "Home"
 msgstr "Home"
 
 #: templates/region/brand/block--system-branding-block.html.twig:25
 msgid "Go to home page"
-msgstr ""
+msgstr "Vai in home page"
 
-#: templates/region/header-nav/region--header-nav.html.twig:43
-msgid "Follow us on"
-msgstr ""
-
-#: templates/region/header-slim-acction/menu--header-slim-action.html.twig:28
+#: templates/region/header-slim-action/menu--header-slim-action.html.twig:28
 msgid "User"
 msgstr "Utente"
 
-#: templates/region/header-slim-acction/menu--header-slim-action.html.twig:33
+#: templates/region/header-slim-action/menu--header-slim-action.html.twig:33
 msgid "User actions"
-msgstr ""
-
-#: config/optional/block.block.skenografia_account_menu.yml:0
-msgid "User account menu"
-msgstr "Menu profilo utente"
-
-#: config/optional/block.block.skenografia_branding.yml:0
-msgid "Site branding"
-msgstr "Branding del sito"
-
-#: config/optional/block.block.skenografia_breadcrumbs.yml:0
-msgid "Breadcrumbs"
-msgstr "Breadcrumb"
-
-#: config/optional/block.block.skenografia_content.yml:0
-msgid "Main page content"
-msgstr "Contenuto della pagina principale"
-
-#: config/optional/block.block.skenografia_local_actions.yml:0
-msgid "Primary admin actions"
-msgstr "Azioni di amministrazione principali"
-
-#: config/optional/block.block.skenografia_local_tasks.yml:0
-msgid "Tabs"
-msgstr "Schede"
-
-#: config/optional/block.block.skenografia_main_menu.yml:0 config/optional/system.menu.main.yml:0
-msgid "Main navigation"
-msgstr "Navigazione principale"
-
-#: config/optional/block.block.skenografia_messages.yml:0
-msgid "Status messages"
-msgstr "Messaggi di stato"
-
-#: config/optional/block.block.slimtop.yml:0 config/optional/system.menu.slim-top.yml:0
-msgid "Slim top"
-msgstr ""
-
-#: config/optional/block.block.smallprints.yml:0 config/optional/system.menu.small-prints.yml:0
-msgid "Small prints"
-msgstr ""
-
-#: config/optional/system.menu.footer.yml:0
-msgid "Footer"
-msgstr "Piè di pagina"
-
-#: config/optional/system.menu.footer.yml:0
-msgid "Site information links"
-msgstr ""
-
-#: config/optional/system.menu.main.yml:0
-msgid "Site section links"
-msgstr ""
-
-#: config/optional/system.menu.slim-top.yml:0
-msgid "Top slim menu"
-msgstr ""
-
-#: config/optional/system.menu.small-prints.yml:0
-msgid "Footer legal links"
-msgstr ""
+msgstr "Azioni dell'utente"
 
