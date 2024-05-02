@@ -139,9 +139,11 @@
 
               {{ content.field_extra_info }}
 
-              <h2 id="contatti" class="h4 mb-4">{{ 'Contatti'|t }}</h2>
-              {{ content.field_telefono }}
-              {{ content.field_email }}
+              {% if content.field_telefono[0] is iterable or content.field_email[0] is iterable %}
+                <h2 id="contatti" class="h4 mb-4">{{ 'Contatti'|t }}</h2>
+                {{ content.field_telefono }}
+                {{ content.field_email }}
+              {% endif %}
 
               {{ content|without(
                 'field_nome',
