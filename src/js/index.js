@@ -10,6 +10,8 @@
 // Import Bootstrap-italia components.
 import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin'
 import init from 'bootstrap-italia/src/js/plugins/init'
+// import loadFonts from 'bootstrap-italia/src/js/plugins/fonts-loader'
+// import { cookies } from 'bootstrap-italia/src/js/plugins/util/cookies'
 import * as icons from 'bootstrap-italia/src/js/icons'
 
 /**
@@ -19,10 +21,94 @@ import * as icons from 'bootstrap-italia/src/js/icons'
  * Docs: https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/#javascript
  * Examples: https://github.com/astagi/demo-bsitalia-2
  */
-import * as bootstrap from 'bootstrap-italia'
+import {
+  // Bootstrap
+  Alert,
+  Button,
+  Carousel,
+  Collapse,
+  Dropdown,
+  Modal,
+  Offcanvas,
+  Popover,
+  ScrollSpy,
+  Tab,
+  //Toast,
+  Tooltip,
+  // Extra components
+  //Dimmer,
+  //Notification,
+  Cookiebar,
+  NavBarCollapsible,
+  Accordion,
+  NavScroll,
+  CarouselBI,
+  FormValidate,
+  //ValidatorSelectAutocomplete,
+  Input,
+  SelectAutocomplete,
+  //InputSearchAutocomplete,
+  InputPassword,
+  InputNumber,
+  //ProgressDonut,
+  //UploadDragDrop,
+  BackToTop,
+  AcceptOverlay,
+  Sticky,
+  HeaderSticky,
+  //HistoryBack,
+  //Forward,
+  //Masonry,
+  List,
+  //Transfer,
+  VideoPlayer,
+} from 'bootstrap-italia'
 
 loadPlugin(icons)
 init()
+
+const bootstrap = {
+  Alert,
+  Button,
+  Carousel,
+  Collapse,
+  Dropdown,
+  Modal,
+  Offcanvas,
+  Popover,
+  ScrollSpy,
+  Tab,
+  //Toast,
+  Tooltip,
+  VideoPlayer,
+  AcceptOverlay,
+  Accordion,
+  BackToTop,
+  CarouselBI,
+  Cookiebar,
+  //Dimmer,
+  FormValidate,
+  //Forward,
+  //HistoryBack,
+  Input,
+  InputNumber,
+  InputPassword,
+  //InputSearchAutocomplete,
+  List,
+  //Masonry,
+  NavBarCollapsible,
+  NavScroll,
+  //Notification,
+  //ProgressDonut,
+  SelectAutocomplete,
+  Sticky,
+  HeaderSticky,
+  //Transfer,
+  //UploadDragDrop,
+  //ValidatorSelectAutocomplete,
+  //loadFonts,
+  //cookies,
+}
 
 // Component library initialization.
 import './component-library-initialization'
