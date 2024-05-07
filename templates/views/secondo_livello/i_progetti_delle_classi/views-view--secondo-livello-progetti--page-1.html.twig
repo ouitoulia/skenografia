@@ -61,10 +61,16 @@
 
   {{ attachment_before }}
 
+  {% embed '@skenografia_components/offcanvas/offcanvas-sidebar-mobile.html.twig' %}
+    {% block mobileSidebarContent %}
+      {{ exposed }}
+    {% endblock %}
+  {% endembed %}
+
   <section class="bg-gray-light">
     <div class="container">
       <div class="row variable-gutters">
-        <div class="col-lg-3 pt-5 bg-white bg-white-left affix-parent">
+        <div class="col-lg-3 pt-5 bg-white bg-white-left affix-parent d-none d-lg-block">
           <aside class="aside-list affix-top mb-5 pt-5">
             {% block asideA11yDescription %}
               <h2 class="visually-hidden">Filtra i progetti</h2>
