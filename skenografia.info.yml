@@ -18,10 +18,6 @@ libraries:
 #  - bootstrap_italia/load-fonts
   - skenografia/version
 
-# Check these settings, they must match the "libraries" choices.
-# ckeditor_stylesheets:
-#   - dist/css/bootstrap-italia.min.css
-
 ckeditor5-stylesheets:
  - /libraries/ouitoulia-skenografia/css/ckeditor5.min.css
 

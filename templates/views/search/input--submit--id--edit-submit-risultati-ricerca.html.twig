@@ -13,6 +13,7 @@
  */
 #}
 {% apply spaceless %}
+  {{ attach_library('skenografia/search-filters') }}
   <div class="text-center">
     {% set _attributes = attributes
       .removeClass('btn-primary')
@@ -21,40 +22,32 @@
     %}
 
     <button{{ _attributes
-      .removeClass('btn-outline-bluelectric')
       .addClass('btn-outline-primary')
       .setAttribute('aria-label', 'Avvia la ricerca')
       .setAttribute('data-element', 'search-submit')
-      .setAttribute('onclick', 'addHiddenValues(["tutti_i_valori"])')
+      .setAttribute('data-search-api-submit-filters', '["all"]')
     }}>
       Cerca in
       <strong class="text-uppercase text-small-bold">tutto il sito</strong>
     </button>
 
     <button{{ _attributes
+      .removeClass('btn-outline-primary')
+      .removeAttribute('id')
+      .removeAttribute('data-element')
       .addClass('btn-outline-redbrown')
       .setAttribute('aria-label', 'Avvia la ricerca nella sezione scuola')
-      .setAttribute('onclick', 'addHiddenValues(["scuola:documento", "scuola:luogo", "scuola:struttura_organizzativa"])')
+      .setAttribute('data-search-api-submit-filters', '["scuola:documento", "scuola:persona", "scuola:luogo", "scuola:struttura_organizzativa"]')
     }}>
       Cerca nella sezione
       <strong class="text-uppercase text-small-bold">Scuola</strong>
     </button>
 
     <button{{ _attributes
-      .removeClass('btn-outline-redbrown')
-      .addClass('btn-outline-greendark')
-      .setAttribute('aria-label', 'Avvia la ricerca nella sezione novità')
-      .setAttribute('onclick', 'addHiddenValues(["novita:article", "novita:circolare", "novita:evento"])')
-    }}>
-      Cerca tra le
-      <strong class="text-uppercase text-small-bold">{{ 'Novità' }}</strong>
-    </button>
-
-    <button{{ _attributes
-      .removeClass('btn-outline-greendark')
+      .removeClass('btn-outline-primary')
       .addClass('btn-outline-purplelight')
-      .setAttribute('aria-label', 'Avvia la ricerca nella sezione Servizi')
-      .setAttribute('onclick', 'addHiddenValues(["servizi:1201", "servizi:1202", "servizi:1203"])')
+      .setAttribute('aria-label', 'Avvia la ricerca nella sezione servizi')
+      .setAttribute('data-search-api-submit-filters', '["servizi:1201", "servizi:1202", "servizi:1203"]')
     }}>
       Cerca nei
       <strong class="text-uppercase text-small-bold">Servizi</strong>
@@ -62,27 +55,24 @@
 
     <button{{ _attributes
       .removeClass('btn-outline-purplelight')
+      .addClass('btn-outline-greendark')
+      .setAttribute('aria-label', 'Avvia la ricerca nella sezione novità')
+      .setAttribute('data-search-api-submit-filters', '["novita:article", "novita:circolare", "novita:evento"]')
+    }}>
+      Cerca tra le
+      <strong class="text-uppercase text-small-bold">{{ 'Novità' }}</strong>
+    </button>
+
+    <button{{ _attributes
+      .removeClass('btn-outline-greendark')
       .addClass('btn-outline-bluelectric')
-      .setAttribute('aria-label', 'Avvia la ricerca nella sezione Servizi')
-      .setAttribute('onclick', 'addHiddenValues(["didattica:progetto", "didattica:scheda_didattica"])')
+      .setAttribute('aria-label', 'Avvia la ricerca nella sezione didattica')
+      .setAttribute('data-search-api-submit-filters', '["didattica:progetto", "didattica:scheda_didattica"]')
     }}>
       Cerca nella
       <strong class="text-uppercase text-small-bold">Didattica</strong>
     </button>
 
-    <input type="hidden" name="f[]" id="hidden-field" value="">
+    <input type="hidden" name="f[]" data-search-filter-id="search-api-submit-search-filters-{{ random() }}" value="">
   </div>
 {% endapply %}
-
-<script>
-  function addHiddenValues(values) {
-    let hiddenField = document.getElementById('hidden-field');
-    values.forEach(function(value) {
-      let input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = 'f[]';
-      input.value = value;
-      hiddenField.parentNode.insertBefore(input, hiddenField);
-    });
-  }
-</script>

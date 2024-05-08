@@ -12,7 +12,8 @@ module.exports = {
   entry: {
     "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
     "ckeditor5": paths.src + '/scss/ckeditor5.scss',
-    "toc_js_loader": [paths.src + '/js/custom/toc_js.js']
+    "toc_js_loader": [paths.src + '/js/custom/toc_js.js'],
+    "search-api--submit-filters": [paths.src + '/js/custom/search-api--submit-filters.js']
   },
 
   // Output
