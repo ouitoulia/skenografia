@@ -144,7 +144,7 @@ components:
     skenografia_components:
       - components
 
-# Information added by GitHub Action packaging script on 2024-05-08
-version: '2.4.3'
+# Information added by GitHub Action packaging script on 2024-05-09
+version: '2.4.4'
 project: 'Skenografia'
-datestamp: 1715182247
+datestamp: 1715237709
