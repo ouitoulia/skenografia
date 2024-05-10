@@ -14,7 +14,9 @@ class Helper {
    *
    * @return array
    *   Comune and provincia.
+   *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   *
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   public static function getLocality(): array {
@@ -24,7 +26,7 @@ class Helper {
     $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
     $ids = $nodeStorage->getQuery()
       ->accessCheck(TRUE)
-      ->condition('type','luogo')
+      ->condition('type', 'luogo')
       ->condition('status', 1)
       ->condition('field_sede_legale', 1)
       ->execute();

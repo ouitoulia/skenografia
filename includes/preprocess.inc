@@ -5,24 +5,25 @@
  * Hook THEME_preprocess.
  */
 
-use Drupal\skenografia\Helper\Helper as SHelper;
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\skenografia\Helper\Helper as SHelper;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_preprocess_HOOK() for all templates.
  */
 function skenografia_preprocess(&$variables): void {
-  // @todo: Ricordarsi di fare UI per permettere la modifica della variabile
+  // @todo Ricordarsi di fare UI per permettere la modifica della variabile
   $variables['skenografia_libraries_path'] = '/libraries/ouitoulia-skenografia';
 
-  // Restituisco l'anno scolastico corrente
+  // Restituisco l'anno scolastico corrente.
   $data_di_cambio_anno_scolastico = ((int) date('n') * 100) + (int) date('j');
   if ($data_di_cambio_anno_scolastico > 831) {
     $variables['anno_scolastico_corrente'] = date('Y') . '/' . (int) date('Y') + 1;
   }
   else {
-    $variables['anno_scolastico_corrente'] = (int) date('Y') - 1  . '/' . date('Y');
+    $variables['anno_scolastico_corrente'] = (int) date('Y') - 1 . '/' . date('Y');
   }
 }
 
@@ -31,7 +32,7 @@ function skenografia_preprocess(&$variables): void {
  */
 function skenografia_preprocess_node(&$variables): void {
   // Recupero le informazioni sull'autore nel caso siano presenti in
-  // un contenuto di tipo Persona
+  // un contenuto di tipo Persona.
   if (
     isset($variables['node']) &&
     $variables['node']->hasField('field_persona_responsabile')
@@ -39,39 +40,45 @@ function skenografia_preprocess_node(&$variables): void {
     /** @var \Drupal\node\Entity\Node $node */
     $node = $variables['node'];
 
-    // Get node submitter
+    // Get node submitter.
     $uid = $node->getOwner()->id();
 
-    // Load submitter account
-    $account = \Drupal\user\Entity\User::load($uid);
+    // Load submitter account.
+    $account = User::load($uid);
 
     if ($account->field_codice_fiscale->getValue()) {
-      // get codice fiscale from submitter account
+      // Get codice fiscale from submitter account.
       $cf = $account->field_codice_fiscale->getValue()[0]['value'];
 
-      // load profile (Persona), if exists return id else null
+      // Load profile (Persona), if exists return id else null
       // https://www.drupal.org/docs/drupal-apis/entity-api/working-with-the-entity-api#s-load-an-entity-from-the-database
       $nids = \Drupal::entityTypeManager()
         ->getStorage('node')
         ->loadByProperties([
           'field_codice_fiscale' => $cf,
         ]);
-      // nid or null
+      // Nid or null.
       $variables['author_profile_nid'] = array_key_first($nids);
-    } else {
+    }
+    else {
       $variables['author_profile_nid'] = NULL;
     }
-  } else {
+  }
+  else {
     $variables['author_profile_nid'] = NULL;
   }
 
-  // Variabili necessarie nel nodo "/scuola"
+  // Variabili necessarie nel nodo "/scuola".
   if ($variables['url'] == '/scuola') {
     $variables['site_logo'] = Drupal::theme()->getActiveTheme()->getLogo();
     $variables['site_name'] = Drupal::config('system.site')->get('name');
     $variables['site_slogan'] = Drupal::config('system.site')->get('slogan');
-    try {$variables = array_merge_recursive($variables, SHelper::getLocality());}
-    catch (InvalidPluginDefinitionException|PluginNotFoundException $e) {}
+    try {
+      $variables = array_merge_recursive($variables, SHelper::getLocality());
+    }
+    catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+
+    }
   }
 
 }
@@ -81,7 +88,7 @@ function skenografia_preprocess_node(&$variables): void {
  */
 function skenografia_preprocess_oembed_lazyload(&$variables): void {
   $variables['privacy_path'] =
-    null !== theme_get_setting('privacy_policy') ?
+    NULL !== theme_get_setting('privacy_policy') ?
     Drupal::service('path_alias.manager')->getAliasByPath('/node/' . theme_get_setting('privacy_policy')[0]['target_id']) : '#';
 }
 

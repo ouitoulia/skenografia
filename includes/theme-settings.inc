@@ -4,6 +4,7 @@
  * @file
  * Theme settings.
  */
+
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 
@@ -42,8 +43,8 @@ function skenografia_form_system_theme_settings_alter(array &$form, FormStateInt
     '#tags' => TRUE,
     '#selection_handler' => 'default',
     '#default_value' =>
-      null !== theme_get_setting('privacy_policy') ?
-      Node::load(theme_get_setting('privacy_policy')[0]['target_id']) : 0,
+    NULL !== theme_get_setting('privacy_policy') ?
+    Node::load(theme_get_setting('privacy_policy')[0]['target_id']) : 0,
   ];
 
   $form['#validate'][] = 'skenografia_form_system_theme_settings_validate';
@@ -75,4 +76,3 @@ function skenografia_form_system_theme_settings_validate(array &$form, FormState
     }
   }
 }
-

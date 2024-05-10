@@ -17,7 +17,7 @@ function skenografia_theme_suggestions_page_alter(array &$suggestions, array &$v
 }
 
 /**
- * Implements hook_theme_suggestions_node_alter().
+ * Implements hook_theme_suggestions_HOOK_alter().
  */
 function skenografia_theme_suggestions_node_alter(array &$suggestions, array $variables): void {
   if (in_array('node__type_page__view_mode_full', $suggestions, TRUE)) {
@@ -27,6 +27,9 @@ function skenografia_theme_suggestions_node_alter(array &$suggestions, array $va
   }
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
 function skenografia_theme_suggestions_views_view_fields_alter(array &$suggestions, array &$variables): void {
   if (isset($variables['view'])) {
     $view = $variables['view'];
@@ -36,6 +39,9 @@ function skenografia_theme_suggestions_views_view_fields_alter(array &$suggestio
   }
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
 function skenografia_theme_suggestions_views_view_field_alter(array &$suggestions, array &$variables): void {
   if (isset($variables['field']) && isset($variables['view'])) {
     $field = $variables['field'];

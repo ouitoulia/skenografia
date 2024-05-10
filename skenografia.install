@@ -6,7 +6,7 @@
  */
 
 /**
- * Dalla 1.7.0 le informazioni rimosse vengono gestite con node.bundle['luogo']
+ * Dalla 1.7.0 le informazioni rimosse vengono gestite con node.bundle['luogo'].
  */
 function skenografia_update_8001() {
   $config = \Drupal::configFactory()->getEditable('skenografia.settings');

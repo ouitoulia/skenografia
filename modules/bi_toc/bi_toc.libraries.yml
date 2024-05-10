@@ -1,8 +1,0 @@
-bi_toc:
-  css:
-    theme:
-      css/bi_toc.css: {}
-  js:
-    js/tableOfContents.js: {}
-  dependencies:
-    - core/drupal

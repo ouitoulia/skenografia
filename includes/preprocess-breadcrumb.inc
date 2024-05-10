@@ -5,8 +5,6 @@
  * Preprocess breadcrumb.
  */
 
-use Drupal\Core\Template\Attribute;
-
 /**
  * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
  */
@@ -25,7 +23,7 @@ function skenografia_preprocess_breadcrumb(array &$variables): void {
 
       // Fix cache.
       $variables['#cache']['contexts'][] = 'url';
-      $variables['breadcrumb'][ array_key_last($variables['breadcrumb']) ]["text"] = $page_title_sanitized;
+      $variables['breadcrumb'][array_key_last($variables['breadcrumb'])]["text"] = $page_title_sanitized;
     }
   }
 }

@@ -18,7 +18,7 @@ function skenografia_preprocess_block(array &$variables): void {
     try {
       $variables = array_merge_recursive($variables, Helper::getLocality());
     }
-    catch (InvalidPluginDefinitionException|PluginNotFoundException $e) {
+    catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
     }
   }
 }
