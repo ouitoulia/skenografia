@@ -61,23 +61,24 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   fill: $bluelectric !important;
 }
 
-/* TODO: le regole riguardanti le form è più logico spostarle dentro _form.scss? */
-:focus,
-.form-check [type="checkbox"]:focus + label,
-.form-check [type="radio"]:focus + label,
-.toggles label input[type="checkbox"]:focus + .lever {
-  border: 0;
-  outline: none;
-  box-shadow: none;
-}
+/* Queste righe sono commentate in quanto viene usata la gestione dei focus
+ di boostrap-italia2 */
+//:focus,
+//.form-check [type="checkbox"]:focus + label,
+//.form-check [type="radio"]:focus + label,
+//.toggles label input[type="checkbox"]:focus + .lever {
+//  border: 0;
+//  outline: none;
+//  box-shadow: none;
+//}
 
 /* https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L158 */
-.form-check [type=checkbox]:focus+label,
-.form-check [type=radio]:focus+label,
-.toggles label input[type=checkbox]:focus+.lever,
-:focus:not(.focus--mouse):not([data-focus-mouse=true]) {
-  border-color: #000 !important;
-  box-shadow: 0 0 0 2px #000!important;
-  outline: 2px solid #fff !important;
-  outline-offset: 3px;
-}
+//.form-check [type=checkbox]:focus+label,
+//.form-check [type=radio]:focus+label,
+//.toggles label input[type=checkbox]:focus+.lever,
+//:focus:not(.focus--mouse):not([data-focus-mouse=true]) {
+//  border-color: #000 !important;
+//  box-shadow: 0 0 0 2px #000!important;
+//  outline: 2px solid #fff !important;
+//  outline-offset: 3px;
+//}
