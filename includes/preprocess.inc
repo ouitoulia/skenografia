@@ -28,6 +28,14 @@ function skenografia_preprocess(&$variables): void {
 }
 
 /**
+ * Implements hook_preprocess_page().
+ */
+function skenografia_preprocess_page(array &$variables): void {
+  // Site name.
+  $variables['site_slogan'] = \Drupal::config('system.site')->get('slogan');
+}
+
+/**
  * Implements hook_preprocess_node().
  */
 function skenografia_preprocess_node(&$variables): void {
