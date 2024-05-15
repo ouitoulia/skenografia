@@ -23,7 +23,7 @@
 
     <button{{ _attributes
       .addClass('btn-outline-primary')
-      .setAttribute('aria-label', 'Avvia la ricerca')
+      .setAttribute('aria-label', 'Cerca in tutto il sito')
       .setAttribute('data-element', 'search-submit')
       .setAttribute('data-search-api-submit-filters', '["all"]')
     }}>
@@ -36,7 +36,7 @@
       .removeAttribute('id')
       .removeAttribute('data-element')
       .addClass('btn-outline-redbrown')
-      .setAttribute('aria-label', 'Avvia la ricerca nella sezione scuola')
+      .setAttribute('aria-label', 'Cerca nella sezione scuola')
       .setAttribute('data-search-api-submit-filters', '["scuola:documento", "scuola:persona", "scuola:luogo", "scuola:struttura_organizzativa"]')
     }}>
       Cerca nella sezione
@@ -46,7 +46,7 @@
     <button{{ _attributes
       .removeClass('btn-outline-primary')
       .addClass('btn-outline-purplelight')
-      .setAttribute('aria-label', 'Avvia la ricerca nella sezione servizi')
+      .setAttribute('aria-label', 'Cerca nei servizi')
       .setAttribute('data-search-api-submit-filters', '["servizi:1201", "servizi:1202", "servizi:1203"]')
     }}>
       Cerca nei
@@ -56,17 +56,17 @@
     <button{{ _attributes
       .removeClass('btn-outline-purplelight')
       .addClass('btn-outline-greendark')
-      .setAttribute('aria-label', 'Avvia la ricerca nella sezione novità')
+      .setAttribute('aria-label', 'Cerca tra le novità')
       .setAttribute('data-search-api-submit-filters', '["novita:article", "novita:circolare", "novita:evento"]')
     }}>
       Cerca tra le
-      <strong class="text-uppercase text-small-bold">{{ 'Novità' }}</strong>
+      <strong class="text-uppercase text-small-bold">Novità</strong>
     </button>
 
     <button{{ _attributes
       .removeClass('btn-outline-greendark')
       .addClass('btn-outline-bluelectric')
-      .setAttribute('aria-label', 'Avvia la ricerca nella sezione didattica')
+      .setAttribute('aria-label', 'Cerca nella didattica')
       .setAttribute('data-search-api-submit-filters', '["didattica:progetto", "didattica:scheda_didattica"]')
     }}>
       Cerca nella
