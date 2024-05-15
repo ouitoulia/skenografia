@@ -38,14 +38,14 @@
   <div{{ attributes.addClass(classes).setAttribute('id', id_block) }}>
     {{ title_prefix }}
     {% if label %}
-      <h2{{ title_attributes.addClass(['mb-4', 'd-flex', 'align-items-center']) }}>
+      <div{{ title_attributes.addClass(['h2', 'mb-4', 'd-flex', 'align-items-center']) }}>
         <span class="h1 me-auto">{{ label }}</span>
         <button class="btn-close p-0" type="button" data-bs-dismiss="modal" aria-label="Close modal dialog" data-focus-mouse="false">
           {% include '@bi-bcl/icon/icon.html.twig' with {
             name: 'it-close',
           } %}
         </button>
-      </h2>
+      </div>
     {% endif %}
     {{ title_suffix }}
     {% block content %}
