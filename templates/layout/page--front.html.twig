@@ -77,13 +77,13 @@
                 <a class="btn btn-sm btn-outline-white mt-4" href="/scuola" title="Vai alla presentazione di {{ site_slogan }} {{ site_name }}">Vai alla scuola</a>
               </div>
             </div>
-            {% if page.home_custom_heading %}
-              <div class="col-md-6">
-                {{ page.home_custom_heading }}
-              </div>
-            {% endif %}
           </div>
         </div>
+        {% if page.home_custom_heading %}
+          <div class="hero-img">
+            {{ page.home_custom_heading }}
+          </div>
+        {% endif %}
       </section>
     {% endblock %}
 
