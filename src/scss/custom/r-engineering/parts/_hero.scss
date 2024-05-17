@@ -41,8 +41,8 @@
 .hero-title {
   text-align: center;
   padding: 50px 0 50px 0;
-  @include media-breakpoint-down(sm) {
-  }
+  //@include media-breakpoint-down(sm) {
+  //}
   h1, .h1 {
     margin: 0 0 35px 0;
     font-size: 3.32rem;
@@ -108,13 +108,13 @@
     opacity: 0.12;
   }
   .decoration-01 {
-    position: absolute;
+    //position: absolute;
     z-index: 0;
-    top: 50%;
-    left: 50%;
+    //top: 50%;
+    //left: 50%;
     width: 312px;
     height: 311px;
-    display: block;
+    //display: block;
     margin: -156px 0 0 -156px;
     svg {
       width: 312px;
@@ -128,13 +128,13 @@
     }
   }
   .decoration-02 {
-    position: absolute;
+    //position: absolute;
     z-index: 0;
-    bottom: 50px;
-    left: 50px;
+    //bottom: 50px;
+    //left: 50px;
     width: 102px;
     height: 114px;
-    display: block;
+    //display: block;
     svg {
       width: 102px;
       height: 114px;
