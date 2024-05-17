@@ -26,6 +26,9 @@ $header-center-search-icon-size: $v-gap * 2;
 // Header Center theme light
 $header-center-theme-light-text-color: $dark;
 
+// Pager
+$pager-item-current-color: var(--bs-dark);
+
 // ##### FOOTER #####
 $footer-top-background: #5a768a;
 $footer-bottom-background: #5a768a;

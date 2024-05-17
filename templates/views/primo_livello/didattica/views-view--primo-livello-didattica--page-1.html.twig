@@ -58,7 +58,7 @@
           <div class="col-md-4 col-lg-3 d-flex flex-column">
             <div class="h6 text-white ms-4 mb-5 mt-auto pt-5">
               <span class="mb-1 d-block">La Scuola</span>
-              <span class="d-block"><abbr aria-label="Anno Scolastico">A.S.</abbr> {{ anno_scolastico_corrente }}</span>
+              <span class="d-block"><abbr title="Anno Scolastico">A.S.</abbr> {{ anno_scolastico_corrente }}</span>
             </div>
           </div>
           <div class="col-md-8 col-lg-9 bg-bluelectric p-5">
@@ -131,77 +131,75 @@
   </section>
 
   {% if footer %}
-    <footer>
-      <section class="section bg-white py-5 px-2">
-        <div class="container">
-          <div class="row variable-gutters">
+    <section class="section bg-white py-5 px-2">
+      <div class="container">
+        <div class="row variable-gutters">
 
-            <div class="col-lg-4">
-              {{ footer }}
-            </div>
-
-            <div class="col-lg-8">
-              <div class="row variable-gutters pt-5">
-
-                <div class="col-lg-6">
-                  {% embed '@bi-bcl/card/card.html.twig' with {
-                    card_tag_container: 'article',
-                    card_title: label,
-                    card_shadow: true,
-                    card_rounded: true,
-                    card_teaser: true,
-                    card_attributes: false,
-                    card_classes: ['mb-5']
-                  } %}
-                    {% block cardTitle %}
-                      <h3{{ title_attributes.addClass(['h4', 'mb-0', 'fw-lighter']) }}>
-                        <a class="d-flex align-items-center" href="/didattica/i-progetti-delle-classi" title="Tutti i progetti delle classi" rel="bookmark">
-                          {% include '@bi-bcl/icon/icon.html.twig' with {
-                            name: 'icon-books',
-                            size: 'lg',
-                            color: 'bluelectric',
-                            icon_classes: ['me-4']
-                          } %}
-                          <span>I progetti delle classi</span>
-                        </a>
-                      </h3>
-                    {% endblock %}
-                  {% endembed %}
-                </div>
-
-                <div class="col-lg-6">
-                  {% embed '@bi-bcl/card/card.html.twig' with {
-                    card_tag_container: 'article',
-                    card_title: label,
-                    card_shadow: true,
-                    card_rounded: true,
-                    card_teaser: true,
-                    card_attributes: false,
-                    card_classes: ['mb-5']
-                  } %}
-                    {% block cardTitle %}
-                      <h3{{ title_attributes.addClass(['h4', 'mb-0', 'fw-lighter']) }}>
-                        <a class="d-flex align-items-center" href="/didattica/le-schede-didattiche" title="Tutte le schede didattiche" rel="bookmark">
-                          {% include '@bi-bcl/icon/icon.html.twig' with {
-                            name: 'icon-timetable',
-                            size: 'lg',
-                            color: 'bluelectric',
-                            icon_classes: ['me-4']
-                          } %}
-                          <span>Le schede didattiche</span>
-                        </a>
-                      </h3>
-                    {% endblock %}
-                  {% endembed %}
-                </div>
-
-              </div>
-            </div>
-
+          <div class="col-lg-4">
+            {{ footer }}
           </div>
+
+          <div class="col-lg-8">
+            <div class="row variable-gutters pt-5">
+
+              <div class="col-lg-6">
+                {% embed '@bi-bcl/card/card.html.twig' with {
+                  card_tag_container: 'article',
+                  card_title: label,
+                  card_shadow: true,
+                  card_rounded: true,
+                  card_teaser: true,
+                  card_attributes: false,
+                  card_classes: ['mb-5']
+                } %}
+                  {% block cardTitle %}
+                    <h3{{ title_attributes.addClass(['h4', 'mb-0', 'fw-lighter']) }}>
+                      <a class="d-flex align-items-center" href="/didattica/i-progetti-delle-classi" title="Tutti i progetti delle classi" rel="bookmark">
+                        {% include '@bi-bcl/icon/icon.html.twig' with {
+                          name: 'icon-books',
+                          size: 'lg',
+                          color: 'bluelectric',
+                          icon_classes: ['me-4']
+                        } %}
+                        <span>I progetti delle classi</span>
+                      </a>
+                    </h3>
+                  {% endblock %}
+                {% endembed %}
+              </div>
+
+              <div class="col-lg-6">
+                {% embed '@bi-bcl/card/card.html.twig' with {
+                  card_tag_container: 'article',
+                  card_title: label,
+                  card_shadow: true,
+                  card_rounded: true,
+                  card_teaser: true,
+                  card_attributes: false,
+                  card_classes: ['mb-5']
+                } %}
+                  {% block cardTitle %}
+                    <h3{{ title_attributes.addClass(['h4', 'mb-0', 'fw-lighter']) }}>
+                      <a class="d-flex align-items-center" href="/didattica/le-schede-didattiche" title="Tutte le schede didattiche" rel="bookmark">
+                        {% include '@bi-bcl/icon/icon.html.twig' with {
+                          name: 'icon-timetable',
+                          size: 'lg',
+                          color: 'bluelectric',
+                          icon_classes: ['me-4']
+                        } %}
+                        <span>Le schede didattiche</span>
+                      </a>
+                    </h3>
+                  {% endblock %}
+                {% endembed %}
+              </div>
+
+            </div>
+          </div>
+
         </div>
-      </section>
-    </footer>
+      </div>
+    </section>
   {% endif %}
 
   {{ feed_icons }}

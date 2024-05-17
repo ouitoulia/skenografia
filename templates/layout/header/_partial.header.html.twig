@@ -3,7 +3,7 @@
     {% block headerSlim %}
       {% embed '@bootstrap_italia/layout/header/_partial.header-slim.html.twig' %}
         {% block headerSlimRightZone %}
-          <div class="it-header-slim-right-zone" role="navigation">
+          <div class="it-header-slim-right-zone" role="navigation" aria-label="{{ 'User links'|t }}">
           {% if page.header_slim_language %}
             {{ page.header_slim_language }}
           {% endif %}
