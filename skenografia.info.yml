@@ -9,6 +9,7 @@ base theme: bootstrap_italia
 libraries:
 #  - skenografia/libraries-ui
 #  - skenografia/vanilla
+  - skenografia/fonts
 #  - skenografia/custom
   - skenografia/cdn
 #  - skenografia/hot

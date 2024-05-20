@@ -12,6 +12,7 @@ module.exports = {
   entry: {
     "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
     "ckeditor5": paths.src + '/scss/ckeditor5.scss',
+    "fonts": paths.src + '/scss/_fonts.scss',
     "search-api--submit-filters": [paths.src + '/js/custom/search-api--submit-filters.js'],
     "toc_js_loader": [paths.src + '/js/custom/toc_js.js'],
   },
@@ -75,24 +76,28 @@ module.exports = {
           to: paths.build + '/images/'
         },
         {
-          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/css/images/',
+          from: paths.modules + '/design-scuole-pagine-statiche/src/assets/css/images/',
           to: paths.build + '/css/images/'
         },
         {
-          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/css/ajax-loader.gif',
+          from: paths.modules + '/design-scuole-pagine-statiche/src/assets/css/ajax-loader.gif',
           to: paths.build + '/css/ajax-loader.gif'
         },
         {
-          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/img/',
+          from: paths.modules + '/design-scuole-pagine-statiche/src/assets/img/',
           to: paths.build + '/img/'
         },
         {
-          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/placeholders/',
+          from: paths.modules + '/design-scuole-pagine-statiche/src/assets/placeholders/',
           to: paths.build + '/placeholders/'
         },
         {
-          from:  paths.modules + '/design-scuole-pagine-statiche/src/assets/svg/',
+          from: paths.modules + '/design-scuole-pagine-statiche/src/assets/svg/',
           to: paths.build + '/svg/'
+        },
+        {
+          from: './version.css',
+          to: paths.build + '/css/version.css'
         }
       ]
     }),
@@ -101,11 +106,15 @@ module.exports = {
         compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
           const ckeditorJsFile = compiler.options.output.path + '/js/ckeditor5.min.js';
           const ckeditorComuniJsFile = compiler.options.output.path + '/js/ckeditor5-comuni.min.js';
+          const fontsJsFile = compiler.options.output.path + '/js/fonts.min.js';
           if (fs.existsSync(ckeditorJsFile)) {
             rimraf.sync(ckeditorJsFile);
           }
           if (fs.existsSync(ckeditorComuniJsFile)) {
             rimraf.sync(ckeditorComuniJsFile);
+          }
+          if (fs.existsSync(fontsJsFile)) {
+            rimraf.sync(fontsJsFile);
           }
         });
       },
