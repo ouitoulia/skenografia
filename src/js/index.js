@@ -61,7 +61,7 @@ import {
   //Masonry,
   List,
   //Transfer,
-  VideoPlayer,
+  //VideoPlayer,
 } from 'bootstrap-italia'
 
 loadPlugin(icons)
@@ -80,7 +80,7 @@ const bootstrap = {
   Tab,
   //Toast,
   Tooltip,
-  VideoPlayer,
+  //VideoPlayer,
   AcceptOverlay,
   Accordion,
   BackToTop,
