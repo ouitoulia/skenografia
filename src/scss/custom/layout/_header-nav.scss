@@ -221,8 +221,6 @@
             }
             @include media-breakpoint-down(lg) {
               li a.nav-link {
-                padding-left: 0;
-                padding-right: 0;
                 &.dropdown-toggle svg.icon {
                   fill: $gray-primary;
                   width: 24px;

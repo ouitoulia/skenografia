@@ -1,6 +1,6 @@
 {
   "name": "@ouitoulia/skenografia",
-  "version": "2.1.5",
+  "version": "2.8.0",
   "description": "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole.",
   "engineStrict": true,
   "engines": {
@@ -53,7 +53,7 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
-    "bootstrap-italia": "2.7.7",
+    "bootstrap-italia": "2.8.7",
     "design-scuole-pagine-statiche": "github:italia/design-scuole-pagine-statiche#main",
     "design-scuole-pagine-statiche-src": "github:italia/design-scuole-pagine-statiche#src-scss",
     "hamburgers": "^1.2.1"
