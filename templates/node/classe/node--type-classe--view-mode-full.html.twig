@@ -97,6 +97,13 @@
     ]
   %}
 
+  {% set _denominazione_organo_collegiale = {
+    '3001' : 'Il consiglio di intersezione',
+    '3051' : 'Il consiglio di interclasse',
+    '3101' : 'Il consiglio della classe ' ~ _classe,
+    '3201' : 'Il consiglio della classe ' ~ _classe
+  } %}
+
   <section class="section bg-redbrown bg-red-gradient py-5 px-3">
     <div class="container">
       <div class="row variable-gutters">
@@ -187,7 +194,7 @@
     <section id="consiglio-di-classe" class="section bg-linear-vertical-blue-light py-5">
       <div class="container">
         <div class="title-section text-center mb-5">
-          <h2 class="h4">Il Consiglio della classe {{ _classe }}</h2>
+          <h2 class="h4">{{ _denominazione_organo_collegiale[grado_di_istruzione.id] }}</h2>
         </div>
         <div class="row variable-gutters">
           {{ content.field_persona_responsabile }}

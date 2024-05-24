@@ -7,7 +7,9 @@
 
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\node\Entity\Node;
 use Drupal\skenografia\Helper\Helper as SHelper;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 
 /**
@@ -86,6 +88,25 @@ function skenografia_preprocess_node(&$variables): void {
     }
     catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
 
+    }
+  }
+
+  if (isset($variables['node'])) {
+    /** @var Drupal\node\Entity\Node $node */
+    $node = $variables['node'];
+    if ($node->getType() == 'classe') {
+      /** @var Drupal\node\Entity\Node $percorso_di_studio */
+      $percorso_di_studio = Node::load($node->get('field_percorso_di_studio')->getValue()[0]['target_id']);
+      $grado_istruzione_id = $percorso_di_studio->get('field_grado_di_istruzione')->getValue()[0]['target_id'];
+      $variables['grado_di_istruzione']['id'] = $grado_istruzione_id;
+
+      // Risolvendo anche il nome 0.00011 secondi,
+      // lasciando commentato 6.9000000000097E-5 secondi,
+      // è ~37% più performante.
+      /** @var \Drupal\taxonomy\Entity\Term $grado_di_istruzione */
+      //$grado_di_istruzione = Term::load($grado_istruzione_id);
+      //$nome_termine = $grado_di_istruzione->get('name')->getValue()[0]['value'];
+      //$variables['grado_di_istruzione']['nome'] = $nome_termine;
     }
   }
 
