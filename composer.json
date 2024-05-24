@@ -22,7 +22,7 @@
         "source": "https://github.com/ouitoulia/skenografia"
     },
     "require": {
-        "drupal/bootstrap_italia": "2.8.x-dev@dev",
+        "drupal/bootstrap_italia": "2.x-dev@dev",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/focal_point": ">=2",
         "drupal/color_field": ">=3.0",
