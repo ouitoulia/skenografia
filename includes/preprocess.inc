@@ -91,6 +91,7 @@ function skenografia_preprocess_node(&$variables): void {
     }
   }
 
+  // Inserisco il grado di istruzione nei nodi di tipo Classe
   if (isset($variables['node'])) {
     /** @var Drupal\node\Entity\Node $node */
     $node = $variables['node'];
