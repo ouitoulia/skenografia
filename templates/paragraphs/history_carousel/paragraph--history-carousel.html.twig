@@ -40,7 +40,7 @@
 #}
 {% apply spaceless %}
   {% set _title_tag = content.field_title_tag|render|striptags|trim %}
-  {% embed '@bootstrap_italia_paragraph/content/bi-paragraph-base.html.twig' with {
+  {% embed '@bootstrap_italia_paragraph_components/content/bi-paragraph-base.html.twig' with {
     paragraph: paragraph,
     content: content,
     attributes: attributes,
