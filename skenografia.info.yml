@@ -128,6 +128,8 @@ regions:
   content_views_second_level: "Content per le views di secondo livello"
   footer_info_legali: "Footer - Info legali della scuola"
   home_custom_heading: "Home page - Intestazione personalizzata"
+  login_first: "Login - First region"
+  login_second: "Login - Second region"
 
 dependencies:
  - drupal:big_pipe
