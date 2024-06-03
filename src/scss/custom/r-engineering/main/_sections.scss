@@ -310,6 +310,20 @@
   }
 }
 
+// Port from 2.4.1 scuole.css#L14633
+.petrol-oval-forms {
+  width: 578px;
+  height: 359px;
+//  position: absolute;
+  z-index: 0;
+//  top: 0;
+//  right: 40px;
+  svg {
+    width: 578px;
+    height: 359px;
+  }
+}
+
 .green-square-forms {
   width: 672px; //726px;
   height: 360px;

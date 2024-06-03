@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: (optional) Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% embed '@bi-bcl/card/card.html.twig' with {
+    card_tag_container: 'article',
+    card_title: label,
+    card_text: content,
+    card_shadow: true,
+    card_rounded: true,
+    card_teaser: true,
+    card_attributes: attributes
+  } %}
+    {% block cardTitle %}
+      <h3{{ title_attributes.addClass(['card-title', 'h5']) }}>
+        <a class="d-flex" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ name[0]['#context'].value }}" rel="bookmark">
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'icon-bookmark-solid',
+            size: 'sm',
+            color: 'petrol',
+            icon_classes: ['me-4']
+          } %}
+          {{ title_prefix }}
+          {{ name }}
+          {{ title_suffix }}
+        </a>
+      </h3>
+    {% endblock %}
+  {% endembed %}
+{% endapply %}
