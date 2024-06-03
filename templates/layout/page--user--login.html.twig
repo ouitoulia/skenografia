@@ -34,59 +34,54 @@
  */
 #}
 <div id="page-user-login">
+  <h1 class="visually-hidden" id="it-skip-to-main-content">{{ 'Accedi ai servizi'|t }}</h1>{# link is in html.html.twig #}
 
   {% block header %}
     <header class="it-header-center-wrapper theme-light my-5">
-      <div class="container">
+      <div class="container-lg">
         <div class="row">
-          <div class="row">
-            <div class="col-6">
-              <div class="it-header-center-content-wrapper">
-                {{ page.brand }}
-              </div>
-            </div>
-            <div class="col-6 text-end">
-              <button type="button" class="btn btn-close go-back me-5" data-bs-toggle="historyback">
-                {% include '@bi-bcl/icon/icon.html.twig' with {
-                  name: 'it-close',
-                  size: 'xxl',
-                } %}
-                <span class="visually-hidden">Torna indietro</span></button>
+          <div class="col-6">
+            <div class="it-header-center-content-wrapper">
+              {{ page.brand }}
             </div>
           </div>
+          <div class="col-6 text-end">
+            <button type="button" class="btn btn-close go-back me-5" data-bs-toggle="historyback">
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-close',
+                size: 'xxl',
+              } %}
+              <span class="visually-hidden">Torna indietro</span></button>
+          </div>
         </div>
-      </div>
+        </div>
     </header>
   {% endblock %}
 
   {% block main %}
     <main>
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6 bg-primary p-5" id="it-skip-to-main-content"> {# link is in html.html.twig #}
-            <h1 class="text-white fw-semibold">{{ 'Accedi ai servizi'|t }}</h1>
-            <p class="text-white lead">{{ 'Da qui puoi accedere ai diversi servizi della scuola che richiedono un\'autenticazione personale.'|t }}</p>
-            <div class="mt-5">
+        <div class="row bg-primary">
+
+          {% if page.login_first or page.login_second %}
+            <div class="col-lg-6 bg-white p-5">
               {% if page.login_first %}
                 {{ page.login_first }}
-              {% else %}
-                <p class="text-white">{{ 'Nessun servizio online presente'|t }}</p>
-                <a href="/servizi" class="btn btn-outline-white" title="{{ 'Vai alla pagina dei servizi'|t }}">{{ 'Vedi tutti i servizi'|t }}</a>
+              {% endif %}
+              {% if page.login_second %}
+                <div class="mt-5">
+                  {{ page.login_second }}
+                </div>
               {% endif %}
             </div>
-            {% if page.login_second %}
-              <div class="mt-5">
-                {{ page.login_second }}
-              </div>
-            {% endif %}
-          </div>
+          {% endif %}
 
-          <div class="col-lg-4 offset-lg-1 py-5">
-            <h1 class="fw-semibold">{{ 'Personale scolastico'|t }}</h1>
-            <p class="lead">{{ 'Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.'|t }}</p>
+          <div class="col-lg-4 offset-lg-1 py-5 vh-100">
+            <h2 class="text-white fw-semibold">{{ 'Personale scolastico'|t }}</h2>
+            <p class="text-white lead">{{ 'Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.'|t }}</p>
 
             {% if page.local_tasks %}
-              <div class="it-local-tasks-wrapper mt-5">
+              <div class="it-local-tasks-wrapper mt-5 nav-dark">
                 {{ page.local_tasks }}
               </div>
             {% endif %}

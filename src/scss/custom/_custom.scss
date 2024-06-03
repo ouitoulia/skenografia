@@ -94,7 +94,10 @@
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/search';
 @import "r-engineering/main/search";
 
+// Fatto 2.4.1
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/access';
+//@import "r-engineering/main/access";
+
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/menu-mobile/nav-mobile';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/menu-user';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/footer';
@@ -166,6 +169,7 @@ h1 {@extend .fw-semibold;}
 @import "components/buttons";
 @import "components/card";
 @import "components/chip";
+@import "components/form";
 @import "components/icon";
 @import "components/nav-tabs";
 @import "components/navscroll";

@@ -1,0 +1,55 @@
+.bg-primary form {
+  .form-group {
+    label.active {
+      color: var(--bs-white);
+    }
+    input {
+      background-color: transparent;
+      border-color: var(--bs-white);
+    }
+    .form-control {
+      color: var(--bs-white);
+      &::-webkit-input-placeholder {
+        color: #8da0af !important;
+      }
+      &:-ms-input-placeholder {
+        color: #8da0af !important;
+      }
+      &::placeholder {
+        color: #8da0af !important;
+      }
+    }
+    .password-icon {
+      background-color: transparent;
+      svg {
+        fill: var(--bs-white)
+      }
+    }
+  }
+  .form-actions {
+    .btn-primary.form-submit {
+      @extend .btn-outline-white;
+    }
+  }
+  a {
+    color: var(--bs-white);
+  }
+  h3, .h3, p {
+    color: var(--bs-white);
+  }
+  .form-check, label {
+    color: var(--bs-white);
+  }
+  .form-check [type="checkbox"]:not(:checked) + label::after {
+    border-color: var(--bs-white);
+  }
+  .form-check [type="checkbox"]:checked + label::after {
+    border-color: var(--bs-white);
+    background-color: var(--bs-white);
+  }
+  .form-check [type="checkbox"]:checked + label::before {
+    border-color: transparent var(--bs-petrol) var(--bs-petrol) transparent;
+  }
+}
+
+

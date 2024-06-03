@@ -146,3 +146,9 @@ function skenografia_preprocess_field(&$variables) {
     }
   }
 }
+
+function skenografia_preprocess_menu_local_tasks(&$variables): void {
+  if ( Drupal::routeMatch()->getRouteName() == "user.login") {
+    $variables['attributes']['class'][] = 'nav-dark';
+  }
+}
