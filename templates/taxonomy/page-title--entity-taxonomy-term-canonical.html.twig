@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Default theme implementation for page titles.
+ *
+ * Available variables:
+ * - title_attributes: HTML attributes for the page title element.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title: The page title, for use in the actual content.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% set _section_classes = [
+    'section',
+    'bg-primary',
+    'py-5',
+    'py-lg-3',
+    'mb-5'
+  ] %}
+  <section{{ create_attribute().addClass(_section_classes) }}>
+    <div class="container">
+      <div class="row variable-gutters">
+        <div class="col-12 col-sm-9 col-md-8 col-lg-8">
+          <div class="hero-title text-start">
+            {{ title_prefix }}
+            {% if title %}
+              <h1{{ title_attributes.addClass('ps-0','mb-2','text-white','fw-lighter') }}>{{ title }}</h1>
+            {% endif %}
+            {{ title_suffix }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endapply %}
