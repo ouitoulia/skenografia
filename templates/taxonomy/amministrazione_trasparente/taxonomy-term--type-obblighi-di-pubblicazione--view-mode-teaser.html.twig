@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: (optional) Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% set _obbligo_pubblicazione = content.field_persona_responsabile[0] is iterable %}
+  {% embed '@bi-bcl/card/card.html.twig' with {
+    card_tag_container: 'article',
+    card_title: label,
+    card_text: content|without('field_persona_responsabile'),
+    card_shadow: true,
+    card_rounded: true,
+    card_teaser: true,
+    card_read_more_url: url,
+    card_read_more_label: 'Vai alle pubblicazioni'|t,
+    card_read_more_text: name[0]['#context'].value,
+
+    card_attributes: attributes
+  } %}
+    {% block cardTitle %}
+      {{ title_prefix }}
+      <h3{{ title_attributes.addClass(['card-title', 'h5', 'mb-5']) }}>
+        <a class="d-flex" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ name[0]['#context'].value }}" rel="bookmark">
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: _obbligo_pubblicazione ? 'it-check' : 'icon-bookmark-solid',
+            size: 'xl',
+            color: _obbligo_pubblicazione ? 'greendark' : 'light',
+            icon_classes: ['me-4']
+          } %}
+          <span>
+            {{ name }}
+            {% if _obbligo_pubblicazione %}
+              <small class="text-greendark">Le scuole sono soggette a questo obbligo.</small>
+            {% else %}
+              <small class="text-muted">Non di pertinenza dell'istituzione scolastica.</small>
+            {% endif %}
+          </span>
+        </a>
+      </h3>
+      {{ title_suffix }}
+    {% endblock %}
+
+  {% endembed %}
+{% endapply %}
