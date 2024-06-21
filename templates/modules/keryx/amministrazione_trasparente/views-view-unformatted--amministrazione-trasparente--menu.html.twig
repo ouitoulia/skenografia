@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{% embed '@bi-bcl/list/list.html.twig' with {
+  list_classes: ['pb-5','mb-5']
+} %}
+  {% block listItems %}
+    {% for row in rows %}
+      {% set _taxonomy_url = drupal_url('/taxonomy/term/' ~ row.content['#row'].tid) %}
+      {% set _active = path('<current>')|split('/')|slice(0, 3)|join('/') == _taxonomy_url|render %}
+      {% embed '@bi-bcl/list/list-item.html.twig' with {
+        list_url: _taxonomy_url|render,
+        list_icon: _active ? 'it-arrow-right' : 'it-list',
+        color: 'info',
+        list_text: row.content|render|striptags|trim,
+        list_active: _active,
+        list_item_classes: [ _active ? 'bg-gray-light']
+      } %}
+        {% block listText %}
+          <span{{ row.attributes.addClass('text') }}>
+            {{- row.content -}}
+          </span>
+        {% endblock %}
+      {% endembed %}
+    {% endfor %}{# /for #}
+
+  {% endblock %}
+{% endembed %}

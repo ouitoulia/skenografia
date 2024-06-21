@@ -1,0 +1,86 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: (optional) Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% set _obbligo_pubblicazione = content.field_persona_responsabile[0] is iterable %}
+  {% set _section_classes = [
+    'section',
+    'bg-primary',
+    'py-5',
+    'py-lg-3',
+  ] %}
+  <section{{ create_attribute().addClass(_section_classes) }}>
+    <div class="container">
+      <div class="row variable-gutters">
+        {% if content.field_icona[0] is iterable %}
+          <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
+            <div class="d-flex justify-content-center py-3">
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: content.field_icona|render|striptags|trim,
+                size: 'xxxl',
+                color: 'white',
+                icon_classes: ['']
+              } %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="col-12 col-sm-9 col-md-8 col-lg-8">
+          <div class="hero-title text-start">
+            {{ title_prefix }}
+            {% if name %}
+              <h1{{ title_attributes.addClass('ps-0','mb-2','text-white','fw-lighter') }}>{{ name }}</h1>
+            {% endif %}
+            {{ title_suffix }}
+            <p class="lead text-white">{{ content.description[0]|render|striptags|trim|truncate(220, true, '...') }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section{{ attributes.addClass(['section', 'bg-gray-light', 'py-5']) }}>
+    <div class="container">
+    {% if _obbligo_pubblicazione %}
+      {% embed '@bi-bcl/accordion/accordion.html.twig' with {left_icon: true} %}
+        {% block accordionItems %}
+          {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
+            item_title: 'Descrizione e riferimenti normativi'|t
+          } %}
+            {% block accordionItemBody %}
+              {% include '@skenografia/modules/keryx/amministrazione_trasparente/_partial.descrizione-e-riferimenti--obbligo-pubblicazione.html.twig' %}
+            {% endblock %}
+          {% endembed %}{# /accordion-item #}
+        {% endblock %}
+      {% endembed %}{# /accordion #}
+
+    {% else %}
+      {% include '@skenografia/modules/keryx/amministrazione_trasparente/_partial.descrizione-e-riferimenti--obbligo-pubblicazione.html.twig' %}
+    {% endif %}
+    </div>
+  </section>
+
+{% endapply %}

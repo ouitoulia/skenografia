@@ -35,9 +35,8 @@
     card_rounded: true,
     card_teaser: true,
     card_read_more_url: url,
-    card_read_more_label: 'Vai alle pubblicazioni'|t,
+    card_read_more_label: _obbligo_pubblicazione ? 'Vai alle pubblicazioni'|t : 'Più informazioni'|t,
     card_read_more_text: name[0]['#context'].value,
-
     card_attributes: attributes
   } %}
     {% block cardTitle %}
@@ -45,15 +44,15 @@
       <h3{{ title_attributes.addClass(['card-title', 'h5', 'mb-5']) }}>
         <a class="d-flex" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ name[0]['#context'].value }}" rel="bookmark">
           {% include '@bi-bcl/icon/icon.html.twig' with {
-            name: _obbligo_pubblicazione ? 'it-check' : 'icon-bookmark-solid',
+            name: _obbligo_pubblicazione ? 'icon-bookmark-solid' : 'icon-bookmark-solid',
             size: 'xl',
             color: _obbligo_pubblicazione ? 'greendark' : 'light',
-            icon_classes: ['me-4']
+            icon_classes: ['me-2','w-25']
           } %}
-          <span>
+          <span class="w-75">
             {{ name }}
             {% if _obbligo_pubblicazione %}
-              <small class="text-greendark">Le scuole sono soggette a questo obbligo.</small>
+              <small class="text-greendark">La scuola è soggetta a questo obbligo.</small>
             {% else %}
               <small class="text-muted">Non di pertinenza dell'istituzione scolastica.</small>
             {% endif %}

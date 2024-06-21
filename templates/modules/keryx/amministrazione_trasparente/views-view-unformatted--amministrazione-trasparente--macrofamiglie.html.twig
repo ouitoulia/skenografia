@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+<h2 id="sezioni-liv-1-macro-famiglie" class="fw-lighter pt-5">Indice di Amministrazione Trasparente</h2>
+<p class="font-serif col-xl-7">Le informazioni nella sezione Amministrazione Trasparente sono organizzate in sezioni a più livelli: il primo, chiamato "macro-famiglia", e il secondo, "Tipologia di dati". Nelle tipologie di dati (secondo livello) sono evidenziati gli obblighi di pubblicazione di pertinenza della scuola.</p>
+{% embed '@bi-bcl/list/list.html.twig' with {
+  list_classes: ['pb-5','mb-5']
+} %}
+  {% block listItems %}
+
+    {% for row in rows %}
+      {% set _taxonomy_url = drupal_url('/taxonomy/term/' ~ row.content['#row'].tid) %}
+      {% embed '@bi-bcl/list/list-item.html.twig' with {
+        list_url: _taxonomy_url|render,
+        list_icon: 'it-list',
+        color: 'info',
+        list_text: row.content|render|striptags|trim,
+        list_show_end_arrow: true,
+      } %}
+        {% block listText %}
+          <span{{ row.attributes.addClass('text') }}>
+            {{- row.content -}}
+          </span>
+        {% endblock %}
+      {% endembed %}
+    {% endfor %}{# /for #}
+
+  {% endblock %}
+{% endembed %}
