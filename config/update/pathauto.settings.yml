@@ -1,4 +1,3 @@
-langcode: it
 enabled_entity_types:
   - user
 punctuation:
