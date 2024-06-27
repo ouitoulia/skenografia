@@ -1,5 +1,5 @@
 {% apply spaceless %}
   {% for item in items %}
-    <div{{ item.attributes.addClass(['mb-3']) }}>A.S. {{ item.content }}</div>
+    <div{{ item.attributes.addClass(['mb-3']) }}><abbr title="Anno Scolastico">A.S.</abbr> {{ item.content }}</div>
   {% endfor %}
 {% endapply %}
