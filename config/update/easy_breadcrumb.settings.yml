@@ -42,3 +42,4 @@ truncator_length: 64
 truncator_dots: true
 remove_repeated_segments_text_only: false
 home_segment_validation_skip: false
+segment_display_minimum: 1

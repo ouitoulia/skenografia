@@ -12,7 +12,7 @@ attributes:
     label: 'Data element contenitori sotto-voci (<code>&lt;ul&gt;</code>)'
     description: 'Usa questo campo per inserire i vari <code>data-element</code> nei contenitori delle sotto-voci. '
   target:
-    label: ''
+    label: 'Link target'
     description: ''
     options:
       _blank: 'New window (_blank)'
