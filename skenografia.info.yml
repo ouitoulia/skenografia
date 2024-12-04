@@ -7,16 +7,16 @@ base theme: bootstrap_italia
 
 # Choose libraries to use. Global is managed with theme settings UI.
 libraries:
-#  - skenografia/libraries-ui
-#  - skenografia/vanilla
+  #- skenografia/libraries-ui
+  #- skenografia/vanilla
   - skenografia/fonts
-#  - skenografia/custom
+  #- skenografia/custom
   - skenografia/cdn
-#  - skenografia/hot
-#  - skenografia/ddev
+  #- skenografia/hot
+  #- skenografia/ddev
   - bootstrap_italia/base
   - bootstrap_italia/enable-all-tooltips
-#  - bootstrap_italia/load-fonts
+  #- bootstrap_italia/load-fonts
   - skenografia/version
 
 ckeditor5-stylesheets:
