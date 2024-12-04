@@ -90,10 +90,8 @@ e poi fai una Pull Request.
 
 Vengono di seguito elencate le licenze dei componenti distribuiti
 (fonte: [package.json/dependencies](package.json))
-- [Bootstrap Italia 2](https://italia.github.io/bootstrap-italia/) © Team per la Trasformazione Digitale,
-licenza BSD
-- [Design scuole pagine statiche](https://github.com/italia/design-scuole-pagine-statiche) © Team per la
-Trasformazione Digitale, licenza BSD
+- [Bootstrap Italia 2](https://italia.github.io/bootstrap-italia/) © Agenzia per l'Italia Digitale, licenza BSD-3-Clause
+- [Design scuole pagine statiche](https://github.com/italia/design-scuole-pagine-statiche) © Agenzia per l'Italia Digitale, licenza BSD-3-Clause
 - [Hamburgers](https://jonsuh.com/hamburgers/) © Jonathan Suh, licenza MIT
 
 ### Principali dipendenze per la fase di compilazione e sviluppo
@@ -103,15 +101,16 @@ lo sviluppo (fonte: [package.json/devDependencies](package.json))
 - [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin) © webpack-contrib, licenza MIT
 - [cross-env](https://github.com/kentcdodds/cross-env) © Kent C. Dodds, licenza MIT
 - [css-loader](https://github.com/webpack-contrib/css-loader) © webpack-contrib, licenza MIT
+- [css-minimizer-webpack-plugin](https://github.com/webpack-contrib/css-minimizer-webpack-plugin) © webpack-contrib, licenza MIT
 - [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) © webpack-contrib, licenza MIT
 - [postcss-loader](https://github.com/webpack-contrib/postcss-loader) © webpack-contrib, licenza MIT
-- [rimraf](https://github.com/isaacs/rimraf) © Isaac Z. Schlueter, licenza ISC
 - [sass](https://github.com/sass/sass) © sass, licenza MIT
 - [sass-loader](https://github.com/webpack-contrib/sass-loader) © webpack-contrib, licenza MIT
 - [semver](https://github.com/npm/node-semver) © npm, licenza ISC
 - [style-loader](https://github.com/webpack-contrib/style-loader) © webpack-contrib, licenza MIT
-- [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) © kisenka, licenza MIT
+- [svg-chunk-webpack-plugin](https://github.com/karify/svg-chunk-webpack-plugin) © karify, licenza MIT
 - [svgo-loader](https://github.com/svg/svgo-loader) © epegzz, licenza MIT
+- [terser-webpack-plugin](https://github.com/webpack-contrib/terser-webpack-plugin) © webpack-contrib, licenza MIT
 - [webpack](https://github.com/webpack/webpack) © webpack, licenza MIT
 - [webpack-cli](https://github.com/webpack/webpack-cli) © webpack, licenza MIT
 - [webpack-dev-server](https://github.com/webpack/webpack-dev-server) © webpack, licenza MIT
