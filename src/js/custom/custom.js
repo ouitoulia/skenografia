@@ -3,11 +3,8 @@
  * Use this folder and file to manage your custom styles.
  */
 
-// Example JS
-//import './example'
-//import './example-alert-event'
-//import './example-bootstrap-italia-modules'
-import './icons'
+import './icons.js';
+import './main-menu--close.js';
 
 /**
  * Customize your bootstrap

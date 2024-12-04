@@ -1,7 +1,8 @@
 {
   "name": "@ouitoulia/skenografia",
-  "version": "2.8.0",
+  "version": "2.19.0",
   "description": "Skenografia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole.",
+  "type": "module",
   "engineStrict": true,
   "engines": {
     "node": ">=v20.0.0"
@@ -38,19 +39,20 @@
     "copy-webpack-plugin": "^12.0.2",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
     "mini-css-extract-plugin": "^2.9.0",
     "postcss-loader": "^8.1.1",
-    "rimraf": "^5.0.7",
     "sass": "^1.77.4",
-    "sass-loader": "^14.2.1",
+    "sass-loader": "^16.0.4",
     "semver": "^7.6.2",
     "style-loader": "^4.0.0",
-    "svg-sprite-loader": "^6.0.11",
+    "svg-chunk-webpack-plugin": "^7.0.0",
     "svgo-loader": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
-    "webpack-merge": "^5.10.0"
+    "webpack-merge": "^6.0.1"
   },
   "dependencies": {
     "bootstrap-italia": "2.12.1",

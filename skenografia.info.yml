@@ -2,7 +2,7 @@ name: "Skenografia"
 type: theme
 description: "Skenografia is a Drupal sub-theme, based on bootstrap_italia, which implements school design."
 package: "Ouitoulía"
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 base theme: bootstrap_italia
 
 # Choose libraries to use. Global is managed with theme settings UI.

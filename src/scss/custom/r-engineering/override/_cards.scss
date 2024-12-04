@@ -1054,9 +1054,9 @@
 
 // Questo tipo di card si può realizzare con le utility di bootstrap 5.2
 // components/card/card-vertical-thumb.html.twig
-//.card-vertical-thumb {
+.card-vertical-thumb {
 //  padding: 0;
-//  .card-body {
+  .card-body {
 //    display: flex;
 //    padding: 0;
 //    .card-thumb {
@@ -1085,8 +1085,14 @@
 //        }
 //      }
 //    }
-//  }
-//}
+    .card-title {
+      a {
+        // Fix bootstrap-italia v2.12.1
+        display: inherit;
+      }
+    }
+  }
+}
 
 //.card-event {
 //  padding: 0;

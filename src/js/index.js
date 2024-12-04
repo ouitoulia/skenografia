@@ -8,11 +8,9 @@
  */
 
 // Import Bootstrap-italia components.
-import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin'
-import init from 'bootstrap-italia/src/js/plugins/init'
-// import loadFonts from 'bootstrap-italia/src/js/plugins/fonts-loader'
-// import { cookies } from 'bootstrap-italia/src/js/plugins/util/cookies'
-import * as icons from 'bootstrap-italia/src/js/icons'
+import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin.js';
+import init from 'bootstrap-italia/src/js/plugins/init.js';
+import * as icons from 'bootstrap-italia/src/js/icons.js';
 
 /**
  * Import all components, to choose components use
@@ -62,10 +60,10 @@ import {
   List,
   //Transfer,
   //VideoPlayer,
-} from 'bootstrap-italia'
+} from 'bootstrap-italia';
 
-loadPlugin(icons)
-init()
+loadPlugin(icons);
+init();
 
 const bootstrap = {
   Alert,
@@ -108,13 +106,13 @@ const bootstrap = {
   //ValidatorSelectAutocomplete,
   //loadFonts,
   //cookies,
-}
+};
 
 // Component library initialization.
-import './component-library-initialization'
+import './component-library-initialization.js';
 
 // Import custom JS.
-import './custom/custom'
+import './custom/custom.js';
 
 /**
  * Export all bootstrap-italia components as `bootstrap`,
@@ -122,4 +120,4 @@ import './custom/custom'
  *
  * @type {any}
  */
-window.bootstrap = bootstrap
+window.bootstrap = bootstrap;

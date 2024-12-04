@@ -1,13 +1,16 @@
-const fs = require('fs')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
-const rimraf = require('rimraf')
-const check = require('./webpack.check')
+import fs from 'fs/promises';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import SvgChunkWebpackPlugin from 'svg-chunk-webpack-plugin';
+import paths from './webpack.paths.js';
+import semver from 'semver';
+import packageJson from './package.json' assert { type: 'json' };
 
-const paths = require('./webpack.paths')
+if (!semver.satisfies(process.version, packageJson.engines.node)) {
+  throw new Error(`The current Node.js version (${process.version}) does not satisfy the required version (${packageJson.engines.node}).`);
+}
 
-module.exports = {
+export default {
   // Entry
   entry: {
     "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
@@ -33,26 +36,8 @@ module.exports = {
         ],
         use: [
           {
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true,
-              outputPath: '/svg/',
-              spriteFilename: 'sprites.svg',
-            }
+            loader: SvgChunkWebpackPlugin.loader,
           },
-          {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [
-                {
-                  name: 'removeAttrs',
-                  params: {
-                    attrs: '(fill)',
-                  },
-                }
-              ]
-            }
-          }
         ],
       },
     ],
@@ -62,8 +47,13 @@ module.exports = {
       filename: 'css/[name].min.css',
       chunkFilename: 'css/[id].min.css'
     }),
-    new SpriteLoaderPlugin({
-      plainSprite: true
+    new SvgChunkWebpackPlugin({
+      filename: 'svg/sprites.svg',
+      svgstoreConfig: {
+        svgAttrs: {
+          'xmlns': 'http://www.w3.org/2000/svg',
+        }
+      }
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -103,21 +93,15 @@ module.exports = {
     }),
     {
       apply: (compiler) => {
-        compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
-          const ckeditorJsFile = compiler.options.output.path + '/js/ckeditor5.min.js';
-          const ckeditorComuniJsFile = compiler.options.output.path + '/js/ckeditor5-comuni.min.js';
-          const fontsJsFile = compiler.options.output.path + '/js/fonts.min.js';
-          if (fs.existsSync(ckeditorJsFile)) {
-            rimraf.sync(ckeditorJsFile);
-          }
-          if (fs.existsSync(ckeditorComuniJsFile)) {
-            rimraf.sync(ckeditorComuniJsFile);
-          }
-          if (fs.existsSync(fontsJsFile)) {
-            rimraf.sync(fontsJsFile);
+        compiler.hooks.afterEmit.tapPromise('AfterEmitPlugin', async (compilation) => {
+          const ckeditorJsFile = `${compiler.options.output.path}/js/ckeditor5.min.js`;
+          try {
+            await fs.rm(ckeditorJsFile, { force: true });
+          } catch (err) {
+            console.error('Error deleting ckeditor5.min.js:', err);
           }
         });
       },
-    }
+    },
   ],
 };
