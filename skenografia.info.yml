@@ -15,7 +15,7 @@ libraries:
   #- skenografia/hot
   #- skenografia/ddev
   - bootstrap_italia/base
-  - bootstrap_italia/enable-all-tooltips
+  #- bootstrap_italia/enable-all-tooltips
   #- bootstrap_italia/load-fonts
   - skenografia/version
 
@@ -36,8 +36,8 @@ libraries-override:
     css:
       theme:
         css/toc.css: false
-    js:
-      js/toc_js.js: false
+#    js:
+#      js/toc_js.js: false
 
 # hidden: true # <---- Remember to set false, comment or delete line
 
