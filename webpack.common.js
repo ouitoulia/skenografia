@@ -31,8 +31,10 @@ export default {
         test: /\.svg$/,
         include: [
           paths.modules + '/bootstrap-italia/src/svg',
+          //paths.modules + '/design-scuole-pagine-statiche/src/assets/icons',
+          paths.src + '/icons',
           paths.src + '/svg',
-          paths.modules + '/design-scuole-pagine-statiche/src/assets/icons'
+          paths.modules + '/design-scuole-pagine-statiche/src/assets/img'
         ],
         use: [
           {

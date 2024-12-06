@@ -1,11 +1,88 @@
-// Importa le icone custom dalla cartella src/svg/
-const iconsCustom = require.context('../../svg', false, /\.svg$/);
-iconsCustom.keys().forEach(svgFile => {
-  let svg = iconsCustom(svgFile);
-});
+// Icon
+import '../../icons/icon-arrow-circular-left.svg';
+import '../../icons/icon-arrow-circular-right.svg';
+import '../../icons/icon-arrow-down-small.svg';
+import '../../icons/icon-arrow-down.svg';
+import '../../icons/icon-arrow-left-small.svg';
+import '../../icons/icon-arrow-left.svg';
+import '../../icons/icon-arrow-right-small.svg';
+import '../../icons/icon-arrow-right.svg';
+import '../../icons/icon-arrow-simple.svg';
+import '../../icons/icon-arrow-up.svg';
+import '../../icons/icon-bar.svg';
+import '../../icons/icon-bell-solid.svg';
+import '../../icons/icon-bell.svg';
+import '../../icons/icon-bookmark-solid.svg';
+import '../../icons/icon-books.svg';
+import '../../icons/icon-building.svg';
+import '../../icons/icon-calendar.svg';
+import '../../icons/icon-cancel-large.svg';
+import '../../icons/icon-car.svg';
+import '../../icons/icon-chair-accessibility.svg';
+import '../../icons/icon-classes.svg';
+import '../../icons/icon-clock.svg';
+import '../../icons/icon-comment.svg';
+import '../../icons/icon-content.svg';
+import '../../icons/icon-doc-document.svg';
+import '../../icons/icon-documents.svg';
+import '../../icons/icon-download.svg';
+import '../../icons/icon-email.svg';
+import '../../icons/icon-entrance.svg';
+import '../../icons/icon-exit.svg';
+import '../../icons/icon-fa-arrow-right.svg';
+import '../../icons/icon-filters.svg';
+import '../../icons/icon-gear.svg';
+import '../../icons/icon-hand-point-up.svg';
+import '../../icons/icon-hearing.svg';
+import '../../icons/icon-home-solid.svg';
+import '../../icons/icon-link.svg';
+import '../../icons/icon-mail.svg';
+import '../../icons/icon-marker-simple.svg';
+import '../../icons/icon-minus-simple.svg';
+import '../../icons/icon-minus.svg';
+import '../../icons/icon-more-items.svg';
+import '../../icons/icon-news.svg';
+import '../../icons/icon-newspaper.svg';
+import '../../icons/icon-paperclip.svg';
+import '../../icons/icon-parking.svg';
+import '../../icons/icon-pdf-document.svg';
+import '../../icons/icon-phone.svg';
+import '../../icons/icon-play.svg';
+import '../../icons/icon-plus-simple.svg';
+import '../../icons/icon-plus.svg';
+import '../../icons/icon-print.svg';
+import '../../icons/icon-programs.svg';
+import '../../icons/icon-project.svg';
+import '../../icons/icon-road.svg';
+import '../../icons/icon-school-building.svg';
+import '../../icons/icon-school.svg';
+import '../../icons/icon-search.svg';
+import '../../icons/icon-service.svg';
+import '../../icons/icon-share.svg';
+import '../../icons/icon-smile.svg';
+import '../../icons/icon-social-facebook.svg';
+import '../../icons/icon-social-linkedin.svg';
+import '../../icons/icon-social-twitter.svg';
+import '../../icons/icon-ticket.svg';
+import '../../icons/icon-time.svg';
+import '../../icons/icon-timetable.svg';
+import '../../icons/icon-user-solid.svg';
+import '../../icons/icon-user.svg';
+import '../../icons/icon-xml-document.svg';
 
-// Importa le icone dalla dipendenza design-scuole-pagine-statiche#main
-const iconsScuolePagineStatiche = require.context('design-scuole-pagine-statiche/src/assets/icons', false, /\.svg$/);
-iconsScuolePagineStatiche.keys().forEach(svgFile => {
-  let svg = iconsScuolePagineStatiche(svgFile);
-});
+// Loghi dei servizi
+import '../../svg/logo-cie.svg';
+import '../../svg/logo-cns.svg';
+import '../../svg/logo-eu-inverted.svg';
+import '../../svg/logo-pago-pa.svg';
+import '../../svg/logo-repubblica-italiana.svg';
+import '../../svg/logo-spid.svg';
+
+import '../../svg/chair.svg';
+import '../../svg/chair-office.svg';
+import '../../svg/door.svg';
+import '../../svg/it-drupal.svg';
+import '../../svg/office-desk.svg';
+import '../../svg/parking.svg';
+import '../../svg/school-building.svg';
+
