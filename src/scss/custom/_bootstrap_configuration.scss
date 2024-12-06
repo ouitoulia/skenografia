@@ -3,6 +3,12 @@
 $body-color: $petrol-dark-21;
 $color-text-base: $gray-800; // color-gray-10
 
+// SPECIFIC TOKENS =========================================================
+//
+// Footer
+$footer-top-background: #5a768a;
+$footer-bottom-background: #5a768a;
+
 /*** _variables.scss ***/
 //Navigation
 $navbar-bg-color: $white;
@@ -12,7 +18,6 @@ $navbar-bg-color: $white;
 // Header Slim
 $header-slim-bg-color: $petrol;
 $header-slim-text-color: $white;
-//$header-slim-brand-text-size: .777777em; // aggiornamento a bi 2.7
 
 // Header center
 $header-center-text-color: $dark;
@@ -28,7 +33,3 @@ $header-center-theme-light-text-color: $dark;
 
 // Pager
 $pager-item-current-color: var(--bs-dark);
-
-// ##### FOOTER #####
-$footer-top-background: #5a768a;
-$footer-bottom-background: #5a768a;
