@@ -42,6 +42,17 @@ export default {
           },
         ],
       },
+      // Uncomment if you use loading fonts vi CSS https://git.drupalcode.org/project/bootstrap_italia#loading-fonts-via-css-advanced-users
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        include: [
+          paths.modules + '/bootstrap-italia/src/fonts',
+        ],
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name]/[name][ext]',
+        },
+      },
     ],
   },
   plugins: [
@@ -63,17 +74,22 @@ export default {
           from: paths.modules + '/bootstrap-italia/src/assets/',
           to: paths.build + '/assets/'
         },
+        // Lascia commentato per non duplicare i fonts nella cartella dist
+        // {
+        //   from: paths.modules + '/bootstrap-italia/src/fonts/',
+        //   to: paths.build + '/fonts/'
+        // },
         {
           from: './src/images/',
           to: paths.build + '/images/'
         },
         {
-          from: paths.modules + '/design-scuole-pagine-statiche/src/assets/css/images/',
-          to: paths.build + '/css/images/'
-        },
-        {
           from: paths.modules + '/design-scuole-pagine-statiche/src/assets/css/ajax-loader.gif',
           to: paths.build + '/css/ajax-loader.gif'
+        },
+        {
+          from: paths.modules + '/design-scuole-pagine-statiche/src/assets/css/images/',
+          to: paths.build + '/css/images/'
         },
         {
           from: paths.modules + '/design-scuole-pagine-statiche/src/assets/img/',
