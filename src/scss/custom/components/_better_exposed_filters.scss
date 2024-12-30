@@ -3,6 +3,7 @@
     @extend h6;
   }
   .fieldset-wrapper {
+    @extend .pt-2;
     @extend .px-2;
   }
 
@@ -16,6 +17,25 @@
       .form-check,
       .form-check + .form-check {
         margin-top: 0.5rem;
+      }
+    }
+  }
+
+  // Fix upgrade bootstrap-italia 2.12.1
+  .form-check {
+    [type='checkbox'],
+    [type='radio'] {
+      & + label {
+        font-weight: $font-weight-normal;
+        padding-left: 2.5rem;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-top: 0.1rem;
+        font-size: 1.225rem;
+        &::after, &:before {
+          width: 26px;
+          height: 26px;
+        }
       }
     }
   }
