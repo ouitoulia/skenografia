@@ -23,6 +23,10 @@
 
   // Fix upgrade bootstrap-italia 2.12.1
   .form-check {
+    [type="checkbox"]:checked + label::before {
+      transform-origin: 100% 0%;
+    }
+
     [type='checkbox'],
     [type='radio'] {
       & + label {
