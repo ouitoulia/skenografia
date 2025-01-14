@@ -149,6 +149,6 @@ components:
       - components
 
 # Information added by GitHub Action packaging script on 2025-01-14
-version: '2.25.1'
+version: '2.25.2'
 project: 'Skenografia'
-datestamp: 1736860834
+datestamp: 1736861045
