@@ -28,20 +28,10 @@
 {% apply spaceless %}
   {% include '@bi-bcl/list/list-item.html.twig' with {
     list_url: url,
-    list_text: name,
+    list_text: name|render|striptags|trim,
     list_icon: 'icon-bookmark-solid',
     list_show_end_arrow: true,
     list_item_attributes: attributes.setAttribute('title', 'Vai alla sezione ' ~ name|render|striptags|trim),
     color: 'greendark'
   } %}
 {% endapply %}
-{#<div{{ attributes }}>#}
-{#  {{ title_prefix }}#}
-{#  {% if name and not page %}#}
-{#    <a class="" href="{{ url }}" title="{{ 'Vai alla sezione ' ~ name|render|striptags|trim }}">#}
-{#      {{ name }}#}
-{#    </a>#}
-{#  {% endif %}#}
-{#  {{ title_suffix }}#}
-{#  {{ content }}#}
-{#</div>#}
