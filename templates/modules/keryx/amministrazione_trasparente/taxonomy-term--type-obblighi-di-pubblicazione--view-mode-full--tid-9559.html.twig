@@ -1,0 +1,12 @@
+{% embed '@skenografia/modules/keryx/amministrazione_trasparente/taxonomy-term--type-obblighi-di-pubblicazione--view-mode-full.html.twig' %}
+  {% block obbligoContent %}
+    {% embed '@skenografia/modules/keryx/amministrazione_trasparente/_partial.descrizione-e-riferimenti--obbligo-pubblicazione.html.twig' %}
+      {% block content %}
+        {{ content|without('field_icona','field_frequenza_aggiornamento','field_persona_responsabile') }}
+        <a class="btn btn-xs btn-primary my-4" href="{{ usr_ptpct_url }}" target="_blank" title="Vai al Piano triennale per la prevenzione della corruzione e della trasparenza dell'Ufficio Scolastico Regionale">
+          Vai al Piano triennale per la prevenzione della corruzione e della trasparenza dell'Ufficio Scolastico Regionale
+        </a>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

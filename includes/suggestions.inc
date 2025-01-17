@@ -6,6 +6,7 @@
  */
 
 use Drupal\bootstrap_italia\Helper\Suggestions;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Implements hook_theme_suggestions_page_alter().
@@ -63,5 +64,25 @@ function skenografia_theme_suggestions_views_view_grouping_alter(array &$suggest
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['grouping']['field'];
     $suggestions[] = $variables['theme_hook_original'] . '__' . $view->id() . '__' . $variables['grouping']['field'];
     $suggestions[] = $variables['theme_hook_original'] . '__' . $view->id() . '__' . $displayObj->display['id'] . '__' . $variables['grouping']['field'];
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_taxonomy_term_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
+ */
+function skenografia_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables): void {
+  if (
+    isset($variables['elements']['#view_mode']) &&
+    isset($variables['elements']['#taxonomy_term']) &&
+    ($variables['elements']['#taxonomy_term'] instanceof Term)
+  ) {
+    $suggestions[] = $variables['theme_hook_original']
+      . '__type_' . $variables['elements']['#taxonomy_term']->bundle()
+      . '__view_mode_' . $variables['elements']['#view_mode']
+      . '__tid_' . $variables['elements']['#taxonomy_term']->get('tid')->value;
   }
 }

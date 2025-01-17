@@ -1,0 +1,15 @@
+.point-list-wrapper {
+  .point-list {
+    .point-list-aside {
+      justify-content: flex-start;
+      &::after {
+        top: 2.75rem;
+      }
+
+      .point-date,
+      .point-month {
+        flex: inherit;
+      }
+    }
+  }
+}

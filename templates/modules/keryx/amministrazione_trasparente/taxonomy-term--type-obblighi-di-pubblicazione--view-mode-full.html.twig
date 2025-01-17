@@ -64,22 +64,33 @@
 
   <section{{ attributes.addClass(['section', 'bg-gray-light', 'py-5']) }}>
     <div class="container">
-    {% if _obbligo_pubblicazione %}
-      {% embed '@bi-bcl/accordion/accordion.html.twig' with {left_icon: true} %}
-        {% block accordionItems %}
-          {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
-            item_title: 'Descrizione e riferimenti normativi'|t
-          } %}
-            {% block accordionItemBody %}
-              {% include '@skenografia/modules/keryx/amministrazione_trasparente/_partial.descrizione-e-riferimenti--obbligo-pubblicazione.html.twig' %}
-            {% endblock %}
-          {% endembed %}{# /accordion-item #}
-        {% endblock %}
-      {% endembed %}{# /accordion #}
 
-    {% else %}
-      {% include '@skenografia/modules/keryx/amministrazione_trasparente/_partial.descrizione-e-riferimenti--obbligo-pubblicazione.html.twig' %}
-    {% endif %}
+      {% set _obbligo_pubblicazione_contenuto %}
+        {% block obbligoContent %}
+          {% embed '@skenografia/modules/keryx/amministrazione_trasparente/_partial.descrizione-e-riferimenti--obbligo-pubblicazione.html.twig' %}
+            {% block content %}
+              {{ content|without('field_icona','field_frequenza_aggiornamento','field_persona_responsabile') }}
+            {% endblock %}
+          {% endembed %}
+        {% endblock %}
+      {% endset %}
+
+      {% if _obbligo_pubblicazione %}
+        {% embed '@bi-bcl/accordion/accordion.html.twig' with {left_icon: true} %}
+          {% block accordionItems %}
+            {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
+              item_title: 'Descrizione e riferimenti normativi'|t
+            } %}
+              {% block accordionItemBody %}
+                {{ _obbligo_pubblicazione_contenuto }}
+              {% endblock %}
+            {% endembed %}{# /accordion-item #}
+          {% endblock %}
+        {% endembed %}{# /accordion #}
+
+      {% else %}
+        {{ _obbligo_pubblicazione_contenuto }}
+      {% endif %}
     </div>
   </section>
 
