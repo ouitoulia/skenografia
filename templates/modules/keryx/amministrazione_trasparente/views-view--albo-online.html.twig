@@ -45,7 +45,7 @@
   <div class="bg-logo-repubblica bg-logo-filigrana position-fixed" style="" aria-hidden="true"></div>
   {% if header %}
     <section class="section bg-greendark bg-greendarkgradient py-5 py-md-4 py-lg-0 position-relative overflow-hidden">
-      <div class="albo-pretorio-logo-repubblica-forms position-absolute top-0 end-0 d-none d-lg-block opacity-75 my-2" aria-hidden="true">
+      <div class="position-absolute top-0 end-0 d-none d-lg-block opacity-75 w-30 pe-5 my-2" aria-hidden="true">
         {% include '@skenografia_components/inline-svg/logo-repubblica-italiana.svg.twig' %}
       </div>
       <div class="container">
@@ -75,7 +75,7 @@
           <aside class="aside-list affix-top mb-5">
             {% block asideA11yDescription %}
               <h2 class="h4 fw-lighter">Filtra i documenti</h2>
-              <p class="mb-5">Usa i seguenti campi per filtrare gli atti pubblicati in albo. Se invece vuoi cercare un documento in particolare: usa il <a class="link-dark text-decoration-underline" href="/risultati-ricerca" title="Usa il motore di ricerca del sito">motore di ricerca {% include '@bi-bcl/icon/icon.html.twig' with {name: 'icon-search', size: 'xs'} %}</a> del sito.</p>
+              <p class="mb-5">Usa i seguenti campi per filtrare gli atti.</p>
             {% endblock %}
             {{ exposed }}
           </aside>
@@ -83,7 +83,7 @@
         <div class="col-lg-8 pt-5 offset-lg-1">
           {% block contentA11yDescription %}
             <h2 class="h3 fw-lighter">Lista degli atti pubblicati in Albo Online</h2>
-            <p></p>
+            <p class="mb-5 font-serif col-lg-9">Di seguito, dal più recente, la cronologia degli atti pubblicati.<br>Usa i filtri per affinare i risultati; se invece vuoi trovare un documento o una tipologia particolare: usa il <a class="link-dark text-decoration-underline" href="/risultati-ricerca" title="Usa il motore di ricerca del sito">motore di ricerca {% include '@bi-bcl/icon/icon.html.twig' with {name: 'icon-search', size: 'xs'} %}</a> del sito.</p>
           {% endblock %}
           {% if rows -%}
             {{ rows }}
