@@ -67,6 +67,15 @@ function skenografia_theme_suggestions_views_view_grouping_alter(array &$suggest
   }
 }
 
+function skenografia_theme_suggestions_views_view_table_alter(array &$suggestions, array &$variables): void {
+  $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
+  if ($term instanceof Term) {
+    $suggestions[] = $variables['theme_hook_original'] . '__term';
+    $suggestions[] = $variables['theme_hook_original'] . '__term__bundle_' . Suggestions::sanitize($term->bundle());
+    $suggestions[] = $variables['theme_hook_original'] . '__term__id_' . Suggestions::sanitize($term->id());
+  }
+}
+
 /**
  * Implements hook_theme_suggestions_taxonomy_term_alter().
  *

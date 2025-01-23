@@ -58,7 +58,30 @@
     table_thead_variant and table_thead_variant is not empty ? 'table-' ~ table_thead_variant
   ] %}
 
-  <h2>{{ title|striptags }}</h2>
+  {% if title|render|striptags|trim is not empty %}
+    <h2 class="fw-lighter">
+      {{ 'Anno'|t }} {{ title|striptags|trim }}
+      {% embed '@bi-bcl/button/button.html.twig' with {
+        label: "Vedi l'anno " ~ title|striptags|trim ~ " su Perla PA",
+        tag: 'a',
+        url: perla_pa_url ~ '&tipologiasoggetto=CCE&anno=' ~ anno,
+        outline: true,
+        variant: 'bluelectric',
+        size: 'xs',
+        button_classes: ['ms-1', 'mb-2', 'btn-icon'],
+        button_attributes: create_attribute().setAttribute('target', '_blank')
+      } %}
+        {% block after %}
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-pa',
+            size: 'xs',
+            color: 'bluelectric',
+            icon_classes: ['ms-1'],
+          } %}
+        {% endblock %}
+      {% endembed %}
+    </h2>
+  {% endif %}
 
   {# Component #}
 
