@@ -9,7 +9,6 @@ use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\node\Entity\Node;
 use Drupal\skenografia\Helper\Helper as SHelper;
-use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 
 /**
@@ -18,15 +17,7 @@ use Drupal\user\Entity\User;
 function skenografia_preprocess(&$variables): void {
   // @todo Ricordarsi di fare UI per permettere la modifica della variabile
   $variables['skenografia_libraries_path'] = '/libraries/ouitoulia-skenografia';
-
-  // Restituisco l'anno scolastico corrente.
-  $data_di_cambio_anno_scolastico = ((int) date('n') * 100) + (int) date('j');
-  if ($data_di_cambio_anno_scolastico > 831) {
-    $variables['anno_scolastico_corrente'] = date('Y') . '/' . (int) date('Y') + 1;
-  }
-  else {
-    $variables['anno_scolastico_corrente'] = (int) date('Y') - 1 . '/' . date('Y');
-  }
+  $variables['anno_scolastico_corrente'] = SHelper::getAnnoScolastico();
 }
 
 /**
