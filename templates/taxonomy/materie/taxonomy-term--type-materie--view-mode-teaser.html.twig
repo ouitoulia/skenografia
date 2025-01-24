@@ -27,16 +27,16 @@
 #}
 {% apply spaceless %}
   {% embed '@bi-bcl/card/card.html.twig' with {
-    card_title: content.field_miur_class_id,
-    card_text: name,
+    card_title: name,
+    card_text: null,
     card_shadow: true,
     card_rounded: true,
     card_classes: ['card-bg-simple'],
     card_teaser: true
   } %}
     {% block cardTitle %}
-      <h4 class="card-title h5">
-        {{ content.field_miur_class_id }}
+      <h4 class="card-title h5 mb-0">
+        {{ name|render|striptags|trim }} ({{ content.field_miur_class_id|render|striptags|trim }})
       </h4>
     {% endblock %}
   {% endembed %}
