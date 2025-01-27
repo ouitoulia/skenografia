@@ -25,17 +25,9 @@
       </div>
     {% endif %}
 
-    <div class="col-lg-9 pt-2 card-wrapper card-teaser-wrapper">
+    <div class="col-lg-9 pt-2 card-wrapper card-teaser-wrapper card-teaser-wrapper-3-col justify-content-start">
       {% for row in rows %}
-        {%
-          set row_classes = [
-          default_row_class ? 'views-row',
-          'mb-3'
-        ]
-        %}
-        <div{{ row.attributes.addClass(row_classes) }}>
-          {{- row.content -}}
-        </div>
+        {{- row.content -}}
       {% endfor %}
     </div>
   </div>

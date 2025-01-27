@@ -2,6 +2,9 @@
 
 namespace Drupal\skenografia\Helper;
 
+use Drupal\Component\Utility\Html;
+use Drupal\node\Entity\Node;
+
 /**
  * Helper class for Skenografia theme.
  *
@@ -33,7 +36,7 @@ class Helper {
     $nodes = $nodeStorage->loadMultiple($ids);
 
     if (count($nodes) === 1) {
-      /** @var Drupal\node\Entity\Node $sede_legale */
+      /** @var Node $sede_legale */
       $sede_legale = $nodes[array_key_first($nodes)];
       if ($sede_legale->hasField('field_indirizzo')) {
         $indirizzo = $sede_legale->get('field_indirizzo')->first();
@@ -111,6 +114,38 @@ class Helper {
 
     // Costruisce la stringa finale
     return $parte_sinistra_formattata . $separatore . $parte_destra_formattata;
+  }
+
+  /**
+   * Pulisce un titolo per l'uso in un URL.
+   *
+   * - Translittera caratteri speciali.
+   * - Rimuove caratteri non validi.
+   * - Limita a n parole.
+   *
+   * @param string $title
+   *   Il titolo originale.
+   * @param int $word_truncate
+   *   Eventualmente se bisogna troncare
+   * @param string $language
+   *   La lingua da usare
+   *
+   * @return string
+   *   Il titolo pulito.
+   */
+  static function cleanTitleForUrl(string $title, int $word_truncate = 4, string $language = 'it'): string {
+    $transliteration = \Drupal::service('transliteration');
+    $title = $transliteration->transliterate($title, 'en');
+
+    // Rimuovo i caratteri non alfanumerici suddivido in parole
+    $words = preg_split('/\s+/', Html::cleanCssIdentifier($title));
+
+    if ($word_truncate > 0) {
+      $words = array_slice($words, 0, $word_truncate);
+    }
+
+    // Converto in minuscolo e unisco con "-"
+    return strtolower(implode('-', $words));
   }
 
 }

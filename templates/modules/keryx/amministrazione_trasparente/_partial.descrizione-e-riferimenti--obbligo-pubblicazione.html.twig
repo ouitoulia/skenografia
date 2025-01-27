@@ -9,7 +9,11 @@
       {% if _obbligo_pubblicazione %}
         <p class="text-greendark d-flex">
           <span>{% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-check', color: 'greendark', icon_classes: ['me-2']} %}</span>
-          <span>La scuola è soggetta a questo obbligo.</span>
+          {% if _obbligo_pubblicazione != 'Dirigente scolastico' %}
+            <span>La scuola è soggetta a questo obbligo che viene assolto tramite un collegamento.</span>
+          {% else %}
+            <span>La scuola è soggetta a questo obbligo.</span>
+          {% endif %}
         </p>
       {% else %}
         <p class="text-muted d-flex">

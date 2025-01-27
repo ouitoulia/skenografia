@@ -26,7 +26,6 @@
  */
 #}
 {% apply spaceless %}
-  {% set _obbligo_pubblicazione = content.field_persona_responsabile[0] is iterable %}
   {% set _section_classes = [
     'section',
     'bg-primary',
@@ -65,6 +64,8 @@
   <section{{ attributes.addClass(['section', 'bg-gray-light', 'py-5']) }}>
     <div class="container">
 
+      {% set _obbligo_pubblicazione = content.field_persona_responsabile[0]|render|striptags|trim %}
+
       {% set _obbligo_pubblicazione_contenuto %}
         {% block obbligoContent %}
           {% embed '@skenografia/modules/keryx/amministrazione_trasparente/_partial.descrizione-e-riferimenti--obbligo-pubblicazione.html.twig' %}
@@ -75,7 +76,7 @@
         {% endblock %}
       {% endset %}
 
-      {% if _obbligo_pubblicazione %}
+      {% if _obbligo_pubblicazione and _obbligo_pubblicazione == 'Dirigente scolastico' %}
         {% embed '@bi-bcl/accordion/accordion.html.twig' with {left_icon: true} %}
           {% block accordionItems %}
             {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
