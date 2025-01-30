@@ -5,6 +5,7 @@
  *
  * Available variables:
  * - title: The title of this group of rows. May be empty.
+ * - title_heading: The title heading (h2,h3,h4,h5,h6), defaut (h3)
  * - rows: A list of the view's row items.
  *   - attributes: The row's HTML attributes.
  *   - content: The row's content.
@@ -20,9 +21,11 @@
  */
 #}
 {% apply spaceless %}
-  {% if title %}
-    <h3>{{ title }}</h3>
-  {% endif %}
+  {% block blockTitle %}
+    {% if title %}
+      <{{ title_heading ?? 'h3' }}>{{ title }}</{{ title_heading ?? 'h3' }}>
+    {% endif %}
+  {% endblock %}
 
   {% if row_container %}
     <{{ row_container }}{{ row_container_attributes ? row_container_attributes }}>

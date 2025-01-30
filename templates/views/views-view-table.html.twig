@@ -59,11 +59,13 @@
     table_thead_variant and table_thead_variant is not empty ? 'table-' ~ table_thead_variant
   ] %}
 
-  {% if title|render|striptags|trim is not empty %}
-    <h2 class="fw-lighter">
-      {{ title|striptags|trim }}
-    </h2>
-  {% endif %}
+  {% block viewTitle %}
+    {% if title|render|striptags|trim is not empty %}
+      <h2 class="fw-lighter">
+        {{ title|striptags|trim }}
+      </h2>
+    {% endif %}
+  {% endblock %}
 
   {# Component #}
 

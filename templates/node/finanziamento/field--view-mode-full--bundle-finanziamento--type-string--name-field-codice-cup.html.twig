@@ -86,8 +86,8 @@
       {% endif %}
       {% for item in items %}
         <div{{ item.attributes }}>
-            <a href="https://dati.anticorruzione.it/superset/dashboard/dettaglio_cig/?cig={{ item.content|render }}&standalone=2" title="Vedi ulteriori dettagli sulla Banca Dati Nazionale Contratti Pubblici in una nuova finestra" target="_blank">
-               {{ item.content }} ({% include '@bi-bcl/icon/icon.html.twig' with {name:'it-link', size: 'xs', color: 'darkgreen'} %} Ulteriori dettagli su BDNCP)
+            <a href="https://www.opencup.gov.it/portale/web/opencup/home/progetto/-/cup/{{ item.content|render|striptags|trim }}" title="Vedi ulteriori dettagli sul Portale OpenCUP in una nuova finestra" target="_blank">
+              {{ item.content }} ({% include '@bi-bcl/icon/icon.html.twig' with {name:'it-link', size: 'xs', color: 'darkgreen'} %}<span class="d-none d-md-inline-block">Ulteriori dettagli su</span> OpenCUP)
             </a>
         </div>
       {% endfor %}

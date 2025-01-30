@@ -54,12 +54,7 @@
     field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
     field_container_vertical_padding is not empty and field_view_mode == 'full' ? field_container_vertical_padding,
     field_container_vertical_margin is not empty and field_view_mode == 'full' ? field_container_vertical_margin,
-    'my-3'
   ] %}
-
-  {% set container_with_label_classes = [
-    label_display == 'inline' ? 'd-flex'
-  ]|merge(container_classes) %}
 
   {% if label_hidden %}
     {% if multiple %}
@@ -75,25 +70,18 @@
     {% endif %}
 
   {% else %}
-    <div{{ attributes.addClass(container_with_label_classes) }}>
+  <div{{ attributes.addClass(container_with_label_classes) }}>
 
-      {% block label %}
-        {% include '@bi-field/_partial.field-label.html.twig' %}
-      {% endblock %}
+    {% block label %}
+      {% include '@bi-field/_partial.field-label.html.twig' with {
+        field_label_tag: 'span'
+      } %}
+    {% endblock %}
 
-      {% if multiple %}
-        <div>
-      {% endif %}
-      {% for item in items %}
-        <div{{ item.attributes }}>
-            <a href="https://dati.anticorruzione.it/superset/dashboard/dettaglio_cig/?cig={{ item.content|render }}&standalone=2" title="Vedi ulteriori dettagli sulla Banca Dati Nazionale Contratti Pubblici in una nuova finestra" target="_blank">
-               {{ item.content }} ({% include '@bi-bcl/icon/icon.html.twig' with {name:'it-link', size: 'xs', color: 'darkgreen'} %} Ulteriori dettagli su BDNCP)
-            </a>
-        </div>
-      {% endfor %}
-      {% if multiple %}
-        </div>
-      {% endif %}
+    {% for item in items %}
+      <span{{ item.attributes }}>{{ item.content }}</span>
+    {% endfor %}
+
 
     </div>{# End main container. #}
   {% endif %}

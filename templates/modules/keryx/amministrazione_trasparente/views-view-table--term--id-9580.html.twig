@@ -1,28 +1,29 @@
 {% embed '@skenografia/views/views-view-table.html.twig' %}
   {% block viewTitle %}
     {% if title|render|striptags|trim is not empty %}
-      <h2 class="fw-lighter">
-        {{ 'Anno'|t }} {{ title|striptags|trim }}
+      <h3 class="h4 fw-lighter">
+        Codice Identificativo Gara: {{ title|striptags|trim }}
+        {{ bdncpButtonLabel }}
         {% embed '@bi-bcl/button/button.html.twig' with {
-          label: "Vedi l'anno " ~ title|striptags|trim ~ " su Perla PA",
+          label: "Vedi su BDNCP",
           tag: 'a',
-          url: perla_pa_url ~ '&tipologiasoggetto=CCE&anno=' ~ anno,
+          url: 'https://dati.anticorruzione.it/superset/dashboard/dettaglio_cig/?cig=' ~ title|striptags|trim ~ '&standalone=2',
           outline: true,
-          variant: 'bluelectric',
+          variant: 'white',
           size: 'xs',
-          button_classes: ['ms-1', 'mb-2', 'btn-icon'],
+          assistive_text: 'Vedi questa gara sul portale della Banca Dati Nazionale Contratti Pubblici',
+          button_classes: ['ms-1', 'mb-1', 'btn-icon', 'text-secondary', 'border'],
           button_attributes: create_attribute().setAttribute('target', '_blank')
         } %}
           {% block after %}
             {% include '@bi-bcl/icon/icon.html.twig' with {
-              name: 'it-pa',
-              size: 'xs',
+              name: 'it-link',
               color: 'bluelectric',
               icon_classes: ['ms-1'],
             } %}
           {% endblock %}
         {% endembed %}
-      </h2>
+      </h3>
     {% endif %}
   {% endblock %}
 {% endembed %}
