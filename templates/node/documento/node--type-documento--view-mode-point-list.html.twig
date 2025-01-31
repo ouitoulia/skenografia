@@ -70,11 +70,13 @@
  */
 #}
 {% apply spaceless %}
-  {% set created_time = node.getCreatedTime()|date('U') %}
+  {% set formatted_date = node.getCreatedTime()|format_date('ouitoulia_short') %}
+  {% set date_parts = formatted_date|split(' ', 3) %}
+
   {% embed '@bi-bcl/timeline/point-list.html.twig' with {
-    date: created_time|date('d'),
-    month: created_time|date('M'),
-    year: created_time|date('Y'),
+    date: date_parts.0,
+    month: date_parts.1,
+    year: date_parts.2,
     variant: 'primary'
   } %}
     {% block pointListContent %}
