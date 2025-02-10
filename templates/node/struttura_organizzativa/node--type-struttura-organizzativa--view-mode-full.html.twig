@@ -131,17 +131,19 @@
               {# Altri componenti #}
               {{ content.field_persone_esterne }}
 
-              <h3 class="h5 fw-lighter">Contatti</h3>
-              {% embed '@bi-bcl/card/card.html.twig' with {
-                card_teaser: true,
-                card_shadow: true,
-                card_classes: ['mb-5']
-              } %}
-                {% block cardText %}
-                  {{ content.field_telefono }}
-                  {{ content.field_email }}
-                {% endblock %}
-              {% endembed %}
+              {% if content.field_telefono[0] is iterable or content.field_email[0] is iterable %}
+                <h3 class="h5 fw-lighter">Contatti</h3>
+                {% embed '@bi-bcl/card/card.html.twig' with {
+                  card_teaser: true,
+                  card_shadow: true,
+                  card_classes: ['mb-5']
+                } %}
+                  {% block cardText %}
+                    {{ content.field_telefono }}
+                    {{ content.field_email }}
+                  {% endblock %}
+                {% endembed %}
+              {% endif %}
 
               {# Sedi #}
               {{ content.field_luoghi }}
