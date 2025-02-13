@@ -101,7 +101,14 @@
 
         <div class="col-lg-3 col-md-4 offset-lg-1 p-4 p-lg-1">
           <div class="mb-3">
-            {% include '@skenografia/node/_partial.node--author.html.twig' %}
+            {% apply spaceless %}
+              <span class="d-block">{{ 'Submitted by'|t }}</span>
+              {% if author_profile_nid %}
+                {{ drupal_entity('node', author_profile_nid, 'teaser') }}
+              {% else %}
+                {{ author_picture }} {{ author_name }}
+              {% endif %}
+            {% endapply %}
           </div>
           <div class="">
             {{ content.field_destinatari }}
