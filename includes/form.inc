@@ -21,7 +21,7 @@ function skenografia_form_alter(&$form, FormStateInterface &$form_state, $form_i
 
   // Riguardo alle form esposte
   if (isset($form['form_id']) && $form['form_id']['#value'] == 'views_exposed_form') {
-//    // Nel caso in cui esiste il submit button
+    // Nel caso in cui esiste il submit button
     if (isset($form['actions']['submit'])) {
       if (!isset($form['actions']['submit']['#attributes'])) {
         $form['actions']['submit']['#attributes'] = new Attribute();
