@@ -44,7 +44,7 @@
       <h3{{ title_attributes.addClass(['card-title', 'h5', 'mb-5']) }}>
         <a class="d-flex" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ name[0]['#context'].value }}" rel="bookmark">
           {% include '@bi-bcl/icon/icon.html.twig' with {
-            name: _obbligo_pubblicazione ? 'icon-bookmark-solid' : 'icon-bookmark-solid',
+            name: _obbligo_pubblicazione ? 'it-folder' : 'it-folder',
             size: 'xl',
             color: _obbligo_pubblicazione ? 'greendark' : 'light',
             icon_classes: ['me-2','w-25']
@@ -52,9 +52,9 @@
           <span class="w-75">
             {{ name }}
             {% if _obbligo_pubblicazione %}
-              <small class="text-greendark">La scuola è soggetta a questo obbligo.</small>
+              <small class="text-greendark">{{ 'La scuola è soggetta a questo obbligo.'|t }}</small>
             {% else %}
-              <small class="text-muted">Non di pertinenza dell'istituzione scolastica.</small>
+              <small class="text-muted">{{ "Non di pertinenza dell'istituzione scolastica."|t }}</small>
             {% endif %}
           </span>
         </a>
