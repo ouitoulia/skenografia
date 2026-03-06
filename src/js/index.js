@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 /**
  * Main entry
  * This file will be updated periodically by the maintainers,
@@ -19,94 +20,10 @@ import * as icons from 'bootstrap-italia/src/js/icons.js';
  * Docs: https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/#javascript
  * Examples: https://github.com/astagi/demo-bsitalia-2
  */
-import {
-  // Bootstrap
-  Alert,
-  Button,
-  Carousel,
-  Collapse,
-  Dropdown,
-  Modal,
-  Offcanvas,
-  Popover,
-  ScrollSpy,
-  Tab,
-  //Toast,
-  Tooltip,
-  // Extra components
-  //Dimmer,
-  //Notification,
-  Cookiebar,
-  NavBarCollapsible,
-  Accordion,
-  NavScroll,
-  CarouselBI,
-  FormValidate,
-  //ValidatorSelectAutocomplete,
-  Input,
-  SelectAutocomplete,
-  //InputSearchAutocomplete,
-  InputPassword,
-  InputNumber,
-  //ProgressDonut,
-  //UploadDragDrop,
-  BackToTop,
-  AcceptOverlay,
-  Sticky,
-  HeaderSticky,
-  HistoryBack,
-  //Forward,
-  //Masonry,
-  List,
-  //Transfer,
-  //VideoPlayer,
-} from 'bootstrap-italia';
+import * as bootstrap from 'bootstrap-italia';
 
 loadPlugin(icons);
 init();
-
-const bootstrap = {
-  Alert,
-  Button,
-  Carousel,
-  Collapse,
-  Dropdown,
-  Modal,
-  Offcanvas,
-  Popover,
-  ScrollSpy,
-  Tab,
-  //Toast,
-  Tooltip,
-  //VideoPlayer,
-  AcceptOverlay,
-  Accordion,
-  BackToTop,
-  CarouselBI,
-  Cookiebar,
-  //Dimmer,
-  FormValidate,
-  //Forward,
-  HistoryBack,
-  Input,
-  InputNumber,
-  InputPassword,
-  //InputSearchAutocomplete,
-  List,
-  //Masonry,
-  NavBarCollapsible,
-  NavScroll,
-  //Notification,
-  //ProgressDonut,
-  SelectAutocomplete,
-  Sticky,
-  HeaderSticky,
-  //Transfer,
-  //UploadDragDrop,
-  //ValidatorSelectAutocomplete,
-  //loadFonts,
-  //cookies,
-};
 
 // Component library initialization.
 import './component-library-initialization.js';
