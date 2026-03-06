@@ -8,10 +8,15 @@
 use Drupal\bootstrap_italia\Helper\Libraries;
 
 /**
- * Implements theme_library_info_build().
+ * Implements hook_library_info_alter().
+ *
+ * @phpstan-param array<string, mixed> $libraries
+ *   Libraries array.
  */
-function skenografia_library_info_build(): array {
-  return Libraries::setLibraries();
+function italiagov_library_info_alter(array &$libraries): void {
+  if (class_exists(Libraries::class)) {
+    Libraries::setLibraries($libraries);
+  }
 }
 
 // Include all files from the includes directory.
