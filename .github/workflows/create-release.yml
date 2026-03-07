@@ -114,8 +114,13 @@ jobs:
         shell: bash
 
       - name: Publish to npm registry
-        if: env.valid_tag == 'true' && secrets.NPM_TOKEN != ''
+        if: env.valid_tag == 'true'
         run: |
+          if [ -z "${NODE_AUTH_TOKEN}" ]; then
+            echo "NPM_TOKEN is not set. Skipping npm publish."
+            exit 0
+          fi
+
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           npm config set registry https://registry.npmjs.org/
           npm publish --access=public
