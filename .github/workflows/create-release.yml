@@ -108,7 +108,7 @@ jobs:
         if: env.valid_tag == 'true'
         run: |
           npm version ${{ env.release_tag }} --no-git-tag-version
-          npm ci
+          npm install
           npm run build:prod
           zip -r skenografia.zip ./dist
         shell: bash
