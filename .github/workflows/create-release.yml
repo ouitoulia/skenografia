@@ -104,18 +104,22 @@ jobs:
           git push origin ${{ env.release_tag }}
         shell: bash
 
-      - name: Build and Push to npm registry
+      - name: Build assets and create release artifact
         if: env.valid_tag == 'true'
         run: |
-          npm version ${{ env.release_tag }}
-          npm install
+          npm version ${{ env.release_tag }} --no-git-tag-version
+          npm ci
           npm run build:prod
-          rm -rf .git .github node_modules .gitignore
+          zip -r skenografia.zip ./dist
+        shell: bash
+
+      - name: Publish to npm registry
+        if: env.valid_tag == 'true' && secrets.NPM_TOKEN != ''
+        run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           npm config set registry https://registry.npmjs.org/
           npm publish --access=public
           rm ~/.npmrc
-          zip -r skenografia.zip ./dist
         shell: bash
         continue-on-error: true
         env:
