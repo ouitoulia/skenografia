@@ -57,7 +57,7 @@ class Helper {
   }
 
   /**
-   * @param $opzioni array
+   * @param array|null $opzioni array
    *   - "formato_anno" ("yyyy-yyyy", "yyyy-yy", "yy-yy")
    *      il formato di output dell'anno: 4 o 2 cifre. Default: "yyyy-yyyy"
    *   - "separatore" ("/", " ", "")
