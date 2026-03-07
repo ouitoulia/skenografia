@@ -117,7 +117,7 @@ jobs:
           rm ~/.npmrc
           zip -r skenografia.zip ./dist
         shell: bash
-        continue-on-error: false
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
