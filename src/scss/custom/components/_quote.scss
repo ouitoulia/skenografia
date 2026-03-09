@@ -1,27 +1,8 @@
-//
-// Quote
-// --------------------------------------------------
-
-//.big-quote-wrapper {
-  //position: relative;
-  //z-index: 0;
-  //min-height: 580px;
-  //display: flex;
-  //align-items: center;
-//}
-
 .big-quote {
-  //color: #ffffff;
   position: relative;
-  //z-index: 0;
   h2, .h2 {
     font-size: 3.5rem;
     line-height: 1.1;
-    //font-size: 6rem;
-    //font-weight: 600;
-    //color: #ffffff;
-    //position: relative;
-    //z-index: 0;
     padding: 180px 0 180px 0;
     display: block;
     @include media-breakpoint-up(xl) {
@@ -34,24 +15,14 @@
     @include media-breakpoint-down(md) {
       padding: 110px 0 110px 0;
       font-size: 4.5rem;
-      //line-height: 1.1;
     }
     @include media-breakpoint-down(sm) {
       font-size: 4rem;
-      //line-height: 1.1;
     }
-    //@include media-breakpoint-down(xs) {
-    //  font-size: 3.5rem;
-    //  line-height: 1.1;
-    //}
   }
   h3, .h3 {
     font-size: 2.63rem;
     line-height: 1.17;
-    //font-weight: 600;
-    //color: #ffffff;
-    //position: relative;
-    //z-index: 0;
     padding: 120px 0 120px 0;
     display: block;
     @include media-breakpoint-down(lg) {
@@ -124,17 +95,3 @@
     }
   }
 }
-
-//.big-quote-bg {
-//  position: absolute;
-//  z-index: -1;
-//  bottom: 0;
-//  left: 0;
-//  width: 100%;
-//  height: auto;
-//  svg {
-//    display: block;
-//    width: 100%;
-//  }
-//}
-

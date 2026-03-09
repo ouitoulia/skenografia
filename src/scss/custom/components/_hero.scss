@@ -1,0 +1,107 @@
+.hero-title {
+  text-align: center;
+  padding: 50px 0 50px 0;
+  h1, .h1 {
+    margin: 0 0 35px 0;
+    font-size: 3.32rem;
+    font-weight: 400;
+    letter-spacing: -1.8px;
+    color: $gray-primary;
+    padding: 0 20px 0 20px;
+    line-height: 1.17;
+    @include media-breakpoint-down(lg) {
+      font-size: 3rem;
+    }
+    @include media-breakpoint-down(md) {
+      font-size: 2.7rem;
+    }
+    @include media-breakpoint-down(md) {
+      font-size: 2.5rem;
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: 2.4rem;
+    }
+    span {
+      display: block;
+      @include media-breakpoint-down(lg) {
+        display: inline;
+      }
+    }
+  }
+  small {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 25px 0;
+    display: block;
+  }
+}
+.section-hero-left {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d1344c+0,ab2b3e+100 */
+  background: linear-gradient(to right, #d1344c 0%,#ab2b3e 100%);
+  &:before {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 65 65' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cg%3E%3Cpath d='M23.646,31.575l7.702,0l0,-7.702l2.007,0l0,7.702l7.703,0l0,2.007l-7.703,0l0,7.702l-2.007,0l0,-7.702l-7.702,0l0,-2.007Z'/%3E%3Cpath d='M33.355,59.428l0,2.019l-2.007,0l0,-2.019l2.007,0Zm0,-5.095l0,2.018l-2.007,0l0,-2.018l2.007,0Zm0,-5.096l0,2.018l-2.007,0l0,-2.018l2.007,0Zm0,-5.096l0,2.018l-2.007,0l0,-2.018l2.007,0Zm12.858,-12.545l0,2.007l-2.019,0l0,-2.007l2.019,0Zm5.095,0l0,2.007l-2.018,0l0,-2.007l2.018,0Zm5.096,0l0,2.007l-2.018,0l0,-2.007l2.018,0Zm5.096,0l0,2.007l-2.018,0l0,-2.007l2.018,0Zm-55.982,0l0,2.007l-2.018,0l0,-2.007l2.018,0Zm5.096,0l0,2.007l-2.018,0l0,-2.007l2.018,0Zm5.096,0l0,2.007l-2.018,0l0,-2.007l2.018,0Zm5.096,0l0,2.007l-2.019,0l0,-2.007l2.019,0Zm12.549,-12.755l0,2.018l-2.007,0l0,-2.018l2.007,0Zm0,-5.096l0,2.018l-2.007,0l0,-2.018l2.007,0Zm0,-5.096l0,2.018l-2.007,0l0,-2.018l2.007,0Zm0,-5.096l0,2.019l-2.007,0l0,-2.019l2.007,0Z' style='fill-opacity:0.4;'/%3E%3C/g%3E%3C/svg%3E");
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 65px 65px;
+    opacity: 0.12;
+  }
+  .decoration-01 {
+    z-index: 0;
+    width: 312px;
+    height: 311px;
+    margin: -156px 0 0 -156px;
+    svg {
+      width: 312px;
+      height: 311px;
+    }
+    @include media-breakpoint-down(sm) {
+      left: auto;
+      right: 0;
+      margin-left: 0;
+      margin-right: -156px;
+    }
+  }
+  .decoration-02 {
+    z-index: 0;
+    width: 102px;
+    height: 114px;
+    svg {
+      width: 102px;
+      height: 114px;
+    }
+  }
+	.hero-title {
+  	z-index: 1;
+		@include media-breakpoint-down(sm) {
+      padding: 50px 0 50px 0;
+    }
+    h1, .h1 {
+      font-size: 3.32rem;
+      letter-spacing: -1.8px;
+      line-height: 1.17;
+      @include media-breakpoint-down(lg) {
+        font-size: 3rem;
+      }
+      @include media-breakpoint-down(md) {
+        font-size: 2.7rem;
+      }
+      @include media-breakpoint-down(md) {
+        font-size: 2.5rem;
+      }
+      @include media-breakpoint-down(sm) {
+        font-size: 2.4rem;
+      }
+      span {
+        display: block;
+        @include media-breakpoint-down(lg) {
+          display: inline;
+        }
+      }
+    }
+	}
+}

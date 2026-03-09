@@ -72,7 +72,7 @@ class Helper {
    *     - "2020 2021", "2020 21", "20 21"
    *     - "20202021", "202021", "2021"
    */
-  public static function getAnnoScolastico(array $opzioni = NULL): string {
+  public static function getAnnoScolastico(?array $opzioni = NULL): string {
     // Imposto i valori di default
     $formato_anno = $opzioni['formato_anno'] ?? 'yyyy-yyyy';
     $separatore = $opzioni['separatore'] ?? '/';

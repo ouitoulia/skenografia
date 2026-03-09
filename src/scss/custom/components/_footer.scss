@@ -1,0 +1,114 @@
+#footer.it-footer {
+	color: $white;
+	a {
+		color: $white;
+	}
+  .logo-wrapper {
+    gap: 20px;
+    @include media-breakpoint-up(sm) {
+      gap: 30px;
+    }
+    @include media-breakpoint-up(lg) {
+      gap: 30px;
+    }
+    .ue-logo {
+      max-width: 60%;
+      @include media-breakpoint-up(lg) {
+        height: 80px;
+      }
+    }
+    .it-brand-tagline {
+      display: none;
+      @include media-breakpoint-up(sm) {
+        display: block;
+      }
+    }
+    .it-brand-text {
+      .it-brand-title {
+        font-weight: $header-center-h2-weight;
+      }
+      .it-brand-tagline,
+      .it-brand-comune {
+        font-size: $header-center-h2-size-mob;
+      }
+      @include media-breakpoint-up(lg) {
+        .it-brand-tagline,
+        .it-brand-comune,
+        .it-brand-title {
+          font-size: $header-center-h3-size;
+        }
+      }
+    }
+  }
+  .it-brand-wrapper {
+	  svg {
+	    width: 64px;
+	    height: 72px;
+	    display: block;
+	    fill: $white;
+	    @include media-breakpoint-down(md) {
+	      width: 40px;
+	      height: 45px;
+	    }
+	  }
+	}
+	h3, .h3 {
+		color: $white;
+		font-size: 1.13rem; //TODO: da verificare dimensione
+	}
+  .it-socials {
+    span {
+      font-weight: 600;
+      margin-right: 8px;
+    }
+  }
+}
+.region-footer-second,
+.region-footer-third,
+.region-footer-fourth {
+  @extend .ps-lg-5;
+}
+.it-footer-small-prints {
+  .it-socials {
+    ul {
+      @extend .list-inline;
+      li {
+        @extend .list-inline-item;
+      }
+    }
+  }
+}
+.footer-text {
+  font-size: 0.875rem; //TODO: da verificare dimensione
+  position: relative;
+  z-index: 0;
+  padding: 20px 0 20px 0;
+  margin: 20px 0 0 0;
+  p {
+    margin: 0;
+  }
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $white;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.27;
+  }
+  &:after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $white;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.27;
+  }
+}

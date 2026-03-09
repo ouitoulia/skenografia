@@ -1,8 +1,45 @@
-//
-// Type
-// https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L14923
-// --------------------------------------------------
-
+h1 {@extend .fw-semibold;}
+.bd-example {
+  background-color: rgba($petrol, 0.1);
+}
+a {
+  color: $gray-800;
+  text-decoration: none;
+}
+// TODO: aggiungere i .display-x
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  color: $dark;
+}
+// TODO: se non usato si cancella
+.semi-bold {
+  @extend .fw-semibold;
+}
+// TODO: individuare l'uso e vedere se si può migrazione a bi2
+.text-icon {
+  display: flex;
+  margin: 20px 0 0 0;
+  a {
+    display: flex;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+    .greendark & {
+      fill: $greendark;
+    }
+  }
+  p {
+    font-size: 1rem !important;
+    margin: 0 0 0 0;
+  }
+}
+.text-underline {
+  text-decoration: underline !important;
+}
+.icon-bluelectric {
+  fill: $bluelectric !important;
+}
 .title-large {
   h3, .h3 {
     font-size: 3rem;
@@ -32,26 +69,6 @@
     }
   }
 }
-
-// Fornito da bi2
-//.text-large {
-//  font-size: 2rem;
-//  font-weight: 400;
-//  line-height: 1.2;
-//  @include media-breakpoint-down(lg) {
-//    font-size: 1.8rem;
-//  }
-//  @include media-breakpoint-down(md) {
-//    font-size: 1.7rem;
-//  }
-//  @include media-breakpoint-down(sm) {
-//    font-size: 1.6rem;
-//  }
-//  @include media-breakpoint-down(xs) {
-//    font-size: 1.5rem;
-//  }
-//}
-
 .text-description {
   font-size: 1.19rem;
   font-weight: 400;
@@ -60,7 +77,6 @@
     font-size: 1rem;
   }
 }
-
 .title-section {
   color: $gray-primary;
   .bg-red-radial &, .bg-redbrown & {
@@ -112,35 +128,10 @@
 }
 
 a.read-more {
-  /* L'icona viene fornita da bi2, il codice commentato non è necessario */
-//  display: inline-block;
-//  text-transform: uppercase;
-//  font-weight: 600;
-//  font-size: .88rem;
-//  letter-spacing: 0px;
-//  position: relative;
-//  z-index: 0;
-//  position: relative;
-//  z-index: 0;
-//  padding: 0 19px 0 0;
-//  &:before {
-//    content: url("data:image/svg+xml; utf8, <svg width='100%' height='100%' viewBox='0 0 32 32' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;'><rect id='Rectangle-path' x='0' y='0.035' width='32' height='32' style='fill:none;'/><path d='M13.606,2.494l1.585,-1.585c0.672,-0.672 1.757,-0.672 2.421,0l13.884,13.877c0.672,0.671 0.672,1.757 0,2.421l-13.884,13.884c-0.671,0.672 -1.757,0.672 -2.421,0l-1.585,-1.585c-0.679,-0.679 -0.665,-1.786 0.028,-2.45l8.606,-8.199l-20.526,0c-0.95,0 -1.714,-0.764 -1.714,-1.714l0,-2.286c0,-0.95 0.764,-1.714 1.714,-1.714l20.526,0l-8.606,-8.199c-0.7,-0.664 -0.714,-1.771 -0.028,-2.45Z' style='fill:rgb(209, 52, 76);'/></svg>");
-//    position: absolute;
-//    z-index: 1;
-//    top: 1px;
-//    right: 0;
-//    display: block;
-//    width: 12px;
-//    height: 12px;
-//  }
-//  .redbrown & {
-//    color: $redbrown;
-//  }
   .icon {
     fill: $redbrown;
   }
 }
-
 .max-width-620 {
   width: 100%;
   max-width: 620px;
@@ -148,7 +139,6 @@ a.read-more {
   font-size: 1.5rem;
   font-weight: 400;
 }
-
 .list-icon {
   padding: 0 0 0 0;
   list-style: none;
@@ -182,9 +172,6 @@ a.read-more {
     }
   }
 }
-
-
-
 .list-icon-large {
   padding: 15px 0 0 0;
   list-style: none;
@@ -239,8 +226,6 @@ a.read-more {
     }
   }
 }
-
-/* Presente in 2.3.0 */
 .search-btn {
   background-color: transparent;
   border: 0;
@@ -253,20 +238,15 @@ a.read-more {
     margin: 0 0 0 0;
   }
 }
-
-/* Presente in 2.3.0 */
 button.icon-text {
   background-color: transparent;
   border: 0;
   color: $white;
   font-weight: bold;
 }
-
-/* Presente in 2.3.0 */
 .icon-text span {
   margin: 0 0 0 0;
 }
-
 .text-small-bold {
   font-size: 1rem;
   font-weight: 700;

@@ -11,7 +11,7 @@ use Drupal\node\Entity\Node;
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function skenografia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, string $form_id = NULL): void {
+function skenografia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, ?string $form_id = NULL): void {
 
   // General "alters" use a form id. Settings should not be set here. The only
   // thing useful about this is if you need to alter the form for the running

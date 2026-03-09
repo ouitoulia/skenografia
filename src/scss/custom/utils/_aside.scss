@@ -1,0 +1,16 @@
+.bg-white-left {
+	position: relative;
+	z-index: 0;
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		background-color: #ffffff;
+		--widthA: calc(100vw - 1200px);
+		--widthB: calc(-100vw + 1200px);
+		width: calc(var(--widthA) / 2);
+		left: calc(var(--widthB) / 2);
+		height: 100%;
+	}
+}

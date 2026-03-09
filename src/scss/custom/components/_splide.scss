@@ -1,32 +1,14 @@
-//
-// Stili splide
-// https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L11195
-// --------------------------------------------------
-/* INIZIO STILI SPLIDE */
-
 .splide {
-  // Non necessario. Fornito da bootstrap-italia v2
-  //.splide__arrow {
-  //  text-align: center;
-  //  -webkit-tap-highlight-color: transparent;
-  //  background: none;
-  //  border: 1px solid;
-  //  opacity: 1;
-  //}
-
   .splide__arrow:disabled {
     opacity: 0.3;
   }
-
   .splide__arrow .disabled {
     opacity: 0.5;
     cursor: default;
   }
-
   .splide__arrow:not(:disabled):hover {
     border: 2px solid;
   }
-
   .splide__arrow [class*='splide__arrow--'] {
      color: var(--bs-petrol);
      font-size: 1.68em;
@@ -36,34 +18,26 @@
      display: inline-block;
      cursor: pointer;
    }
-
   .splide__arrow [class*='splide__arrow--']:hover {
     background: none;
     color: var(--bs-petrol);
     text-decoration: none;
   }
-
   .splide__arrow.disabled+.splide__pagination {
     margin-top: 10px;
   }
-
   .splide__track {
     padding-bottom: 20px;
   }
-
   .splide__pagination {
     text-align: center;
     -webkit-tap-highlight-color: transparent;
     position: relative;
     bottom: 0;
   }
-
   .splide__pagination {
 
     .splide__pagination__page {
-      //display: inline-block;
-      //zoom: 1;
-      //display: inline;
       width: 24px;
       height: 24px;
       margin: 0 5px 0 5px;
@@ -87,49 +61,34 @@
     }
 
   }
-
-  //.splide__list {
-  //  padding: 0 5px !important;
-  //}
-
 }
-
 .splide .splide__slide .card {
   height: 100%;
 }
-
-
 .splide__track--nav>.splide__list>.splide__slide.is-active {
   border: 0;
 }
-
 .splide__track--nav>.splide__list>.splide__slide {
   border: 0;
 }
-
 @media (min-width: 1300px) {
   .simple-two-carousel.big .splide__pagination li:nth-child(-n+2) {
-    /* display: none; */
   }
 }
-
 .bg-bluelectric .splide .splide__pagination .splide__pagination__page,
 .bg-bluelectricdark .splide .splide__pagination .splide__pagination__page {
   border-color: var(--bs-white);
 }
-
 .bg-bluelectricdark .splide .splide__pagination .splide__pagination__page.is-active,
 .bg-bluelectricdark .splide .splide__pagination .splide__pagination__page:hover {
   border-color: var(--bs-white);
   background: var(--bs-white);
 }
-
 .bg-bluelectric .splide .splide__pagination .splide__pagination__page.is-active,
 .bg-bluelectric .splide .splide__pagination .splide__pagination__page:hover {
   border-color: var(--bs-white);
   background: var(--bs-white);
 }
-
 .splide .splide__pagination .splide__arrow--prev,
 .splide .splide__pagination .splide__arrow--next {
   position: absolute;
@@ -140,133 +99,101 @@
   top: 0;
   text-align: center;
 }
-
 .splide .splide__arrow svg {
   height: .6rem;
   width: .6rem;
 }
-
 .splide .splide__arrow--prev {
   left: -3rem;
 }
-
-
 .splide .splide__arrow--next {
   right: -3rem;
 }
-
 .splide.inside-carousel .splide__arrow--prev {
   left: 0;
 }
-
 .splide.inside-carousel .splide__arrow--next {
   right: 0;
 }
-
 .redbrown .splide .splide__arrows .splide__arrow--prev svg,
 .redbrown .splide .splide__arrows .splide__arrow--next svg {
   fill: var(--bs-redbrown);
 }
-
 .redbrown .splide .didascalia-text {
   background-color: var(--bs-redbrown);
 }
-
 .redbrown .splide__arrow {
   color: var(--bs-redbrown);
 }
-
 .bluelectric .splide .splide__arrows .splide__arrow--prev svg,
 .bluelectric .splide .splide__arrows .splide__arrow--next svg {
   fill: var(--bs-bluelectric);
 }
-
 .bluelectric .didascalia-text {
   background-color: var(--bs-bluelectric);
 }
-
 .bluelectric .splide__arrow {
   color: var(--bs-bluelectric);
 }
-
 .bg-bluelectric .splide .splide__arrows .splide__arrow--prev svg,
 .bg-bluelectric .splide .splide__arrows .splide__arrow--next svg {
   fill: var(--bs-white);
 }
-
 .section-bluedark .splide .splide__arrows .splide__arrow--prev svg,
 .section-bluedark .splide .splide__arrows .splide__arrow--next svg {
   fill: var(--bs-white);
 }
-
 .greendark .splide .splide__arrows .splide__arrow--prev svg,
 .greendark .splide .splide__arrows .splide__arrow--next svg {
   fill: var(--bs-greendark);
 }
-
 .greendark .didascalia-text {
   background-color: var(--bs-greendark);
 }
-
 .greendark .splide__arrow svg {
   fill: var(--bs-greendark);
 }
-
 .greendark .splide__arrow {
   color: var(--bs-greendark);
 }
-
 .section-bluedark .splide__arrow svg,
 .bg-bluelectricdark .splide__arrow svg {
   fill: var(--bs-white);
-;
 }
-
 .section-bluedark .splide__arrow,
 .bg-bluelectricdark .splide__arrow {
   color: var(--bs-white);
 }
-
 .didascalia-text {
   bottom: 0;
   font-size: .88rem;
   color: var(--bs-white);
   max-width: 100%;
 }
-
 .splide__slide {
   padding: 2px;
 }
-
 .splide__slide img {
   display: block;
   width: 100%;
 }
-
 .splide__slide a:focus {
   display: block;
 }
-
 .history-carousel .splide__pagination.splide__pagination--ltr {
   display: none;
 }
-
 .history-carousel .splide__pagination,
 .year-carousel .splide__pagination {
   display: none;
 }
-
 .year-carousel .splide__slide {
   padding: 0;
 }
-
-
-
 /* INIZIO CAROUSEL HOURS */
 .carousel-classroom {
   padding: 0 0 30px 0;
 }
-
 .carousel-classroom .splide__slide h3,
 .carousel-classroom .splide__slide .h3 {
   font-size: 1.125rem;
@@ -276,58 +203,47 @@
   height: 60px;
   margin: 0 0 0 0;
 }
-
 @media (max-width: 575.98px) {
-
   .carousel-classroom .splide__slide h3,
   .carousel-classroom .splide__slide .h3 {
     font-size: 1rem;
   }
 }
-
 .carousel-classroom .splide__slide .card {
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
   height: 60px;
 }
-
 .carousel-classroom .splide__slide .card .card-body {
   padding: 0 15px 0 15px;
 }
-
 .carousel-classroom .splide__slide .card .card-body p {
   font-size: 1rem;
   font-weight: 400;
   color: #455b71;
   line-height: 1.4;
 }
-
 .carousel-classroom .splide__slide .card .card-body small {
   font-size: 0.875rem;
   font-weight: 400;
   color: #6A788A;
 }
-
 .carousel-classroom .splide__slide .card.card-1 {
   height: 60px;
 }
-
 .carousel-classroom .splide__slide .card.card-2 {
   height: 130px;
 }
-
 .carousel-classroom .splide__slide .card.card-3 {
   height: 200px;
 }
-
 .carousel-classroom .splide__arrows {
   width: 40px;
   position: absolute;
   top: -30px;
   right: 20px;
 }
-
 .carousel-classroom .splide__arrows .splide__arrow--prev,
 .carousel-classroom .splide__arrows .splide__arrow--next {
   width: 32px;
@@ -338,27 +254,19 @@
   justify-content: center;
   color: var(--bs-bluelectric) !important;
 }
-
 .carousel-classroom .splide__arrows .splide__arrow--prev svg,
 .carousel-classroom .splide__arrows .splide__arrow--next svg {
   width: 50%;
   height: 100%;
   fill: var(--bs-bluelectric) !important;
 }
-
 .carousel-classroom .splide__arrows .splide__arrow--next {
   right: 0;
 }
-
-/*  */
-
-
 /* INIZIO YEAR CAROUSEL */
-
 .year-carousel .splide__pagination.splide__pagination--ltr {
   display: none;
 }
-
 .year-carousel .splide__slide .dot-text {
   padding: 15px 0 0;
   position: relative;
@@ -366,11 +274,9 @@
   font-family: "Roboto Mono", monospace;
   font-size: 40px;
 }
-
 .redbrown .year-carousel .splide__slide .dot-text {
   color: var(--bs-redbrown);
 }
-
 .year-carousel .splide__slide .dot-text:before {
   content: '';
   position: absolute;
@@ -380,11 +286,9 @@
   height: 1px;
   background-color: var(--bs-redbrown);
 }
-
 .year-carousel .splide__slide:first-child .dot-text:before {
   width: 50%;
 }
-
 .year-carousel .splide__slide .dot-text:after {
   content: "";
   position: absolute;
@@ -404,28 +308,22 @@
 .bg-bluedark .year-carousel .splide__slide .dot-text:after {
   background-color: var(--bs-bluedark);
 }
-
 .year-carousel .splide__arrow--prev {
   left: 0;
   top: 70%;
 }
-
 .year-carousel .splide__arrow--next {
   right: 0;
   top: 70%;
 }
-
 /* FINE YEAR CAROUSEL */
-
 /* INIZIO CARD CAROUSEL*/
 .carousel-cards .splide__track {
   padding-bottom: 50px;
 }
-
 .carousel-cards .splide__pagination {
   bottom: 1rem;
 }
-
 @media (min-width: 992px) {
   .carousel-cards .splide__list {
     display: flex !important;
@@ -434,28 +332,22 @@
     width: auto;
     z-index: 2;
   }
-
   .carousel-cards .splide__slide {
     flex: 0 0 50%;
     max-width: 50%;
     padding: 0 14px 28px 14px;
     margin-right: 0 !important;
-
   }
 }
-
 /* FINE CARD CAROUSEL */
-
 /* INIZIO NOTICE CAROUSEL */
 .carousel-notice .splide__track {
   padding-left: 0 !important;
   padding-right: 0 !important;
   padding-bottom: 20px;
 }
-
 .carousel-notice .splide__pagination {
   bottom: 0;
 }
-
 /* FINE NOTICE CAROUSEL */
 /* FINE STILI SPLIDE */

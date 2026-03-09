@@ -1,10 +1,10 @@
-//
-// Utils
-// https://github.com/italia/design-scuole-pagine-statiche/blob/main/src/assets/css/scuole.css#L13909
-// --------------------------------------------------
+.w-30 {width: 30% !important;}
 
-.logoprint {display: none;}
-.hidden {display: none;}
+.mb--5 {margin-bottom: -96px;}
+.mb--4 {margin-bottom: -72px;}
+.mb--3 {margin-bottom: -64px;}
+.mb--2 {margin-bottom: -48px;}
+.mb--1 {margin-bottom: -32px;}
 
 .mt16 {margin-top: 16px !important;}
 .mb16 {margin-bottom: 16px !important;}
@@ -55,51 +55,3 @@
 .pb84 {padding-bottom: 84px !important;}
 .pl84 {padding-left: 84px !important;}
 .pr84 {padding-right: 84px !important;}
-
-.class-selector-content {
-  display: none;
-  position: absolute;
-  z-index: 1;
-  top: 80px;
-  &:after, &:before {
-  	bottom: 100%;
-  	left: 64px;
-  	border: solid transparent;
-  	content: " ";
-  	height: 0;
-  	width: 0;
-  	position: absolute;
-  	pointer-events: none;
-  }
-  &:after {
-  	border-color: rgba(255, 255, 255, 0);
-  	border-bottom-color: $white;
-  	border-width: 12px;
-  	margin-left: -12px;
-  }
-  &:before {
-  	border-color: rgba(250, 250, 250, 0);
-  	border-bottom-color: #f5f5f5;
-  	border-width: 15px;
-  	margin-left: -15px;
-  }
-  a {
-    width: 20%;
-    height: auto;
-    float: left;
-    display: block;
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    @include media-breakpoint-down(md) {
-      width: 25%;
-    }
-    @include media-breakpoint-down(sm) {
-      width: 33.3333333333%;
-    }
-    @include media-breakpoint-down(xs) {
-      width: 50%;
-    }
-  }
-}
