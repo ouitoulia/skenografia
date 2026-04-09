@@ -86,7 +86,7 @@
       {% endif %}
       {% for item in items %}
         <div{{ item.attributes }}>
-            <a href="https://dati.anticorruzione.it/superset/dashboard/dettaglio_cig/?cig={{ item.content|render }}&standalone=2" title="Vedi ulteriori dettagli sulla Banca Dati Nazionale Contratti Pubblici in una nuova finestra" target="_blank">
+            <a href="https://dati.anticorruzione.it/superset/dashboard/dettaglio_cig/?cig={{ item.content|render }}" title="Vedi ulteriori dettagli sulla Banca Dati Nazionale Contratti Pubblici in una nuova finestra" target="_blank">
                {{ item.content }} ({% include '@bi-bcl/icon/icon.html.twig' with {name:'it-link', size: 'xs', color: 'darkgreen'} %} Ulteriori dettagli su BDNCP)
             </a>
         </div>

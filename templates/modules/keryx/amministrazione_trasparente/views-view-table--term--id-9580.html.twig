@@ -7,7 +7,7 @@
         {% embed '@bi-bcl/button/button.html.twig' with {
           label: "Vedi su BDNCP",
           tag: 'a',
-          url: 'https://dati.anticorruzione.it/superset/dashboard/dettaglio_cig/?cig=' ~ title|striptags|trim ~ '&standalone=2',
+          url: 'https://dati.anticorruzione.it/superset/dashboard/dettaglio_cig/?cig=' ~ title|striptags|trim,
           outline: true,
           variant: 'white',
           size: 'xs',
