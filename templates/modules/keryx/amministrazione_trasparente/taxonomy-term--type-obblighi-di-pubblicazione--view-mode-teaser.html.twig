@@ -27,6 +27,7 @@
 #}
 {% apply spaceless %}
   {% set _obbligo_pubblicazione = content.field_persona_responsabile[0] is iterable %}
+  {% set _published = term.status.value == 1 ? true : false %}
   {% embed '@bi-bcl/card/card.html.twig' with {
     card_tag_container: 'article',
     card_title: label,
@@ -37,7 +38,9 @@
     card_read_more_url: url,
     card_read_more_label: _obbligo_pubblicazione ? 'Vai alle pubblicazioni'|t : 'Più informazioni'|t,
     card_read_more_text: name[0]['#context'].value,
-    card_attributes: attributes
+    card_attributes: attributes.addClass([
+      not _published ? 'opacity-25',
+    ])
   } %}
     {% block cardTitle %}
       {{ title_prefix }}
