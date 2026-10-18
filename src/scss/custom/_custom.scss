@@ -3,20 +3,14 @@
  * Use this folder and file to manage your custom styles.
  */
 
-// Da fare
-//@import 'design-scuole-pagine-statiche-src/src/scss/override/modal';
-
-// Da verificare se necessario, imposta solo il colore a:hover L11078
-//@import 'design-scuole-pagine-statiche-src/src/scss/override/pagination';
-
 // Components
 // Main
-// Reverse effettuato, restano alcune cose da migrare, cmq da rivedere. v2.3.0
+// Reverse effettuato, restano alcune cose da verificare. v2.3.0
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/header';
 //@import "r-engineering/main/header/header";
 
-//@import 'design-scuole-pagine-statiche-src/src/scss/main/menu-mobile/nav-mobile';
 //@import 'design-scuole-pagine-statiche-src/src/scss/main/header/menu-user';
+//@import "r-engineering/main/header/menu-user";
 
 // Parts
 // Da fare
@@ -32,10 +26,11 @@
 //@import "r-engineering/parts/note";
 
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/gallery';
+//@import "r-engineering/parts/gallery";
 
 //@import 'design-scuole-pagine-statiche-src/src/scss/parts/dot-values';
-//@import 'design-scuole-pagine-statiche-src/src/scss/parts/video';
-//@import 'design-scuole-pagine-statiche-src/src/scss/parts/social-buttons';
+//@import "r-engineering/parts/dot-values";
+
 // scss-docs-end r-engineering
 
 @import "base/colors";
