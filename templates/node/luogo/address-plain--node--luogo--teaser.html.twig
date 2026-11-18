@@ -38,5 +38,5 @@
  */
 #}
 {% apply spaceless %}
-  {{ address_line1 }} {{ address_line2 }} {{ address_line3 }}, {{ postal_code }} - {{ locality }} ({{ administrative_area.code }})
+  {{ address_line1 }} {{ address_line2 }} {{ address_line3 }}, {{ postal_code }} - {{ locality.code|default(locality) }} ({{ administrative_area.code }})
 {% endapply %}
