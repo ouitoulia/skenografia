@@ -72,7 +72,7 @@
         <span>{{ 'Comune'|t }}</span>
       </div>
       <div class="location-content">
-        <p>{{ locality }}{% if administrative_area.code %} ({{ administrative_area.code }}){% endif %}</p>
+        <p>{{ locality.code }}{% if administrative_area.code %} ({{ administrative_area.code }}){% endif %}</p>
       </div>
     </li>
   {% endif %}
