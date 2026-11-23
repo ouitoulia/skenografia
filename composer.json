@@ -24,7 +24,7 @@
     "require": {
         "drupal/bootstrap_italia": "^2.17",
         "drupal/easy_breadcrumb": "^2",
-        "drupal/focal_point": "^2.1",
+        "drupal/focal_point": ">=2",
         "drupal/color_field": "^3",
         "drupal/menu_link_attributes": "^1.10",
         "drupal/pathauto": "^1.16"
